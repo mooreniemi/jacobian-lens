@@ -1106,6 +1106,16 @@ def build_report(out_dir: Path) -> Path:
         "<nav class='toc' aria-label='Table of contents'><strong class='sans'>Contents</strong><ol><li><a href='#summary'>Summary and current claim</a></li><li><a href='#coverage'>Model and intervention coverage</a></li><li><a href='#interventions'>Intervention definitions</a></li><li><a href='#measurements'>Measurements and estimands</a></li><li><a href='#results-27b'>27B results and uncertainty</a></li><li><a href='#cross-model'>Cross-model comparisons</a></li><li><a href='#scaling'>Effectiveness versus model size</a></li><li><a href='#efficiency'>Creation cost and scaling</a></li><li><a href='#pile-validation'>Held-out Pile validation</a></li><li><a href='#interpretation'>Interpretation and open questions</a></li><li><a href='#provenance'>Sources and provenance</a></li><li><a href='#documentation'>Documentation and logs</a></li></ol></nav>",
         "<h2 id='coverage'>Model and intervention coverage</h2>",
         fold("Show coverage matrix", coverage_table()),
+        """<h3>Model catalog</h3>
+        <p>This catalog describes the subjects, not the interventions. “Base/pretrained” means the checkpoint name does not identify an Instruct variant; it is not a claim that the model lacks reasoning behavior. Precision describes the recorded run, and can differ between fit, evaluation, and causal inference.</p>
+        <table><thead><tr><th>Subject</th><th>Exact checkpoint ID</th><th>Parameters</th><th>Family</th><th>Checkpoint flavor</th><th>Architecture</th><th>Recorded run precision</th></tr></thead><tbody>
+        <tr><td>SmolLM2-135M</td><td><code>HuggingFaceTB/SmolLM2-135M-Instruct</code></td><td>135M</td><td>SmolLM2</td><td>Instruction-tuned</td><td>Decoder-only Transformer</td><td>BF16 compute; unquantized base on RTX 3090</td></tr>
+        <tr><td>Qwen3-0.6B</td><td><code>Qwen/Qwen3-0.6B</code></td><td>0.6B</td><td>Qwen3</td><td>Base/pretrained checkpoint</td><td>Decoder-only Transformer</td><td>BF16 compute; unquantized base on RTX 3090</td></tr>
+        <tr><td>Qwen3-1.7B</td><td><code>Qwen/Qwen3-1.7B</code></td><td>1.7B</td><td>Qwen3</td><td>Base/pretrained checkpoint</td><td>Decoder-only Transformer</td><td>BF16 compute; unquantized base on RTX 3090</td></tr>
+        <tr><td>Qwen3.5-0.8B</td><td><code>Qwen/Qwen3.5-0.8B</code></td><td>0.8B</td><td>Qwen3.5</td><td>Base/pretrained checkpoint</td><td>Decoder-only Transformer</td><td>BF16 compute; unquantized local fit</td></tr>
+        <tr><td>Qwen3.5-4B</td><td><code>Qwen/Qwen3.5-4B</code></td><td>4B</td><td>Qwen3.5</td><td>Base/pretrained checkpoint</td><td>Decoder-only Transformer</td><td>BF16 compute; unquantized local fit</td></tr>
+        <tr><td>Qwen3.6-27B</td><td><code>Qwen/Qwen3.6-27B</code></td><td>27B</td><td>Qwen3.6 / Qwen3.5-family</td><td>Base/pretrained checkpoint</td><td>Hybrid GDN/attention decoder</td><td>BF16 compute; NF4 4-bit frozen base for the Modal tuned fit and 27B causal runs</td></tr>
+        </tbody></table>""",
         """<h2 id='interventions'>Intervention definitions</h2>
         <p>All four methods use the same causal protocol: choose a source and
         target concept, construct their residual-stream directions at the
