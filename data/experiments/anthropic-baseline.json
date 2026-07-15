@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "description": "Baseline reproduction of the Anthropic Jacobian-lens walkthrough, plus clearly labeled extensions.",
+  "items": [
+    {
+      "name": "walkthrough-multihop",
+      "source": "original walkthrough",
+      "category": "multihop",
+      "prompt": "Fact: The capital of Japan is Tokyo.\nFact: The currency used in the country shaped like a boot is",
+      "expected": "Euro"
+    },
+    {
+      "name": "extension-capital-boot",
+      "source": "local extension",
+      "category": "factual",
+      "prompt": "Fact: The capital of the country shaped like a boot is",
+      "expected": "Rome"
+    },
+    {
+      "name": "extension-largest-planet",
+      "source": "local extension",
+      "category": "factual",
+      "prompt": "Fact: The largest planet in the solar system is",
+      "expected": "Jupiter"
+    },
+    {
+      "name": "extension-currency-japan",
+      "source": "local extension",
+      "category": "factual",
+      "prompt": "Fact: The currency used in Japan is",
+      "expected": "yen"
+    }
+  ]
+}

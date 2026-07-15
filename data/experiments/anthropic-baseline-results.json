@@ -1,0 +1,2607 @@
+{
+  "model": "Qwen/Qwen3.5-4B",
+  "lens_repo": "neuronpedia/jacobian-lens",
+  "lens_file": "qwen3.5-4b/jlens/Salesforce-wikitext/Qwen3.5-4B_jacobian_lens_n1000.pt",
+  "items": [
+    {
+      "name": "walkthrough-multihop",
+      "source": "original walkthrough",
+      "category": "multihop",
+      "prompt": "Fact: The capital of Japan is Tokyo.\nFact: The currency used in the country shaped like a boot is",
+      "expected": "Euro",
+      "target_text": " Euro",
+      "target_token": " Euro",
+      "answer_position": 22,
+      "model_answer_top": [
+        " the",
+        " Japan",
+        " Yen",
+        " Euro",
+        " not"
+      ],
+      "model_answer_rank": 3,
+      "best_j_lens": {
+        "rank": 1,
+        "layer": 28,
+        "position": 22
+      },
+      "best_logit_lens": {
+        "rank": 3,
+        "layer": 27,
+        "position": 22
+      },
+      "layers": {
+        "0": {
+          "j_lens_answer_top": [
+            " '",
+            " --",
+            " ...",
+            " however",
+            " -"
+          ],
+          "logit_lens_answer_top": [
+            " is",
+            "is",
+            " was",
+            " are",
+            "是"
+          ],
+          "j_lens_answer_rank": 96711,
+          "logit_lens_answer_rank": 5089,
+          "j_lens_best_position_rank": 2711,
+          "logit_lens_best_position_rank": 5089
+        },
+        "1": {
+          "j_lens_answer_top": [
+            " ...",
+            " --",
+            "...",
+            "\\n\\n",
+            " ;"
+          ],
+          "logit_lens_answer_top": [
+            " is",
+            " indeed",
+            "omers",
+            " often",
+            "逐渐"
+          ],
+          "j_lens_answer_rank": 60862,
+          "logit_lens_answer_rank": 76252,
+          "j_lens_best_position_rank": 2440,
+          "logit_lens_best_position_rank": 15362
+        },
+        "2": {
+          "j_lens_answer_top": [
+            ",",
+            ".",
+            "·",
+            ";",
+            "\","
+          ],
+          "logit_lens_answer_top": [
+            "来",
+            "因为它",
+            " not",
+            " is",
+            "alo"
+          ],
+          "j_lens_answer_rank": 41176,
+          "logit_lens_answer_rank": 50995,
+          "j_lens_best_position_rank": 2778,
+          "logit_lens_best_position_rank": 13396
+        },
+        "3": {
+          "j_lens_answer_top": [
+            " ...",
+            " --",
+            "...",
+            " \\n",
+            " ;"
+          ],
+          "logit_lens_answer_top": [
+            " something",
+            " gì",
+            "olation",
+            "来",
+            "盘"
+          ],
+          "j_lens_answer_rank": 39273,
+          "logit_lens_answer_rank": 176945,
+          "j_lens_best_position_rank": 1862,
+          "logit_lens_best_position_rank": 10232
+        },
+        "4": {
+          "j_lens_answer_top": [
+            ".",
+            "...",
+            " ...",
+            "'",
+            ","
+          ],
+          "logit_lens_answer_top": [
+            "le",
+            " gì",
+            " specifically",
+            " something",
+            " nemlig"
+          ],
+          "j_lens_answer_rank": 43707,
+          "logit_lens_answer_rank": 148337,
+          "j_lens_best_position_rank": 1686,
+          "logit_lens_best_position_rank": 3280
+        },
+        "5": {
+          "j_lens_answer_top": [
+            "...",
+            " ...",
+            ".",
+            "......",
+            ".\\"
+          ],
+          "logit_lens_answer_top": [
+            "inasikan",
+            "ぬ",
+            " namely",
+            "数是",
+            "alytics"
+          ],
+          "j_lens_answer_rank": 32729,
+          "logit_lens_answer_rank": 198139,
+          "j_lens_best_position_rank": 1298,
+          "logit_lens_best_position_rank": 1588
+        },
+        "6": {
+          "j_lens_answer_top": [
+            " \\n",
+            " ...",
+            "...",
+            "'",
+            " --"
+          ],
+          "logit_lens_answer_top": [
+            " souhaitent",
+            "U",
+            "另一个",
+            "езда",
+            " laboratories"
+          ],
+          "j_lens_answer_rank": 26423,
+          "logit_lens_answer_rank": 220019,
+          "j_lens_best_position_rank": 527,
+          "logit_lens_best_position_rank": 902
+        },
+        "7": {
+          "j_lens_answer_top": [
+            " \\n",
+            " ...",
+            " \\",
+            "？",
+            "..."
+          ],
+          "logit_lens_answer_top": [
+            "lah",
+            ".tif",
+            " отно",
+            "alytics",
+            " tentativo"
+          ],
+          "j_lens_answer_rank": 28272,
+          "logit_lens_answer_rank": 223541,
+          "j_lens_best_position_rank": 838,
+          "logit_lens_best_position_rank": 2501
+        },
+        "8": {
+          "j_lens_answer_top": [
+            " ...",
+            " \\n",
+            "...",
+            " [...]",
+            " \\"
+          ],
+          "logit_lens_answer_top": [
+            " %@\",",
+            " litri",
+            " Moms",
+            "lah",
+            "name"
+          ],
+          "j_lens_answer_rank": 22935,
+          "logit_lens_answer_rank": 223876,
+          "j_lens_best_position_rank": 185,
+          "logit_lens_best_position_rank": 8494
+        },
+        "9": {
+          "j_lens_answer_top": [
+            "____",
+            " ...",
+            "...",
+            "？",
+            " \\"
+          ],
+          "logit_lens_answer_top": [
+            "واس",
+            "bearer",
+            "bygg",
+            "这让我",
+            " cư"
+          ],
+          "j_lens_answer_rank": 7811,
+          "logit_lens_answer_rank": 179844,
+          "j_lens_best_position_rank": 212,
+          "logit_lens_best_position_rank": 6657
+        },
+        "10": {
+          "j_lens_answer_top": [
+            " ...",
+            " [...]",
+            "...",
+            "？",
+            "____"
+          ],
+          "logit_lens_answer_top": [
+            "Compiled",
+            " southeastern",
+            "buk",
+            "اع",
+            " tut"
+          ],
+          "j_lens_answer_rank": 1774,
+          "logit_lens_answer_rank": 162330,
+          "j_lens_best_position_rank": 148,
+          "logit_lens_best_position_rank": 30728
+        },
+        "11": {
+          "j_lens_answer_top": [
+            " ...",
+            "...",
+            " [...]",
+            "？",
+            " ...\\"
+          ],
+          "logit_lens_answer_top": [
+            "bergen",
+            ".tif",
+            "PEN",
+            " Clarkson",
+            "一指"
+          ],
+          "j_lens_answer_rank": 4203,
+          "logit_lens_answer_rank": 132181,
+          "j_lens_best_position_rank": 264,
+          "logit_lens_best_position_rank": 24389
+        },
+        "12": {
+          "j_lens_answer_top": [
+            " ...",
+            "...",
+            " [...]",
+            " ...\\",
+            "？"
+          ],
+          "logit_lens_answer_top": [
+            " nemlig",
+            " zbi",
+            " Moms",
+            "援朝",
+            " namely"
+          ],
+          "j_lens_answer_rank": 7841,
+          "logit_lens_answer_rank": 174589,
+          "j_lens_best_position_rank": 333,
+          "logit_lens_best_position_rank": 48131
+        },
+        "13": {
+          "j_lens_answer_top": [
+            " ...",
+            "？",
+            "____",
+            "...",
+            " ____"
+          ],
+          "logit_lens_answer_top": [
+            " Moms",
+            "碼",
+            " zbi",
+            "loquent",
+            "数"
+          ],
+          "j_lens_answer_rank": 9475,
+          "logit_lens_answer_rank": 204307,
+          "j_lens_best_position_rank": 581,
+          "logit_lens_best_position_rank": 62815
+        },
+        "14": {
+          "j_lens_answer_top": [
+            "____",
+            "？",
+            " ____",
+            " ___",
+            " ______"
+          ],
+          "logit_lens_answer_top": [
+            "____",
+            "________",
+            "shaw",
+            "教えて",
+            "_plural"
+          ],
+          "j_lens_answer_rank": 7111,
+          "logit_lens_answer_rank": 169899,
+          "j_lens_best_position_rank": 500,
+          "logit_lens_best_position_rank": 47887
+        },
+        "15": {
+          "j_lens_answer_top": [
+            "____",
+            "？",
+            "?\\",
+            "________",
+            " ___"
+          ],
+          "logit_lens_answer_top": [
+            "VERSE",
+            "教えて",
+            "________",
+            "shaw",
+            "____"
+          ],
+          "j_lens_answer_rank": 5744,
+          "logit_lens_answer_rank": 135553,
+          "j_lens_best_position_rank": 486,
+          "logit_lens_best_position_rank": 48676
+        },
+        "16": {
+          "j_lens_answer_top": [
+            "\\n",
+            ".\\",
+            "?\\",
+            "____",
+            "\\\""
+          ],
+          "logit_lens_answer_top": [
+            "VERSE",
+            "hq",
+            " legisl",
+            "ште",
+            "洞里"
+          ],
+          "j_lens_answer_rank": 3682,
+          "logit_lens_answer_rank": 190561,
+          "j_lens_best_position_rank": 335,
+          "logit_lens_best_position_rank": 11363
+        },
+        "17": {
+          "j_lens_answer_top": [
+            ".\\",
+            "?\\",
+            ".",
+            "____",
+            "\\n"
+          ],
+          "logit_lens_answer_top": [
+            " láng",
+            "iclet",
+            "ائعة",
+            "原件及复印件",
+            " thinly"
+          ],
+          "j_lens_answer_rank": 1516,
+          "logit_lens_answer_rank": 190331,
+          "j_lens_best_position_rank": 254,
+          "logit_lens_best_position_rank": 20840
+        },
+        "18": {
+          "j_lens_answer_top": [
+            ".\\",
+            ".\\\"",
+            "\\\"",
+            "____",
+            "\\n"
+          ],
+          "logit_lens_answer_top": [
+            "原件及复印件",
+            " theirs",
+            "____",
+            "举世",
+            "东北"
+          ],
+          "j_lens_answer_rank": 454,
+          "logit_lens_answer_rank": 178644,
+          "j_lens_best_position_rank": 215,
+          "logit_lens_best_position_rank": 32654
+        },
+        "19": {
+          "j_lens_answer_top": [
+            ".\\",
+            "\\.",
+            ".\\\"",
+            "。\\",
+            "."
+          ],
+          "logit_lens_answer_top": [
+            " theirs",
+            "shares",
+            "bygg",
+            " tez",
+            "原件及复印件"
+          ],
+          "j_lens_answer_rank": 496,
+          "logit_lens_answer_rank": 58236,
+          "j_lens_best_position_rank": 496,
+          "logit_lens_best_position_rank": 58236
+        },
+        "20": {
+          "j_lens_answer_top": [
+            ".\\",
+            ".\\\"",
+            "。\\",
+            " currency",
+            " Italy"
+          ],
+          "logit_lens_answer_top": [
+            " theirs",
+            "举世",
+            "يرة",
+            "伏",
+            "万国"
+          ],
+          "j_lens_answer_rank": 89,
+          "logit_lens_answer_rank": 22346,
+          "j_lens_best_position_rank": 89,
+          "logit_lens_best_position_rank": 22346
+        },
+        "21": {
+          "j_lens_answer_top": [
+            " currency",
+            " Currency",
+            "人民币",
+            " Dollar",
+            "currency"
+          ],
+          "logit_lens_answer_top": [
+            " theirs",
+            "يرة",
+            "bygg",
+            "举世",
+            " warta"
+          ],
+          "j_lens_answer_rank": 53,
+          "logit_lens_answer_rank": 19507,
+          "j_lens_best_position_rank": 53,
+          "logit_lens_best_position_rank": 19507
+        },
+        "22": {
+          "j_lens_answer_top": [
+            " currency",
+            " Currency",
+            "人民币",
+            " Dollars",
+            " USD"
+          ],
+          "logit_lens_answer_top": [
+            " theirs",
+            "called",
+            "UNIT",
+            " called",
+            "举世"
+          ],
+          "j_lens_answer_rank": 54,
+          "logit_lens_answer_rank": 66424,
+          "j_lens_best_position_rank": 54,
+          "logit_lens_best_position_rank": 41640
+        },
+        "23": {
+          "j_lens_answer_top": [
+            " euros",
+            " Dollars",
+            " Euros",
+            " dollars",
+            " USD"
+          ],
+          "logit_lens_answer_top": [
+            " theirs",
+            "lets",
+            "cams",
+            "doll",
+            "shaw"
+          ],
+          "j_lens_answer_rank": 23,
+          "logit_lens_answer_rank": 44957,
+          "j_lens_best_position_rank": 23,
+          "logit_lens_best_position_rank": 30713
+        },
+        "24": {
+          "j_lens_answer_top": [
+            " currency",
+            " dollars",
+            " dollar",
+            " Dollars",
+            "日元"
+          ],
+          "logit_lens_answer_top": [
+            "currency",
+            " fiat",
+            "폐",
+            "流通",
+            "doll"
+          ],
+          "j_lens_answer_rank": 41,
+          "logit_lens_answer_rank": 885,
+          "j_lens_best_position_rank": 41,
+          "logit_lens_best_position_rank": 885
+        },
+        "25": {
+          "j_lens_answer_top": [
+            "日元",
+            " euros",
+            " euro",
+            " USD",
+            " Japanese"
+          ],
+          "logit_lens_answer_top": [
+            " called",
+            "폐",
+            " yen",
+            "called",
+            "บาท"
+          ],
+          "j_lens_answer_rank": 9,
+          "logit_lens_answer_rank": 113,
+          "j_lens_best_position_rank": 9,
+          "logit_lens_best_position_rank": 113
+        },
+        "26": {
+          "j_lens_answer_top": [
+            "日元",
+            " Japanese",
+            " Japan",
+            " euro",
+            " yen"
+          ],
+          "logit_lens_answer_top": [
+            "called",
+            " called",
+            "ユー",
+            "叫我",
+            " yen"
+          ],
+          "j_lens_answer_rank": 8,
+          "logit_lens_answer_rank": 653,
+          "j_lens_best_position_rank": 8,
+          "logit_lens_best_position_rank": 653
+        },
+        "27": {
+          "j_lens_answer_top": [
+            " euro",
+            " Euro",
+            " euros",
+            "日元",
+            " Euros"
+          ],
+          "logit_lens_answer_top": [
+            "元的",
+            "ユー",
+            " euro",
+            " Euro",
+            "元和"
+          ],
+          "j_lens_answer_rank": 2,
+          "logit_lens_answer_rank": 3,
+          "j_lens_best_position_rank": 2,
+          "logit_lens_best_position_rank": 3
+        },
+        "28": {
+          "j_lens_answer_top": [
+            " Euro",
+            " euro",
+            " yen",
+            "日元",
+            " euros"
+          ],
+          "logit_lens_answer_top": [
+            "ユー",
+            "元的",
+            " Yen",
+            " Euros",
+            " yen"
+          ],
+          "j_lens_answer_rank": 1,
+          "logit_lens_answer_rank": 11,
+          "j_lens_best_position_rank": 1,
+          "logit_lens_best_position_rank": 11
+        },
+        "29": {
+          "j_lens_answer_top": [
+            " Euro",
+            " yen",
+            " Yen",
+            " Japanese",
+            " Euros"
+          ],
+          "logit_lens_answer_top": [
+            "ユー",
+            " Yen",
+            " yen",
+            " the",
+            " Euros"
+          ],
+          "j_lens_answer_rank": 1,
+          "logit_lens_answer_rank": 18,
+          "j_lens_best_position_rank": 1,
+          "logit_lens_best_position_rank": 18
+        },
+        "30": {
+          "j_lens_answer_top": [
+            " the",
+            " Euro",
+            " Japanese",
+            " Yen",
+            " yen"
+          ],
+          "logit_lens_answer_top": [
+            " the",
+            " Yen",
+            " yen",
+            "元的",
+            " called"
+          ],
+          "j_lens_answer_rank": 2,
+          "logit_lens_answer_rank": 7,
+          "j_lens_best_position_rank": 2,
+          "logit_lens_best_position_rank": 7
+        }
+      }
+    },
+    {
+      "name": "extension-capital-boot",
+      "source": "local extension",
+      "category": "factual",
+      "prompt": "Fact: The capital of the country shaped like a boot is",
+      "expected": "Rome",
+      "target_text": " Rome",
+      "target_token": " Rome",
+      "answer_position": 11,
+      "model_answer_top": [
+        " Rome",
+        " Italy",
+        " Madrid",
+        " in",
+        " the"
+      ],
+      "model_answer_rank": 1,
+      "best_j_lens": {
+        "rank": 1,
+        "layer": 27,
+        "position": 11
+      },
+      "best_logit_lens": {
+        "rank": 1,
+        "layer": 27,
+        "position": 11
+      },
+      "layers": {
+        "0": {
+          "j_lens_answer_top": [
+            " '",
+            " ...",
+            " --",
+            " however",
+            " -"
+          ],
+          "logit_lens_answer_top": [
+            " is",
+            "is",
+            " was",
+            " are",
+            " indeed"
+          ],
+          "j_lens_answer_rank": 46425,
+          "logit_lens_answer_rank": 3286,
+          "j_lens_best_position_rank": 653,
+          "logit_lens_best_position_rank": 1127
+        },
+        "1": {
+          "j_lens_answer_top": [
+            " ...",
+            " --",
+            "...",
+            "\\n\\n",
+            " ;"
+          ],
+          "logit_lens_answer_top": [
+            " is",
+            " indeed",
+            "omers",
+            "often",
+            "omer"
+          ],
+          "j_lens_answer_rank": 50339,
+          "logit_lens_answer_rank": 24562,
+          "j_lens_best_position_rank": 1675,
+          "logit_lens_best_position_rank": 5982
+        },
+        "2": {
+          "j_lens_answer_top": [
+            ",",
+            ".",
+            "\\n",
+            "\",",
+            " however"
+          ],
+          "logit_lens_answer_top": [
+            "因为它",
+            "来",
+            "rs",
+            "alo",
+            " is"
+          ],
+          "j_lens_answer_rank": 27623,
+          "logit_lens_answer_rank": 109709,
+          "j_lens_best_position_rank": 1455,
+          "logit_lens_best_position_rank": 10851
+        },
+        "3": {
+          "j_lens_answer_top": [
+            " ...",
+            " --",
+            " \\n",
+            "...",
+            " ;"
+          ],
+          "logit_lens_answer_top": [
+            " something",
+            " what",
+            " gì",
+            "olation",
+            " indeed"
+          ],
+          "j_lens_answer_rank": 33227,
+          "logit_lens_answer_rank": 81679,
+          "j_lens_best_position_rank": 316,
+          "logit_lens_best_position_rank": 2852
+        },
+        "4": {
+          "j_lens_answer_top": [
+            "...",
+            " ...",
+            ".",
+            "'",
+            ","
+          ],
+          "logit_lens_answer_top": [
+            " gì",
+            " specifically",
+            " something",
+            "lu",
+            " indeed"
+          ],
+          "j_lens_answer_rank": 37726,
+          "logit_lens_answer_rank": 107109,
+          "j_lens_best_position_rank": 222,
+          "logit_lens_best_position_rank": 24967
+        },
+        "5": {
+          "j_lens_answer_top": [
+            "...",
+            ".",
+            " ...",
+            "'",
+            ".\\"
+          ],
+          "logit_lens_answer_top": [
+            "ład",
+            "otope",
+            "�",
+            "retto",
+            "ثة"
+          ],
+          "j_lens_answer_rank": 27282,
+          "logit_lens_answer_rank": 162144,
+          "j_lens_best_position_rank": 105,
+          "logit_lens_best_position_rank": 18378
+        },
+        "6": {
+          "j_lens_answer_top": [
+            "...",
+            " ...",
+            " \\n",
+            "'",
+            "."
+          ],
+          "logit_lens_answer_top": [
+            " souhaitent",
+            "onav",
+            " laboratories",
+            "志强",
+            "ensee"
+          ],
+          "j_lens_answer_rank": 20204,
+          "logit_lens_answer_rank": 103281,
+          "j_lens_best_position_rank": 55,
+          "logit_lens_best_position_rank": 51158
+        },
+        "7": {
+          "j_lens_answer_top": [
+            " ...",
+            " \\",
+            "...",
+            " \\n",
+            "'"
+          ],
+          "logit_lens_answer_top": [
+            "数是",
+            "之国",
+            "lah",
+            " turno",
+            "_INCLUDED"
+          ],
+          "j_lens_answer_rank": 29094,
+          "logit_lens_answer_rank": 121542,
+          "j_lens_best_position_rank": 98,
+          "logit_lens_best_position_rank": 42252
+        },
+        "8": {
+          "j_lens_answer_top": [
+            "...",
+            " ...",
+            " \\n",
+            " [...]",
+            " \\"
+          ],
+          "logit_lens_answer_top": [
+            "战略布局",
+            " %@\",",
+            "数是",
+            " 책은",
+            "lah"
+          ],
+          "j_lens_answer_rank": 24341,
+          "logit_lens_answer_rank": 155071,
+          "j_lens_best_position_rank": 135,
+          "logit_lens_best_position_rank": 53390
+        },
+        "9": {
+          "j_lens_answer_top": [
+            "...",
+            "____",
+            " ...",
+            "________",
+            "？"
+          ],
+          "logit_lens_answer_top": [
+            "bergen",
+            "_interest",
+            "omotive",
+            " nemlig",
+            " gesucht"
+          ],
+          "j_lens_answer_rank": 13997,
+          "logit_lens_answer_rank": 224234,
+          "j_lens_best_position_rank": 144,
+          "logit_lens_best_position_rank": 69028
+        },
+        "10": {
+          "j_lens_answer_top": [
+            "...",
+            " ...",
+            "____",
+            " [...]",
+            "...\\"
+          ],
+          "logit_lens_answer_top": [
+            "اع",
+            "bergen",
+            "Occurrences",
+            "Compiled",
+            " тома"
+          ],
+          "j_lens_answer_rank": 13418,
+          "logit_lens_answer_rank": 233057,
+          "j_lens_best_position_rank": 167,
+          "logit_lens_best_position_rank": 51701
+        },
+        "11": {
+          "j_lens_answer_top": [
+            "...",
+            " ...",
+            "____",
+            "？",
+            " ...\\"
+          ],
+          "logit_lens_answer_top": [
+            " nemlig",
+            "allon",
+            "_INCLUDED",
+            " totiž",
+            "besondere"
+          ],
+          "j_lens_answer_rank": 11816,
+          "logit_lens_answer_rank": 231434,
+          "j_lens_best_position_rank": 178,
+          "logit_lens_best_position_rank": 25024
+        },
+        "12": {
+          "j_lens_answer_top": [
+            "...",
+            " ...",
+            "____",
+            " ...\\",
+            "...\\"
+          ],
+          "logit_lens_answer_top": [
+            " nemlig",
+            " totiž",
+            "vrouw",
+            " namely",
+            " ملك"
+          ],
+          "j_lens_answer_rank": 17392,
+          "logit_lens_answer_rank": 235265,
+          "j_lens_best_position_rank": 266,
+          "logit_lens_best_position_rank": 25376
+        },
+        "13": {
+          "j_lens_answer_top": [
+            "____",
+            "...",
+            " ...",
+            " ______",
+            "\\n"
+          ],
+          "logit_lens_answer_top": [
+            " nemlig",
+            " totiž",
+            " Goed",
+            "类推",
+            " Moms"
+          ],
+          "j_lens_answer_rank": 17944,
+          "logit_lens_answer_rank": 192734,
+          "j_lens_best_position_rank": 229,
+          "logit_lens_best_position_rank": 33820
+        },
+        "14": {
+          "j_lens_answer_top": [
+            "____",
+            " ____",
+            "________",
+            "?\\",
+            "？"
+          ],
+          "logit_lens_answer_top": [
+            "____",
+            "莫过于",
+            "ilateral",
+            "ất",
+            " impér"
+          ],
+          "j_lens_answer_rank": 11138,
+          "logit_lens_answer_rank": 140715,
+          "j_lens_best_position_rank": 230,
+          "logit_lens_best_position_rank": 75366
+        },
+        "15": {
+          "j_lens_answer_top": [
+            "____",
+            "?\\",
+            ".\\",
+            "\\n",
+            "\\\""
+          ],
+          "logit_lens_answer_top": [
+            "holds",
+            "____",
+            "bygg",
+            "egot",
+            "莫过于"
+          ],
+          "j_lens_answer_rank": 10648,
+          "logit_lens_answer_rank": 170461,
+          "j_lens_best_position_rank": 202,
+          "logit_lens_best_position_rank": 54376
+        },
+        "16": {
+          "j_lens_answer_top": [
+            ".\\",
+            "\\n",
+            "?\\",
+            "____",
+            "\\\""
+          ],
+          "logit_lens_answer_top": [
+            "folio",
+            "ất",
+            "annual",
+            "egot",
+            "Prime"
+          ],
+          "j_lens_answer_rank": 6740,
+          "logit_lens_answer_rank": 138003,
+          "j_lens_best_position_rank": 274,
+          "logit_lens_best_position_rank": 81881
+        },
+        "17": {
+          "j_lens_answer_top": [
+            ".\\",
+            "____",
+            "\\n",
+            ".",
+            ".\\\""
+          ],
+          "logit_lens_answer_top": [
+            "egot",
+            "iclet",
+            "๋",
+            "AGENT",
+            "ất"
+          ],
+          "j_lens_answer_rank": 2136,
+          "logit_lens_answer_rank": 69148,
+          "j_lens_best_position_rank": 285,
+          "logit_lens_best_position_rank": 15664
+        },
+        "18": {
+          "j_lens_answer_top": [
+            ".\\",
+            ".\\\"",
+            "____",
+            "\\\"",
+            "\\n"
+          ],
+          "logit_lens_answer_top": [
+            "团团",
+            "东北",
+            "/is",
+            "gesteld",
+            "射"
+          ],
+          "j_lens_answer_rank": 1228,
+          "logit_lens_answer_rank": 87059,
+          "j_lens_best_position_rank": 165,
+          "logit_lens_best_position_rank": 7613
+        },
+        "19": {
+          "j_lens_answer_top": [
+            ".\\",
+            "\\n",
+            ".\\\"",
+            "。\\",
+            "\\."
+          ],
+          "logit_lens_answer_top": [
+            "ؤل",
+            "bygg",
+            " geweest",
+            " unic",
+            "頂けます"
+          ],
+          "j_lens_answer_rank": 378,
+          "logit_lens_answer_rank": 209138,
+          "j_lens_best_position_rank": 240,
+          "logit_lens_best_position_rank": 52294
+        },
+        "20": {
+          "j_lens_answer_top": [
+            ".\\",
+            " Italy",
+            ".\\\"",
+            "____",
+            "。\\"
+          ],
+          "logit_lens_answer_top": [
+            "ؤل",
+            "olate",
+            " geweest",
+            "马拉",
+            "nota"
+          ],
+          "j_lens_answer_rank": 41,
+          "logit_lens_answer_rank": 77876,
+          "j_lens_best_position_rank": 41,
+          "logit_lens_best_position_rank": 77876
+        },
+        "21": {
+          "j_lens_answer_top": [
+            " Italy",
+            ".\\",
+            " Portugal",
+            "。\\",
+            " cities"
+          ],
+          "logit_lens_answer_top": [
+            "ؤل",
+            "olate",
+            " geweest",
+            "马拉",
+            "vestig"
+          ],
+          "j_lens_answer_rank": 19,
+          "logit_lens_answer_rank": 72961,
+          "j_lens_best_position_rank": 19,
+          "logit_lens_best_position_rank": 72961
+        },
+        "22": {
+          "j_lens_answer_top": [
+            " Italy",
+            " Madrid",
+            " Paris",
+            " London",
+            " Rome"
+          ],
+          "logit_lens_answer_top": [
+            "心惊",
+            "ؤل",
+            "ocat",
+            "located",
+            " geweest"
+          ],
+          "j_lens_answer_rank": 5,
+          "logit_lens_answer_rank": 10342,
+          "j_lens_best_position_rank": 5,
+          "logit_lens_best_position_rank": 10342
+        },
+        "23": {
+          "j_lens_answer_top": [
+            " Italy",
+            " Madrid",
+            " Paris",
+            " Lisbon",
+            " Portugal"
+          ],
+          "logit_lens_answer_top": [
+            "心惊",
+            "located",
+            "oglio",
+            "вален",
+            "�"
+          ],
+          "j_lens_answer_rank": 5,
+          "logit_lens_answer_rank": 1923,
+          "j_lens_best_position_rank": 5,
+          "logit_lens_best_position_rank": 1923
+        },
+        "24": {
+          "j_lens_answer_top": [
+            " Italy",
+            " Italian",
+            "Italy",
+            " Italia",
+            " Naples"
+          ],
+          "logit_lens_answer_top": [
+            "eldig",
+            "oglio",
+            "located",
+            "nota",
+            " Italy"
+          ],
+          "j_lens_answer_rank": 7,
+          "logit_lens_answer_rank": 1428,
+          "j_lens_best_position_rank": 7,
+          "logit_lens_best_position_rank": 1428
+        },
+        "25": {
+          "j_lens_answer_top": [
+            " Italy",
+            " Rome",
+            " Madrid",
+            " Washington",
+            " Berlin"
+          ],
+          "logit_lens_answer_top": [
+            " capitals",
+            "located",
+            " Washing",
+            " Capitals",
+            "полне"
+          ],
+          "j_lens_answer_rank": 2,
+          "logit_lens_answer_rank": 38,
+          "j_lens_best_position_rank": 2,
+          "logit_lens_best_position_rank": 38
+        },
+        "26": {
+          "j_lens_answer_top": [
+            " Italy",
+            " Rome",
+            " Madrid",
+            " Berlin",
+            " London"
+          ],
+          "logit_lens_answer_top": [
+            "capital",
+            " capital",
+            " capitals",
+            " capitale",
+            "Capital"
+          ],
+          "j_lens_answer_rank": 2,
+          "logit_lens_answer_rank": 7,
+          "j_lens_best_position_rank": 2,
+          "logit_lens_best_position_rank": 7
+        },
+        "27": {
+          "j_lens_answer_top": [
+            " Rome",
+            " Italy",
+            " Roma",
+            " Madrid",
+            "罗马"
+          ],
+          "logit_lens_answer_top": [
+            " Rome",
+            "rome",
+            "capital",
+            "罗马",
+            " capitale"
+          ],
+          "j_lens_answer_rank": 1,
+          "logit_lens_answer_rank": 1,
+          "j_lens_best_position_rank": 1,
+          "logit_lens_best_position_rank": 1
+        },
+        "28": {
+          "j_lens_answer_top": [
+            " Rome",
+            " Italy",
+            " Roma",
+            " Madrid",
+            " Roman"
+          ],
+          "logit_lens_answer_top": [
+            " Rome",
+            "rome",
+            "罗马",
+            " رم",
+            "capital"
+          ],
+          "j_lens_answer_rank": 1,
+          "logit_lens_answer_rank": 1,
+          "j_lens_best_position_rank": 1,
+          "logit_lens_best_position_rank": 1
+        },
+        "29": {
+          "j_lens_answer_top": [
+            " Rome",
+            " Italy",
+            " Roma",
+            " Roman",
+            " Madrid"
+          ],
+          "logit_lens_answer_top": [
+            " Rome",
+            "罗马",
+            "rome",
+            " Roman",
+            " Italy"
+          ],
+          "j_lens_answer_rank": 1,
+          "logit_lens_answer_rank": 1,
+          "j_lens_best_position_rank": 1,
+          "logit_lens_best_position_rank": 1
+        },
+        "30": {
+          "j_lens_answer_top": [
+            " Rome",
+            " Italy",
+            " Madrid",
+            " Roma",
+            " Milan"
+          ],
+          "logit_lens_answer_top": [
+            " Rome",
+            " Italy",
+            " located",
+            " R",
+            " رم"
+          ],
+          "j_lens_answer_rank": 1,
+          "logit_lens_answer_rank": 1,
+          "j_lens_best_position_rank": 1,
+          "logit_lens_best_position_rank": 1
+        }
+      }
+    },
+    {
+      "name": "extension-largest-planet",
+      "source": "local extension",
+      "category": "factual",
+      "prompt": "Fact: The largest planet in the solar system is",
+      "expected": "Jupiter",
+      "target_text": " Jupiter",
+      "target_token": " Jupiter",
+      "answer_position": 9,
+      "model_answer_top": [
+        " Jupiter",
+        " J",
+        " called",
+        " the",
+        " Saturn"
+      ],
+      "model_answer_rank": 1,
+      "best_j_lens": {
+        "rank": 1,
+        "layer": 22,
+        "position": 9
+      },
+      "best_logit_lens": {
+        "rank": 1,
+        "layer": 24,
+        "position": 9
+      },
+      "layers": {
+        "0": {
+          "j_lens_answer_top": [
+            " '",
+            " ...",
+            " however",
+            " -",
+            " ,"
+          ],
+          "logit_lens_answer_top": [
+            " is",
+            "is",
+            " are",
+            "是",
+            "omer"
+          ],
+          "j_lens_answer_rank": 132168,
+          "logit_lens_answer_rank": 137770,
+          "j_lens_best_position_rank": 423,
+          "logit_lens_best_position_rank": 27
+        },
+        "1": {
+          "j_lens_answer_top": [
+            " ...",
+            "...",
+            " --",
+            "\\n\\n",
+            " ...."
+          ],
+          "logit_lens_answer_top": [
+            "omer",
+            " is",
+            " often",
+            "omers",
+            "often"
+          ],
+          "j_lens_answer_rank": 133381,
+          "logit_lens_answer_rank": 216602,
+          "j_lens_best_position_rank": 1210,
+          "logit_lens_best_position_rank": 103
+        },
+        "2": {
+          "j_lens_answer_top": [
+            ",",
+            ".",
+            " the",
+            " at",
+            " in"
+          ],
+          "logit_lens_answer_top": [
+            "ner",
+            "rs",
+            "因为它",
+            "olo",
+            "notin"
+          ],
+          "j_lens_answer_rank": 48140,
+          "logit_lens_answer_rank": 241479,
+          "j_lens_best_position_rank": 545,
+          "logit_lens_best_position_rank": 134
+        },
+        "3": {
+          "j_lens_answer_top": [
+            " ...",
+            "...",
+            " [...]",
+            " --",
+            "......"
+          ],
+          "logit_lens_answer_top": [
+            "lah",
+            " gì",
+            " celui",
+            "are",
+            "莫过于"
+          ],
+          "j_lens_answer_rank": 41697,
+          "logit_lens_answer_rank": 235758,
+          "j_lens_best_position_rank": 395,
+          "logit_lens_best_position_rank": 229
+        },
+        "4": {
+          "j_lens_answer_top": [
+            "...",
+            ".",
+            " ...",
+            ",",
+            " [...]"
+          ],
+          "logit_lens_answer_top": [
+            "lah",
+            " gì",
+            "manuel",
+            " indeed",
+            "gestellt"
+          ],
+          "j_lens_answer_rank": 42563,
+          "logit_lens_answer_rank": 242388,
+          "j_lens_best_position_rank": 272,
+          "logit_lens_best_position_rank": 4437
+        },
+        "5": {
+          "j_lens_answer_top": [
+            "...",
+            " ...",
+            ".",
+            "......",
+            " [...]"
+          ],
+          "logit_lens_answer_top": [
+            " celui",
+            " continental",
+            "人是",
+            "良",
+            " best"
+          ],
+          "j_lens_answer_rank": 26787,
+          "logit_lens_answer_rank": 245571,
+          "j_lens_best_position_rank": 403,
+          "logit_lens_best_position_rank": 15957
+        },
+        "6": {
+          "j_lens_answer_top": [
+            "...",
+            " ...",
+            "......",
+            " [...]",
+            "."
+          ],
+          "logit_lens_answer_top": [
+            "莫过于",
+            " souhaitent",
+            " largest",
+            "巨星",
+            "体型"
+          ],
+          "j_lens_answer_rank": 3006,
+          "logit_lens_answer_rank": 230626,
+          "j_lens_best_position_rank": 72,
+          "logit_lens_best_position_rank": 36122
+        },
+        "7": {
+          "j_lens_answer_top": [
+            "...",
+            " ...",
+            " [...]",
+            "......",
+            "."
+          ],
+          "logit_lens_answer_top": [
+            "和最",
+            "اور",
+            " tulev",
+            "巨型",
+            "urin"
+          ],
+          "j_lens_answer_rank": 2177,
+          "logit_lens_answer_rank": 220031,
+          "j_lens_best_position_rank": 43,
+          "logit_lens_best_position_rank": 20575
+        },
+        "8": {
+          "j_lens_answer_top": [
+            "...",
+            " ...",
+            " [...]",
+            "......",
+            "...\\"
+          ],
+          "logit_lens_answer_top": [
+            "和最",
+            "也是最",
+            "巨星",
+            " diam",
+            "])=="
+          ],
+          "j_lens_answer_rank": 514,
+          "logit_lens_answer_rank": 216184,
+          "j_lens_best_position_rank": 14,
+          "logit_lens_best_position_rank": 4784
+        },
+        "9": {
+          "j_lens_answer_top": [
+            " ...",
+            "...",
+            " [...]",
+            "......",
+            "...\\"
+          ],
+          "logit_lens_answer_top": [
+            "和最",
+            "坊",
+            " souhaitent",
+            "{name",
+            "erte"
+          ],
+          "j_lens_answer_rank": 275,
+          "logit_lens_answer_rank": 149376,
+          "j_lens_best_position_rank": 6,
+          "logit_lens_best_position_rank": 15291
+        },
+        "10": {
+          "j_lens_answer_top": [
+            "...",
+            " ...",
+            " [...]",
+            "......",
+            "...\\"
+          ],
+          "logit_lens_answer_top": [
+            "除了",
+            "和最",
+            "รอง",
+            "sole",
+            "坊"
+          ],
+          "j_lens_answer_rank": 223,
+          "logit_lens_answer_rank": 183944,
+          "j_lens_best_position_rank": 15,
+          "logit_lens_best_position_rank": 5953
+        },
+        "11": {
+          "j_lens_answer_top": [
+            "...",
+            " ...",
+            " [...]",
+            "......",
+            "...\\"
+          ],
+          "logit_lens_answer_top": [
+            "和最",
+            "除了在",
+            "莫过于",
+            "รอง",
+            "除了"
+          ],
+          "j_lens_answer_rank": 354,
+          "logit_lens_answer_rank": 193666,
+          "j_lens_best_position_rank": 20,
+          "logit_lens_best_position_rank": 15183
+        },
+        "12": {
+          "j_lens_answer_top": [
+            "...",
+            " ...",
+            "...\\",
+            "\\\"",
+            " ...\\"
+          ],
+          "logit_lens_answer_top": [
+            " among",
+            "和最",
+            "among",
+            "莫过于",
+            "Among"
+          ],
+          "j_lens_answer_rank": 746,
+          "logit_lens_answer_rank": 217051,
+          "j_lens_best_position_rank": 28,
+          "logit_lens_best_position_rank": 17330
+        },
+        "13": {
+          "j_lens_answer_top": [
+            "...",
+            " ...",
+            "...\\",
+            " ...\\",
+            "____"
+          ],
+          "logit_lens_answer_top": [
+            "莫过于",
+            " subur",
+            "除了在",
+            "—in",
+            "omer"
+          ],
+          "j_lens_answer_rank": 926,
+          "logit_lens_answer_rank": 214615,
+          "j_lens_best_position_rank": 41,
+          "logit_lens_best_position_rank": 17934
+        },
+        "14": {
+          "j_lens_answer_top": [
+            "...",
+            "____",
+            "\\\"",
+            "...\\",
+            "________"
+          ],
+          "logit_lens_answer_top": [
+            "莫过于",
+            "olars",
+            "{name",
+            "和最",
+            " among"
+          ],
+          "j_lens_answer_rank": 1042,
+          "logit_lens_answer_rank": 195650,
+          "j_lens_best_position_rank": 32,
+          "logit_lens_best_position_rank": 12449
+        },
+        "15": {
+          "j_lens_answer_top": [
+            "\\\"",
+            ".\\",
+            "____",
+            "\\n",
+            ".\\\""
+          ],
+          "logit_lens_answer_top": [
+            "莫过于",
+            " laboratories",
+            "olars",
+            "{name",
+            "—that"
+          ],
+          "j_lens_answer_rank": 582,
+          "logit_lens_answer_rank": 171480,
+          "j_lens_best_position_rank": 23,
+          "logit_lens_best_position_rank": 11916
+        },
+        "16": {
+          "j_lens_answer_top": [
+            ".\\",
+            ".\\\"",
+            ".",
+            "。\\",
+            "\\\""
+          ],
+          "logit_lens_answer_top": [
+            "{name",
+            ".\")",
+            "莫过于",
+            "Moves",
+            "otope"
+          ],
+          "j_lens_answer_rank": 508,
+          "logit_lens_answer_rank": 208105,
+          "j_lens_best_position_rank": 22,
+          "logit_lens_best_position_rank": 4922
+        },
+        "17": {
+          "j_lens_answer_top": [
+            ".\\",
+            ".",
+            ".\\\"",
+            "。\\",
+            "____"
+          ],
+          "logit_lens_answer_top": [
+            "{name",
+            "ectomy",
+            "Moves",
+            "莫过于",
+            " among"
+          ],
+          "j_lens_answer_rank": 296,
+          "logit_lens_answer_rank": 219517,
+          "j_lens_best_position_rank": 23,
+          "logit_lens_best_position_rank": 10921
+        },
+        "18": {
+          "j_lens_answer_top": [
+            ".\\",
+            ".\\\"",
+            "。\\",
+            "...\\",
+            ".**"
+          ],
+          "logit_lens_answer_top": [
+            " Mots",
+            "{name",
+            "滚滚",
+            "莫过于",
+            " among"
+          ],
+          "j_lens_answer_rank": 255,
+          "logit_lens_answer_rank": 196593,
+          "j_lens_best_position_rank": 20,
+          "logit_lens_best_position_rank": 39412
+        },
+        "19": {
+          "j_lens_answer_top": [
+            ".\\",
+            "。\\",
+            ".\\\"",
+            "\\.",
+            ").\\"
+          ],
+          "logit_lens_answer_top": [
+            "{name",
+            " diam",
+            "lei",
+            " Escorts",
+            "<u"
+          ],
+          "j_lens_answer_rank": 77,
+          "logit_lens_answer_rank": 25009,
+          "j_lens_best_position_rank": 11,
+          "logit_lens_best_position_rank": 3682
+        },
+        "20": {
+          "j_lens_answer_top": [
+            ".\\",
+            ".**",
+            ".\\\"",
+            "。\\",
+            " planet"
+          ],
+          "logit_lens_answer_top": [
+            "超大",
+            " Grote",
+            "siz",
+            "/big",
+            " diam"
+          ],
+          "j_lens_answer_rank": 6,
+          "logit_lens_answer_rank": 8241,
+          "j_lens_best_position_rank": 5,
+          "logit_lens_best_position_rank": 1124
+        },
+        "21": {
+          "j_lens_answer_top": [
+            ".\\",
+            ".**",
+            " Jupiter",
+            ".\\\"",
+            "。\\"
+          ],
+          "logit_lens_answer_top": [
+            " Grote",
+            " giants",
+            "超大",
+            "<u",
+            " heavyweight"
+          ],
+          "j_lens_answer_rank": 2,
+          "logit_lens_answer_rank": 2080,
+          "j_lens_best_position_rank": 2,
+          "logit_lens_best_position_rank": 569
+        },
+        "22": {
+          "j_lens_answer_top": [
+            " Jupiter",
+            " Planet",
+            " planet",
+            " Pluto",
+            " NASA"
+          ],
+          "logit_lens_answer_top": [
+            "imas",
+            " Grote",
+            "口径",
+            "有一颗",
+            "是一颗"
+          ],
+          "j_lens_answer_rank": 1,
+          "logit_lens_answer_rank": 77,
+          "j_lens_best_position_rank": 1,
+          "logit_lens_best_position_rank": 77
+        },
+        "23": {
+          "j_lens_answer_top": [
+            " Jupiter",
+            " Pluto",
+            " planet",
+            " Planet",
+            " planets"
+          ],
+          "logit_lens_answer_top": [
+            "太阳系",
+            " Jupiter",
+            " planets",
+            " Pluto",
+            "行星"
+          ],
+          "j_lens_answer_rank": 1,
+          "logit_lens_answer_rank": 2,
+          "j_lens_best_position_rank": 1,
+          "logit_lens_best_position_rank": 2
+        },
+        "24": {
+          "j_lens_answer_top": [
+            " Jupiter",
+            " Planet",
+            " planet",
+            " Neptune",
+            " planets"
+          ],
+          "logit_lens_answer_top": [
+            " Jupiter",
+            " planets",
+            "木星",
+            "太阳系",
+            " Neptune"
+          ],
+          "j_lens_answer_rank": 1,
+          "logit_lens_answer_rank": 1,
+          "j_lens_best_position_rank": 1,
+          "logit_lens_best_position_rank": 1
+        },
+        "25": {
+          "j_lens_answer_top": [
+            " Jupiter",
+            " Neptune",
+            " Planet",
+            " Pluto",
+            " planet"
+          ],
+          "logit_lens_answer_top": [
+            " Jupiter",
+            " planets",
+            " planet",
+            "木星",
+            " Neptune"
+          ],
+          "j_lens_answer_rank": 1,
+          "logit_lens_answer_rank": 1,
+          "j_lens_best_position_rank": 1,
+          "logit_lens_best_position_rank": 1
+        },
+        "26": {
+          "j_lens_answer_top": [
+            " Jupiter",
+            " Saturn",
+            " Planet",
+            " Neptune",
+            " planet"
+          ],
+          "logit_lens_answer_top": [
+            " Jupiter",
+            " planets",
+            " planet",
+            "行星",
+            " Neptune"
+          ],
+          "j_lens_answer_rank": 1,
+          "logit_lens_answer_rank": 1,
+          "j_lens_best_position_rank": 1,
+          "logit_lens_best_position_rank": 1
+        },
+        "27": {
+          "j_lens_answer_top": [
+            " Jupiter",
+            " Saturn",
+            " Neptune",
+            " Planet",
+            " planet"
+          ],
+          "logit_lens_answer_top": [
+            " Jupiter",
+            " planets",
+            " planet",
+            "planet",
+            " Neptune"
+          ],
+          "j_lens_answer_rank": 1,
+          "logit_lens_answer_rank": 1,
+          "j_lens_best_position_rank": 1,
+          "logit_lens_best_position_rank": 1
+        },
+        "28": {
+          "j_lens_answer_top": [
+            " Jupiter",
+            " planet",
+            " Planet",
+            " planets",
+            " Saturn"
+          ],
+          "logit_lens_answer_top": [
+            " Jupiter",
+            " planet",
+            " planets",
+            "planet",
+            " Planet"
+          ],
+          "j_lens_answer_rank": 1,
+          "logit_lens_answer_rank": 1,
+          "j_lens_best_position_rank": 1,
+          "logit_lens_best_position_rank": 1
+        },
+        "29": {
+          "j_lens_answer_top": [
+            " Jupiter",
+            " Jup",
+            " Saturn",
+            " Neptune",
+            " Uran"
+          ],
+          "logit_lens_answer_top": [
+            " Jupiter",
+            " Jup",
+            " Neptune",
+            " Saturn",
+            "木星"
+          ],
+          "j_lens_answer_rank": 1,
+          "logit_lens_answer_rank": 1,
+          "j_lens_best_position_rank": 1,
+          "logit_lens_best_position_rank": 1
+        },
+        "30": {
+          "j_lens_answer_top": [
+            " Jupiter",
+            " Jup",
+            " J",
+            " Saturn",
+            " Neptune"
+          ],
+          "logit_lens_answer_top": [
+            " Jupiter",
+            " Jup",
+            " J",
+            "_J",
+            " called"
+          ],
+          "j_lens_answer_rank": 1,
+          "logit_lens_answer_rank": 1,
+          "j_lens_best_position_rank": 1,
+          "logit_lens_best_position_rank": 1
+        }
+      }
+    },
+    {
+      "name": "extension-currency-japan",
+      "source": "local extension",
+      "category": "factual",
+      "prompt": "Fact: The currency used in Japan is",
+      "expected": "yen",
+      "target_text": " yen",
+      "target_token": " yen",
+      "answer_position": 7,
+      "model_answer_top": [
+        " the",
+        " called",
+        " Yen",
+        " yen",
+        " known"
+      ],
+      "model_answer_rank": 4,
+      "best_j_lens": {
+        "rank": 1,
+        "layer": 28,
+        "position": 7
+      },
+      "best_logit_lens": {
+        "rank": 1,
+        "layer": 26,
+        "position": 6
+      },
+      "layers": {
+        "0": {
+          "j_lens_answer_top": [
+            " ...",
+            " --",
+            " however",
+            " '",
+            " -"
+          ],
+          "logit_lens_answer_top": [
+            " is",
+            "is",
+            "是",
+            " are",
+            " was"
+          ],
+          "j_lens_answer_rank": 226419,
+          "logit_lens_answer_rank": 104414,
+          "j_lens_best_position_rank": 465,
+          "logit_lens_best_position_rank": 34
+        },
+        "1": {
+          "j_lens_answer_top": [
+            " ...",
+            "...",
+            " --",
+            " ,",
+            " ;"
+          ],
+          "logit_lens_answer_top": [
+            " is",
+            " actually",
+            " usually",
+            "omer",
+            " often"
+          ],
+          "j_lens_answer_rank": 224967,
+          "logit_lens_answer_rank": 199375,
+          "j_lens_best_position_rank": 1804,
+          "logit_lens_best_position_rank": 39
+        },
+        "2": {
+          "j_lens_answer_top": [
+            ",",
+            ".",
+            ";",
+            " the",
+            " in"
+          ],
+          "logit_lens_answer_top": [
+            "nt",
+            "再",
+            "_INCLUDED",
+            "因为它",
+            "le"
+          ],
+          "j_lens_answer_rank": 126791,
+          "logit_lens_answer_rank": 126315,
+          "j_lens_best_position_rank": 319,
+          "logit_lens_best_position_rank": 14
+        },
+        "3": {
+          "j_lens_answer_top": [
+            " ...",
+            "...",
+            " --",
+            "......",
+            " ;"
+          ],
+          "logit_lens_answer_top": [
+            "____",
+            "lah",
+            "...",
+            "仿",
+            "nt"
+          ],
+          "j_lens_answer_rank": 108329,
+          "logit_lens_answer_rank": 175404,
+          "j_lens_best_position_rank": 127,
+          "logit_lens_best_position_rank": 27
+        },
+        "4": {
+          "j_lens_answer_top": [
+            "...",
+            ".",
+            " ...",
+            ",",
+            "......"
+          ],
+          "logit_lens_answer_top": [
+            "g",
+            " primarily",
+            "omers",
+            " gì",
+            "采用"
+          ],
+          "j_lens_answer_rank": 81863,
+          "logit_lens_answer_rank": 216674,
+          "j_lens_best_position_rank": 210,
+          "logit_lens_best_position_rank": 152
+        },
+        "5": {
+          "j_lens_answer_top": [
+            "...",
+            ".",
+            " ...",
+            "......",
+            " [...]"
+          ],
+          "logit_lens_answer_top": [
+            " primarily",
+            " uniquely",
+            "变",
+            "隐隐",
+            " theirs"
+          ],
+          "j_lens_answer_rank": 57297,
+          "logit_lens_answer_rank": 143671,
+          "j_lens_best_position_rank": 167,
+          "logit_lens_best_position_rank": 25
+        },
+        "6": {
+          "j_lens_answer_top": [
+            " ...",
+            "...",
+            " \\n",
+            " [...]",
+            "......"
+          ],
+          "logit_lens_answer_top": [
+            " plur",
+            "welt",
+            "務",
+            "ämpfung",
+            " primarily"
+          ],
+          "j_lens_answer_rank": 14174,
+          "logit_lens_answer_rank": 85289,
+          "j_lens_best_position_rank": 80,
+          "logit_lens_best_position_rank": 39
+        },
+        "7": {
+          "j_lens_answer_top": [
+            " ...",
+            "...",
+            " [...]",
+            "......",
+            "."
+          ],
+          "logit_lens_answer_top": [
+            " außer",
+            " primarily",
+            "opoly",
+            "raph",
+            " predominantly"
+          ],
+          "j_lens_answer_rank": 3877,
+          "logit_lens_answer_rank": 41548,
+          "j_lens_best_position_rank": 60,
+          "logit_lens_best_position_rank": 9
+        },
+        "8": {
+          "j_lens_answer_top": [
+            " ...",
+            "...",
+            " [...]",
+            " \\n",
+            "......"
+          ],
+          "logit_lens_answer_top": [
+            "дроб",
+            "AREA",
+            ".hxx",
+            "employment",
+            "orate"
+          ],
+          "j_lens_answer_rank": 1399,
+          "logit_lens_answer_rank": 34852,
+          "j_lens_best_position_rank": 55,
+          "logit_lens_best_position_rank": 92
+        },
+        "9": {
+          "j_lens_answer_top": [
+            " ...",
+            " currency",
+            "...",
+            " [...]",
+            "......"
+          ],
+          "logit_lens_answer_top": [
+            "维奇",
+            "лада",
+            "velopment",
+            "raph",
+            "orate"
+          ],
+          "j_lens_answer_rank": 931,
+          "logit_lens_answer_rank": 17631,
+          "j_lens_best_position_rank": 72,
+          "logit_lens_best_position_rank": 60
+        },
+        "10": {
+          "j_lens_answer_top": [
+            " currency",
+            " ...",
+            " [...]",
+            " Currency",
+            "..."
+          ],
+          "logit_lens_answer_top": [
+            " thước",
+            " plur",
+            "度量",
+            "除了",
+            "其自然"
+          ],
+          "j_lens_answer_rank": 1896,
+          "logit_lens_answer_rank": 36905,
+          "j_lens_best_position_rank": 123,
+          "logit_lens_best_position_rank": 1176
+        },
+        "11": {
+          "j_lens_answer_top": [
+            " currency",
+            " ...",
+            " [...]",
+            "...",
+            " Currency"
+          ],
+          "logit_lens_answer_top": [
+            " baku",
+            " plur",
+            "ariat",
+            "дроб",
+            " thước"
+          ],
+          "j_lens_answer_rank": 4769,
+          "logit_lens_answer_rank": 96433,
+          "j_lens_best_position_rank": 185,
+          "logit_lens_best_position_rank": 763
+        },
+        "12": {
+          "j_lens_answer_top": [
+            "____",
+            " ...",
+            "...",
+            "\\\"",
+            " ...\\"
+          ],
+          "logit_lens_answer_top": [
+            "stadt",
+            " ------>",
+            " baku",
+            " hintText",
+            " quadro"
+          ],
+          "j_lens_answer_rank": 4330,
+          "logit_lens_answer_rank": 176312,
+          "j_lens_best_position_rank": 279,
+          "logit_lens_best_position_rank": 4288
+        },
+        "13": {
+          "j_lens_answer_top": [
+            "____",
+            "________",
+            " ______",
+            " ____",
+            " ________"
+          ],
+          "logit_lens_answer_top": [
+            "称为",
+            "_called",
+            "stadt",
+            "udad",
+            "_plural"
+          ],
+          "j_lens_answer_rank": 4896,
+          "logit_lens_answer_rank": 165987,
+          "j_lens_best_position_rank": 281,
+          "logit_lens_best_position_rank": 2902
+        },
+        "14": {
+          "j_lens_answer_top": [
+            "____",
+            "________",
+            " ____",
+            " ______",
+            " ________"
+          ],
+          "logit_lens_answer_top": [
+            "____",
+            " plur",
+            " uniquely",
+            "________",
+            " denomin"
+          ],
+          "j_lens_answer_rank": 5479,
+          "logit_lens_answer_rank": 197790,
+          "j_lens_best_position_rank": 372,
+          "logit_lens_best_position_rank": 8484
+        },
+        "15": {
+          "j_lens_answer_top": [
+            "____",
+            "________",
+            " ______",
+            ".\\",
+            " ____"
+          ],
+          "logit_lens_answer_top": [
+            "称为",
+            "stadt",
+            "____",
+            " gì",
+            "olars"
+          ],
+          "j_lens_answer_rank": 7145,
+          "logit_lens_answer_rank": 158904,
+          "j_lens_best_position_rank": 536,
+          "logit_lens_best_position_rank": 9302
+        },
+        "16": {
+          "j_lens_answer_top": [
+            ".\\",
+            ".\\\"",
+            "____",
+            "。\\",
+            "\\\""
+          ],
+          "logit_lens_answer_top": [
+            "称为",
+            "____",
+            " валю",
+            "<u",
+            "称作"
+          ],
+          "j_lens_answer_rank": 8007,
+          "logit_lens_answer_rank": 214864,
+          "j_lens_best_position_rank": 397,
+          "logit_lens_best_position_rank": 5723
+        },
+        "17": {
+          "j_lens_answer_top": [
+            ".\\",
+            ".\\\"",
+            ".",
+            "。\\",
+            "____"
+          ],
+          "logit_lens_answer_top": [
+            " called",
+            " theirs",
+            "称为",
+            "<u",
+            "_called"
+          ],
+          "j_lens_answer_rank": 11356,
+          "logit_lens_answer_rank": 184012,
+          "j_lens_best_position_rank": 431,
+          "logit_lens_best_position_rank": 5476
+        },
+        "18": {
+          "j_lens_answer_top": [
+            ".\\",
+            ".\\\"",
+            "。\\",
+            ".**",
+            "__."
+          ],
+          "logit_lens_answer_top": [
+            " theirs",
+            " namely",
+            " called",
+            " interchangeable",
+            "____"
+          ],
+          "j_lens_answer_rank": 14316,
+          "logit_lens_answer_rank": 170890,
+          "j_lens_best_position_rank": 552,
+          "logit_lens_best_position_rank": 1497
+        },
+        "19": {
+          "j_lens_answer_top": [
+            ".\\",
+            ".\\\"",
+            "。\\",
+            "\\.",
+            ".\"."
+          ],
+          "logit_lens_answer_top": [
+            " theirs",
+            "called",
+            " called",
+            "五花八",
+            " **)&"
+          ],
+          "j_lens_answer_rank": 12868,
+          "logit_lens_answer_rank": 74343,
+          "j_lens_best_position_rank": 230,
+          "logit_lens_best_position_rank": 176
+        },
+        "20": {
+          "j_lens_answer_top": [
+            ".\\",
+            ".\\\"",
+            ".**",
+            "。\\",
+            ".\"."
+          ],
+          "logit_lens_answer_top": [
+            "called",
+            " called",
+            "叫做",
+            "五花八",
+            " называется"
+          ],
+          "j_lens_answer_rank": 2895,
+          "logit_lens_answer_rank": 29438,
+          "j_lens_best_position_rank": 229,
+          "logit_lens_best_position_rank": 167
+        },
+        "21": {
+          "j_lens_answer_top": [
+            " currency",
+            " Currency",
+            "currency",
+            "人民币",
+            "货币"
+          ],
+          "logit_lens_answer_top": [
+            "called",
+            "叫做",
+            " called",
+            " называется",
+            "称为"
+          ],
+          "j_lens_answer_rank": 652,
+          "logit_lens_answer_rank": 8318,
+          "j_lens_best_position_rank": 187,
+          "logit_lens_best_position_rank": 210
+        },
+        "22": {
+          "j_lens_answer_top": [
+            " Currency",
+            " currency",
+            " called",
+            "叫做",
+            "称为"
+          ],
+          "logit_lens_answer_top": [
+            "called",
+            " called",
+            "叫做",
+            "称为",
+            " называется"
+          ],
+          "j_lens_answer_rank": 795,
+          "logit_lens_answer_rank": 10118,
+          "j_lens_best_position_rank": 115,
+          "logit_lens_best_position_rank": 114
+        },
+        "23": {
+          "j_lens_answer_top": [
+            "叫做",
+            " called",
+            "日元",
+            "called",
+            "称为"
+          ],
+          "logit_lens_answer_top": [
+            "called",
+            "叫做",
+            " called",
+            "称为",
+            " называется"
+          ],
+          "j_lens_answer_rank": 44,
+          "logit_lens_answer_rank": 115,
+          "j_lens_best_position_rank": 44,
+          "logit_lens_best_position_rank": 21
+        },
+        "24": {
+          "j_lens_answer_top": [
+            "日元",
+            " Japanese",
+            " currency",
+            " Japan",
+            " yen"
+          ],
+          "logit_lens_answer_top": [
+            "called",
+            " called",
+            "称为",
+            "叫做",
+            "日元"
+          ],
+          "j_lens_answer_rank": 5,
+          "logit_lens_answer_rank": 7,
+          "j_lens_best_position_rank": 5,
+          "logit_lens_best_position_rank": 3
+        },
+        "25": {
+          "j_lens_answer_top": [
+            "日元",
+            " Japanese",
+            " yen",
+            " Japan",
+            "Japanese"
+          ],
+          "logit_lens_answer_top": [
+            " called",
+            "called",
+            "叫做",
+            "称为",
+            " yen"
+          ],
+          "j_lens_answer_rank": 3,
+          "logit_lens_answer_rank": 5,
+          "j_lens_best_position_rank": 3,
+          "logit_lens_best_position_rank": 3
+        },
+        "26": {
+          "j_lens_answer_top": [
+            "日元",
+            " yen",
+            " Japanese",
+            " Japan",
+            "Japanese"
+          ],
+          "logit_lens_answer_top": [
+            "called",
+            " called",
+            "叫做",
+            "叫我",
+            "称为"
+          ],
+          "j_lens_answer_rank": 2,
+          "logit_lens_answer_rank": 6,
+          "j_lens_best_position_rank": 2,
+          "logit_lens_best_position_rank": 1
+        },
+        "27": {
+          "j_lens_answer_top": [
+            "日元",
+            " yen",
+            " Japanese",
+            " Yen",
+            "Japanese"
+          ],
+          "logit_lens_answer_top": [
+            "called",
+            " called",
+            "日元",
+            "叫做",
+            " yen"
+          ],
+          "j_lens_answer_rank": 2,
+          "logit_lens_answer_rank": 4,
+          "j_lens_best_position_rank": 2,
+          "logit_lens_best_position_rank": 4
+        },
+        "28": {
+          "j_lens_answer_top": [
+            " yen",
+            "日元",
+            " Japanese",
+            " Yen",
+            " Japan"
+          ],
+          "logit_lens_answer_top": [
+            " called",
+            "called",
+            " Yen",
+            " yen",
+            "yen"
+          ],
+          "j_lens_answer_rank": 1,
+          "logit_lens_answer_rank": 4,
+          "j_lens_best_position_rank": 1,
+          "logit_lens_best_position_rank": 3
+        },
+        "29": {
+          "j_lens_answer_top": [
+            " yen",
+            " Yen",
+            " Japanese",
+            " called",
+            "日元"
+          ],
+          "logit_lens_answer_top": [
+            " called",
+            " Yen",
+            " yen",
+            "yen",
+            "called"
+          ],
+          "j_lens_answer_rank": 1,
+          "logit_lens_answer_rank": 3,
+          "j_lens_best_position_rank": 1,
+          "logit_lens_best_position_rank": 3
+        },
+        "30": {
+          "j_lens_answer_top": [
+            " Yen",
+            " yen",
+            " the",
+            " Japanese",
+            " called"
+          ],
+          "logit_lens_answer_top": [
+            " called",
+            " Yen",
+            " the",
+            " yen",
+            " known"
+          ],
+          "j_lens_answer_rank": 2,
+          "logit_lens_answer_rank": 4,
+          "j_lens_best_position_rank": 2,
+          "logit_lens_best_position_rank": 4
+        }
+      }
+    }
+  ]
+}

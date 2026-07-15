@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Artifact storage and retrieval · J-Lens research report</title>
+<style>
+:root { --paper:#fff; --wash:#f3f1ec; --ink:#222; --muted:#666; --rule:#b8b5ae; --accent:#174a73; }
+* { box-sizing:border-box; } body { margin:0; background:var(--wash); color:var(--ink); font:16px/1.58 Georgia,'Times New Roman',serif; }
+main { max-width:1120px; margin:2rem auto; padding:3.5rem 4.5rem; background:var(--paper); border:1px solid #d7d3ca; box-shadow:0 1px 8px #00000012; }
+h1,h2,h3,table,nav,footer { font-family:Arial,Helvetica,sans-serif; } h1 { font:700 2.2rem/1.15 Georgia,serif; } h2 { margin-top:2.2rem; border-bottom:1px solid var(--rule); padding-bottom:.25rem; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; } nav { margin-bottom:2rem; }
+table { border-collapse:collapse; width:100%; margin:1rem 0 1.5rem; font-size:.86rem; } th,td { border-bottom:1px solid #d6d3cc; padding:.4rem .5rem; text-align:left; vertical-align:top; } th { border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+pre { overflow:auto; padding:1rem; background:#f5f4f0; border:1px solid #dedbd3; } code { font:.88em/1.35 'SFMono-Regular',Consolas,monospace; } blockquote { border-left:3px solid var(--accent); margin-left:0; padding-left:1rem; color:var(--muted); }
+img { max-width:100%; } footer { margin-top:3rem; padding-top:1rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.8rem; }
+@media (max-width:760px) { main { margin:0; padding:2rem 1.2rem; } table { display:block; overflow-x:auto; } }
+</style></head><body><main>
+<nav><a href="../index.html">← Research report</a> · <a href="index.html">Documentation index</a></nav>
+<article><h1>Artifact storage and retrieval</h1>
+<p>Git contains the recipe and provenance for experiments. Large model and lens
+binary artifacts live in an artifact store and are referenced by manifests and
+hashes.</p>
+<h2>What is recorded locally</h2>
+<p>For each reusable artifact, keep or publish:</p>
+<ul>
+<li>canonical base-model ID and immutable revision;</li>
+<li>lens variant and training corpus label;</li>
+<li>precision and quantization;</li>
+<li>fit configuration and software versions;</li>
+<li>SHA256 of the binary artifact;</li>
+<li>artifact-store repository/path;</li>
+<li>the exact retrieval command;</li>
+<li>a small JSON manifest that does not require the binary to parse.</li>
+</ul>
+<h2>Hugging Face lens artifacts</h2>
+<p>Hugging Face is the preferred public home for reusable lens artifacts. We have
+not created the upload repository yet; after choosing its name, the intended
+layout is:</p>
+<pre><code class="language-text">&lt;hf-user&gt;/jacobian-lens-artifacts/
+  qwen3-0.6b/tuned-pile-repro-v1/
+  smollm2-135m/tuned-pile-repro-v1/
+  qwen3-1.7b/tuned-pile-repro-v1/
+</code></pre>
+<p>Upload a validated artifact with the authenticated CLI:</p>
+<pre><code class="language-bash">hf upload &lt;hf-user&gt;/jacobian-lens-artifacts \
+  data/lenses/qwen3-0.6b-tuned-pile-repro-v1 \
+  qwen3-0.6b/tuned-pile-repro-v1 \
+  --repo-type model
+</code></pre>
+<p>Retrieve it into the local artifact layout with:</p>
+<pre><code class="language-bash">hf download &lt;hf-user&gt;/jacobian-lens-artifacts \
+  --repo-type model \
+  --include 'qwen3-0.6b/tuned-pile-repro-v1/*' \
+  --local-dir data/lenses/qwen3-0.6b-tuned-pile-repro-v1
+</code></pre>
+<p>After download, verify <code>config.json</code>, <code>fit_manifest.json</code>, <code>params.pt</code>, the
+recorded SHA256, and model compatibility before causal use. The binary is
+ignored by Git; the manifest and retrieval instructions are the durable record.</p>
+<h2>Modal artifacts</h2>
+<p>The 27B Modal artifacts remain in the named Modal volume and are not copied
+into Git. Retrieval should use the volume name and artifact subdirectory
+recorded in the run log, for example:</p>
+<pre><code class="language-bash">modal volume get jlens-qwen36-tuned-artifacts \
+  qwen3.6-27b-tuned-wikitext-nf4 ./data/lenses/qwen3.6-27b-tuned-wikitext-nf4
+</code></pre>
+<p>The exact volume/app IDs and billing provenance are recorded in the research
+log and <code>data/provenance/</code>. Before publishing, verify the command against the
+current Modal CLI and add the final artifact hash.</p>
+<h2>Git LFS</h2>
+<p>Git LFS is installed locally and initialized for this checkout, but it is not
+currently used. It is reserved for a deliberately published binary smaller
+than the applicable GitHub per-file limit. It is not a substitute for HF or
+object storage for model checkpoints, Pile shards, Docker images, or the 27B
+multi-gigabyte lens artifacts.</p>
+</article>
+<footer>Rendered from <code>ARTIFACTS.md</code> by <code>scripts/generate_research_report.py</code>.</footer>
+</main></body></html>

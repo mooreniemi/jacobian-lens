@@ -1,0 +1,729 @@
+{
+  "seed": 0,
+  "per_category": 20,
+  "min_tokens": 18,
+  "model": "Qwen/Qwen3.5-0.8B",
+  "prefix_for_short_prompts": "Please carefully consider the following task and infer the relevant answer from the context before completing it. ",
+  "items": [
+    {
+      "category": "typo",
+      "name": "typo-library",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. She returned the overdue books to the local libary",
+      "evaluation_prompt": "She returned the overdue books to the local libary"
+    },
+    {
+      "category": "order_ops",
+      "name": "square-sub",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. (7 - 4)^2 = ",
+      "evaluation_prompt": "(7 - 4)^2 = "
+    },
+    {
+      "category": "order_ops",
+      "name": "add-sub-add-sub",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. 10 + 3 - 5 + 2 = ",
+      "evaluation_prompt": "10 + 3 - 5 + 2 = "
+    },
+    {
+      "category": "association",
+      "name": "siblings",
+      "prompt": "She used the nickname nobody else knew and he rolled his eyes the same way he had at the dinner table twenty years ago.",
+      "evaluation_prompt": "She used the nickname nobody else knew and he rolled his eyes the same way he had at the dinner table twenty years ago."
+    },
+    {
+      "category": "typo",
+      "name": "typo-college",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. After high school she applied to colege",
+      "evaluation_prompt": "After high school she applied to colege"
+    },
+    {
+      "category": "typo",
+      "name": "typo-course",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. She signed up for the evening coruse",
+      "evaluation_prompt": "She signed up for the evening coruse"
+    },
+    {
+      "category": "multilingual",
+      "name": "french-family-nephew",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. Le fils de ta sœur est ton \"",
+      "evaluation_prompt": "Le fils de ta sœur est ton \""
+    },
+    {
+      "category": "association",
+      "name": "store-h",
+      "prompt": "The cart had a wheel that pulled left, and by aisle six she'd given up fighting it and just let it lead.",
+      "evaluation_prompt": "The cart had a wheel that pulled left, and by aisle six she'd given up fighting it and just let it lead."
+    },
+    {
+      "category": "multihop",
+      "name": "nhop-primary-planet",
+      "prompt": "Count the legs on a spider. The planet at that position from the Sun is Neptune. Count the primary colors of light. The planet at that position from the Sun is ",
+      "evaluation_prompt": "Count the legs on a spider. The planet at that position from the Sun is Neptune. Count the primary colors of light. The planet at that position from the Sun is "
+    },
+    {
+      "category": "association",
+      "name": "einstein",
+      "prompt": "He closed his eyes on the tram and let the buildings blur, chasing the beam of light in his head the way other men chased trains.",
+      "evaluation_prompt": "He closed his eyes on the tram and let the buildings blur, chasing the beam of light in his head the way other men chased trains."
+    },
+    {
+      "category": "multihop",
+      "name": "holiday-valentines-monthnum",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. Fact: Valentine's Day is celebrated in month number ",
+      "evaluation_prompt": "Fact: Valentine's Day is celebrated in month number "
+    },
+    {
+      "category": "association",
+      "name": "court-h",
+      "prompt": "The gavel came down twice and she felt her lawyer's hand on her arm, but she couldn't read the verdict in his face.",
+      "evaluation_prompt": "The gavel came down twice and she felt her lawyer's hand on her arm, but she couldn't read the verdict in his face."
+    },
+    {
+      "category": "order_ops",
+      "name": "pystar-add",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. (2 + 1)**2 = ",
+      "evaluation_prompt": "(2 + 1)**2 = "
+    },
+    {
+      "category": "association",
+      "name": "math-h",
+      "prompt": "He filled the third board, capped the marker, and stood back — somewhere in those six hundred symbols was either the proof or the mistake.",
+      "evaluation_prompt": "He filled the third board, capped the marker, and stood back — somewhere in those six hundred symbols was either the proof or the mistake."
+    },
+    {
+      "category": "multilingual",
+      "name": "es-order-first-last",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. Lo contrario de \"primero\" es \"",
+      "evaluation_prompt": "Lo contrario de \"primero\" es \""
+    },
+    {
+      "category": "order_ops",
+      "name": "chain-mult-sub-add",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. 2 * 3 - 4 + 5 = ",
+      "evaluation_prompt": "2 * 3 - 4 + 5 = "
+    },
+    {
+      "category": "multihop",
+      "name": "nhop-clock-element",
+      "prompt": "Count the items in a dozen. The element at that position on the periodic table is magnesium. Count the hours marked on a standard clock face. The element at that position on the periodic table is ",
+      "evaluation_prompt": "Count the items in a dozen. The element at that position on the periodic table is magnesium. Count the hours marked on a standard clock face. The element at that position on the periodic table is "
+    },
+    {
+      "category": "poetry",
+      "name": "couplet-time-climb",
+      "prompt": "A rhyming couplet:\nHe watched the shadows mark the crawl of time,\nAnd knew the hill was still too steep to ",
+      "evaluation_prompt": "A rhyming couplet:\nHe watched the shadows mark the crawl of time,\nAnd knew the hill was still too steep to "
+    },
+    {
+      "category": "order_ops",
+      "name": "nested4-sub-add-mult-sub",
+      "prompt": "(((8 - 5) + 1) * 3) - 2 = ",
+      "evaluation_prompt": "(((8 - 5) + 1) * 3) - 2 = "
+    },
+    {
+      "category": "typo",
+      "name": "typo-present",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. He unwrapped the birthday pressent",
+      "evaluation_prompt": "He unwrapped the birthday pressent"
+    },
+    {
+      "category": "typo",
+      "name": "typo-position",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. She accepted the new possition",
+      "evaluation_prompt": "She accepted the new possition"
+    },
+    {
+      "category": "poetry",
+      "name": "couplet-hold-old",
+      "prompt": "A rhyming couplet:\nHe reached for her but found no hand to hold,\nAnd felt for once that he was growing ",
+      "evaluation_prompt": "A rhyming couplet:\nHe reached for her but found no hand to hold,\nAnd felt for once that he was growing "
+    },
+    {
+      "category": "order_ops",
+      "name": "mult-add-left",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. 3 * 4 + 2 = ",
+      "evaluation_prompt": "3 * 4 + 2 = "
+    },
+    {
+      "category": "order_ops",
+      "name": "square-div",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. (12 / 4)^2 = ",
+      "evaluation_prompt": "(12 / 4)^2 = "
+    },
+    {
+      "category": "poetry",
+      "name": "couplet-bend-end",
+      "prompt": "A rhyming couplet:\nThe river curved and vanished round the bend,\nWhere all roads meet the same and certain ",
+      "evaluation_prompt": "A rhyming couplet:\nThe river curved and vanished round the bend,\nWhere all roads meet the same and certain "
+    },
+    {
+      "category": "multihop",
+      "name": "greatwall-ocean",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. Fact: The ocean east of the country that built the Great Wall is the ",
+      "evaluation_prompt": "Fact: The ocean east of the country that built the Great Wall is the "
+    },
+    {
+      "category": "poetry",
+      "name": "couplet-eyes-lies",
+      "prompt": "A rhyming couplet:\nShe searched his face but couldn't read his eyes,\nAnd wondered which of all his words were ",
+      "evaluation_prompt": "A rhyming couplet:\nShe searched his face but couldn't read his eyes,\nAnd wondered which of all his words were "
+    },
+    {
+      "category": "order_ops",
+      "name": "word-div-sub",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. fifteen divided by three minus two equals ",
+      "evaluation_prompt": "fifteen divided by three minus two equals "
+    },
+    {
+      "category": "order_ops",
+      "name": "word-add-mult",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. two plus three times four equals ",
+      "evaluation_prompt": "two plus three times four equals "
+    },
+    {
+      "category": "association",
+      "name": "newton",
+      "prompt": "He watched the white light split into seven on the far wall and reached for a fresh page before the sun moved.",
+      "evaluation_prompt": "He watched the white light split into seven on the far wall and reached for a fresh page before the sun moved."
+    },
+    {
+      "category": "multilingual",
+      "name": "fr-time-after-night",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. Après la nuit vient le \"",
+      "evaluation_prompt": "Après la nuit vient le \""
+    },
+    {
+      "category": "order_ops",
+      "name": "word-mult-sub",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. three times five minus eight equals ",
+      "evaluation_prompt": "three times five minus eight equals "
+    },
+    {
+      "category": "poetry",
+      "name": "couplet-frame-same",
+      "prompt": "A rhyming couplet:\nHe hung a second picture in a frame,\nBut found the two were utterly the ",
+      "evaluation_prompt": "A rhyming couplet:\nHe hung a second picture in a frame,\nBut found the two were utterly the "
+    },
+    {
+      "category": "typo",
+      "name": "typo-address",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. Please write your full name and your current adress",
+      "evaluation_prompt": "Please write your full name and your current adress"
+    },
+    {
+      "category": "multilingual",
+      "name": "es-half-four",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. La mitad de cuatro es \"",
+      "evaluation_prompt": "La mitad de cuatro es \""
+    },
+    {
+      "category": "association",
+      "name": "obama",
+      "prompt": "The portraits on the wall had all been one color, and the desk was smaller than he'd expected when he sat down that first January morning.",
+      "evaluation_prompt": "The portraits on the wall had all been one color, and the desk was smaller than he'd expected when he sat down that first January morning."
+    },
+    {
+      "category": "multihop",
+      "name": "rhyme-rain-neighbor",
+      "prompt": "Fact: The European country whose name rhymes with 'rain' shares its western border with ",
+      "evaluation_prompt": "Fact: The European country whose name rhymes with 'rain' shares its western border with "
+    },
+    {
+      "category": "typo",
+      "name": "typo-person",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. She was the last perosn",
+      "evaluation_prompt": "She was the last perosn"
+    },
+    {
+      "category": "multilingual",
+      "name": "spanish-number-three",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. Después del \"tres\" viene el \"",
+      "evaluation_prompt": "Después del \"tres\" viene el \""
+    },
+    {
+      "category": "multilingual",
+      "name": "es-double-three",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. El doble de tres es \"",
+      "evaluation_prompt": "El doble de tres es \""
+    },
+    {
+      "category": "association",
+      "name": "night-h",
+      "prompt": "The last porch light on the street clicked off, and the dark filled in so completely that the fence three feet away might as well have been a mile.",
+      "evaluation_prompt": "The last porch light on the street clicked off, and the dark filled in so completely that the fence three feet away might as well have been a mile."
+    },
+    {
+      "category": "order_ops",
+      "name": "parens-sub-div",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. (14 - 2) / 4 = ",
+      "evaluation_prompt": "(14 - 2) / 4 = "
+    },
+    {
+      "category": "typo",
+      "name": "typo-different",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. The second draft of the essay took a completely diferent",
+      "evaluation_prompt": "The second draft of the essay took a completely diferent"
+    },
+    {
+      "category": "multilingual",
+      "name": "fr-place-near-far",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. Le contraire de \"près\" est \"",
+      "evaluation_prompt": "Le contraire de \"près\" est \""
+    },
+    {
+      "category": "order_ops",
+      "name": "nested-add-add-mult",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. ((2 + 3) + 4) * 2 = ",
+      "evaluation_prompt": "((2 + 3) + 4) * 2 = "
+    },
+    {
+      "category": "association",
+      "name": "nasa",
+      "prompt": "The countdown hit zero and the rumble under her seat became a roar that pressed her flat, the blue curve of the world falling away through the tiny window.",
+      "evaluation_prompt": "The countdown hit zero and the rumble under her seat became a roar that pressed her flat, the blue curve of the world falling away through the tiny window."
+    },
+    {
+      "category": "multilingual",
+      "name": "es-month-after-sep",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. El mes después de septiembre es \"",
+      "evaluation_prompt": "El mes después de septiembre es \""
+    },
+    {
+      "category": "association",
+      "name": "film-h",
+      "prompt": "The lights went down and the logo came up, and for two hours the whole room forgot it had bodies.",
+      "evaluation_prompt": "The lights went down and the logo came up, and for two hours the whole room forgot it had bodies."
+    },
+    {
+      "category": "multilingual",
+      "name": "es-month-after-mar",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. El mes después de marzo es \"",
+      "evaluation_prompt": "El mes después de marzo es \""
+    },
+    {
+      "category": "multilingual",
+      "name": "fr-month-after-may",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. Le mois après mai est \"",
+      "evaluation_prompt": "Le mois après mai est \""
+    },
+    {
+      "category": "poetry",
+      "name": "couplet-chase-place",
+      "prompt": "A rhyming couplet:\nThe hounds set out upon the morning chase,\nBut found the fox had vanished from its ",
+      "evaluation_prompt": "A rhyming couplet:\nThe hounds set out upon the morning chase,\nBut found the fox had vanished from its "
+    },
+    {
+      "category": "typo",
+      "name": "typo-division",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. The company announced a new sales divission",
+      "evaluation_prompt": "The company announced a new sales divission"
+    },
+    {
+      "category": "multilingual",
+      "name": "es-size-big-small",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. Lo contrario de \"grande\" es \"",
+      "evaluation_prompt": "Lo contrario de \"grande\" es \""
+    },
+    {
+      "category": "multilingual",
+      "name": "danish-color-ocean",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. Farven på havet er ",
+      "evaluation_prompt": "Farven på havet er "
+    },
+    {
+      "category": "multihop",
+      "name": "dbl-armistice-antonym",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. Fact: The antonym of what an armistice ends is \"",
+      "evaluation_prompt": "Fact: The antonym of what an armistice ends is \""
+    },
+    {
+      "category": "typo",
+      "name": "typo-between",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. The cat squeezed itself into the gap betwen",
+      "evaluation_prompt": "The cat squeezed itself into the gap betwen"
+    },
+    {
+      "category": "order_ops",
+      "name": "add-mult-right",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. 2 + 3 * 4 = ",
+      "evaluation_prompt": "2 + 3 * 4 = "
+    },
+    {
+      "category": "typo",
+      "name": "typo-country",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. She had never traveled outside of her own contry",
+      "evaluation_prompt": "She had never traveled outside of her own contry"
+    },
+    {
+      "category": "association",
+      "name": "rivals",
+      "prompt": "They shook hands for the cameras and held it a beat too long, each waiting for the other to let go first.",
+      "evaluation_prompt": "They shook hands for the cameras and held it a beat too long, each waiting for the other to let go first."
+    },
+    {
+      "category": "multihop",
+      "name": "pred-valentines-prevmonth",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. Fact: The month immediately before the one containing Valentine's Day is \"",
+      "evaluation_prompt": "Fact: The month immediately before the one containing Valentine's Day is \""
+    },
+    {
+      "category": "order_ops",
+      "name": "nested4-add-mult-add-div",
+      "prompt": "(((1 + 2) * 3) + 3) / 4 = ",
+      "evaluation_prompt": "(((1 + 2) * 3) + 3) / 4 = "
+    },
+    {
+      "category": "multihop",
+      "name": "holiday-christmas-monthnum",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. Fact: Christmas Day is celebrated in month number ",
+      "evaluation_prompt": "Fact: Christmas Day is celebrated in month number "
+    },
+    {
+      "category": "multilingual",
+      "name": "fr-month-before-mar",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. Le mois avant mars est \"",
+      "evaluation_prompt": "Le mois avant mars est \""
+    },
+    {
+      "category": "poetry",
+      "name": "couplet-crack-black",
+      "prompt": "A rhyming couplet:\nThe storm clouds gathered with a thunder crack,\nAnd turned the midday sky to total ",
+      "evaluation_prompt": "A rhyming couplet:\nThe storm clouds gathered with a thunder crack,\nAnd turned the midday sky to total "
+    },
+    {
+      "category": "association",
+      "name": "beatles",
+      "prompt": "They crossed in single file, one of them barefoot, while the photographer counted to three and the traffic waited.",
+      "evaluation_prompt": "They crossed in single file, one of them barefoot, while the photographer counted to three and the traffic waited."
+    },
+    {
+      "category": "poetry",
+      "name": "couplet-apart-part",
+      "prompt": "A rhyming couplet:\nThe machinist pulled the engine all apart,\nThen labeled and examined every ",
+      "evaluation_prompt": "A rhyming couplet:\nThe machinist pulled the engine all apart,\nThen labeled and examined every "
+    },
+    {
+      "category": "multilingual",
+      "name": "korean-opposite-hot",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. 뜨거운의 반대는 ",
+      "evaluation_prompt": "뜨거운의 반대는 "
+    },
+    {
+      "category": "association",
+      "name": "pentagon",
+      "prompt": "The building had five sides and she'd walked the inside of all of them that morning, and the badge at her neck still didn't open the door she needed.",
+      "evaluation_prompt": "The building had five sides and she'd walked the inside of all of them that morning, and the badge at her neck still didn't open the door she needed."
+    },
+    {
+      "category": "association",
+      "name": "test-h",
+      "prompt": "She filled in the last bubble, checked the clock, and decided that whatever she didn't know by now, thirty more seconds wasn't going to fix.",
+      "evaluation_prompt": "She filled in the last bubble, checked the clock, and decided that whatever she didn't know by now, thirty more seconds wasn't going to fix."
+    },
+    {
+      "category": "multilingual",
+      "name": "german-family-aunt",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. Die Schwester deiner Mutter ist deine \"",
+      "evaluation_prompt": "Die Schwester deiner Mutter ist deine \""
+    },
+    {
+      "category": "typo",
+      "name": "typo-source",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. The reporter refused to name her soruce",
+      "evaluation_prompt": "The reporter refused to name her soruce"
+    },
+    {
+      "category": "typo",
+      "name": "typo-second",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. He finished the race in secnod",
+      "evaluation_prompt": "He finished the race in secnod"
+    },
+    {
+      "category": "multihop",
+      "name": "inv-roots-opposite",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. Fact: The direction opposite to the one tree roots grow is \"",
+      "evaluation_prompt": "Fact: The direction opposite to the one tree roots grow is \""
+    },
+    {
+      "category": "typo",
+      "name": "typo-level",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. The water rose to a dangerous levell",
+      "evaluation_prompt": "The water rose to a dangerous levell"
+    },
+    {
+      "category": "poetry",
+      "name": "couplet-true-through",
+      "prompt": "A rhyming couplet:\nThe arrow flew so straight, its aim was true,\nIt struck the target, passing cleanly ",
+      "evaluation_prompt": "A rhyming couplet:\nThe arrow flew so straight, its aim was true,\nIt struck the target, passing cleanly "
+    },
+    {
+      "category": "multihop",
+      "name": "chem-bones-Z",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. Fact: The atomic number of the metal most abundant in human bones is ",
+      "evaluation_prompt": "Fact: The atomic number of the metal most abundant in human bones is "
+    },
+    {
+      "category": "order_ops",
+      "name": "redundant-parens-div",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. (12 / 4) - 1 = ",
+      "evaluation_prompt": "(12 / 4) - 1 = "
+    },
+    {
+      "category": "typo",
+      "name": "typo-study",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. She stayed up all night to studdy",
+      "evaluation_prompt": "She stayed up all night to studdy"
+    },
+    {
+      "category": "poetry",
+      "name": "couplet-hook-book",
+      "prompt": "A rhyming couplet:\nThe opening line had caught her like a hook,\nShe could not put aside the fascinating ",
+      "evaluation_prompt": "A rhyming couplet:\nThe opening line had caught her like a hook,\nShe could not put aside the fascinating "
+    },
+    {
+      "category": "poetry",
+      "name": "couplet-above-love",
+      "prompt": "A rhyming couplet:\nThe couple gazed at constellations above,\nAnd in the starlight, quietly spoke of ",
+      "evaluation_prompt": "A rhyming couplet:\nThe couple gazed at constellations above,\nAnd in the starlight, quietly spoke of "
+    },
+    {
+      "category": "typo",
+      "name": "typo-number",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. He wrote down her phone numbr",
+      "evaluation_prompt": "He wrote down her phone numbr"
+    },
+    {
+      "category": "poetry",
+      "name": "couplet-cake-mistake",
+      "prompt": "A rhyming couplet:\nShe eyed the last surviving slice of cake,\nAnd knew that eating it would be a ",
+      "evaluation_prompt": "A rhyming couplet:\nShe eyed the last surviving slice of cake,\nAnd knew that eating it would be a "
+    },
+    {
+      "category": "multihop",
+      "name": "atomic-80-state",
+      "prompt": "Fact: The state of matter at room temperature of the element with atomic number 80 is ",
+      "evaluation_prompt": "Fact: The state of matter at room temperature of the element with atomic number 80 is "
+    },
+    {
+      "category": "multihop",
+      "name": "nhop-rings-planet",
+      "prompt": "Count the legs on a spider. The planet at that position from the Sun is Neptune. Count the Olympic rings. The planet at that position from the Sun is ",
+      "evaluation_prompt": "Count the legs on a spider. The planet at that position from the Sun is Neptune. Count the Olympic rings. The planet at that position from the Sun is "
+    },
+    {
+      "category": "multihop",
+      "name": "super-smallest-continent",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. Fact: The smallest country in the world is located on the continent of ",
+      "evaluation_prompt": "Fact: The smallest country in the world is located on the continent of "
+    },
+    {
+      "category": "association",
+      "name": "teacher",
+      "prompt": "She circled the same mistake in the same red ink she'd used on the last thirty, and reached for the next one on the pile.",
+      "evaluation_prompt": "She circled the same mistake in the same red ink she'd used on the last thirty, and reached for the next one on the pile."
+    },
+    {
+      "category": "association",
+      "name": "boss",
+      "prompt": "She kept typing while he stood in her doorway, and he waited, because the meeting didn't start until she closed the laptop.",
+      "evaluation_prompt": "She kept typing while he stood in her doorway, and he waited, because the meeting didn't start until she closed the laptop."
+    },
+    {
+      "category": "poetry",
+      "name": "couplet-shook-took",
+      "prompt": "A rhyming couplet:\nThe thief reached in before the guards' hands shook,\nHe grabbed the jewel and everything he ",
+      "evaluation_prompt": "A rhyming couplet:\nThe thief reached in before the guards' hands shook,\nHe grabbed the jewel and everything he "
+    },
+    {
+      "category": "association",
+      "name": "code-h",
+      "prompt": "The test went green on the forty-third run, and she immediately distrusted it — green after forty-two reds meant she'd fixed the wrong thing.",
+      "evaluation_prompt": "The test went green on the forty-third run, and she immediately distrusted it — green after forty-two reds meant she'd fixed the wrong thing."
+    },
+    {
+      "category": "multihop",
+      "name": "nhop-deck-element",
+      "prompt": "Count the items in a dozen. The element at that position on the periodic table is magnesium. Count the cards in a standard deck without jokers. The element at that position on the periodic table is ",
+      "evaluation_prompt": "Count the items in a dozen. The element at that position on the periodic table is magnesium. Count the cards in a standard deck without jokers. The element at that position on the periodic table is "
+    },
+    {
+      "category": "poetry",
+      "name": "couplet-fun-won",
+      "prompt": "A rhyming couplet:\nThe children played their games and had their fun,\nBut no one cared to count which team had ",
+      "evaluation_prompt": "A rhyming couplet:\nThe children played their games and had their fun,\nBut no one cared to count which team had "
+    },
+    {
+      "category": "typo",
+      "name": "typo-football",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. Every Sunday he watched footbal",
+      "evaluation_prompt": "Every Sunday he watched footbal"
+    },
+    {
+      "category": "multihop",
+      "name": "rhyme-hive-plusone",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. Fact: One more than the number whose name rhymes with hive is ",
+      "evaluation_prompt": "Fact: One more than the number whose name rhymes with hive is "
+    },
+    {
+      "category": "multihop",
+      "name": "inv-balloon-opposite",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. Fact: The direction opposite to the one a helium balloon floats toward is \"",
+      "evaluation_prompt": "Fact: The direction opposite to the one a helium balloon floats toward is \""
+    },
+    {
+      "category": "multihop",
+      "name": "nhop-fortnight-element",
+      "prompt": "Count the items in a dozen. The element at that position on the periodic table is magnesium. Count the days in a fortnight. The element at that position on the periodic table is ",
+      "evaluation_prompt": "Count the items in a dozen. The element at that position on the periodic table is magnesium. Count the days in a fortnight. The element at that position on the periodic table is "
+    },
+    {
+      "category": "order_ops",
+      "name": "add-add-add",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. 1 + 2 + 3 + 4 = ",
+      "evaluation_prompt": "1 + 2 + 3 + 4 = "
+    },
+    {
+      "category": "typo",
+      "name": "typo-model",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. The engineer built a scale moddel",
+      "evaluation_prompt": "The engineer built a scale moddel"
+    },
+    {
+      "category": "multilingual",
+      "name": "pt-number-after-five",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. O número depois de cinco é \"",
+      "evaluation_prompt": "O número depois de cinco é \""
+    },
+    {
+      "category": "order_ops",
+      "name": "mixed-mult-add",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. Calculate: 3 times 4 plus 2 equals ",
+      "evaluation_prompt": "Calculate: 3 times 4 plus 2 equals "
+    },
+    {
+      "category": "multilingual",
+      "name": "spanish-phase-water",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. Cuando el agua se congela se convierte en \"",
+      "evaluation_prompt": "Cuando el agua se congela se convierte en \""
+    },
+    {
+      "category": "poetry",
+      "name": "couplet-head-bed",
+      "prompt": "A rhyming couplet:\nThe fever burned and pounded in his head,\nHe hadn't strength to rise up from the ",
+      "evaluation_prompt": "A rhyming couplet:\nThe fever burned and pounded in his head,\nHe hadn't strength to rise up from the "
+    },
+    {
+      "category": "typo",
+      "name": "typo-support",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. He called the help line for technical suport",
+      "evaluation_prompt": "He called the help line for technical suport"
+    },
+    {
+      "category": "multilingual",
+      "name": "fr-color-night",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. La couleur de la nuit est le \"",
+      "evaluation_prompt": "La couleur de la nuit est le \""
+    },
+    {
+      "category": "poetry",
+      "name": "couplet-sleep-deep",
+      "prompt": "A rhyming couplet:\nShe drifted off into a dreamless sleep,\nHer breathing slow, her slumber long and ",
+      "evaluation_prompt": "A rhyming couplet:\nShe drifted off into a dreamless sleep,\nHer breathing slow, her slumber long and "
+    },
+    {
+      "category": "multihop",
+      "name": "paper-continent",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. Fact: The continent where the country that invented paper is located is ",
+      "evaluation_prompt": "Fact: The continent where the country that invented paper is located is "
+    },
+    {
+      "category": "multilingual",
+      "name": "bulgarian-color-grass",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. Цветът на \"тревата\" е \"",
+      "evaluation_prompt": "Цветът на \"тревата\" е \""
+    },
+    {
+      "category": "multilingual",
+      "name": "hindi-color-snow",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. बर्फ का रंग ",
+      "evaluation_prompt": "बर्फ का रंग "
+    },
+    {
+      "category": "order_ops",
+      "name": "mult-parens-sub",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. (9 - 6) * 2 = ",
+      "evaluation_prompt": "(9 - 6) * 2 = "
+    },
+    {
+      "category": "poetry",
+      "name": "couplet-regret-met",
+      "prompt": "A rhyming couplet:\nShe turned away and whispered her regret,\nFor wishing that the two had never ",
+      "evaluation_prompt": "A rhyming couplet:\nShe turned away and whispered her regret,\nFor wishing that the two had never "
+    },
+    {
+      "category": "association",
+      "name": "london-h",
+      "prompt": "She'd learned to carry the umbrella even when the forecast said clear, and to call the elevator something else entirely.",
+      "evaluation_prompt": "She'd learned to carry the umbrella even when the forecast said clear, and to call the elevator something else entirely."
+    },
+    {
+      "category": "association",
+      "name": "anger",
+      "prompt": "\"It's fine,\" she said, and set the cup down so carefully it didn't make a sound.",
+      "evaluation_prompt": "\"It's fine,\" she said, and set the cup down so carefully it didn't make a sound."
+    },
+    {
+      "category": "multihop",
+      "name": "nhop-volleyball-planet",
+      "prompt": "Count the legs on a spider. The planet at that position from the Sun is Neptune. Count the players on a volleyball court per team. The planet at that position from the Sun is ",
+      "evaluation_prompt": "Count the legs on a spider. The planet at that position from the Sun is Neptune. Count the players on a volleyball court per team. The planet at that position from the Sun is "
+    },
+    {
+      "category": "association",
+      "name": "vatican",
+      "prompt": "The doors had been sealed for two days when the smoke finally changed color, and the crowd in the square knew before the bells did.",
+      "evaluation_prompt": "The doors had been sealed for two days when the smoke finally changed color, and the crowd in the square knew before the bells did."
+    },
+    {
+      "category": "order_ops",
+      "name": "chain-sub-mult-sub",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. 15 - 2 * 3 - 4 = ",
+      "evaluation_prompt": "15 - 2 * 3 - 4 = "
+    },
+    {
+      "category": "multihop",
+      "name": "firstletter-valentines-month",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. Fact: The first letter of the month containing Valentine's Day is \"",
+      "evaluation_prompt": "Fact: The first letter of the month containing Valentine's Day is \""
+    },
+    {
+      "category": "order_ops",
+      "name": "parens-add-mult",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. (2 + 3) * 4 = ",
+      "evaluation_prompt": "(2 + 3) * 4 = "
+    },
+    {
+      "category": "typo",
+      "name": "typo-account",
+      "prompt": "Please carefully consider the following task and infer the relevant answer from the context before completing it. She could not remember the password for her bank acount",
+      "evaluation_prompt": "She could not remember the password for her bank acount"
+    },
+    {
+      "category": "poetry",
+      "name": "couplet-told-gold",
+      "prompt": "A rhyming couplet:\nOf all the stories ever to be told,\nThe oldest ones were never writ in ",
+      "evaluation_prompt": "A rhyming couplet:\nOf all the stories ever to be told,\nThe oldest ones were never writ in "
+    },
+    {
+      "category": "poetry",
+      "name": "couplet-smoke-spoke",
+      "prompt": "A rhyming couplet:\nThe ruins smoldered, veiled in bitter smoke,\nAnd no one left remembered when he ",
+      "evaluation_prompt": "A rhyming couplet:\nThe ruins smoldered, veiled in bitter smoke,\nAnd no one left remembered when he "
+    },
+    {
+      "category": "poetry",
+      "name": "couplet-dust-trust",
+      "prompt": "A rhyming couplet:\nThe vow he made had long since turned to dust,\nAnd she would never give him back her ",
+      "evaluation_prompt": "A rhyming couplet:\nThe vow he made had long since turned to dust,\nAnd she would never give him back her "
+    }
+  ]
+}

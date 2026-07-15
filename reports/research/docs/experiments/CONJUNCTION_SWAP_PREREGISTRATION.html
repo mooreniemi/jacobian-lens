@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conjunction swap experiment: preregistration draft · J-Lens research report</title>
+<style>
+:root { --paper:#fff; --wash:#f3f1ec; --ink:#222; --muted:#666; --rule:#b8b5ae; --accent:#174a73; }
+* { box-sizing:border-box; } body { margin:0; background:var(--wash); color:var(--ink); font:16px/1.58 Georgia,'Times New Roman',serif; }
+main { max-width:1120px; margin:2rem auto; padding:3.5rem 4.5rem; background:var(--paper); border:1px solid #d7d3ca; box-shadow:0 1px 8px #00000012; }
+h1,h2,h3,table,nav,footer { font-family:Arial,Helvetica,sans-serif; } h1 { font:700 2.2rem/1.15 Georgia,serif; } h2 { margin-top:2.2rem; border-bottom:1px solid var(--rule); padding-bottom:.25rem; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; } nav { margin-bottom:2rem; }
+table { border-collapse:collapse; width:100%; margin:1rem 0 1.5rem; font-size:.86rem; } th,td { border-bottom:1px solid #d6d3cc; padding:.4rem .5rem; text-align:left; vertical-align:top; } th { border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+pre { overflow:auto; padding:1rem; background:#f5f4f0; border:1px solid #dedbd3; } code { font:.88em/1.35 'SFMono-Regular',Consolas,monospace; } blockquote { border-left:3px solid var(--accent); margin-left:0; padding-left:1rem; color:var(--muted); }
+img { max-width:100%; } footer { margin-top:3rem; padding-top:1rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.8rem; }
+@media (max-width:760px) { main { margin:0; padding:2rem 1.2rem; } table { display:block; overflow-x:auto; } }
+</style></head><body><main>
+<nav><a href="../index.html">← Research report</a> · <a href="index.html">Documentation index</a></nav>
+<article><h1>Conjunction swap experiment: preregistration draft</h1>
+<p>Status: draft; no confirmatory run has been started.<br />
+Protocol: <a href="CONJUNCTION_SWAP.html"><code>CONJUNCTION_SWAP.md</code></a><br />
+Summary: <a href="CONJUNCTION_SWAP_SUMMARY.html"><code>CONJUNCTION_SWAP_SUMMARY.md</code></a></p>
+<h2>1. Confirmatory question</h2>
+<p>Does changing one conjunct in a model prompt produce a localized, compositional representation change, or does it reveal a bound conjunction-level representation?</p>
+<p>The primary comparison is between the A-swap and B-swap conditions relative to the unchanged conjunction condition. The causal intervention analysis is required for a confirmatory representation claim; observational readouts are exploratory and diagnostic.</p>
+<h2>2. Hypotheses</h2>
+<ul>
+<li><strong>H1, compositionality:</strong> an A intervention changes A-local readouts more than B-local readouts, an analogous B intervention changes B-local readouts more than A-local readouts, and the double intervention is approximately predictable from the two single interventions.</li>
+<li><strong>H2, binding/interaction:</strong> an intervention changes later conjunction/workspace readouts, changes the untouched conjunct, or produces a reliable interaction in the double intervention that is not predicted by the single interventions.</li>
+<li><strong>H0, no detectable effect:</strong> after valid-item filtering and causal controls, no intervention produces a reliable effect above sham and position controls.</li>
+</ul>
+<p>H2 is not accepted merely because an answer changes. The effect must be reproducible, localized or interaction-specific, and survive the controls below.</p>
+<h2>3. Data and exclusions</h2>
+<p>The initial fixture is <code>data/experiments/conjunction-swap.json</code>, currently 12 items across country, element, planet, animal, plant, and person categories.</p>
+<p>Before confirmatory scoring, each item must pass the existing strict validator:</p>
+<pre><code class="language-bash">uv run python scripts/validate_conjunction_data.py --strict
+</code></pre>
+<p>An item is excluded before looking at intervention results if any of the following holds:</p>
+<ul>
+<li>A or B is absent or ambiguously tokenized;</li>
+<li>single A, single B, or both does not have the intended baseline answer;</li>
+<li>a replacement does not identify a declared alternative, unless explicitly marked as an ambiguity control;</li>
+<li>the prompt is contradictory or has no interpretable expected answer;</li>
+<li>the model's baseline answer has no measurable margin under the predeclared threshold;</li>
+<li>the lens readout or causal hook fails technically.</li>
+</ul>
+<p>All exclusions and their reasons must be reported. No item may be excluded because its intervention result is inconvenient.</p>
+<h2>4. Primary outcomes</h2>
+<p>The primary behavioral outcome is the paired change in expected-answer log probability at the final answer position:</p>
+<pre><code class="language-text">A swap versus both
+B swap versus both
+both swap versus both
+</code></pre>
+<p>Top-1 answer changes are secondary categorical summaries, not the sole outcome.</p>
+<p>The primary representation outcome is the difference-in-differences between the intended swapped span and the untouched span, measured as the change in expected-token lens rank/logit across the predeclared layer band.</p>
+<p>The primary binding interaction is:</p>
+<pre><code class="language-text">observed effect(both swap)
+  - effect(A swap)
+  - effect(B swap)
+</code></pre>
+<p>computed on the same item and normalized using the sham intervention.</p>
+<h2>5. Controls</h2>
+<p>The confirmatory run will include:</p>
+<ul>
+<li>no-intervention baseline;</li>
+<li>A-only and B-only conditions;</li>
+<li>sham vector substitution with matched norm and random or unrelated direction;</li>
+<li>type-matched semantic scramble using an unrelated entity of the same type;</li>
+<li>cross-type scramble (for example <code>Paris</code> to <code>bicycle</code>) as a nonspecific perturbation control, analyzed separately from the semantic hypothesis;</li>
+<li>conjunct-order reversal and connective substitution controls;</li>
+<li>within-span word-order and random-content-word scrambles, repeated over fixed predeclared seeds;</li>
+<li>position controls at nearby non-conjunct tokens;</li>
+<li>multiple intervention strengths selected before inspecting confirmatory outcomes;</li>
+<li>paraphrase or template controls where available;</li>
+<li>held-out items not used to fit the lens.</li>
+</ul>
+<h2>6. Statistical analysis</h2>
+<p>Results will be analyzed at the item level, preserving the paired structure. We will report:</p>
+<ul>
+<li>per-item effects;</li>
+<li>category-stratified effects as descriptive analyses;</li>
+<li>median and mean paired effects;</li>
+<li>95% paired bootstrap confidence intervals over items;</li>
+<li>the fraction of items showing the predicted direction;</li>
+<li>permutation or sign-flip tests for the primary paired contrasts;</li>
+<li>effect sizes with units and normalization stated explicitly.</li>
+</ul>
+<p>Multiple layers and positions will not be treated as independent item replicates. The layer band and scoring positions must be fixed before confirmatory scoring; exploratory heatmaps may not redefine them after seeing results.</p>
+<h2>7. Power and sensitivity analysis</h2>
+<p>A conventional power calculation is not reliable before we observe the variance structure of these paired, token-level outcomes. We will therefore use an empirical two-stage plan:</p>
+<ol>
+<li><strong>Pilot estimation:</strong> use the smoke test and a separately labeled pilot subset to estimate within-item variance, baseline answer margins, valid-item rate, and the correlation between paired conditions.</li>
+<li><strong>Simulation:</strong> simulate paired item effects under a range of standardized effect sizes and valid-item counts, preserving the observed covariance structure. Report power for the predeclared test at each effect-size scenario.</li>
+<li><strong>Sensitivity table:</strong> publish the smallest effect detectable with approximately 80% and 90% power for the planned item count, plus how power changes after plausible exclusion rates.</li>
+<li><strong>No post-hoc expansion:</strong> the confirmatory item count and stopping rule are frozen before the final run. Additional items may form a separately labeled replication, not silently increase confirmatory power.</li>
+</ol>
+<p>Because the primary outcomes are paired, power depends more on within-item correlation and valid-item count than on the raw number of token positions. Lens layers and positions increase measurement precision but do not count as independent samples.</p>
+<h2>8. Decision rules</h2>
+<p>Evidence favoring H1 requires a consistent localized pattern for both A and B, a predicted answer effect on valid items, and no comparable effect in the untouched span or sham control.</p>
+<p>Evidence favoring H2 requires a reproducible conjunction-level or interaction effect in the causal analysis that exceeds sham and position controls and survives the predeclared robustness checks.</p>
+<p>Evidence for H0 is a result compatible with zero whose confidence interval excludes effects larger than the predeclared practically meaningful threshold, together with adequate sensitivity according to the power simulation.</p>
+<p>If the confidence interval is wide or power is inadequate, the conclusion will be “inconclusive,” not “null.”</p>
+<h2>9. Reproducibility record</h2>
+<p>Freeze and record before the confirmatory run:</p>
+<ul>
+<li>model and tokenizer revisions;</li>
+<li>lens file and fitting prompt split;</li>
+<li>exact fixture hash;</li>
+<li>validator output;</li>
+<li>layer band, positions, intervention strength grid, and sham procedure;</li>
+<li>software versions and GPU;</li>
+<li>command lines;</li>
+<li>raw JSON results and tabulated report.</li>
+</ul>
+</article>
+<footer>Rendered from <code>experiments/CONJUNCTION_SWAP_PREREGISTRATION.md</code> by <code>scripts/generate_research_report.py</code>.</footer>
+</main></body></html>

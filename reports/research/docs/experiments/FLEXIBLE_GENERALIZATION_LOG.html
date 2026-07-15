@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flexible generalization experiment log · J-Lens research report</title>
+<style>
+:root { --paper:#fff; --wash:#f3f1ec; --ink:#222; --muted:#666; --rule:#b8b5ae; --accent:#174a73; }
+* { box-sizing:border-box; } body { margin:0; background:var(--wash); color:var(--ink); font:16px/1.58 Georgia,'Times New Roman',serif; }
+main { max-width:1120px; margin:2rem auto; padding:3.5rem 4.5rem; background:var(--paper); border:1px solid #d7d3ca; box-shadow:0 1px 8px #00000012; }
+h1,h2,h3,table,nav,footer { font-family:Arial,Helvetica,sans-serif; } h1 { font:700 2.2rem/1.15 Georgia,serif; } h2 { margin-top:2.2rem; border-bottom:1px solid var(--rule); padding-bottom:.25rem; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; } nav { margin-bottom:2rem; }
+table { border-collapse:collapse; width:100%; margin:1rem 0 1.5rem; font-size:.86rem; } th,td { border-bottom:1px solid #d6d3cc; padding:.4rem .5rem; text-align:left; vertical-align:top; } th { border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+pre { overflow:auto; padding:1rem; background:#f5f4f0; border:1px solid #dedbd3; } code { font:.88em/1.35 'SFMono-Regular',Consolas,monospace; } blockquote { border-left:3px solid var(--accent); margin-left:0; padding-left:1rem; color:var(--muted); }
+img { max-width:100%; } footer { margin-top:3rem; padding-top:1rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.8rem; }
+@media (max-width:760px) { main { margin:0; padding:2rem 1.2rem; } table { display:block; overflow-x:auto; } }
+</style></head><body><main>
+<nav><a href="../index.html">← Research report</a> · <a href="index.html">Documentation index</a></nav>
+<article><h1>Flexible generalization experiment log</h1>
+<h2>2026-07-12 — Causal evaluator and run started</h2>
+<p>This is Anthropic's third major causal test: swap the representation of one
+argument into prompts that apply different downstream functions, testing
+whether the replacement is correctly used by each function.</p>
+<h3>Fixture</h3>
+<p>Source: <code>data/experiments/flexible-generalization.json</code>.</p>
+<ul>
+<li>categories: countries, months, animals, numbers;</li>
+<li>four arguments per category;</li>
+<li>four downstream functions per category;</li>
+<li>every source argument swapped with each of the other three arguments;</li>
+<li>192 prompt trials total (<code>4 × 4 × 4 × 3</code>).</li>
+</ul>
+<h3>Run configuration</h3>
+<ul>
+<li>model: <code>Qwen/Qwen3.5-4B</code>;</li>
+<li>lens: released matching Qwen3.5-4B lens, revision <code>qwen-n1000</code>;</li>
+<li>layers: 24, 28, 30;</li>
+<li>positions: all prompt positions;</li>
+<li>methods: J-lens, ordinary logit-lens, norm-matched random control;</li>
+<li>Qwen kernels: off, because compatible fast kernels are not installed;</li>
+<li>execution session: <code>69178</code>;</li>
+<li>output: <code>data/experiments/flexible-causal-full48.json</code> (historical filename;
+the current evaluator contains 192 trials).</li>
+</ul>
+<p>The smoke test passed on two trials before the full run. Completion results,
+skips, and MLflow provenance will be appended here.</p>
+<h2>2026-07-12 — Full causal run completed</h2>
+<p>Output: <code>data/experiments/flexible-causal-full48.json</code>.</p>
+<p>The 192 generated trials produced 170 usable single-token trials and 22 skips.
+With three layers per trial, this yielded 510 conditions per method.</p>
+<table>
+<thead>
+<tr>
+  <th>method</th>
+  <th style="text-align:right">conditions</th>
+  <th style="text-align:right">target rank improved</th>
+  <th style="text-align:right">median Δrank</th>
+  <th style="text-align:right">target top-1</th>
+  <th style="text-align:right">target top-5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>J-lens</td>
+  <td style="text-align:right">510</td>
+  <td style="text-align:right">409</td>
+  <td style="text-align:right">+19</td>
+  <td style="text-align:right">18</td>
+  <td style="text-align:right">48</td>
+</tr>
+<tr>
+  <td>logit lens</td>
+  <td style="text-align:right">510</td>
+  <td style="text-align:right">414</td>
+  <td style="text-align:right">+13</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">20</td>
+</tr>
+<tr>
+  <td>random matched</td>
+  <td style="text-align:right">510</td>
+  <td style="text-align:right">203</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">9</td>
+</tr>
+</tbody>
+</table>
+<p>At the item level, taking the median across the three layers, J-lens improved
+139/170 items with median improvement +22; logit lens improved 140/170 with
+median +15; random improved 66/170 with median 0. Using the exploratory
+best-of-three-layer criterion, J-lens reached target top-1 on 11/170 items and
+top-5 on 27/170; logit reached 0 and 11; random reached 0 and 4.</p>
+<p>This supports flexible reuse of the swapped representation, with J-lens
+producing stronger exact successes than logit and random controls. The raw rank
+movement is not uniquely J-lens-specific—logit is also a strong intervention—
+so the top-k and item-level comparisons are more informative than the raw
+“improved” count.</p>
+<p>MLflow provenance:</p>
+<ul>
+<li>experiment: <code>anthropic-causal-reproduction</code>;</li>
+<li>run ID: <code>59f8188ab46c42f5b03995a9be509524</code>;</li>
+<li>artifact: the JSON output above, with command, git commit, package versions,
+result hash, and run parameters.</li>
+</ul>
+<h2>2026-07-13 — Matched Qwen3.5-0.8B replication</h2>
+<p>Output: <code>data/experiments/flexible-causal-0.8b.json</code>.</p>
+<p>The same 192-trial fixture yielded 170 usable trials and 22 multi-token skips,
+using layers 16/19/21.</p>
+<table>
+<thead>
+<tr>
+  <th>method</th>
+  <th style="text-align:right">item median improved</th>
+  <th style="text-align:right">item median Δrank</th>
+  <th style="text-align:right">any target top-1</th>
+  <th style="text-align:right">any target top-5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>J-lens</td>
+  <td style="text-align:right">108/170</td>
+  <td style="text-align:right">+3</td>
+  <td style="text-align:right">13/170</td>
+  <td style="text-align:right">30/170</td>
+</tr>
+<tr>
+  <td>logit lens</td>
+  <td style="text-align:right">107/170</td>
+  <td style="text-align:right">+3</td>
+  <td style="text-align:right">8/170</td>
+  <td style="text-align:right">28/170</td>
+</tr>
+<tr>
+  <td>random matched</td>
+  <td style="text-align:right">55/170</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">0/170</td>
+  <td style="text-align:right">17/170</td>
+</tr>
+</tbody>
+</table>
+<p>MLflow run: <code>b62be3848c0f4188b10ef2d7444a02cf</code>.</p>
+<h2>2026-07-13 — Matched Qwen3-0.6B replication</h2>
+<p>Output: <code>data/experiments/flexible-causal-0.6b.json</code>. The model-matched local
+204-prompt lens used layers 19/22/25; 170 trials were usable and 22 were
+skipped for multi-token concepts.</p>
+<table>
+<thead>
+<tr>
+  <th>method</th>
+  <th style="text-align:right">conditions</th>
+  <th style="text-align:right">improved</th>
+  <th style="text-align:right">median Δrank</th>
+  <th style="text-align:right">target top-1</th>
+  <th style="text-align:right">target top-5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>J-lens</td>
+  <td style="text-align:right">510</td>
+  <td style="text-align:right">352</td>
+  <td style="text-align:right">+4</td>
+  <td style="text-align:right">23</td>
+  <td style="text-align:right">76</td>
+</tr>
+<tr>
+  <td>logit lens</td>
+  <td style="text-align:right">510</td>
+  <td style="text-align:right">309</td>
+  <td style="text-align:right">+3</td>
+  <td style="text-align:right">7</td>
+  <td style="text-align:right">59</td>
+</tr>
+<tr>
+  <td>random matched</td>
+  <td style="text-align:right">510</td>
+  <td style="text-align:right">173</td>
+  <td style="text-align:right">−1</td>
+  <td style="text-align:right">2</td>
+  <td style="text-align:right">24</td>
+</tr>
+</tbody>
+</table>
+<p>MLflow run: <code>1163758863d84c21b71d79a1e13f6f37</code>.</p>
+<h2>2026-07-13 — Matched SmolLM2-135M-Instruct replication</h2>
+<p>Output: <code>data/experiments/flexible-causal-smollm2-135m.json</code>. The matched local
+204-prompt lens used layers 21/25/28; 170 trials were usable and 22 were
+skipped for multi-token concepts.</p>
+<table>
+<thead>
+<tr>
+  <th>method</th>
+  <th style="text-align:right">conditions</th>
+  <th style="text-align:right">improved</th>
+  <th style="text-align:right">median Δrank</th>
+  <th style="text-align:right">target top-1</th>
+  <th style="text-align:right">target top-5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>J-lens</td>
+  <td style="text-align:right">510</td>
+  <td style="text-align:right">302</td>
+  <td style="text-align:right">+2</td>
+  <td style="text-align:right">33</td>
+  <td style="text-align:right">143</td>
+</tr>
+<tr>
+  <td>logit lens</td>
+  <td style="text-align:right">510</td>
+  <td style="text-align:right">254</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">13</td>
+  <td style="text-align:right">117</td>
+</tr>
+<tr>
+  <td>random matched</td>
+  <td style="text-align:right">510</td>
+  <td style="text-align:right">184</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">8</td>
+  <td style="text-align:right">107</td>
+</tr>
+</tbody>
+</table>
+<p>MLflow run: <code>618bfbc97a00493784115fa14b15f8e1</code>.</p>
+<h2>2026-07-12 — 27B Transformers checkpoint download started</h2>
+<p>The official <code>Qwen/Qwen3.6-27B</code> Transformers repository is approximately
+55.6 GB. It is being downloaded to <code>/home/alex/models/qwen3.6-27b-hf</code> for later
+4-bit bitsandbytes loading in PyTorch. The existing 17 GB llama.cpp GGUF is
+unchanged.</p>
+<ul>
+<li>execution session: <code>15778</code>;</li>
+<li>download script: <code>scripts/download_qwen36_hf.py</code>;</li>
+<li>download log: <code>/home/alex/models/qwen3.6-27b-hf-download.log</code>;</li>
+<li>disk guard: refuse if less than 120 GiB free;</li>
+<li>free space at start: 462.2 GiB.</li>
+</ul>
+<p>The checkpoint is not yet a causal experiment result; after download we must
+perform a one-item VRAM/load smoke test before any larger run.</p>
+<h2>2026-07-13 — 27B checkpoint download completed</h2>
+<p>The full <code>Qwen/Qwen3.6-27B</code> Transformers repository downloaded successfully to
+<code>/home/alex/models/qwen3.6-27b-hf</code> (approximately 55.6 GB from the Hub, about
+52 GB occupied locally). It has not yet been loaded into PyTorch. The next gate
+is a 4-bit bitsandbytes load smoke test with a free-VRAM check, followed by a
+single causal prompt before any batch experiment.</p>
+<h2>2026-07-13 — 27B PyTorch 4-bit smoke test completed</h2>
+<p>Script: <code>scripts/smoke_qwen36_27b_4bit.py</code>. The guarded test loaded the local
+<code>Qwen3.6-27B</code> Transformers checkpoint with bitsandbytes NF4, starting with
+23.24 GiB free and ending model load with 6.48 GiB free. One deterministic
+prompt generated <code>Paris.</code> followed by the model's reasoning markers, and the
+script released the model and CUDA cache successfully. This establishes that
+the PyTorch path is viable for one-prompt inference; it does not yet establish
+that a 27B J-lens fit or full causal batch fits in the remaining VRAM.</p>
+<h2>2026-07-13 — Tuned-lens comparisons across matched smaller models</h2>
+<table>
+<thead>
+<tr>
+  <th>model</th>
+  <th>method</th>
+  <th style="text-align:right">conditions</th>
+  <th style="text-align:right">improved</th>
+  <th style="text-align:right">median Δrank</th>
+  <th style="text-align:right">top-1</th>
+  <th style="text-align:right">top-5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>SmolLM2-135M</td>
+  <td>tuned</td>
+  <td style="text-align:right">510</td>
+  <td style="text-align:right">257</td>
+  <td style="text-align:right">+1</td>
+  <td style="text-align:right">13</td>
+  <td style="text-align:right">115</td>
+</tr>
+<tr>
+  <td>SmolLM2-135M</td>
+  <td>logit</td>
+  <td style="text-align:right">510</td>
+  <td style="text-align:right">254</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">13</td>
+  <td style="text-align:right">117</td>
+</tr>
+<tr>
+  <td>SmolLM2-135M</td>
+  <td>random</td>
+  <td style="text-align:right">510</td>
+  <td style="text-align:right">205</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">6</td>
+  <td style="text-align:right">110</td>
+</tr>
+<tr>
+  <td>Qwen3-0.6B</td>
+  <td>tuned</td>
+  <td style="text-align:right">510</td>
+  <td style="text-align:right">295</td>
+  <td style="text-align:right">+2</td>
+  <td style="text-align:right">13</td>
+  <td style="text-align:right">55</td>
+</tr>
+<tr>
+  <td>Qwen3-0.6B</td>
+  <td>logit</td>
+  <td style="text-align:right">510</td>
+  <td style="text-align:right">309</td>
+  <td style="text-align:right">+3</td>
+  <td style="text-align:right">7</td>
+  <td style="text-align:right">59</td>
+</tr>
+<tr>
+  <td>Qwen3-0.6B</td>
+  <td>random</td>
+  <td style="text-align:right">510</td>
+  <td style="text-align:right">173</td>
+  <td style="text-align:right">−1</td>
+  <td style="text-align:right">2</td>
+  <td style="text-align:right">24</td>
+</tr>
+<tr>
+  <td>Qwen3.5-0.8B</td>
+  <td>tuned</td>
+  <td style="text-align:right">510</td>
+  <td style="text-align:right">301</td>
+  <td style="text-align:right">+2.5</td>
+  <td style="text-align:right">10</td>
+  <td style="text-align:right">68</td>
+</tr>
+<tr>
+  <td>Qwen3.5-0.8B</td>
+  <td>logit</td>
+  <td style="text-align:right">510</td>
+  <td style="text-align:right">323</td>
+  <td style="text-align:right">+3</td>
+  <td style="text-align:right">10</td>
+  <td style="text-align:right">61</td>
+</tr>
+<tr>
+  <td>Qwen3.5-0.8B</td>
+  <td>random</td>
+  <td style="text-align:right">510</td>
+  <td style="text-align:right">195</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">51</td>
+</tr>
+<tr>
+  <td>Qwen3.5-4B</td>
+  <td>tuned</td>
+  <td style="text-align:right">510</td>
+  <td style="text-align:right">394</td>
+  <td style="text-align:right">+10</td>
+  <td style="text-align:right">4</td>
+  <td style="text-align:right">20</td>
+</tr>
+<tr>
+  <td>Qwen3.5-4B</td>
+  <td>logit</td>
+  <td style="text-align:right">510</td>
+  <td style="text-align:right">414</td>
+  <td style="text-align:right">+13</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">20</td>
+</tr>
+<tr>
+  <td>Qwen3.5-4B</td>
+  <td>random</td>
+  <td style="text-align:right">510</td>
+  <td style="text-align:right">194</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">8</td>
+</tr>
+</tbody>
+</table>
+<p>MLflow runs: <code>a255f568aacc471ebfbbc4f6115309f7</code>,
+<code>1f9fdfe87fc943008f53827b5930abae</code>, <code>3ee15dc832f34131a40c5659ccf5ba90</code>,
+and <code>a0cbe0a733fa4ae5a76141b8fa4f42c7</code>.</p>
+<h2>2026-07-13 — Matched Qwen3.6-27B 4-bit replication</h2>
+<p>Output: <code>data/experiments/flexible-causal-27b.json</code>. The released matching
+1000-prompt lens was used with NF4 PyTorch weights and layers 16/32/60. There
+were 170 usable trials and 22 multi-token skips.</p>
+<table>
+<thead>
+<tr>
+  <th>method</th>
+  <th style="text-align:right">conditions</th>
+  <th style="text-align:right">improved</th>
+  <th style="text-align:right">median Δrank</th>
+  <th style="text-align:right">target top-1</th>
+  <th style="text-align:right">target top-5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>J-lens</td>
+  <td style="text-align:right">510</td>
+  <td style="text-align:right">394</td>
+  <td style="text-align:right">+9</td>
+  <td style="text-align:right">32</td>
+  <td style="text-align:right">53</td>
+</tr>
+<tr>
+  <td>logit lens</td>
+  <td style="text-align:right">510</td>
+  <td style="text-align:right">301</td>
+  <td style="text-align:right">+1</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">6</td>
+</tr>
+<tr>
+  <td>random matched</td>
+  <td style="text-align:right">510</td>
+  <td style="text-align:right">190</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">3</td>
+</tr>
+</tbody>
+</table>
+<p>MLflow run: <code>9fee44e0623c400c84fc4e8c44d29308</code>.</p>
+<h2>2026-07-14 — Model-matched Qwen3.6-27B tuned-lens evaluation</h2>
+<p>The native Wikitext-trained tuned lens was fit on the exact Qwen3.6-27B
+checkpoint in NF4 mode, validated, and exported to the same affine translator
+basis convention used by the smaller-model tuned comparisons. The existing
+fixture, 170 usable trials, 22 multi-token skips, and layers 16/32/60 were
+retained; only the missing tuned row was evaluated.</p>
+<table>
+<thead>
+<tr>
+  <th>method</th>
+  <th style="text-align:right">conditions</th>
+  <th style="text-align:right">improved</th>
+  <th style="text-align:right">median Δrank</th>
+  <th style="text-align:right">target top-1</th>
+  <th style="text-align:right">target top-5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>tuned</td>
+  <td style="text-align:right">510</td>
+  <td style="text-align:right">283</td>
+  <td style="text-align:right">+1</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">4</td>
+</tr>
+</tbody>
+</table>
+<p>Output: <code>data/experiments/flexible-causal-27b.json</code> (now includes the merged
+<code>tuned</code> rows) and tuned-only artifact
+<code>data/experiments/modal-tuned-27b/flexible-causal-27b-tuned.json</code>.</p>
+</article>
+<footer>Rendered from <code>experiments/FLEXIBLE_GENERALIZATION_LOG.md</code> by <code>scripts/generate_research_report.py</code>.</footer>
+</main></body></html>

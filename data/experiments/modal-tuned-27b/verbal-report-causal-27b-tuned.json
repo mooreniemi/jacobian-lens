@@ -1,0 +1,1720 @@
+{
+  "model": "/models/Qwen--Qwen3.6-27B/qwen3.6-27b-hf",
+  "lens_repo": "neuronpedia/jacobian-lens",
+  "lens_file": "qwen3.5-4b/jlens/Salesforce-wikitext/Qwen3.5-4B_jacobian_lens_n1000.pt",
+  "lens_revision": "qwen-n1000",
+  "lens_local": "/outputs/qwen3.6-27b-tuned-wikitext-basis.pt",
+  "kernel_mode": "on",
+  "patch_positions": "all",
+  "layers": [
+    16,
+    32,
+    60
+  ],
+  "methods": [
+    "tuned"
+  ],
+  "items": [
+    {
+      "category": "country",
+      "prompt": "Think of a country. Answer in one word.",
+      "source": "France",
+      "target": "Germany",
+      "source_rank_before": 12,
+      "target_rank_before": 41,
+      "candidate_ranks_before": {
+        "Japan": 26,
+        "France": 12,
+        "Brazil": 44,
+        "China": 22,
+        "India": 34,
+        "Spain": 54,
+        "Italy": 59,
+        "Germany": 41,
+        "Canada": 38,
+        "Mexico": 99,
+        "Egypt": 69,
+        "Peru": 170,
+        "Kenya": 125,
+        "Norway": 150
+      },
+      "answer_position": 9,
+      "layers": {
+        "16": {
+          "tuned": {
+            "source_rank_after": 12,
+            "target_rank_after": 43,
+            "candidate_ranks_after": {
+              "Japan": 32,
+              "France": 12,
+              "Brazil": 54,
+              "China": 23,
+              "India": 37,
+              "Spain": 58,
+              "Italy": 63,
+              "Germany": 43,
+              "Canada": 39,
+              "Mexico": 103,
+              "Egypt": 71,
+              "Peru": 197,
+              "Kenya": 148,
+              "Norway": 156
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Answer",
+              "<|im_end|>",
+              " Only",
+              " What",
+              " Do",
+              " No",
+              " I",
+              " Think"
+            ]
+          }
+        },
+        "32": {
+          "tuned": {
+            "source_rank_after": 12,
+            "target_rank_after": 42,
+            "candidate_ranks_after": {
+              "Japan": 27,
+              "France": 12,
+              "Brazil": 49,
+              "China": 23,
+              "India": 34,
+              "Spain": 53,
+              "Italy": 59,
+              "Germany": 42,
+              "Canada": 35,
+              "Mexico": 100,
+              "Egypt": 71,
+              "Peru": 171,
+              "Kenya": 124,
+              "Norway": 146
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Answer",
+              "<|im_end|>",
+              " Only",
+              " What",
+              " Do",
+              " I",
+              " No",
+              " ("
+            ]
+          }
+        },
+        "60": {
+          "tuned": {
+            "source_rank_after": 7,
+            "target_rank_after": 61,
+            "candidate_ranks_after": {
+              "Japan": 27,
+              "France": 7,
+              "Brazil": 48,
+              "China": 22,
+              "India": 33,
+              "Spain": 53,
+              "Italy": 56,
+              "Germany": 61,
+              "Canada": 37,
+              "Mexico": 101,
+              "Egypt": 67,
+              "Peru": 169,
+              "Kenya": 126,
+              "Norway": 152
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Answer",
+              "<|im_end|>",
+              " Only",
+              " What",
+              " France",
+              " Do",
+              " I",
+              " No"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "category": "color",
+      "prompt": "Think of a color. Answer in one word.",
+      "source": "Red",
+      "target": "Cyan",
+      "source_rank_before": 11,
+      "target_rank_before": 451,
+      "candidate_ranks_before": {
+        "Blue": 13,
+        "Red": 11,
+        "Green": 44,
+        "Yellow": 78,
+        "Black": 97,
+        "White": 141,
+        "Orange": 113,
+        "Purple": 52,
+        "Pink": 50,
+        "Brown": 224,
+        "Gray": 781,
+        "Gold": 573,
+        "Silver": 715,
+        "Cyan": 451
+      },
+      "answer_position": 9,
+      "layers": {
+        "16": {
+          "tuned": {
+            "source_rank_after": 11,
+            "target_rank_after": 526,
+            "candidate_ranks_after": {
+              "Blue": 14,
+              "Red": 11,
+              "Green": 48,
+              "Yellow": 87,
+              "Black": 106,
+              "White": 149,
+              "Orange": 124,
+              "Purple": 55,
+              "Pink": 52,
+              "Brown": 242,
+              "Gray": 830,
+              "Gold": 666,
+              "Silver": 782,
+              "Cyan": 526
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Answer",
+              " What",
+              " Do",
+              " If",
+              " (",
+              " Please",
+              " No",
+              " Only"
+            ]
+          }
+        },
+        "32": {
+          "tuned": {
+            "source_rank_after": 11,
+            "target_rank_after": 358,
+            "candidate_ranks_after": {
+              "Blue": 12,
+              "Red": 11,
+              "Green": 38,
+              "Yellow": 73,
+              "Black": 90,
+              "White": 122,
+              "Orange": 100,
+              "Purple": 45,
+              "Pink": 45,
+              "Brown": 211,
+              "Gray": 702,
+              "Gold": 514,
+              "Silver": 654,
+              "Cyan": 358
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Answer",
+              " What",
+              " Do",
+              " (",
+              " If",
+              " Only",
+              " No",
+              " Please"
+            ]
+          }
+        },
+        "60": {
+          "tuned": {
+            "source_rank_after": 11,
+            "target_rank_after": 257,
+            "candidate_ranks_after": {
+              "Blue": 11,
+              "Red": 11,
+              "Green": 41,
+              "Yellow": 81,
+              "Black": 98,
+              "White": 149,
+              "Orange": 109,
+              "Purple": 50,
+              "Pink": 45,
+              "Brown": 221,
+              "Gray": 774,
+              "Gold": 577,
+              "Silver": 714,
+              "Cyan": 257
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Answer",
+              " What",
+              " Do",
+              " If",
+              " (",
+              " Only",
+              " Please",
+              " No"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "category": "fruit",
+      "prompt": "Think of a fruit. Answer in one word.",
+      "source": "Apple",
+      "target": "Lemon",
+      "source_rank_before": 7,
+      "target_rank_before": 58,
+      "candidate_ranks_before": {
+        "Apple": 7,
+        "Orange": 50,
+        "Banana": 36,
+        "Grape": 247,
+        "Mango": 152,
+        "Cherry": 137,
+        "Peach": 285,
+        "Lemon": 58,
+        "Lime": 451,
+        "Plum": 827,
+        "Berry": 247,
+        "Fig": 875,
+        "Date": 124
+      },
+      "answer_position": 9,
+      "layers": {
+        "16": {
+          "tuned": {
+            "source_rank_after": 10,
+            "target_rank_after": 62,
+            "candidate_ranks_after": {
+              "Apple": 10,
+              "Orange": 55,
+              "Banana": 37,
+              "Grape": 233,
+              "Mango": 141,
+              "Cherry": 135,
+              "Peach": 282,
+              "Lemon": 62,
+              "Lime": 475,
+              "Plum": 870,
+              "Berry": 245,
+              "Fig": 925,
+              "Date": 132
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " What",
+              " Answer",
+              " Do",
+              " Only",
+              " If",
+              " �",
+              " No",
+              " Apple"
+            ]
+          }
+        },
+        "32": {
+          "tuned": {
+            "source_rank_after": 8,
+            "target_rank_after": 52,
+            "candidate_ranks_after": {
+              "Apple": 8,
+              "Orange": 49,
+              "Banana": 35,
+              "Grape": 231,
+              "Mango": 137,
+              "Cherry": 132,
+              "Peach": 266,
+              "Lemon": 52,
+              "Lime": 407,
+              "Plum": 863,
+              "Berry": 237,
+              "Fig": 831,
+              "Date": 123
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " What",
+              " Answer",
+              " Do",
+              " Only",
+              " If",
+              " Apple",
+              " �",
+              " ("
+            ]
+          }
+        },
+        "60": {
+          "tuned": {
+            "source_rank_after": 7,
+            "target_rank_after": 74,
+            "candidate_ranks_after": {
+              "Apple": 7,
+              "Orange": 52,
+              "Banana": 36,
+              "Grape": 247,
+              "Mango": 148,
+              "Cherry": 135,
+              "Peach": 272,
+              "Lemon": 74,
+              "Lime": 466,
+              "Plum": 829,
+              "Berry": 235,
+              "Fig": 848,
+              "Date": 123
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " What",
+              " Answer",
+              " Only",
+              " Do",
+              " Apple",
+              " If",
+              " �",
+              " ("
+            ]
+          }
+        }
+      }
+    },
+    {
+      "category": "sport",
+      "prompt": "Think of a sport. Answer in one word.",
+      "source": "Football",
+      "target": "Basketball",
+      "source_rank_before": 13,
+      "target_rank_before": 37,
+      "candidate_ranks_before": {
+        "Basketball": 37,
+        "Soccer": 37,
+        "Tennis": 46,
+        "Football": 13,
+        "Baseball": 18,
+        "Golf": 53,
+        "Hockey": 107,
+        "Rugby": 29,
+        "Cricket": 91,
+        "Chess": 185,
+        "Boxing": 217,
+        "Swimming": 66,
+        "Running": 70,
+        "Cycling": 645
+      },
+      "answer_position": 9,
+      "layers": {
+        "16": {
+          "tuned": {
+            "source_rank_after": 11,
+            "target_rank_after": 37,
+            "candidate_ranks_after": {
+              "Basketball": 37,
+              "Soccer": 37,
+              "Tennis": 46,
+              "Football": 11,
+              "Baseball": 19,
+              "Golf": 46,
+              "Hockey": 108,
+              "Rugby": 29,
+              "Cricket": 88,
+              "Chess": 173,
+              "Boxing": 213,
+              "Swimming": 72,
+              "Running": 77,
+              "Cycling": 676
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Answer",
+              " What",
+              " Please",
+              "<|im_end|>",
+              " Only",
+              " (",
+              " No",
+              " Give"
+            ]
+          }
+        },
+        "32": {
+          "tuned": {
+            "source_rank_after": 18,
+            "target_rank_after": 39,
+            "candidate_ranks_after": {
+              "Basketball": 39,
+              "Soccer": 42,
+              "Tennis": 48,
+              "Football": 18,
+              "Baseball": 19,
+              "Golf": 48,
+              "Hockey": 110,
+              "Rugby": 33,
+              "Cricket": 97,
+              "Chess": 179,
+              "Boxing": 216,
+              "Swimming": 66,
+              "Running": 76,
+              "Cycling": 663
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Answer",
+              " What",
+              " Please",
+              "<|im_end|>",
+              " Only",
+              " No",
+              " Give",
+              " ("
+            ]
+          }
+        },
+        "60": {
+          "tuned": {
+            "source_rank_after": 28,
+            "target_rank_after": 21,
+            "candidate_ranks_after": {
+              "Basketball": 21,
+              "Soccer": 42,
+              "Tennis": 43,
+              "Football": 28,
+              "Baseball": 17,
+              "Golf": 52,
+              "Hockey": 107,
+              "Rugby": 31,
+              "Cricket": 100,
+              "Chess": 196,
+              "Boxing": 206,
+              "Swimming": 62,
+              "Running": 68,
+              "Cycling": 632
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Answer",
+              " What",
+              " Please",
+              " Only",
+              "<|im_end|>",
+              " (",
+              " answer",
+              " No"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "category": "instrument",
+      "prompt": "Think of a instrument. Answer in one word.",
+      "source": "Guitar",
+      "target": "Bass",
+      "source_rank_before": 22,
+      "target_rank_before": 123,
+      "candidate_ranks_before": {
+        "Piano": 25,
+        "Guitar": 22,
+        "Drum": 59,
+        "Bass": 123,
+        "Organ": 84,
+        "Horn": 177,
+        "Sax": 62,
+        "Bell": 668
+      },
+      "answer_position": 9,
+      "layers": {
+        "16": {
+          "tuned": {
+            "source_rank_after": 25,
+            "target_rank_after": 228,
+            "candidate_ranks_after": {
+              "Piano": 26,
+              "Guitar": 25,
+              "Drum": 87,
+              "Bass": 228,
+              "Organ": 125,
+              "Horn": 308,
+              "Sax": 107,
+              "Bell": 1006
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Answer",
+              " What",
+              " Only",
+              " Think",
+              " answer",
+              " I",
+              " Give",
+              "<|im_end|>"
+            ]
+          }
+        },
+        "32": {
+          "tuned": {
+            "source_rank_after": 24,
+            "target_rank_after": 144,
+            "candidate_ranks_after": {
+              "Piano": 28,
+              "Guitar": 24,
+              "Drum": 67,
+              "Bass": 144,
+              "Organ": 86,
+              "Horn": 229,
+              "Sax": 86,
+              "Bell": 813
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Answer",
+              " What",
+              " Only",
+              " Think",
+              "<|im_end|>",
+              " Give",
+              " Name",
+              " answer"
+            ]
+          }
+        },
+        "60": {
+          "tuned": {
+            "source_rank_after": 183,
+            "target_rank_after": 4,
+            "candidate_ranks_after": {
+              "Piano": 27,
+              "Guitar": 183,
+              "Drum": 78,
+              "Bass": 4,
+              "Organ": 97,
+              "Horn": 190,
+              "Sax": 57,
+              "Bell": 630
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Answer",
+              " Bass",
+              " What",
+              " Only",
+              " Think",
+              " answer",
+              " I",
+              " Give"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "category": "planet",
+      "prompt": "Think of a planet. Answer in one word.",
+      "source": "Earth",
+      "target": "Titan",
+      "source_rank_before": 6,
+      "target_rank_before": 207,
+      "candidate_ranks_before": {
+        "Neptune": 30,
+        "Saturn": 18,
+        "Jupiter": 15,
+        "Mars": 13,
+        "Venus": 39,
+        "Mercury": 67,
+        "Earth": 6,
+        "Pluto": 58,
+        "Moon": 303,
+        "Titan": 207,
+        "Sun": 246
+      },
+      "answer_position": 9,
+      "layers": {
+        "16": {
+          "tuned": {
+            "source_rank_after": 6,
+            "target_rank_after": 205,
+            "candidate_ranks_after": {
+              "Neptune": 30,
+              "Saturn": 19,
+              "Jupiter": 15,
+              "Mars": 14,
+              "Venus": 38,
+              "Mercury": 70,
+              "Earth": 6,
+              "Pluto": 58,
+              "Moon": 321,
+              "Titan": 205,
+              "Sun": 253
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Answer",
+              "<|im_end|>",
+              " What",
+              " Earth",
+              " Name",
+              " (",
+              " Only",
+              " Which"
+            ]
+          }
+        },
+        "32": {
+          "tuned": {
+            "source_rank_after": 7,
+            "target_rank_after": 171,
+            "candidate_ranks_after": {
+              "Neptune": 29,
+              "Saturn": 19,
+              "Jupiter": 12,
+              "Mars": 13,
+              "Venus": 37,
+              "Mercury": 68,
+              "Earth": 7,
+              "Pluto": 56,
+              "Moon": 319,
+              "Titan": 171,
+              "Sun": 237
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Answer",
+              "<|im_end|>",
+              " What",
+              " Name",
+              " Earth",
+              " (",
+              " Only",
+              " Which"
+            ]
+          }
+        },
+        "60": {
+          "tuned": {
+            "source_rank_after": 17,
+            "target_rank_after": 43,
+            "candidate_ranks_after": {
+              "Neptune": 30,
+              "Saturn": 17,
+              "Jupiter": 13,
+              "Mars": 13,
+              "Venus": 47,
+              "Mercury": 75,
+              "Earth": 17,
+              "Pluto": 58,
+              "Moon": 346,
+              "Titan": 43,
+              "Sun": 288
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              "<|im_end|>",
+              " Answer",
+              " What",
+              " Name",
+              " (",
+              " Only",
+              " Which",
+              " Please"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "category": "tree",
+      "prompt": "Think of a tree. Answer in one word.",
+      "source": "Oak",
+      "target": "Palm",
+      "source_rank_before": 4,
+      "target_rank_before": 119,
+      "candidate_ranks_before": {
+        "Oak": 4,
+        "Pine": 29,
+        "Maple": 67,
+        "Birch": 32,
+        "Cedar": 530,
+        "Elm": 136,
+        "Willow": 187,
+        "Cherry": 248,
+        "Palm": 119,
+        "Ash": 231,
+        "Fir": 164
+      },
+      "answer_position": 9,
+      "layers": {
+        "16": {
+          "tuned": {
+            "source_rank_after": 3,
+            "target_rank_after": 125,
+            "candidate_ranks_after": {
+              "Oak": 3,
+              "Pine": 30,
+              "Maple": 70,
+              "Birch": 30,
+              "Cedar": 523,
+              "Elm": 136,
+              "Willow": 178,
+              "Cherry": 258,
+              "Palm": 125,
+              "Ash": 239,
+              "Fir": 163
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Oak",
+              " What",
+              " Answer",
+              " Tree",
+              " �",
+              "<|im_end|>",
+              " (",
+              " Please"
+            ]
+          }
+        },
+        "32": {
+          "tuned": {
+            "source_rank_after": 3,
+            "target_rank_after": 132,
+            "candidate_ranks_after": {
+              "Oak": 3,
+              "Pine": 24,
+              "Maple": 59,
+              "Birch": 30,
+              "Cedar": 466,
+              "Elm": 109,
+              "Willow": 166,
+              "Cherry": 257,
+              "Palm": 132,
+              "Ash": 222,
+              "Fir": 158
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Oak",
+              " What",
+              " Answer",
+              " Tree",
+              " �",
+              "<|im_end|>",
+              " (",
+              " Please"
+            ]
+          }
+        },
+        "60": {
+          "tuned": {
+            "source_rank_after": 11,
+            "target_rank_after": 4,
+            "candidate_ranks_after": {
+              "Oak": 11,
+              "Pine": 29,
+              "Maple": 62,
+              "Birch": 32,
+              "Cedar": 565,
+              "Elm": 122,
+              "Willow": 182,
+              "Cherry": 224,
+              "Palm": 4,
+              "Ash": 281,
+              "Fir": 163
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " What",
+              " Palm",
+              " Answer",
+              " �",
+              " Tree",
+              "<|im_end|>",
+              " Please",
+              " Name"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "category": "bird",
+      "prompt": "Think of a bird. Answer in one word.",
+      "source": "Eagle",
+      "target": "Falcon",
+      "source_rank_before": 17,
+      "target_rank_before": 102,
+      "candidate_ranks_before": {
+        "Robin": 18,
+        "Eagle": 17,
+        "Crow": 27,
+        "Owl": 40,
+        "Hawk": 54,
+        "Dove": 87,
+        "Cardinal": 291,
+        "Falcon": 102,
+        "Swan": 297,
+        "Duck": 59,
+        "Goose": 314,
+        "Raven": 83,
+        "Finch": 97
+      },
+      "answer_position": 9,
+      "layers": {
+        "16": {
+          "tuned": {
+            "source_rank_after": 17,
+            "target_rank_after": 100,
+            "candidate_ranks_after": {
+              "Robin": 19,
+              "Eagle": 17,
+              "Crow": 32,
+              "Owl": 39,
+              "Hawk": 48,
+              "Dove": 84,
+              "Cardinal": 278,
+              "Falcon": 100,
+              "Swan": 278,
+              "Duck": 60,
+              "Goose": 313,
+              "Raven": 80,
+              "Finch": 100
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " What",
+              " Answer",
+              "<|im_end|>",
+              " Only",
+              " I",
+              " Please",
+              " Can",
+              " \\n\\n"
+            ]
+          }
+        },
+        "32": {
+          "tuned": {
+            "source_rank_after": 17,
+            "target_rank_after": 100,
+            "candidate_ranks_after": {
+              "Robin": 19,
+              "Eagle": 17,
+              "Crow": 33,
+              "Owl": 42,
+              "Hawk": 50,
+              "Dove": 88,
+              "Cardinal": 297,
+              "Falcon": 100,
+              "Swan": 305,
+              "Duck": 59,
+              "Goose": 319,
+              "Raven": 88,
+              "Finch": 100
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " What",
+              " Answer",
+              "<|im_end|>",
+              " Only",
+              " I",
+              " \\n\\n",
+              " Please",
+              " Can"
+            ]
+          }
+        },
+        "60": {
+          "tuned": {
+            "source_rank_after": 86,
+            "target_rank_after": 16,
+            "candidate_ranks_after": {
+              "Robin": 18,
+              "Eagle": 86,
+              "Crow": 38,
+              "Owl": 41,
+              "Hawk": 63,
+              "Dove": 95,
+              "Cardinal": 267,
+              "Falcon": 16,
+              "Swan": 295,
+              "Duck": 63,
+              "Goose": 305,
+              "Raven": 77,
+              "Finch": 86
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " What",
+              " Answer",
+              "<|im_end|>",
+              " Only",
+              " I",
+              " Can",
+              " Please",
+              " ("
+            ]
+          }
+        }
+      }
+    },
+    {
+      "category": "language",
+      "prompt": "Think of a language. Answer in one word.",
+      "source": "English",
+      "target": "Latin",
+      "source_rank_before": 10,
+      "target_rank_before": 378,
+      "candidate_ranks_before": {
+        "Japanese": 86,
+        "Spanish": 44,
+        "French": 22,
+        "English": 10,
+        "German": 59,
+        "Chinese": 53,
+        "Russian": 70,
+        "Arabic": 59,
+        "Korean": 230,
+        "Italian": 168,
+        "Hindi": 134,
+        "Dutch": 142,
+        "Greek": 308,
+        "Latin": 378
+      },
+      "answer_position": 9,
+      "layers": {
+        "16": {
+          "tuned": {
+            "source_rank_after": 15,
+            "target_rank_after": 385,
+            "candidate_ranks_after": {
+              "Japanese": 99,
+              "Spanish": 72,
+              "French": 29,
+              "English": 15,
+              "German": 84,
+              "Chinese": 60,
+              "Russian": 79,
+              "Arabic": 62,
+              "Korean": 235,
+              "Italian": 223,
+              "Hindi": 143,
+              "Dutch": 165,
+              "Greek": 342,
+              "Latin": 385
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Answer",
+              " Do",
+              " No",
+              " What",
+              " Only",
+              "<|im_end|>",
+              " (",
+              " If"
+            ]
+          }
+        },
+        "32": {
+          "tuned": {
+            "source_rank_after": 13,
+            "target_rank_after": 292,
+            "candidate_ranks_after": {
+              "Japanese": 95,
+              "Spanish": 53,
+              "French": 27,
+              "English": 13,
+              "German": 75,
+              "Chinese": 59,
+              "Russian": 80,
+              "Arabic": 70,
+              "Korean": 273,
+              "Italian": 188,
+              "Hindi": 154,
+              "Dutch": 165,
+              "Greek": 273,
+              "Latin": 292
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Answer",
+              " What",
+              " No",
+              "<|im_end|>",
+              " Do",
+              " Only",
+              " (",
+              " If"
+            ]
+          }
+        },
+        "60": {
+          "tuned": {
+            "source_rank_after": 435,
+            "target_rank_after": 6,
+            "candidate_ranks_after": {
+              "Japanese": 152,
+              "Spanish": 67,
+              "French": 31,
+              "English": 435,
+              "German": 78,
+              "Chinese": 88,
+              "Russian": 92,
+              "Arabic": 54,
+              "Korean": 227,
+              "Italian": 216,
+              "Hindi": 176,
+              "Dutch": 197,
+              "Greek": 182,
+              "Latin": 6
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " (",
+              " Answer",
+              " What",
+              " Latin",
+              " Do",
+              " No",
+              " Only",
+              " Think"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "category": "profession",
+      "prompt": "Think of a profession. Answer in one word.",
+      "source": "Doctor",
+      "target": "Chef",
+      "source_rank_before": 6,
+      "target_rank_before": 21,
+      "candidate_ranks_before": {
+        "Teacher": 11,
+        "Doctor": 6,
+        "Engineer": 88,
+        "Lawyer": 49,
+        "Nurse": 18,
+        "Chef": 21,
+        "Pilot": 39,
+        "Artist": 70,
+        "Writer": 196,
+        "Farmer": 63,
+        "Actor": 63,
+        "Judge": 138
+      },
+      "answer_position": 9,
+      "layers": {
+        "16": {
+          "tuned": {
+            "source_rank_after": 6,
+            "target_rank_after": 27,
+            "candidate_ranks_after": {
+              "Teacher": 9,
+              "Doctor": 6,
+              "Engineer": 91,
+              "Lawyer": 55,
+              "Nurse": 20,
+              "Chef": 27,
+              "Pilot": 44,
+              "Artist": 74,
+              "Writer": 207,
+              "Farmer": 70,
+              "Actor": 67,
+              "Judge": 137
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Answer",
+              " What",
+              " Think",
+              " Doctor",
+              " Do",
+              " No",
+              " Give",
+              " Teacher"
+            ]
+          }
+        },
+        "32": {
+          "tuned": {
+            "source_rank_after": 6,
+            "target_rank_after": 24,
+            "candidate_ranks_after": {
+              "Teacher": 12,
+              "Doctor": 6,
+              "Engineer": 84,
+              "Lawyer": 52,
+              "Nurse": 19,
+              "Chef": 24,
+              "Pilot": 39,
+              "Artist": 79,
+              "Writer": 213,
+              "Farmer": 65,
+              "Actor": 73,
+              "Judge": 155
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Answer",
+              " Think",
+              " What",
+              " Doctor",
+              " Do",
+              " No",
+              " Give",
+              "<|im_end|>"
+            ]
+          }
+        },
+        "60": {
+          "tuned": {
+            "source_rank_after": 73,
+            "target_rank_after": 3,
+            "candidate_ranks_after": {
+              "Teacher": 13,
+              "Doctor": 73,
+              "Engineer": 85,
+              "Lawyer": 60,
+              "Nurse": 20,
+              "Chef": 3,
+              "Pilot": 35,
+              "Artist": 82,
+              "Writer": 200,
+              "Farmer": 60,
+              "Actor": 65,
+              "Judge": 146
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Chef",
+              " Answer",
+              " What",
+              " Think",
+              " Do",
+              " No",
+              " Only",
+              " "
+            ]
+          }
+        }
+      }
+    },
+    {
+      "category": "beverage",
+      "prompt": "Think of a beverage. Answer in one word.",
+      "source": "Coffee",
+      "target": "Rum",
+      "source_rank_before": 7,
+      "target_rank_before": 1091,
+      "candidate_ranks_before": {
+        "Coffee": 7,
+        "Tea": 34,
+        "Water": 9,
+        "Wine": 54,
+        "Beer": 54,
+        "Juice": 30,
+        "Milk": 47,
+        "Soda": 56,
+        "Cola": 94,
+        "Rum": 1091,
+        "Gin": 706
+      },
+      "answer_position": 9,
+      "layers": {
+        "16": {
+          "tuned": {
+            "source_rank_after": 6,
+            "target_rank_after": 1263,
+            "candidate_ranks_after": {
+              "Coffee": 6,
+              "Tea": 31,
+              "Water": 9,
+              "Wine": 54,
+              "Beer": 54,
+              "Juice": 33,
+              "Milk": 50,
+              "Soda": 56,
+              "Cola": 97,
+              "Rum": 1263,
+              "Gin": 762
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Answer",
+              " What",
+              "<|im_end|>",
+              " Coffee",
+              " Think",
+              " (",
+              " Please",
+              " Water"
+            ]
+          }
+        },
+        "32": {
+          "tuned": {
+            "source_rank_after": 7,
+            "target_rank_after": 1064,
+            "candidate_ranks_after": {
+              "Coffee": 7,
+              "Tea": 35,
+              "Water": 10,
+              "Wine": 55,
+              "Beer": 53,
+              "Juice": 30,
+              "Milk": 48,
+              "Soda": 58,
+              "Cola": 89,
+              "Rum": 1064,
+              "Gin": 709
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Answer",
+              " What",
+              "<|im_end|>",
+              " Think",
+              " Coffee",
+              " (",
+              " Please",
+              " I"
+            ]
+          }
+        },
+        "60": {
+          "tuned": {
+            "source_rank_after": 27,
+            "target_rank_after": 7,
+            "candidate_ranks_after": {
+              "Coffee": 27,
+              "Tea": 39,
+              "Water": 8,
+              "Wine": 51,
+              "Beer": 33,
+              "Juice": 22,
+              "Milk": 40,
+              "Soda": 50,
+              "Cola": 90,
+              "Rum": 7,
+              "Gin": 502
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Answer",
+              " What",
+              "<|im_end|>",
+              " Think",
+              " Rum",
+              " Water",
+              " I",
+              " Please"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "category": "organ",
+      "prompt": "Think of a organ. Answer in one word.",
+      "source": "Heart",
+      "target": "Bone",
+      "source_rank_before": 5,
+      "target_rank_before": 380,
+      "candidate_ranks_before": {
+        "Heart": 5,
+        "Brain": 6,
+        "Liver": 11,
+        "Lung": 34,
+        "Skin": 135,
+        "Eye": 87,
+        "Ear": 41,
+        "Bone": 380,
+        "Muscle": 614,
+        "Nose": 32
+      },
+      "answer_position": 9,
+      "layers": {
+        "16": {
+          "tuned": {
+            "source_rank_after": 5,
+            "target_rank_after": 375,
+            "candidate_ranks_after": {
+              "Heart": 5,
+              "Brain": 6,
+              "Liver": 12,
+              "Lung": 36,
+              "Skin": 130,
+              "Eye": 87,
+              "Ear": 41,
+              "Bone": 375,
+              "Muscle": 605,
+              "Nose": 32
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Answer",
+              " What",
+              " Heart",
+              " Brain",
+              " Think",
+              " Please",
+              " \\n",
+              " answer"
+            ]
+          }
+        },
+        "32": {
+          "tuned": {
+            "source_rank_after": 5,
+            "target_rank_after": 318,
+            "candidate_ranks_after": {
+              "Heart": 5,
+              "Brain": 6,
+              "Liver": 13,
+              "Lung": 36,
+              "Skin": 142,
+              "Eye": 88,
+              "Ear": 29,
+              "Bone": 318,
+              "Muscle": 598,
+              "Nose": 23
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Answer",
+              " What",
+              " Heart",
+              " Brain",
+              " Think",
+              " Please",
+              " \\n",
+              " answer"
+            ]
+          }
+        },
+        "60": {
+          "tuned": {
+            "source_rank_after": 56,
+            "target_rank_after": 9,
+            "candidate_ranks_after": {
+              "Heart": 56,
+              "Brain": 6,
+              "Liver": 13,
+              "Lung": 33,
+              "Skin": 111,
+              "Eye": 98,
+              "Ear": 29,
+              "Bone": 9,
+              "Muscle": 507,
+              "Nose": 33
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Answer",
+              " What",
+              " Think",
+              " Brain",
+              " Please",
+              " (",
+              " answer",
+              " Bone"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "category": "city",
+      "prompt": "Think of a city. Answer in one word.",
+      "source": "Paris",
+      "target": "Lima",
+      "source_rank_before": 7,
+      "target_rank_before": 705,
+      "candidate_ranks_before": {
+        "Tokyo": 27,
+        "Paris": 7,
+        "London": 11,
+        "Rome": 75,
+        "Berlin": 45,
+        "Madrid": 73,
+        "Moscow": 27,
+        "Beijing": 82,
+        "Cairo": 157,
+        "Sydney": 157,
+        "Lima": 705,
+        "Dublin": 144,
+        "Athens": 176,
+        "Seoul": 157
+      },
+      "answer_position": 9,
+      "layers": {
+        "16": {
+          "tuned": {
+            "source_rank_after": 8,
+            "target_rank_after": 713,
+            "candidate_ranks_after": {
+              "Tokyo": 25,
+              "Paris": 8,
+              "London": 11,
+              "Rome": 71,
+              "Berlin": 44,
+              "Madrid": 76,
+              "Moscow": 25,
+              "Beijing": 84,
+              "Cairo": 158,
+              "Sydney": 166,
+              "Lima": 713,
+              "Dublin": 149,
+              "Athens": 173,
+              "Seoul": 158
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Answer",
+              "<|im_end|>",
+              " What",
+              " Only",
+              " New",
+              " Paris",
+              " Think",
+              " No"
+            ]
+          }
+        },
+        "32": {
+          "tuned": {
+            "source_rank_after": 8,
+            "target_rank_after": 630,
+            "candidate_ranks_after": {
+              "Tokyo": 24,
+              "Paris": 8,
+              "London": 10,
+              "Rome": 69,
+              "Berlin": 41,
+              "Madrid": 72,
+              "Moscow": 24,
+              "Beijing": 78,
+              "Cairo": 146,
+              "Sydney": 159,
+              "Lima": 630,
+              "Dublin": 132,
+              "Athens": 171,
+              "Seoul": 155
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Answer",
+              "<|im_end|>",
+              " What",
+              " Only",
+              " New",
+              " Paris",
+              " Think",
+              " London"
+            ]
+          }
+        },
+        "60": {
+          "tuned": {
+            "source_rank_after": 130,
+            "target_rank_after": 4,
+            "candidate_ranks_after": {
+              "Tokyo": 62,
+              "Paris": 130,
+              "London": 19,
+              "Rome": 75,
+              "Berlin": 72,
+              "Madrid": 87,
+              "Moscow": 42,
+              "Beijing": 108,
+              "Cairo": 172,
+              "Sydney": 172,
+              "Lima": 4,
+              "Dublin": 156,
+              "Athens": 178,
+              "Seoul": 199
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " Answer",
+              " Lima",
+              "<|im_end|>",
+              " Only",
+              " What",
+              " (",
+              " Think",
+              " No"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "category": "river",
+      "prompt": "Think of a river. Answer in one word.",
+      "source": "Nile",
+      "target": "Thames",
+      "source_rank_before": 34,
+      "target_rank_before": 346,
+      "candidate_ranks_before": {
+        "Amazon": 205,
+        "Nile": 34,
+        "Thames": 346,
+        "Seine": 1541,
+        "Congo": 3696,
+        "Jordan": 2639,
+        "Ohio": 1222,
+        "Mississippi": 87
+      },
+      "answer_position": 9,
+      "layers": {
+        "16": {
+          "tuned": {
+            "source_rank_after": 30,
+            "target_rank_after": 286,
+            "candidate_ranks_after": {
+              "Amazon": 153,
+              "Nile": 30,
+              "Thames": 286,
+              "Seine": 1384,
+              "Congo": 3038,
+              "Jordan": 2485,
+              "Ohio": 1024,
+              "Mississippi": 65
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " What",
+              "<|im_end|>",
+              " Answer",
+              " Water",
+              " Think",
+              " what",
+              " Nature",
+              " ("
+            ]
+          }
+        },
+        "32": {
+          "tuned": {
+            "source_rank_after": 32,
+            "target_rank_after": 381,
+            "candidate_ranks_after": {
+              "Amazon": 207,
+              "Nile": 32,
+              "Thames": 381,
+              "Seine": 1594,
+              "Congo": 3606,
+              "Jordan": 2612,
+              "Ohio": 1232,
+              "Mississippi": 85
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " What",
+              "<|im_end|>",
+              " Answer",
+              " Water",
+              " Think",
+              " what",
+              " Nature",
+              " ("
+            ]
+          }
+        },
+        "60": {
+          "tuned": {
+            "source_rank_after": 390,
+            "target_rank_after": 42,
+            "candidate_ranks_after": {
+              "Amazon": 210,
+              "Nile": 390,
+              "Thames": 42,
+              "Seine": 1414,
+              "Congo": 4643,
+              "Jordan": 3844,
+              "Ohio": 1414,
+              "Mississippi": 147
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " What",
+              "<|im_end|>",
+              " Answer",
+              " Water",
+              " Think",
+              " what",
+              " Nature",
+              " \\n\\n"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "aggregate": [
+    [
+      "tuned",
+      42,
+      24,
+      3.5,
+      83.4,
+      0,
+      7
+    ]
+  ]
+}

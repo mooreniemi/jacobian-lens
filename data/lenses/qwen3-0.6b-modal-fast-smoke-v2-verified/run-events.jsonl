@@ -1,0 +1,5 @@
+{"elapsed_s": 0.274, "event": "preflight", "free_gib": 78.424, "model": "Qwen/Qwen3-0.6B", "time": "2026-07-14T05:08:47+0000", "total_gib": 79.251}
+{"device": "NVIDIA A100-SXM4-80GB", "elapsed_s": 10.365, "event": "model_loaded", "free_gib": 77.328, "time": "2026-07-14T05:08:57+0000"}
+{"chunks": 1, "d_model": 1024, "elapsed_s": 13.687, "event": "fit_ready", "layers": 28, "lens_params": 184972288, "time": "2026-07-14T05:09:00+0000"}
+{"allocated_gib": 1.077, "elapsed_s": 15.399, "event": "step", "free_gib": 77.182, "mean_kl": 10.401793, "reserved_gib": 1.143, "step": 1, "step_seconds": 1.708, "steps": 1, "time": "2026-07-14T05:09:02+0000"}
+{"elapsed_s": 16.074, "event": "complete", "output": "/outputs/.qwen3-0.6b-modal-fast-smoke-v2.partial", "peak_allocated_gib": 1.132, "peak_reserved_gib": 1.143, "time": "2026-07-14T05:09:03+0000"}

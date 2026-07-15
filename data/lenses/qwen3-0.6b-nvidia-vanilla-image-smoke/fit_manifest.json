@@ -1,0 +1,21 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "model_path_used": "/models/qwen3-0.6b",
+  "model_revision": null,
+  "torch_version": "2.13.0a0+8145d630e8.nv26.06",
+  "transformers_version": "5.13.1",
+  "bitsandbytes_version": null,
+  "tuned_lens_version": "0.2.0",
+  "dataset": "Salesforce/wikitext/wikitext-2-raw-v1",
+  "split": "train",
+  "max_length": 32,
+  "max_chunks": 1,
+  "steps": 1,
+  "lr": 0.001,
+  "seed": 42,
+  "load_in_4bit": false,
+  "objective": "per-layer KL to frozen final logits",
+  "tuned_lens_compat": "Qwen3-family final norm dispatch patched locally",
+  "cuda_peak_allocated_gib": 1.738,
+  "cuda_peak_reserved_gib": 1.758
+}

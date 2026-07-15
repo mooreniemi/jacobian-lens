@@ -1,0 +1,44 @@
+{
+  "sources": {
+    "proofwriter": {
+      "dataset": "tasksource/proofwriter",
+      "paper": "https://aclanthology.org/2021.findings-acl.317/",
+      "dataset_card": "https://huggingface.co/datasets/tasksource/proofwriter"
+    },
+    "folio": {
+      "dataset": "tasksource/folio",
+      "paper": "https://arxiv.org/abs/2209.00840",
+      "dataset_card": "https://huggingface.co/datasets/tasksource/folio"
+    }
+  },
+  "datasets": {
+    "proofwriter": {
+      "train": {
+        "rows_seen": 585552,
+        "conjunction_candidates_saved": 5000
+      },
+      "validation": {
+        "rows_seen": 85468,
+        "conjunction_candidates_saved": 5000
+      },
+      "test": {
+        "rows_seen": 174476,
+        "conjunction_candidates_saved": 5000
+      }
+    },
+    "folio": {
+      "train": {
+        "rows_seen": 1001,
+        "conjunction_candidates_saved": 895
+      },
+      "validation": {
+        "rows_seen": 203,
+        "conjunction_candidates_saved": 189
+      }
+    }
+  },
+  "outputs": {
+    "proofwriter_candidates": 15000,
+    "folio_candidates": 1084
+  }
+}

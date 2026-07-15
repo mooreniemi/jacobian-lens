@@ -89,6 +89,16 @@ Reading a slice page:
 
 ## License and data
 
+## Research extension
+
+This checkout also contains a documented local research extension covering
+causal evaluations, tuned-lens Pile reproduction, conjunction experiments,
+and a proposed second-order H-lens study. Start with the
+[`research log`](docs/RESEARCH_LOG.md) and
+[`repository/fork guide`](docs/REPOSITORY_GUIDE.md). Run `make report` to
+refresh the browser-facing HTML from the Markdown documentation and compact
+JSON artifacts.
+
 Code is released under the Apache License 2.0 — see [LICENSE](LICENSE).
 
 The replication and lens-eval prompt sets in [`data/`](data/) are synthetic,

@@ -1,0 +1,21 @@
+{
+  "retrieved_at": "2026-07-14",
+  "source": "modal billing report --for today --json",
+  "currency": "USD",
+  "successful_runs": [
+    {
+      "run": "Fit",
+      "app_id": "ap-snTfK7M83nxfrRktoZE10K",
+      "cost": 0.24579145
+    },
+    {
+      "run": "Causal evaluation",
+      "app_id": "ap-rA96vrmDrqJZUPQVUUqQG7",
+      "cost": 0.50705558
+    }
+  ],
+  "successful_runs_total": 0.75284703,
+  "workspace_today_total": 1.9378896,
+  "workspace_today_entries": 23,
+  "note": "This is the billed usage returned for the two successful app IDs, not the conservative runner ceilings. The full same-day workspace billing report contained 23 entries totaling $1.9379, including failed/aborted attempts and shell usage."
+}

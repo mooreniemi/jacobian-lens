@@ -6,6 +6,12 @@ Prompt sets for the global-workspace experiments. Each `{slug}.json` is prompts 
 
 Unless a section says otherwise:
 
+- **Precision provenance** — every causal result should record `precision.compute_dtype`
+  and `precision.base_quantization` in its JSON. For example, `BF16` compute
+  with an `NF4` 4-bit frozen base is not the same run as an unquantized BF16
+  base. A missing field means the historical result is not precision-complete;
+  it must not be silently treated as BF16 or FP32.
+
 - **Lens readout** — at each (layer, token position) the Jacobian lens
   returns a ranked list of vocabulary tokens.
 - **Workspace band** — the contiguous mid-network layer range where
@@ -24,6 +30,36 @@ Unless a section says otherwise:
 [`probe-swap.json`](probe-swap.json)
 
 90 two-hop factual prompts. `items[*].prompt` ends just before the answer; `intermediate` is the bridge entity, `swap_to` the replacement. Baseline: greedy next-token == `answer`. Swap: replace the `intermediate` representation (linear-probe direction) with `swap_to` across the band at every prompt token position; score next-token at the final position == `swap_answer`. `category` groups items by relation type for the per-category breakdown.
+
+## conjunction-swap
+
+[Detailed experiment document](../../docs/experiments/CONJUNCTION_SWAP.md)
+
+[`conjunction-swap.json`](conjunction-swap.json)
+
+A controlled conjunction experiment. Each item supplies two conjuncts, a
+conjunction prompt, and a candidate swap for the first conjunct. The intended
+conditions are: single conjunct A, single conjunct B, A AND B, A-swapped AND B,
+A AND B-swapped, and both conjuncts swapped. Read out both conjunct spans and
+the later answer position across the layer band. The key comparison is whether
+a single-conjunct swap composes with the untouched conjunct or instead moves a
+bound conjunction-level representation.
+
+The first fixture is a 12-item seed set; expand it only after checking the
+model's greedy answers and tokenization for every condition.
+
+The observational evaluator is [`scripts/eval_conjunction_swap.py`](../../scripts/eval_conjunction_swap.py). It records final model predictions and layer-by-position J-lens top-k readouts; causal activation swapping is the next stage.
+
+
+### Expected outcomes and interpretation
+
+The experiment is designed to distinguish three possibilities:
+
+1. **Compositional:** swapping A changes the A-related intermediate representation while B remains stable; the answer changes as predicted by A's replacement. Swapping B should behave analogously.
+2. **Bound conjunction:** the conjunction creates a representation that is not reducible to two independent conjuncts. A single-conjunct swap may have a weaker, displaced, or qualitatively different effect than the corresponding single-conjunct condition.
+3. **Entangled or failure case:** a swap changes unrelated positions, both swaps do not combine predictably, or the model's answer changes without the expected lens readout moving. This may indicate binding elsewhere, prompt ambiguity, or an invalid causal intervention.
+
+The first smoke test prints the model's top answer for all six conditions and reports whether each swap changes the top-1 answer relative to `both`. This is a diagnostic, not evidence of composition: the prompts must first have reliable greedy answers, and the causal vector-substitution stage must be run before drawing conclusions about representation.
 
 ## verbal-introspection
 

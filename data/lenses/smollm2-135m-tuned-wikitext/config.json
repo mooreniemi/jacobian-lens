@@ -1,0 +1,1 @@
+{"base_model_name_or_path": "/home/alex/models/smollm2-135m-instruct", "d_model": 576, "num_hidden_layers": 30, "bias": true, "base_model_revision": null, "unembed_hash": "cd5e312167eeefce48b7418b61b54d4ef9e215be5de92d060570305631df3ed9", "lens_type": "linear_tuned_lens"}

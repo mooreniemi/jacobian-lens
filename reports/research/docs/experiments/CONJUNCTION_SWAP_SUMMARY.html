@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conjunction swap experiment: summary · J-Lens research report</title>
+<style>
+:root { --paper:#fff; --wash:#f3f1ec; --ink:#222; --muted:#666; --rule:#b8b5ae; --accent:#174a73; }
+* { box-sizing:border-box; } body { margin:0; background:var(--wash); color:var(--ink); font:16px/1.58 Georgia,'Times New Roman',serif; }
+main { max-width:1120px; margin:2rem auto; padding:3.5rem 4.5rem; background:var(--paper); border:1px solid #d7d3ca; box-shadow:0 1px 8px #00000012; }
+h1,h2,h3,table,nav,footer { font-family:Arial,Helvetica,sans-serif; } h1 { font:700 2.2rem/1.15 Georgia,serif; } h2 { margin-top:2.2rem; border-bottom:1px solid var(--rule); padding-bottom:.25rem; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; } nav { margin-bottom:2rem; }
+table { border-collapse:collapse; width:100%; margin:1rem 0 1.5rem; font-size:.86rem; } th,td { border-bottom:1px solid #d6d3cc; padding:.4rem .5rem; text-align:left; vertical-align:top; } th { border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+pre { overflow:auto; padding:1rem; background:#f5f4f0; border:1px solid #dedbd3; } code { font:.88em/1.35 'SFMono-Regular',Consolas,monospace; } blockquote { border-left:3px solid var(--accent); margin-left:0; padding-left:1rem; color:var(--muted); }
+img { max-width:100%; } footer { margin-top:3rem; padding-top:1rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.8rem; }
+@media (max-width:760px) { main { margin:0; padding:2rem 1.2rem; } table { display:block; overflow-x:auto; } }
+</style></head><body><main>
+<nav><a href="../index.html">← Research report</a> · <a href="index.html">Documentation index</a></nav>
+<article><h1>Conjunction swap experiment: summary</h1>
+<p>This is the short research brief. The full protocol is in <a href="CONJUNCTION_SWAP.html"><code>CONJUNCTION_SWAP.md</code></a>, and the preregistration draft is in <a href="CONJUNCTION_SWAP_PREREGISTRATION.html"><code>CONJUNCTION_SWAP_PREREGISTRATION.md</code></a>.</p>
+<h2>The main claim, result, or open problem you want to build on</h2>
+<p>We want to determine whether a model represents conjunctions compositionally—as separable conjunct representations—or binds them into a distinct conjunction-level representation.</p>
+<p>The smoke test showed that the pipeline works. In the France example, swapping <code>has the Eiffel Tower</code> to <code>has the Colosseum</code> changed the answer from Paris to Rome. This is not yet evidence about representation because the earlier seed set had weak B-swaps and ambiguous prompts; the fixture has now been repaired and passes strict structural validation.</p>
+<h2>A crisp research question or hypothesis</h2>
+<p>When a model processes <code>the entity that satisfies property A and property B</code>, does changing A primarily affect A's representation while leaving B stable, or does it alter a bound conjunction-level representation?</p>
+<ul>
+<li>Compositional hypothesis: A and B can be changed independently, and their combined effects approximately compose.</li>
+<li>Binding hypothesis: changing one conjunct affects later or conjunction-level representations, changes the untouched conjunct, or produces non-compositional interactions.</li>
+<li>Null hypothesis: valid causal interventions produce no reliable lens or behavioral effect.</li>
+</ul>
+<h2>A concrete experimental plan</h2>
+<ol>
+<li>Validate prompts where A and B identify the same baseline entity and replacements identify known alternatives.</li>
+<li>Evaluate A alone, B alone, A and B, A-swapped, B-swapped, and both-swapped conditions.</li>
+<li>Measure baseline answers, answer margins, observational J-lens readouts, and causal J-lens-vector substitutions.</li>
+<li>Compare against sham interventions, type-matched and cross-type scrambling controls, position controls, intervention strengths, paraphrases, and held-out prompts.</li>
+<li>Estimate uncertainty and detectable effect sizes with paired bootstrap intervals and pilot-based simulation.</li>
+<li>Aggregate across valid items rather than interpreting individual prompts.</li>
+</ol>
+<h2>What evidence would make the project succeed, fail, or change your mind</h2>
+<p>The compositional hypothesis succeeds if A and B swaps produce localized, predictable effects and double swaps approximately combine the single-swap effects. The binding hypothesis gains support if swaps reliably affect later conjunction/workspace positions, alter the untouched conjunct, or produce nonlinear interactions that causal controls reproduce. The project fails to support either claim if valid interventions produce no reliable lens or behavioral effects, or if results disappear under prompt and measurement controls. A surprising answer alone is not sufficient evidence.</p>
+<h2>Follow-on Boolean-rule extension</h2>
+<p>The next extension is a separate, randomized factorial dataset with opaque
+properties and known AND, OR, XOR, implication, and NOT rules. It tests all
+truth-table rows, operand swaps, connective swaps, and matched random controls,
+so neither conjunct accidentally determines the answer by itself. The primary
+interaction statistic is the difference-in-differences across the four rows.</p>
+<p>For each item we can compare the generated rule, model behavior, held-out
+probes/J-lens readouts, causal counterfactuals, and the model's own report of
+which facts and connective it used. The full design and falsifiers are in
+section 9 of <a href="CONJUNCTION_SWAP.html"><code>CONJUNCTION_SWAP.md</code></a>. This follow-on
+should remain separate from the current natural-fact pilot and be
+preregistered as its own dataset.</p>
+</article>
+<footer>Rendered from <code>experiments/CONJUNCTION_SWAP_SUMMARY.md</code> by <code>scripts/generate_research_report.py</code>.</footer>
+</main></body></html>

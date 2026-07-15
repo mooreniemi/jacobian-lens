@@ -1,0 +1,13 @@
+{
+  "artifact_name": "tuned-wiki-small-v0",
+  "model": "Qwen/Qwen3.5-0.8B",
+  "dataset": "Salesforce/wikitext/wikitext-2-raw-v1",
+  "split": "train",
+  "max_length": 128,
+  "max_chunks": 256,
+  "steps": 100,
+  "lr": 0.001,
+  "seed": 42,
+  "objective": "per-layer KL to frozen final logits",
+  "tuned_lens_compat": "Qwen3-family final norm dispatch patched locally"
+}

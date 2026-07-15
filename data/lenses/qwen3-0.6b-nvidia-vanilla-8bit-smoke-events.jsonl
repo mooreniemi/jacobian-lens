@@ -1,0 +1,6 @@
+{"elapsed_s": 0.099, "event": "preflight", "free_gib": 23.236, "model": "Qwen/Qwen3-0.6B", "time": "2026-07-14T04:28:33+0000", "total_gib": 23.526}
+{"elapsed_s": 0.098, "event": "preflight", "free_gib": 23.236, "model": "Qwen/Qwen3-0.6B", "time": "2026-07-14T04:30:36+0000", "total_gib": 23.526}
+{"device": "NVIDIA GeForce RTX 3090", "elapsed_s": 1.982, "event": "model_loaded", "free_gib": 21.999, "time": "2026-07-14T04:30:38+0000"}
+{"chunks": 1, "d_model": 1024, "elapsed_s": 5.421, "event": "fit_ready", "layers": 28, "lens_params": 184972288, "time": "2026-07-14T04:30:42+0000"}
+{"allocated_gib": 1.306, "elapsed_s": 5.829, "event": "step", "free_gib": 21.784, "mean_kl": 10.689473, "reserved_gib": 1.377, "step": 1, "step_seconds": 0.408, "steps": 1, "time": "2026-07-14T04:30:42+0000"}
+{"elapsed_s": 6.022, "event": "complete", "output": "/workspace/data/lenses/qwen3-0.6b-nvidia-vanilla-8bit-smoke", "peak_allocated_gib": 1.361, "peak_reserved_gib": 1.377, "time": "2026-07-14T04:30:42+0000"}

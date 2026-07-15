@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hypothesis–Test–Evidence Traceability Matrix · J-Lens research report</title>
+<style>
+:root { --paper:#fff; --wash:#f3f1ec; --ink:#222; --muted:#666; --rule:#b8b5ae; --accent:#174a73; }
+* { box-sizing:border-box; } body { margin:0; background:var(--wash); color:var(--ink); font:16px/1.58 Georgia,'Times New Roman',serif; }
+main { max-width:1120px; margin:2rem auto; padding:3.5rem 4.5rem; background:var(--paper); border:1px solid #d7d3ca; box-shadow:0 1px 8px #00000012; }
+h1,h2,h3,table,nav,footer { font-family:Arial,Helvetica,sans-serif; } h1 { font:700 2.2rem/1.15 Georgia,serif; } h2 { margin-top:2.2rem; border-bottom:1px solid var(--rule); padding-bottom:.25rem; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; } nav { margin-bottom:2rem; }
+table { border-collapse:collapse; width:100%; margin:1rem 0 1.5rem; font-size:.86rem; } th,td { border-bottom:1px solid #d6d3cc; padding:.4rem .5rem; text-align:left; vertical-align:top; } th { border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+pre { overflow:auto; padding:1rem; background:#f5f4f0; border:1px solid #dedbd3; } code { font:.88em/1.35 'SFMono-Regular',Consolas,monospace; } blockquote { border-left:3px solid var(--accent); margin-left:0; padding-left:1rem; color:var(--muted); }
+img { max-width:100%; } footer { margin-top:3rem; padding-top:1rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.8rem; }
+@media (max-width:760px) { main { margin:0; padding:2rem 1.2rem; } table { display:block; overflow-x:auto; } }
+</style></head><body><main>
+<nav><a href="../index.html">← Research report</a> · <a href="index.html">Documentation index</a></nav>
+<article><h1>Hypothesis–Test–Evidence Traceability Matrix</h1>
+<p>This matrix records which Anthropic-style measurement tests address each
+hypothesis, what outcome is measured, and the current evidence status. A
+<code>partial</code> or <code>TODO</code> cell is intentional: it means the experiment has not yet
+been run or does not yet support the claim.</p>
+<table>
+<thead>
+<tr>
+  <th>Hypothesis</th>
+  <th>Verbal report</th>
+  <th>Two-hop reasoning</th>
+  <th>Flexible generalization</th>
+  <th>Directed modulation</th>
+  <th>Selectivity</th>
+  <th>J-space specificity</th>
+  <th>Lens comparison</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>H1: representations are verbally reportable</td>
+  <td><strong>complete</strong> — 27B, 4B, 0.8B, 0.6B, and Smol J/logit/random swaps</td>
+  <td>supporting test, not primary</td>
+  <td>supporting test, not primary</td>
+  <td>TODO — no modulation protocol</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>partial — tuned complete for four smaller rows; 27B pending</td>
+</tr>
+<tr>
+  <td>H2: representations are load-bearing for internal reasoning</td>
+  <td>secondary</td>
+  <td><strong>complete</strong> — 27B, 4B, 0.8B, 0.6B, and Smol two-hop swaps</td>
+  <td>supporting test</td>
+  <td>TODO — no directed intervention protocol</td>
+  <td>supporting test</td>
+  <td>partial — no probe decomposition</td>
+  <td>partial — tuned complete for four smaller rows; 27B pending</td>
+</tr>
+<tr>
+  <td>H3: representations generalize across downstream functions</td>
+  <td>secondary</td>
+  <td>secondary</td>
+  <td><strong>complete</strong> — 27B, 4B, 0.8B, 0.6B, and Smol function swaps</td>
+  <td>TODO — no modulation protocol</td>
+  <td>N/A</td>
+  <td>TODO — no independent probe split</td>
+  <td>partial — tuned complete for four smaller rows; 27B pending</td>
+</tr>
+<tr>
+  <td>H4: workspace contents are top-down modulated</td>
+  <td>TODO — verbal report is not a modulation test</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>TODO — focus/suppress/control runner absent</td>
+  <td>N/A</td>
+  <td>TODO — causal modulation readout absent</td>
+  <td>TODO — no predictive-lens modulation baseline</td>
+</tr>
+<tr>
+  <td>H5: workspace is selective rather than required for routine processing</td>
+  <td>N/A</td>
+  <td>partial — reasoning effects measured, no ablation/control battery</td>
+  <td>N/A</td>
+  <td>TODO — no ablation protocol</td>
+  <td>TODO — routine-vs-reasoning task pair absent</td>
+  <td>TODO — no selective ablation measurement</td>
+  <td>partial — random controls only</td>
+</tr>
+<tr>
+  <td>H6: J-space is a privileged causal subspace</td>
+  <td>supporting test</td>
+  <td>partial — 27B, 4B, 0.8B, 0.6B, and Smol J vs logit/random</td>
+  <td>partial — 27B, 4B, 0.8B, 0.6B, and Smol J vs logit/random</td>
+  <td>TODO — directed modulation not run</td>
+  <td>TODO — no selectivity controls</td>
+  <td>TODO — J/non-J probe split absent</td>
+  <td>partial — tuned comparisons complete for four smaller rows; 27B pending</td>
+</tr>
+<tr>
+  <td>H7: J-lens exposes intermediates better than predictive lenses</td>
+  <td>partial — causal rank outcomes</td>
+  <td>partial — causal and readout evidence</td>
+  <td>partial — causal outcomes</td>
+  <td>TODO — no modulation readout</td>
+  <td>TODO — no selectivity readout</td>
+  <td>TODO — no probe decomposition</td>
+  <td><strong>partial</strong> — logit comparisons complete for all five rows; tuned comparisons complete for four smaller rows; 27B pending</td>
+</tr>
+</tbody>
+</table>
+<h2>Measurement definitions</h2>
+<ul>
+<li><strong>Verbal report:</strong> target concept rank/top-1/top-5 after a concept swap.</li>
+<li><strong>Two-hop reasoning:</strong> downstream answer rank/top-1/top-5 after swapping an
+inferred intermediate.</li>
+<li><strong>Flexible generalization:</strong> whether a swapped argument produces the correct
+answer across multiple functions.</li>
+<li><strong>Directed modulation:</strong> target lens hit rate under focus/suppress/control
+instructions on unrelated carrier text.</li>
+<li><strong>Selectivity:</strong> degradation of reasoning versus routine continuation under
+J-space ablation and matched controls.</li>
+<li><strong>J-space specificity:</strong> causal effect of independently fitted concept-probe
+J-space versus non-J-space components, including clean-coordinate clamping.</li>
+<li><strong>Lens comparison:</strong> intermediate pass@k, ablation KL, and causal swap
+success for J-lens, logit lens, tuned lens, and controls.</li>
+</ul>
+<p>The completed evidence is linked from the per-experiment logs and MLflow
+artifacts; this matrix is a coverage map, not a substitute for those results.</p>
+</article>
+<footer>Rendered from <code>HYPOTHESIS_TEST_MATRIX.md</code> by <code>scripts/generate_research_report.py</code>.</footer>
+</main></body></html>

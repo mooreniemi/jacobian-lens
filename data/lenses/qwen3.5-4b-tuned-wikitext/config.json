@@ -1,0 +1,1 @@
+{"base_model_name_or_path": "Qwen/Qwen3.5-4B", "d_model": 2560, "num_hidden_layers": 32, "bias": true, "base_model_revision": null, "unembed_hash": "453d98e20b5e920f8a16ca7b8b9848ab41ddb82e8237949d9ba94646f14efd3f", "lens_type": "linear_tuned_lens"}

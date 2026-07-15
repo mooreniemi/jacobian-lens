@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Local experiment tracking · J-Lens research report</title>
+<style>
+:root { --paper:#fff; --wash:#f3f1ec; --ink:#222; --muted:#666; --rule:#b8b5ae; --accent:#174a73; }
+* { box-sizing:border-box; } body { margin:0; background:var(--wash); color:var(--ink); font:16px/1.58 Georgia,'Times New Roman',serif; }
+main { max-width:1120px; margin:2rem auto; padding:3.5rem 4.5rem; background:var(--paper); border:1px solid #d7d3ca; box-shadow:0 1px 8px #00000012; }
+h1,h2,h3,table,nav,footer { font-family:Arial,Helvetica,sans-serif; } h1 { font:700 2.2rem/1.15 Georgia,serif; } h2 { margin-top:2.2rem; border-bottom:1px solid var(--rule); padding-bottom:.25rem; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; } nav { margin-bottom:2rem; }
+table { border-collapse:collapse; width:100%; margin:1rem 0 1.5rem; font-size:.86rem; } th,td { border-bottom:1px solid #d6d3cc; padding:.4rem .5rem; text-align:left; vertical-align:top; } th { border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+pre { overflow:auto; padding:1rem; background:#f5f4f0; border:1px solid #dedbd3; } code { font:.88em/1.35 'SFMono-Regular',Consolas,monospace; } blockquote { border-left:3px solid var(--accent); margin-left:0; padding-left:1rem; color:var(--muted); }
+img { max-width:100%; } footer { margin-top:3rem; padding-top:1rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.8rem; }
+@media (max-width:760px) { main { margin:0; padding:2rem 1.2rem; } table { display:block; overflow-x:auto; } }
+</style></head><body><main>
+<nav><a href="../index.html">← Research report</a> · <a href="index.html">Documentation index</a></nav>
+<article><h1>Local experiment tracking</h1>
+<p>We use MLflow locally for run metadata and result artifacts. It is free,
+works without an account, and keeps the experiment database on this machine.
+The JSON files remain the canonical, reviewable outputs; MLflow is an index and
+comparison view rather than the source of truth.</p>
+<p>Install the optional dependency:</p>
+<pre><code class="language-bash">uv sync --extra tracking
+</code></pre>
+<p>Log a completed run:</p>
+<pre><code class="language-bash">uv run --extra tracking python scripts/log_experiment_mlflow.py \
+  --result data/experiments/multihop-causal-methods-full90.json \
+  --experiment anthropic-causal-reproduction
+</code></pre>
+<p>This creates <code>mlflow.db</code> and local artifact storage. Start the UI when useful:</p>
+<pre><code class="language-bash">uv run --extra tracking mlflow ui --backend-store-uri sqlite:///mlflow.db \
+  --host 127.0.0.1 --port 5000
+</code></pre>
+<p>The UI can then be reached through the existing SSH port-forwarding workflow.
+Do not commit <code>mlflow.db</code> or MLflow artifact directories; they are local
+runtime state.</p>
+<p>Tuned-lens remains a separate model-specific fitting treatment. The optional
+<code>tuned</code> dependency provides the reference affine-translator implementation;
+there are still no compatible released Qwen3.5/Qwen3/Qwen3.6 tuned-lens
+checkpoints. The existing locally fitted Wikitext artifacts are now labelled
+<code>tuned-wiki-small-v0</code>; they are pilot/sanity-check artifacts, not the strong
+reproduction. The staged Pile validation/test track is specified in
+<a href="TUNED_LENS_REPRODUCTION.html"><code>TUNED_LENS_REPRODUCTION.md</code></a>.</p>
+</article>
+<footer>Rendered from <code>EXPERIMENT_TRACKING.md</code> by <code>scripts/generate_research_report.py</code>.</footer>
+</main></body></html>

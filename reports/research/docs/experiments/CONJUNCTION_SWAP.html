@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conjunction swap experiment · J-Lens research report</title>
+<style>
+:root { --paper:#fff; --wash:#f3f1ec; --ink:#222; --muted:#666; --rule:#b8b5ae; --accent:#174a73; }
+* { box-sizing:border-box; } body { margin:0; background:var(--wash); color:var(--ink); font:16px/1.58 Georgia,'Times New Roman',serif; }
+main { max-width:1120px; margin:2rem auto; padding:3.5rem 4.5rem; background:var(--paper); border:1px solid #d7d3ca; box-shadow:0 1px 8px #00000012; }
+h1,h2,h3,table,nav,footer { font-family:Arial,Helvetica,sans-serif; } h1 { font:700 2.2rem/1.15 Georgia,serif; } h2 { margin-top:2.2rem; border-bottom:1px solid var(--rule); padding-bottom:.25rem; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; } nav { margin-bottom:2rem; }
+table { border-collapse:collapse; width:100%; margin:1rem 0 1.5rem; font-size:.86rem; } th,td { border-bottom:1px solid #d6d3cc; padding:.4rem .5rem; text-align:left; vertical-align:top; } th { border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+pre { overflow:auto; padding:1rem; background:#f5f4f0; border:1px solid #dedbd3; } code { font:.88em/1.35 'SFMono-Regular',Consolas,monospace; } blockquote { border-left:3px solid var(--accent); margin-left:0; padding-left:1rem; color:var(--muted); }
+img { max-width:100%; } footer { margin-top:3rem; padding-top:1rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.8rem; }
+@media (max-width:760px) { main { margin:0; padding:2rem 1.2rem; } table { display:block; overflow-x:auto; } }
+</style></head><body><main>
+<nav><a href="../index.html">← Research report</a> · <a href="index.html">Documentation index</a></nav>
+<article><h1>Conjunction swap experiment</h1>
+<p>Status: design and smoke-test stage<br />
+Summary: <a href="CONJUNCTION_SWAP_SUMMARY.html"><code>CONJUNCTION_SWAP_SUMMARY.md</code></a><br />
+Preregistration draft: <a href="CONJUNCTION_SWAP_PREREGISTRATION.html"><code>CONJUNCTION_SWAP_PREREGISTRATION.md</code></a><br />
+Experiment log: <a href="CONJUNCTION_SWAP_LOG.html"><code>CONJUNCTION_SWAP_LOG.md</code></a><br />
+Last updated: 2026-07-12<br />
+Dataset: <a href="../../data/experiments/conjunction-swap.json"><code>data/experiments/conjunction-swap.json</code></a><br />
+Runner: <a href="../../scripts/eval_conjunction_swap.py"><code>scripts/eval_conjunction_swap.py</code></a><br />
+Results: <a href="../../data/experiments/conjunction-swap-results.json"><code>data/experiments/conjunction-swap-results.json</code></a></p>
+<h2>1. Research question</h2>
+<p>When a model reads a phrase of the form:</p>
+<blockquote>
+<p>the animal that satisfies property A <strong>and</strong> property B</p>
+</blockquote>
+<p>does it maintain separable representations of A and B, or does it form a conjunction-level representation that binds the two properties together somewhere else in the network?</p>
+<p>This is a representation-and-causality question, not merely a question about whether the model can answer a factual prompt. The experiment therefore compares both model behavior and Jacobian-lens readouts, and ultimately requires a causal activation intervention.</p>
+<h2>2. Hypotheses</h2>
+<h3>H1: compositional conjunct representation</h3>
+<p>The model represents the two conjuncts sufficiently independently that changing A primarily changes the A-related representation, while B remains comparatively stable. Changing B has the analogous effect. The answer should shift in the direction implied by the changed conjunct when the modified conjunction remains interpretable.</p>
+<p>A stronger version of H1 predicts approximate compositionality: the representation and answer effect of changing both conjuncts should be approximately predictable from the two single-conjunct changes.</p>
+<h3>H2: bound conjunction representation</h3>
+<p>The model forms a conjunction-level representation that is not reducible to two independent conjunct representations. A single-conjunct change may therefore alter a later workspace position, change the representation of the untouched conjunct, produce a nonlinear answer effect, or fail to combine predictably with the other single-conjunct change.</p>
+<p>H2 is not established merely by observing a surprising answer. It requires a reproducible, localized causal effect that cannot be explained by prompt ambiguity, invalid swaps, tokenization, lens error, or ordinary model uncertainty.</p>
+<h3>H3: no detectable conjunct-level effect</h3>
+<p>The intervention has no reliable effect in the measured representation or behavior. This is a genuine null only if the prompt is valid, the lens has adequate sensitivity, the intervention reaches the intended positions and layers, and the model has enough answer margin for a change to be observable.</p>
+<p>A null result does <strong>not</strong> prove that conjunctions are absent from the model. It may mean that the representation is elsewhere, the lens does not recover it, or the causal intervention is too weak or misplaced.</p>
+<h2>3. Concrete example</h2>
+<p>A clean conceptual example is:</p>
+<pre><code class="language-text">The number of legs on the animal that spins webs and has eight legs is
+</code></pre>
+<p>The intended chain is:</p>
+<pre><code class="language-text">spins webs       -&gt; spider
+has eight legs   -&gt; spider
+both             -&gt; spider -&gt; 8
+</code></pre>
+<p>The six conditions are:</p>
+<table>
+<thead>
+<tr>
+  <th>Condition</th>
+  <th>Prompt fragment</th>
+  <th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>single A</td>
+  <td><code>spins webs</code></td>
+  <td>Measure A alone</td>
+</tr>
+<tr>
+  <td>single B</td>
+  <td><code>has eight legs</code></td>
+  <td>Measure B alone</td>
+</tr>
+<tr>
+  <td>both</td>
+  <td><code>spins webs and has eight legs</code></td>
+  <td>Measure the conjunction</td>
+</tr>
+<tr>
+  <td>swap A</td>
+  <td>replace <code>spins webs</code> with another meaningful property</td>
+  <td>Test A's effect while B is fixed</td>
+</tr>
+<tr>
+  <td>swap B</td>
+  <td>replace <code>has eight legs</code> with another meaningful property</td>
+  <td>Test B's effect while A is fixed</td>
+</tr>
+<tr>
+  <td>swap both</td>
+  <td>apply both replacements</td>
+  <td>Test compositional combination</td>
+</tr>
+</tbody>
+</table>
+<p>The replacements must be designed so that the partial swaps remain interpretable. For example, <code>makes honey and has six legs</code> identifies a bee, whereas <code>spins webs and has six legs</code> may be contradictory or ambiguous. Such a contradictory condition can be a useful stress test, but it should not be treated as a clean compositional trial.</p>
+<p>The current seed set includes related examples such as:</p>
+<pre><code class="language-text">The capital of the country that has the Eiffel Tower and is in Europe is
+</code></pre>
+<p>with the intended baseline <code>France -&gt; Paris</code>. Replacing <code>has the Eiffel Tower</code> with <code>has the Colosseum</code> is intended to produce <code>Italy -&gt; Rome</code>.</p>
+<h2>4. What is measured</h2>
+<h3>Behavioral measurements</h3>
+<p>For every condition, record:</p>
+<ul>
+<li>the model's top-k next-token predictions;</li>
+<li>probability or logit margin for the expected answer when available;</li>
+<li>whether the expected intermediate and answer are recovered;</li>
+<li>whether the swap changes the answer in the predicted direction;</li>
+<li>whether both swaps resemble the combined single-swap effects.</li>
+</ul>
+<p>A top-1 change is useful but not sufficient. A rank change or probability shift may be meaningful even when the top token stays the same.</p>
+<h3>Lens measurements</h3>
+<p>At each source layer and selected token position, record:</p>
+<ul>
+<li>top-k lens tokens at the A span;</li>
+<li>top-k lens tokens at the B span;</li>
+<li>top-k lens tokens at the final answer position;</li>
+<li>similarity or rank of the expected intermediate and its replacement;</li>
+<li>whether changes remain local to the swapped span or propagate to later positions.</li>
+</ul>
+<p>The observational runner currently records these readouts. It does not yet substitute a lens vector into a model activation.</p>
+<h3>Causal measurements</h3>
+<p>The decisive follow-up is to take a representation or J-lens vector associated with one condition and substitute it into another condition at specified layers and positions. Compare:</p>
+<pre><code class="language-text">ordinary prompt
+causally intervened prompt
+sham intervention / position control
+</code></pre>
+<p>The intervention should be evaluated against matched controls and multiple strengths, not only one arbitrary scale.</p>
+<p>The causal controls should include: (a) a type-matched semantic scramble, such as replacing a country representation with an unrelated country; (b) a cross-type scramble, such as <code>Paris</code> to <code>bicycle</code>, which tests generic perturbation but is not a semantic-conjunction test; and (c) a positional scramble that applies the same intervention at a nearby non-conjunct token.</p>
+<p>A fuller noise-floor battery should also include: (d) conjunct-order reversal; (e) connective substitution such as <code>and</code> to <code>or</code>; (f) within-span word-order scrambling; (g) random content-word replacement that preserves approximate span length and function-word structure, repeated over several fixed seeds; and, for causal runs, (h) matched-norm random-vector and unrelated-item-vector interventions. These controls test progressively stronger destruction of syntax, lexical identity, semantic type, and intended direction.</p>
+<p>The primary swap should be considered specific only if its effect is larger and more directionally interpretable than the relevant control distribution. If random-word or random-vector controls produce comparable effects, the result should be classified as nonspecific intervention sensitivity.</p>
+<h2>5. Predictions and evidence</h2>
+<h3>Evidence supporting H1</h3>
+<p>Evidence would include all of the following patterns across many valid items:</p>
+<ol>
+<li>A swaps produce a reproducible change in A-span lens readouts toward the replacement, while B-span readouts remain stable.</li>
+<li>B swaps show the corresponding pattern in the opposite direction.</li>
+<li>The answer shifts toward the replacement's answer when the conjunction remains semantically valid.</li>
+<li>Double swaps are approximately predictable from the two single swaps.</li>
+<li>Causal substitution of A's vector changes the answer in the A-predicted direction without requiring a broad unrelated activation change.</li>
+</ol>
+<h3>Evidence supporting H2</h3>
+<p>Evidence would include a reproducible pattern such as:</p>
+<ol>
+<li>Single-conjunct swaps affect a later conjunction/workspace position more strongly than the local swapped span.</li>
+<li>The untouched conjunct's representation changes systematically when the other conjunct is swapped.</li>
+<li>Double swaps produce an interaction that cannot be predicted from the two single swaps.</li>
+<li>A causal intervention at the candidate conjunction-level position changes the answer, while matched local-span interventions do not.</li>
+<li>These effects survive prompt paraphrases, position controls, intervention-strength controls, and valid-answer filtering.</li>
+</ol>
+<p>This would support a bound or interaction-level representation. It would not by itself establish one unique mechanism.</p>
+<h3>Evidence supporting H3 / a null</h3>
+<p>A meaningful null would look like:</p>
+<ul>
+<li>no reliable lens movement at the swapped span or later candidate workspace positions;</li>
+<li>no reliable causal answer shift across intervention strengths;</li>
+<li>no difference from sham and position controls;</li>
+<li>stable results across valid prompt paraphrases and random seeds.</li>
+</ul>
+<p>A null is not interpretable if the baseline answer is already wrong, the replacement does not identify a unique entity, the model has nearly tied answer logits, or the lens fit cannot recover known information in the same prompts.</p>
+<h3>Evidence against the current hypothesis framing</h3>
+<p>The experiment should be revised rather than forced into H1/H2 if:</p>
+<ul>
+<li>single A and single B do not independently identify the intended intermediate;</li>
+<li>the conjunction is logically contradictory or leaves many valid entities;</li>
+<li>answer effects occur but lens readouts do not track any plausible position;</li>
+<li>effects disappear under small paraphrases;</li>
+<li>token-span alignment is wrong;</li>
+<li>the fitted lens fails ordinary factual readout controls.</li>
+</ul>
+<p>These would be design or measurement failures, not evidence for a bound conjunction.</p>
+<h2>6. Null-result taxonomy</h2>
+<p>When a swap has no apparent effect, classify it before interpreting it:</p>
+<table>
+<thead>
+<tr>
+  <th>Type</th>
+  <th>Meaning</th>
+  <th>Follow-up</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>semantic null</td>
+  <td>The replacement does not change the answer because both alternatives share the same answer</td>
+  <td>Keep as a control; do not call it a failed intervention</td>
+</tr>
+<tr>
+  <td>model null</td>
+  <td>The model ignores the changed property</td>
+  <td>Test stronger or clearer prompts and answer margins</td>
+</tr>
+<tr>
+  <td>lens null</td>
+  <td>The model may change behavior, but the lens does not recover the relevant information</td>
+  <td>Validate lens quality or inspect other positions/layers</td>
+</tr>
+<tr>
+  <td>causal null</td>
+  <td>The lens vector is recovered but substitution does not change behavior</td>
+  <td>Test intervention scale, direction, and target position</td>
+</tr>
+<tr>
+  <td>invalid null</td>
+  <td>Prompt, tokenization, baseline answer, or expected answer is defective</td>
+  <td>Exclude or repair the item</td>
+</tr>
+</tbody>
+</table>
+<h2>7. Design requirements before interpretation</h2>
+<p>Each item should satisfy:</p>
+<ul>
+<li>single A identifies one intended intermediate;</li>
+<li>single B identifies one intended intermediate;</li>
+<li>both conjuncts identify the same intended baseline intermediate;</li>
+<li>A replacement identifies a known alternative;</li>
+<li>B replacement identifies a known alternative;</li>
+<li>partial and double swaps are labeled as valid, ambiguous, or contradictory;</li>
+<li>expected answer tokens are checked with the target tokenizer;</li>
+<li>the baseline model gives the expected answer with a measurable margin;</li>
+<li>A and B token spans are unambiguous;</li>
+<li>no fitting prompts overlap the reported evaluation set.</li>
+</ul>
+<p>The current seed set does not yet satisfy all of these requirements. In particular, many entries have no real B replacement, and some swaps create broad or contradictory conditions. Those items are useful for smoke testing the runner but should not be used for a strong scientific conclusion.</p>
+<h2>8. Analysis sequence</h2>
+<ol>
+<li>Repair and validate the prompt set.</li>
+<li>Run single-A, single-B, and both controls without interventions.</li>
+<li>Run observational lens readouts and inspect A, B, and answer positions.</li>
+<li>Add causal vector substitution with sham and position controls.</li>
+<li>Aggregate by item and category rather than relying on individual examples.</li>
+<li>Repeat with paraphrases and a held-out prompt set.</li>
+<li>Record negative results and failed items in the research log.</li>
+</ol>
+<p>The two-item smoke test is therefore only a pipeline check. It confirmed that the runner can load the model and lens, process all six conditions, write structured results, and print a summary without an out-of-memory failure.</p>
+<h2>9. Extension: recover and test the latent Boolean rule</h2>
+<p>The strongest extension is to move from natural-language conjunctions to
+controlled Boolean decision problems with known ground truth. The question
+becomes:</p>
+<blockquote>
+<p>Can the model's internal rule be read out and causally manipulated, and does
+the model's own report of that rule agree with the causal evidence?</p>
+</blockquote>
+<p>This turns the experiment into a three-way comparison between the specified
+rule, the model's behavior, and its internal representation. It also avoids
+the main ambiguity in natural examples: one fact accidentally determining the
+answer by itself.</p>
+<h3>9.1 Factorial Boolean dataset</h3>
+<p>Generate balanced truth-table items with opaque, independently randomized
+properties so that lexical world knowledge cannot supply a shortcut. For an
+AND rule, the behavioral labels should follow:</p>
+<table>
+<thead>
+<tr>
+  <th>A</th>
+  <th>B</th>
+  <th>Expected output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>0</td>
+  <td>0</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>0</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>0</td>
+  <td>1</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>1</td>
+  <td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Use the same item template for AND, OR, XOR, implication, and NOT variants,
+with held-out rules and held-out property names. Before any lens analysis,
+verify that the model follows the rule above chance and report its answer
+margin on every truth-table row.</p>
+<h3>9.2 Intervention matrix</h3>
+<p>For each rule, intervene on A alone, B alone, both operands, and the connective
+itself. Include semantic, type-matched, unrelated-word, position, word-order,
+and matched-norm random-vector controls. Record both the behavioral output and
+the lens readout for each operand and the connective.</p>
+<p>The primary Boolean interaction statistic is the difference-in-differences:</p>
+<pre><code class="language-text">interaction = output(1,1) - output(1,0) - output(0,1) + output(0,0)
+</code></pre>
+<p>For ideal binary outputs this is positive for AND, negative for OR, and more
+strongly negative for XOR. We should estimate it from answer probabilities or
+logit margins rather than only top-1 labels, then bootstrap over independent
+items and random rule instantiations.</p>
+<h3>9.3 Internal readout and self-report</h3>
+<p>At selected layers, fit held-out probes for the truth values of A and B and
+for the connective identity. Then ask the model to report:</p>
+<ul>
+<li>the truth value of each proposition;</li>
+<li>which propositions were necessary for the answer;</li>
+<li>whether the rule was AND, OR, XOR, implication, or NOT.</li>
+</ul>
+<p>Compare these reports to the generated ground truth, probe predictions, lens
+readouts, and causal answer changes. A verbal explanation is not evidence of a
+faithful mechanism by itself; it becomes informative when it predicts held-out
+counterfactual behavior and agrees with interventions.</p>
+<h3>9.4 Strong evidence and falsifiers</h3>
+<p>The extension succeeds if the model follows held-out Boolean rules, the
+internal readouts recover operands and connective, operand swaps produce the
+correct counterfactual outputs, and self-reports predict those outputs. A
+particularly informative result would be a mismatch: the model verbally
+reports an AND rule while causal swaps reveal OR-like behavior, or the model
+answers correctly while the proposed operand representation has no causal
+effect.</p>
+<p>The conjunction-bound hypothesis gains support if single-operand swaps do not
+combine additively, the interaction statistic is localized to a later
+workspace position, or connective-level interventions dominate operand-level
+interventions. A null remains meaningful only after the model passes the
+behavioral truth-table check and the lens passes ordinary operand readout
+controls.</p>
+<p>This Boolean extension should be treated as a follow-on dataset and not mixed
+with the current natural-fact pilot. Its randomized rules, truth tables,
+model outputs, probes, intervention strengths, and self-report scoring should
+be preregistered separately.</p>
+</article>
+<footer>Rendered from <code>experiments/CONJUNCTION_SWAP.md</code> by <code>scripts/generate_research_report.py</code>.</footer>
+</main></body></html>

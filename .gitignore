@@ -10,5 +10,32 @@ dist/
 
 # jlens outputs
 *.pt
+*.ckpt
+*.safetensors
+*.gguf
+*.bin
+*.onnx
+*.zip
+*.tar
+*.tar.gz
 slice*.html
 slices/
+
+# The generated browser report is a tracked research deliverable; rebuild with
+# `make report` after changing the Markdown or compact result artifacts.
+
+# Torch save-directory shards for fitted lenses.
+data/lenses/**/params/
+
+# Extensionless serialized Modal smoke artifacts.
+data/lenses/*-modal-fast-smoke-v2
+data/lenses/*-modal-fast-smoke-v2-download
+
+# Ephemeral machine logs; durable run events belong in JSONL/manifests.
+data/experiments/*.log
+data/experiments/*.checkpoint.pt
+data/tuned-lens-pile/
+
+# local experiment tracker state
+mlflow.db
+mlruns/

@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Causal verbal-report experiment log · J-Lens research report</title>
+<style>
+:root { --paper:#fff; --wash:#f3f1ec; --ink:#222; --muted:#666; --rule:#b8b5ae; --accent:#174a73; }
+* { box-sizing:border-box; } body { margin:0; background:var(--wash); color:var(--ink); font:16px/1.58 Georgia,'Times New Roman',serif; }
+main { max-width:1120px; margin:2rem auto; padding:3.5rem 4.5rem; background:var(--paper); border:1px solid #d7d3ca; box-shadow:0 1px 8px #00000012; }
+h1,h2,h3,table,nav,footer { font-family:Arial,Helvetica,sans-serif; } h1 { font:700 2.2rem/1.15 Georgia,serif; } h2 { margin-top:2.2rem; border-bottom:1px solid var(--rule); padding-bottom:.25rem; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; } nav { margin-bottom:2rem; }
+table { border-collapse:collapse; width:100%; margin:1rem 0 1.5rem; font-size:.86rem; } th,td { border-bottom:1px solid #d6d3cc; padding:.4rem .5rem; text-align:left; vertical-align:top; } th { border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+pre { overflow:auto; padding:1rem; background:#f5f4f0; border:1px solid #dedbd3; } code { font:.88em/1.35 'SFMono-Regular',Consolas,monospace; } blockquote { border-left:3px solid var(--accent); margin-left:0; padding-left:1rem; color:var(--muted); }
+img { max-width:100%; } footer { margin-top:3rem; padding-top:1rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.8rem; }
+@media (max-width:760px) { main { margin:0; padding:2rem 1.2rem; } table { display:block; overflow-x:auto; } }
+</style></head><body><main>
+<nav><a href="../index.html">← Research report</a> · <a href="index.html">Documentation index</a></nav>
+<article><h1>Causal verbal-report experiment log</h1>
+<h2>2026-07-12 — Implementation smoke</h2>
+<p>The coordinate-swap runner was implemented with a pseudoinverse-based patch,
+source/target rank reporting, and a matched random-vector control. A one-item
+sport smoke test completed without OOM on the RTX 3090. Basketball started at
+rank 60 and Rugby at rank 263; across layers 24/28/30 the coordinate swap put
+Rugby at ranks 48/26/41, while the random control put it at 567/257/342.</p>
+<p>This was directionally encouraging but not sufficient: one category, no
+top-1 target reports, and the vector convention still needs validation against
+the exact released-lens implementation.</p>
+<h2>2026-07-12 — Five-category calibration batch</h2>
+<p>Output: <code>data/experiments/verbal-report-causal-batch5.json</code>.</p>
+<p>Categories were country, color, fruit, sport, and instrument; each was tested
+at layers 24, 28, and 30. The target improved in all 15 coordinate-swap
+conditions (median rank improvement 163; no target reached rank 1). The
+matched random control improved the target in 0/15 conditions (median change
+was a worsening of 410 ranks).</p>
+<p>This is strong calibration evidence that the implemented coordinate swap is
+more targeted than the current random-direction control, but it is not yet a
+confirmatory causal claim. The batch is small, source/target selection is
+category-list based, and the result could still depend on patch position,
+layer choice, source rank, or the precise J-vector convention.</p>
+<h2>Decision</h2>
+<p>Proceed to a larger preregistered verbal-report batch only after adding the
+remaining controls and validating the patch algebra. Keep this causal track
+separate from the conjunction experiment: it establishes the intervention
+machinery before applying it to genuinely non-redundant conjunction prompts.</p>
+<h2>2026-07-12 — Full 14-category matched-model batch</h2>
+<p>Output: <code>data/experiments/verbal-report-causal-full14.json</code>.</p>
+<p>This used the released Qwen3.5-4B lens with the matched Qwen3.5-4B model,
+all prompt positions, and layers 24, 28, and 30. It covered the fourteen
+categories used by the verbal-report setup. There were 42 coordinate-swap
+conditions and 42 matched random-direction controls. The random controls were
+norm-matched to the coordinate-swap displacement at each patched position; this
+corrected run supersedes the initial calibration output.</p>
+<table>
+<thead>
+<tr>
+  <th>intervention</th>
+  <th style="text-align:right">conditions</th>
+  <th style="text-align:right">target rank improved</th>
+  <th style="text-align:right">median rank change</th>
+  <th style="text-align:right">mean rank change</th>
+  <th style="text-align:right">target ≤10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>coordinate swap</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">40/42</td>
+  <td style="text-align:right">+243</td>
+  <td style="text-align:right">+606.9</td>
+  <td style="text-align:right">8/42</td>
+</tr>
+<tr>
+  <td>random matched</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">11/42</td>
+  <td style="text-align:right">−9.5</td>
+  <td style="text-align:right">−33.9</td>
+  <td style="text-align:right">0/42</td>
+</tr>
+</tbody>
+</table>
+<p>No condition reached target rank 1. The direction and control separation are
+evidence that the implemented patch is more targeted than a norm-matched random
+perturbation, but the absence of rank-1 reports means this is not yet a faithful quantitative
+reproduction of the paper's strongest verbal-report result. Candidate choice,
+vector normalization/convention, layer selection, model differences, and
+patching at every position remain live explanations for the gap.</p>
+<p>The next required step is a controlled method audit: verify the released lens
+vector convention, add position and unrelated-vector controls, and test whether
+the target improvement survives when the source/target pair is selected from a
+larger held-out candidate inventory rather than the current hand-authored list.</p>
+<h2>2026-07-12 — Logit-lens comparison</h2>
+<p>The 14-category verbal-report run was repeated with ordinary unembedding
+directions as a causal logit-lens baseline:</p>
+<table>
+<thead>
+<tr>
+  <th>method</th>
+  <th style="text-align:right">conditions</th>
+  <th style="text-align:right">target rank improved</th>
+  <th style="text-align:right">median Δrank</th>
+  <th style="text-align:right">target top-1</th>
+  <th style="text-align:right">target top-10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>J-lens</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">40</td>
+  <td style="text-align:right">+243</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">8</td>
+</tr>
+<tr>
+  <td>logit lens</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">35</td>
+  <td style="text-align:right">+163.5</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">5</td>
+</tr>
+<tr>
+  <td>random matched</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">11</td>
+  <td style="text-align:right">−9.5</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">0</td>
+</tr>
+</tbody>
+</table>
+<p>Both learned/token-associated direction families can move the target, but the
+J-lens is stronger on this open-model verbal-report setup. The logit lens is a
+meaningful baseline rather than a null.</p>
+<h2>2026-07-13 — Matched Qwen3.5-0.8B replication</h2>
+<p>Output: <code>data/experiments/verbal-report-causal-0.8b.json</code>.</p>
+<p>The run used the locally fitted 204-prompt Qwen3.5-0.8B lens and layers
+16/19/21, chosen at approximately comparable relative depths to the 4B run.
+All 14 categories were usable.</p>
+<table>
+<thead>
+<tr>
+  <th>method</th>
+  <th style="text-align:right">layer conditions</th>
+  <th style="text-align:right">improved</th>
+  <th style="text-align:right">median Δrank</th>
+  <th style="text-align:right">target top-1</th>
+  <th style="text-align:right">target top-10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>J-lens</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">41</td>
+  <td style="text-align:right">+1032.5</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">1</td>
+</tr>
+<tr>
+  <td>logit lens</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">20</td>
+  <td style="text-align:right">−158.5</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">0</td>
+</tr>
+<tr>
+  <td>random matched</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">24</td>
+  <td style="text-align:right">+13</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">0</td>
+</tr>
+</tbody>
+</table>
+<p>This is a strong small-model separation in rank movement, but it produces very
+few top-k reports; it should be treated as a model-scale result, not as direct
+evidence that the 0.8B model has the same workspace quality as the 4B model.</p>
+<p>MLflow run: <code>99ac9226435b4a029ca217b2c33e79b9</code>.</p>
+<h2>2026-07-13 — Matched Qwen3-0.6B replication</h2>
+<p>Output: <code>data/experiments/verbal-report-causal-0.6b.json</code>. This used the
+model-matched local 204-prompt lens and layers 19/22/25; all 14 categories were
+usable.</p>
+<table>
+<thead>
+<tr>
+  <th>method</th>
+  <th style="text-align:right">conditions</th>
+  <th style="text-align:right">improved</th>
+  <th style="text-align:right">median Δrank</th>
+  <th style="text-align:right">mean Δrank</th>
+  <th style="text-align:right">target top-1</th>
+  <th style="text-align:right">target top-10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>J-lens</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">35</td>
+  <td style="text-align:right">+389.5</td>
+  <td style="text-align:right">+959.7</td>
+  <td style="text-align:right">1</td>
+  <td style="text-align:right">1</td>
+</tr>
+<tr>
+  <td>logit lens</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">31</td>
+  <td style="text-align:right">+266.5</td>
+  <td style="text-align:right">+613.0</td>
+  <td style="text-align:right">2</td>
+  <td style="text-align:right">3</td>
+</tr>
+<tr>
+  <td>random matched</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">16</td>
+  <td style="text-align:right">−14.0</td>
+  <td style="text-align:right">−39.6</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">0</td>
+</tr>
+</tbody>
+</table>
+<p>MLflow run: <code>fabb16b5006c4ebfba2924b00454f96a</code>.</p>
+<h2>2026-07-13 — Matched SmolLM2-135M-Instruct replication</h2>
+<p>Output: <code>data/experiments/verbal-report-causal-smollm2-135m.json</code>. This used a
+fresh 204-prompt lens matched to SmolLM2 and layers 21/25/28.</p>
+<table>
+<thead>
+<tr>
+  <th>method</th>
+  <th style="text-align:right">conditions</th>
+  <th style="text-align:right">improved</th>
+  <th style="text-align:right">median Δrank</th>
+  <th style="text-align:right">target top-1</th>
+  <th style="text-align:right">target top-10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>J-lens</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">37</td>
+  <td style="text-align:right">+1428.0</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">0</td>
+</tr>
+<tr>
+  <td>logit lens</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">34</td>
+  <td style="text-align:right">+1446.5</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">0</td>
+</tr>
+<tr>
+  <td>random matched</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">19</td>
+  <td style="text-align:right">−39.0</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">0</td>
+</tr>
+</tbody>
+</table>
+<p>The runner completed all 14 categories; the exact aggregate is retained in the
+JSON artifact because this evaluator's verbal table includes mean rank change
+and top-10 in addition to the compact log summary. MLflow run:
+<code>6d4329e5d24f492fb1a562ffa94aedd2</code>.</p>
+<h2>2026-07-13 — Tuned-lens comparisons across matched smaller models</h2>
+<p>These runs use model-matched Wikitext-trained tuned lenses. The <code>tuned</code> method
+uses the exported affine translator basis; the final nonlinear RMSNorm is not
+folded into that causal patch basis.</p>
+<table>
+<thead>
+<tr>
+  <th>model</th>
+  <th>method</th>
+  <th style="text-align:right">conditions</th>
+  <th style="text-align:right">improved</th>
+  <th style="text-align:right">median Δrank</th>
+  <th style="text-align:right">mean Δrank</th>
+  <th style="text-align:right">top-1</th>
+  <th style="text-align:right">top-10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>SmolLM2-135M</td>
+  <td>tuned</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">31</td>
+  <td style="text-align:right">+1425.5</td>
+  <td style="text-align:right">+5342.7</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">0</td>
+</tr>
+<tr>
+  <td>SmolLM2-135M</td>
+  <td>logit</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">34</td>
+  <td style="text-align:right">+1446.5</td>
+  <td style="text-align:right">+4770.4</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">0</td>
+</tr>
+<tr>
+  <td>SmolLM2-135M</td>
+  <td>random</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">19</td>
+  <td style="text-align:right">−44.0</td>
+  <td style="text-align:right">+75.6</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">0</td>
+</tr>
+<tr>
+  <td>Qwen3-0.6B</td>
+  <td>tuned</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">30</td>
+  <td style="text-align:right">+449.5</td>
+  <td style="text-align:right">−4204.6</td>
+  <td style="text-align:right">8</td>
+  <td style="text-align:right">11</td>
+</tr>
+<tr>
+  <td>Qwen3-0.6B</td>
+  <td>logit</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">31</td>
+  <td style="text-align:right">+266.5</td>
+  <td style="text-align:right">+613.0</td>
+  <td style="text-align:right">2</td>
+  <td style="text-align:right">3</td>
+</tr>
+<tr>
+  <td>Qwen3-0.6B</td>
+  <td>random</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">17</td>
+  <td style="text-align:right">−33.0</td>
+  <td style="text-align:right">−146.1</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">0</td>
+</tr>
+<tr>
+  <td>Qwen3.5-0.8B</td>
+  <td>tuned</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">22</td>
+  <td style="text-align:right">+45.5</td>
+  <td style="text-align:right">−9228.6</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">2</td>
+</tr>
+<tr>
+  <td>Qwen3.5-0.8B</td>
+  <td>logit</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">20</td>
+  <td style="text-align:right">−158.5</td>
+  <td style="text-align:right">−1537.3</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">0</td>
+</tr>
+<tr>
+  <td>Qwen3.5-0.8B</td>
+  <td>random</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">25</td>
+  <td style="text-align:right">+12.5</td>
+  <td style="text-align:right">−1.7</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">0</td>
+</tr>
+<tr>
+  <td>Qwen3.5-4B</td>
+  <td>tuned</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">26</td>
+  <td style="text-align:right">+143.5</td>
+  <td style="text-align:right">−181.7</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">6</td>
+</tr>
+<tr>
+  <td>Qwen3.5-4B</td>
+  <td>logit</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">35</td>
+  <td style="text-align:right">+163.5</td>
+  <td style="text-align:right">+599.6</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">5</td>
+</tr>
+<tr>
+  <td>Qwen3.5-4B</td>
+  <td>random</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">12</td>
+  <td style="text-align:right">−8.0</td>
+  <td style="text-align:right">−18.1</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">0</td>
+</tr>
+</tbody>
+</table>
+<p>MLflow runs: <code>b9d8d1a566874355a50859d8a9bf2b72</code>,
+<code>6ab5c11e804f4f0788a9d52662a21f30</code>, <code>248fa347433541c389b88839525af458</code>,
+and <code>ddf7f64f4a974a31a1f4bce7de4f1976</code>.</p>
+<h2>2026-07-13 — Matched Qwen3.6-27B 4-bit replication</h2>
+<p>Output: <code>data/experiments/verbal-report-causal-27b.json</code>. The released matching
+1000-prompt lens was used with the NF4 PyTorch model and layers 16/32/60.</p>
+<table>
+<thead>
+<tr>
+  <th>method</th>
+  <th style="text-align:right">conditions</th>
+  <th style="text-align:right">improved</th>
+  <th style="text-align:right">median Δrank</th>
+  <th style="text-align:right">mean Δrank</th>
+  <th style="text-align:right">target top-1</th>
+  <th style="text-align:right">target top-10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>J-lens</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">34</td>
+  <td style="text-align:right">+24.0</td>
+  <td style="text-align:right">+131.6</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">10</td>
+</tr>
+<tr>
+  <td>logit lens</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">28</td>
+  <td style="text-align:right">+6.5</td>
+  <td style="text-align:right">+94.0</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">9</td>
+</tr>
+<tr>
+  <td>random matched</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">21</td>
+  <td style="text-align:right">+0.5</td>
+  <td style="text-align:right">+4.6</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">0</td>
+</tr>
+</tbody>
+</table>
+<p>MLflow run: <code>9721680bc6cf4251b1b299bc1c71aa66</code>.</p>
+<h2>2026-07-14 — Model-matched Qwen3.6-27B tuned-lens evaluation</h2>
+<p>The native Wikitext-trained tuned lens was fit remotely on the exact
+<code>Qwen/Qwen3.6-27B</code> revision in NF4 mode, validated for finite parameters, and
+exported as the affine translator basis used by this causal runner. The
+nonlinear final RMSNorm is not folded into this patch basis. The same NF4
+model, prompts, layers 16/32/60, and all-position patch were used; only the
+previously missing tuned row was run.</p>
+<table>
+<thead>
+<tr>
+  <th>method</th>
+  <th style="text-align:right">conditions</th>
+  <th style="text-align:right">improved</th>
+  <th style="text-align:right">median Δrank</th>
+  <th style="text-align:right">mean Δrank</th>
+  <th style="text-align:right">target top-1</th>
+  <th style="text-align:right">target top-10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>tuned</td>
+  <td style="text-align:right">42</td>
+  <td style="text-align:right">24</td>
+  <td style="text-align:right">+3.5</td>
+  <td style="text-align:right">+83.4</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">7</td>
+</tr>
+</tbody>
+</table>
+<p>Output: <code>data/experiments/verbal-report-causal-27b.json</code> (now includes the
+merged <code>tuned</code> rows) and tuned-only artifact
+<code>data/experiments/modal-tuned-27b/verbal-report-causal-27b-tuned.json</code>.</p>
+</article>
+<footer>Rendered from <code>experiments/VERBAL_REPORT_CAUSAL_LOG.md</code> by <code>scripts/generate_research_report.py</code>.</footer>
+</main></body></html>

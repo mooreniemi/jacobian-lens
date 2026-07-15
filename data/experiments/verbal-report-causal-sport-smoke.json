@@ -1,0 +1,240 @@
+{
+  "model": "Qwen/Qwen3.5-4B",
+  "lens_repo": "neuronpedia/jacobian-lens",
+  "lens_file": "qwen3.5-4b/jlens/Salesforce-wikitext/Qwen3.5-4B_jacobian_lens_n1000.pt",
+  "lens_revision": "qwen-n1000",
+  "kernel_mode": "off",
+  "patch_positions": "all",
+  "layers": [
+    24,
+    28,
+    30
+  ],
+  "items": [
+    {
+      "category": "sport",
+      "prompt": "Think of a sport. Answer in one word.",
+      "source": "Basketball",
+      "target": "Rugby",
+      "source_rank_before": 60,
+      "target_rank_before": 263,
+      "candidate_ranks_before": {
+        "Basketball": 60,
+        "Soccer": 110,
+        "Tennis": 84,
+        "Football": 60,
+        "Baseball": 139,
+        "Golf": 207,
+        "Hockey": 381,
+        "Rugby": 263,
+        "Cricket": 277,
+        "Chess": 1545,
+        "Boxing": 564,
+        "Swimming": 408,
+        "Running": 679,
+        "Cycling": 4075
+      },
+      "answer_position": 9,
+      "layers": {
+        "24": {
+          "coordinate_swap": {
+            "source_rank_after": 359,
+            "target_rank_after": 48,
+            "candidate_ranks_after": {
+              "Basketball": 359,
+              "Soccer": 112,
+              "Tennis": 110,
+              "Football": 60,
+              "Baseball": 205,
+              "Golf": 198,
+              "Hockey": 442,
+              "Rugby": 48,
+              "Cricket": 223,
+              "Chess": 1835,
+              "Boxing": 798,
+              "Swimming": 432,
+              "Running": 705,
+              "Cycling": 4966
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " What",
+              " (",
+              " If",
+              " Do",
+              " The",
+              "<|im_end|>",
+              " \"",
+              " I"
+            ]
+          },
+          "random_matched": {
+            "source_rank_after": 130,
+            "target_rank_after": 567,
+            "candidate_ranks_after": {
+              "Basketball": 130,
+              "Soccer": 520,
+              "Tennis": 691,
+              "Football": 257,
+              "Baseball": 315,
+              "Golf": 1917,
+              "Hockey": 465,
+              "Rugby": 567,
+              "Cricket": 657,
+              "Chess": 5845,
+              "Boxing": 3292,
+              "Swimming": 1786,
+              "Running": 3373,
+              "Cycling": 25652
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              "<|im_end|>",
+              " (",
+              " What",
+              " If",
+              " I",
+              " Answer",
+              " \\n",
+              " Is"
+            ]
+          }
+        },
+        "28": {
+          "coordinate_swap": {
+            "source_rank_after": 490,
+            "target_rank_after": 26,
+            "candidate_ranks_after": {
+              "Basketball": 490,
+              "Soccer": 111,
+              "Tennis": 107,
+              "Football": 65,
+              "Baseball": 212,
+              "Golf": 183,
+              "Hockey": 458,
+              "Rugby": 26,
+              "Cricket": 233,
+              "Chess": 1953,
+              "Boxing": 744,
+              "Swimming": 458,
+              "Running": 672,
+              "Cycling": 4945
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " What",
+              " (",
+              " If",
+              " The",
+              " Do",
+              "<|im_end|>",
+              " \"",
+              " I"
+            ]
+          },
+          "random_matched": {
+            "source_rank_after": 89,
+            "target_rank_after": 257,
+            "candidate_ranks_after": {
+              "Basketball": 89,
+              "Soccer": 454,
+              "Tennis": 500,
+              "Football": 225,
+              "Baseball": 297,
+              "Golf": 1388,
+              "Hockey": 225,
+              "Rugby": 257,
+              "Cricket": 514,
+              "Chess": 15307,
+              "Boxing": 3896,
+              "Swimming": 1143,
+              "Running": 3522,
+              "Cycling": 13429
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              "<|im_end|>",
+              " (",
+              " ",
+              " Answer",
+              " I",
+              " What",
+              " \\n",
+              " If"
+            ]
+          }
+        },
+        "30": {
+          "coordinate_swap": {
+            "source_rank_after": 380,
+            "target_rank_after": 41,
+            "candidate_ranks_after": {
+              "Basketball": 380,
+              "Soccer": 115,
+              "Tennis": 109,
+              "Football": 71,
+              "Baseball": 221,
+              "Golf": 185,
+              "Hockey": 457,
+              "Rugby": 41,
+              "Cricket": 233,
+              "Chess": 1810,
+              "Boxing": 736,
+              "Swimming": 500,
+              "Running": 721,
+              "Cycling": 4850
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              " What",
+              " (",
+              " If",
+              " Do",
+              "<|im_end|>",
+              " The",
+              " \"",
+              " I"
+            ]
+          },
+          "random_matched": {
+            "source_rank_after": 105,
+            "target_rank_after": 342,
+            "candidate_ranks_after": {
+              "Basketball": 105,
+              "Soccer": 671,
+              "Tennis": 818,
+              "Football": 242,
+              "Baseball": 185,
+              "Golf": 2706,
+              "Hockey": 239,
+              "Rugby": 342,
+              "Cricket": 279,
+              "Chess": 33526,
+              "Boxing": 5015,
+              "Swimming": 1034,
+              "Running": 1000,
+              "Cycling": 14479
+            },
+            "top": [
+              "\\n\\n",
+              "\\n",
+              "<|im_end|>",
+              " (",
+              " Answer",
+              " What",
+              " I",
+              " If",
+              " ",
+              " You"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

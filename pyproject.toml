@@ -22,6 +22,8 @@ Paper = "https://transformer-circuits.pub/2026/workspace/index.html"
 
 [project.optional-dependencies]
 dev = ["pytest", "ruff", "datasets"]
+tracking = ["mlflow>=2.14"]
+tuned = ["tuned-lens>=0.2"]
 
 [tool.ruff]
 line-length = 88
@@ -36,3 +38,19 @@ packages = ["jlens"]
 
 [tool.setuptools.package-data]
 jlens = ["data/*"]
+
+[dependency-groups]
+dev = [
+    "accelerate>=1.14.0",
+    "bitsandbytes>=0.49.2",
+    "ipython>=8.39.0",
+    "jupyter>=1.1.1",
+    "tabulate>=0.10.0",
+    "seaborn>=0.13.2",
+    "mistune>=3.0",
+]
+# Modal is kept separate from the default environment because it is only
+# needed for cloud GPU jobs and authentication/CLI workflows.
+cloud = [
+    "modal>=1.0",
+]
