@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Two-hop causal J-lens experiment log · J-Lens research report</title>
+<style>
+:root { --paper:#fff; --wash:#f3f1ec; --ink:#222; --muted:#666; --rule:#b8b5ae; --accent:#174a73; }
+* { box-sizing:border-box; } body { margin:0; background:var(--wash); color:var(--ink); font:16px/1.58 Georgia,'Times New Roman',serif; }
+main { max-width:1120px; margin:2rem auto; padding:3.5rem 4.5rem; background:var(--paper); border:1px solid #d7d3ca; box-shadow:0 1px 8px #00000012; }
+h1,h2,h3,table,nav,footer { font-family:Arial,Helvetica,sans-serif; } h1 { font:700 2.2rem/1.15 Georgia,serif; } h2 { margin-top:2.2rem; border-bottom:1px solid var(--rule); padding-bottom:.25rem; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; } nav { margin-bottom:2rem; }
+table { border-collapse:collapse; width:100%; margin:1rem 0 1.5rem; font-size:.86rem; } th,td { border-bottom:1px solid #d6d3cc; padding:.4rem .5rem; text-align:left; vertical-align:top; } th { border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+pre { overflow:auto; padding:1rem; background:#f5f4f0; border:1px solid #dedbd3; } code { font:.88em/1.35 'SFMono-Regular',Consolas,monospace; } blockquote { border-left:3px solid var(--accent); margin-left:0; padding-left:1rem; color:var(--muted); }
+img { max-width:100%; } footer { margin-top:3rem; padding-top:1rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.8rem; }
+@media (max-width:760px) { main { margin:0; padding:2rem 1.2rem; } table { display:block; overflow-x:auto; } }
+</style></head><body><main>
+<nav><a href="../index.html">← Research report</a> · <a href="index.html">Documentation index</a></nav>
+<article><h1>Two-hop causal J-lens experiment log</h1>
+<h2>2026-07-12 — Smoke test</h2>
+<p>Added <code>scripts/eval_multihop_causal.py</code>, reusing the verified pseudoinverse
+coordinate patch and norm-matched random control. Three items ran cleanly with
+the matched Qwen3.5-4B model/released lens. The smoke result was weak and was
+not interpreted as evidence: coordinate swaps improved the intended answer in
+4/9 layer conditions versus 3/9 for random controls.</p>
+<h2>2026-07-12 — Full 90-item run</h2>
+<p>Output: <code>data/experiments/multihop-causal-full90.json</code>.</p>
+<p>The corpus contained 90 prompts. Sixty-eight were usable single-token cases;
+22 were skipped because at least one intermediate or answer tokenized into
+multiple tokens. We tested layers 24, 28, and 30 at all prompt positions.</p>
+<p>Layer-level summary (204 conditions per intervention):</p>
+<table>
+<thead>
+<tr>
+  <th>intervention</th>
+  <th style="text-align:right">target rank improved</th>
+  <th style="text-align:right">median Δrank</th>
+  <th style="text-align:right">target top-1</th>
+  <th style="text-align:right">target top-5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>coordinate swap</td>
+  <td style="text-align:right">150/204</td>
+  <td style="text-align:right">+7</td>
+  <td style="text-align:right">20</td>
+  <td style="text-align:right">82</td>
+</tr>
+<tr>
+  <td>norm-matched random</td>
+  <td style="text-align:right">55/204</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">6</td>
+  <td style="text-align:right">42</td>
+</tr>
+</tbody>
+</table>
+<p>To avoid pseudoreplication across layers, the item-level summary is the primary
+readout: a coordinate swap improved the intended swapped answer at the median
+across layers for 51/68 items, reached target top-1 at some tested layer for
+12/68, and reached target top-5 for 32/68. The random control did so for 20/68,
+2/68, and 14/68 respectively.</p>
+<p>This supports a real causal effect of the J-space intervention on downstream
+two-hop answers, above the current random control. It is not yet a perfect
+paper reproduction because 22 cases are multi-token, the prompt corpus is a
+local 90-item set rather than the paper's exact 50-item release, and the
+Qwen3.5-4B model is not Anthropic's Claude model. The result should therefore
+be reported as a matched open-model replication of the causal pattern, not as
+an exact quantitative replication of the paper's success rate.</p>
+<h2>2026-07-12 — Logit-lens comparison</h2>
+<p>The same 68 usable items and three layers were rerun with ordinary unembedding
+directions (<code>J = I</code>) as a causal comparison. The random control remained
+matched to the J-lens displacement.</p>
+<table>
+<thead>
+<tr>
+  <th>method</th>
+  <th style="text-align:right">conditions</th>
+  <th style="text-align:right">target rank improved</th>
+  <th style="text-align:right">median Δrank</th>
+  <th style="text-align:right">target top-1</th>
+  <th style="text-align:right">target top-5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>J-lens</td>
+  <td style="text-align:right">204</td>
+  <td style="text-align:right">150</td>
+  <td style="text-align:right">+7</td>
+  <td style="text-align:right">20</td>
+  <td style="text-align:right">82</td>
+</tr>
+<tr>
+  <td>logit lens</td>
+  <td style="text-align:right">204</td>
+  <td style="text-align:right">146</td>
+  <td style="text-align:right">+4</td>
+  <td style="text-align:right">9</td>
+  <td style="text-align:right">66</td>
+</tr>
+<tr>
+  <td>random matched</td>
+  <td style="text-align:right">204</td>
+  <td style="text-align:right">55</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">6</td>
+  <td style="text-align:right">42</td>
+</tr>
+</tbody>
+</table>
+<p>The logit lens is therefore a meaningful causal baseline, not a null control:
+it also redirects answers, but the J-lens produces more exact top-1 and top-5
+successes. This supports J-lens specificity while showing that the effect is
+not exclusive to every possible residual-space token direction.</p>
+<p>At the time of this original 4B comparison, a tuned lens was not included:
+there was no compatible fitted Qwen3.5 tuned-lens checkpoint locally. The later
+Wikitext-trained tuned comparison is recorded below as a separate run, with its
+translator-basis limitation documented explicitly.</p>
+<h3>Paired item-level comparison</h3>
+<p>Because the three layers are repeated measurements on each prompt, the primary
+comparison is paired by item. The median target-rank improvement across layers
+was 7.0 for J-lens and 4.5 for logit lens. J-lens was better on 40/68 items,
+tied on 21, and worse on 7. Using the exploratory best-of-three-layer success
+criterion, J-lens reached top-1 on 12/68 items versus 4/68 for logit lens, and
+top-5 on 32/68 versus 25/68. Exact paired sign tests for these selected-layer
+outcomes were p=0.0039 and p=0.0078 respectively, but these p-values are
+descriptive only because the layer-selection rule was not preregistered and
+the dataset was used to develop the comparison.</p>
+<p>MLflow provenance:</p>
+<ul>
+<li>two-hop comparative run: <code>5e40ab79943c47778de82d2c7645fc37</code></li>
+<li>verbal-report comparative run: <code>8847f3f96e8242d5bb4664e8afafcac1</code></li>
+<li>experiment: <code>anthropic-causal-reproduction</code></li>
+<li>tracking store: local <code>mlflow.db</code></li>
+</ul>
+<h2>2026-07-13 — Matched Qwen3.5-0.8B replication</h2>
+<p>Output: <code>data/experiments/multihop-causal-0.8b.json</code>.</p>
+<p>The 0.8B run used the 204-prompt fitted lens and layers 16/19/21. It retained
+68 usable single-token items and 22 multi-token skips.</p>
+<table>
+<thead>
+<tr>
+  <th>method</th>
+  <th style="text-align:right">item median improved</th>
+  <th style="text-align:right">item median Δrank</th>
+  <th style="text-align:right">any target top-1</th>
+  <th style="text-align:right">any target top-5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>J-lens</td>
+  <td style="text-align:right">49/68</td>
+  <td style="text-align:right">+9.5</td>
+  <td style="text-align:right">2/68</td>
+  <td style="text-align:right">15/68</td>
+</tr>
+<tr>
+  <td>logit lens</td>
+  <td style="text-align:right">46/68</td>
+  <td style="text-align:right">+8.0</td>
+  <td style="text-align:right">2/68</td>
+  <td style="text-align:right">9/68</td>
+</tr>
+<tr>
+  <td>random matched</td>
+  <td style="text-align:right">30/68</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">1/68</td>
+  <td style="text-align:right">4/68</td>
+</tr>
+</tbody>
+</table>
+<p>MLflow run: <code>b1181700409a4e6889feaebad516fa4b</code>.</p>
+<h2>2026-07-13 — Matched Qwen3-0.6B replication</h2>
+<p>Output: <code>data/experiments/multihop-causal-0.6b.json</code>. The model-matched local
+204-prompt lens used layers 19/22/25; 68 items were usable and 22 were skipped
+for multi-token concepts.</p>
+<table>
+<thead>
+<tr>
+  <th>method</th>
+  <th style="text-align:right">conditions</th>
+  <th style="text-align:right">improved</th>
+  <th style="text-align:right">median Δrank</th>
+  <th style="text-align:right">target top-1</th>
+  <th style="text-align:right">target top-5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>J-lens</td>
+  <td style="text-align:right">204</td>
+  <td style="text-align:right">118</td>
+  <td style="text-align:right">+2</td>
+  <td style="text-align:right">3</td>
+  <td style="text-align:right">32</td>
+</tr>
+<tr>
+  <td>logit lens</td>
+  <td style="text-align:right">204</td>
+  <td style="text-align:right">116</td>
+  <td style="text-align:right">+1</td>
+  <td style="text-align:right">3</td>
+  <td style="text-align:right">27</td>
+</tr>
+<tr>
+  <td>random matched</td>
+  <td style="text-align:right">204</td>
+  <td style="text-align:right">86</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">3</td>
+  <td style="text-align:right">27</td>
+</tr>
+</tbody>
+</table>
+<p>MLflow run: <code>50b8c08602924e0ca23b0fb8b60a1b79</code>.</p>
+<h2>2026-07-13 — Matched SmolLM2-135M-Instruct replication</h2>
+<p>Output: <code>data/experiments/multihop-causal-smollm2-135m.json</code>. The matched local
+204-prompt lens used layers 21/25/28; 66 items were usable and 24 were skipped
+for multi-token concepts.</p>
+<table>
+<thead>
+<tr>
+  <th>method</th>
+  <th style="text-align:right">conditions</th>
+  <th style="text-align:right">improved</th>
+  <th style="text-align:right">median Δrank</th>
+  <th style="text-align:right">target top-1</th>
+  <th style="text-align:right">target top-5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>J-lens</td>
+  <td style="text-align:right">198</td>
+  <td style="text-align:right">130</td>
+  <td style="text-align:right">+18.5</td>
+  <td style="text-align:right">13</td>
+  <td style="text-align:right">21</td>
+</tr>
+<tr>
+  <td>logit lens</td>
+  <td style="text-align:right">198</td>
+  <td style="text-align:right">115</td>
+  <td style="text-align:right">+5</td>
+  <td style="text-align:right">7</td>
+  <td style="text-align:right">20</td>
+</tr>
+<tr>
+  <td>random matched</td>
+  <td style="text-align:right">198</td>
+  <td style="text-align:right">74</td>
+  <td style="text-align:right">−1</td>
+  <td style="text-align:right">7</td>
+  <td style="text-align:right">13</td>
+</tr>
+</tbody>
+</table>
+<p>MLflow run: <code>d210071231a3408e9d20eb58a18beea7</code>.</p>
+<h2>2026-07-13 — Tuned-lens comparisons across matched smaller models</h2>
+<table>
+<thead>
+<tr>
+  <th>model</th>
+  <th>method</th>
+  <th style="text-align:right">conditions</th>
+  <th style="text-align:right">improved</th>
+  <th style="text-align:right">median Δrank</th>
+  <th style="text-align:right">top-1</th>
+  <th style="text-align:right">top-5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>SmolLM2-135M</td>
+  <td>tuned</td>
+  <td style="text-align:right">198</td>
+  <td style="text-align:right">108</td>
+  <td style="text-align:right">+4</td>
+  <td style="text-align:right">8</td>
+  <td style="text-align:right">26</td>
+</tr>
+<tr>
+  <td>SmolLM2-135M</td>
+  <td>logit</td>
+  <td style="text-align:right">198</td>
+  <td style="text-align:right">115</td>
+  <td style="text-align:right">+5</td>
+  <td style="text-align:right">7</td>
+  <td style="text-align:right">20</td>
+</tr>
+<tr>
+  <td>SmolLM2-135M</td>
+  <td>random</td>
+  <td style="text-align:right">198</td>
+  <td style="text-align:right">62</td>
+  <td style="text-align:right">−5</td>
+  <td style="text-align:right">4</td>
+  <td style="text-align:right">9</td>
+</tr>
+<tr>
+  <td>Qwen3-0.6B</td>
+  <td>tuned</td>
+  <td style="text-align:right">204</td>
+  <td style="text-align:right">96</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">5</td>
+  <td style="text-align:right">26</td>
+</tr>
+<tr>
+  <td>Qwen3-0.6B</td>
+  <td>logit</td>
+  <td style="text-align:right">204</td>
+  <td style="text-align:right">116</td>
+  <td style="text-align:right">+1</td>
+  <td style="text-align:right">3</td>
+  <td style="text-align:right">27</td>
+</tr>
+<tr>
+  <td>Qwen3-0.6B</td>
+  <td>random</td>
+  <td style="text-align:right">204</td>
+  <td style="text-align:right">83</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">3</td>
+  <td style="text-align:right">26</td>
+</tr>
+<tr>
+  <td>Qwen3.5-0.8B</td>
+  <td>tuned</td>
+  <td style="text-align:right">204</td>
+  <td style="text-align:right">124</td>
+  <td style="text-align:right">+3.5</td>
+  <td style="text-align:right">2</td>
+  <td style="text-align:right">18</td>
+</tr>
+<tr>
+  <td>Qwen3.5-0.8B</td>
+  <td>logit</td>
+  <td style="text-align:right">204</td>
+  <td style="text-align:right">137</td>
+  <td style="text-align:right">+7</td>
+  <td style="text-align:right">4</td>
+  <td style="text-align:right">17</td>
+</tr>
+<tr>
+  <td>Qwen3.5-0.8B</td>
+  <td>random</td>
+  <td style="text-align:right">204</td>
+  <td style="text-align:right">80</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">3</td>
+  <td style="text-align:right">12</td>
+</tr>
+<tr>
+  <td>Qwen3.5-4B</td>
+  <td>tuned</td>
+  <td style="text-align:right">204</td>
+  <td style="text-align:right">126</td>
+  <td style="text-align:right">+2</td>
+  <td style="text-align:right">7</td>
+  <td style="text-align:right">58</td>
+</tr>
+<tr>
+  <td>Qwen3.5-4B</td>
+  <td>logit</td>
+  <td style="text-align:right">204</td>
+  <td style="text-align:right">146</td>
+  <td style="text-align:right">+4</td>
+  <td style="text-align:right">9</td>
+  <td style="text-align:right">66</td>
+</tr>
+<tr>
+  <td>Qwen3.5-4B</td>
+  <td>random</td>
+  <td style="text-align:right">204</td>
+  <td style="text-align:right">55</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">6</td>
+  <td style="text-align:right">42</td>
+</tr>
+</tbody>
+</table>
+<p>MLflow runs: <code>3ffa5c9e4112415ca06e1ba48d590cea</code>,
+<code>168fb89b66784a099eed5f788e56c096</code>, <code>018d4e9fb0ff4b6897f6d38085153830</code>,
+and <code>a65c7b162d3743ba884546abc852486d</code>.</p>
+<h2>2026-07-13 — Matched Qwen3.6-27B 4-bit replication</h2>
+<p>Output: <code>data/experiments/multihop-causal-27b.json</code>. The released matching
+1000-prompt lens was used with NF4 PyTorch weights and layers 16/32/60. There
+were 68 usable items and 22 multi-token skips.</p>
+<table>
+<thead>
+<tr>
+  <th>method</th>
+  <th style="text-align:right">conditions</th>
+  <th style="text-align:right">improved</th>
+  <th style="text-align:right">median Δrank</th>
+  <th style="text-align:right">target top-1</th>
+  <th style="text-align:right">target top-5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>J-lens</td>
+  <td style="text-align:right">204</td>
+  <td style="text-align:right">155</td>
+  <td style="text-align:right">+11</td>
+  <td style="text-align:right">23</td>
+  <td style="text-align:right">48</td>
+</tr>
+<tr>
+  <td>logit lens</td>
+  <td style="text-align:right">204</td>
+  <td style="text-align:right">134</td>
+  <td style="text-align:right">+3</td>
+  <td style="text-align:right">4</td>
+  <td style="text-align:right">22</td>
+</tr>
+<tr>
+  <td>random matched</td>
+  <td style="text-align:right">204</td>
+  <td style="text-align:right">72</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">3</td>
+  <td style="text-align:right">19</td>
+</tr>
+</tbody>
+</table>
+<p>MLflow run: <code>36ffac85a4f74495a2682f7d2a5ff7a5</code>.</p>
+<h2>2026-07-14 — Model-matched Qwen3.6-27B tuned-lens evaluation</h2>
+<p>The native Wikitext-trained tuned lens was fit on the exact Qwen3.6-27B
+checkpoint in NF4 mode, validated, and exported to the same affine translator
+basis convention used by the smaller-model tuned comparisons. The existing
+two-hop fixture, 68 usable items, 22 multi-token skips, and layers 16/32/60
+were retained; only the missing tuned row was evaluated.</p>
+<table>
+<thead>
+<tr>
+  <th>method</th>
+  <th style="text-align:right">conditions</th>
+  <th style="text-align:right">improved</th>
+  <th style="text-align:right">median Δrank</th>
+  <th style="text-align:right">target top-1</th>
+  <th style="text-align:right">target top-5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>tuned</td>
+  <td style="text-align:right">204</td>
+  <td style="text-align:right">121</td>
+  <td style="text-align:right">+2</td>
+  <td style="text-align:right">4</td>
+  <td style="text-align:right">22</td>
+</tr>
+</tbody>
+</table>
+<p>Output: <code>data/experiments/multihop-causal-27b.json</code> (now includes the merged
+<code>tuned</code> rows) and tuned-only artifact
+<code>data/experiments/modal-tuned-27b/multihop-causal-27b-tuned.json</code>.</p>
+</article>
+<footer>Rendered from <code>experiments/MULTIHOP_CAUSAL_LOG.md</code> by <code>scripts/generate_research_report.py</code>.</footer>
+</main></body></html>

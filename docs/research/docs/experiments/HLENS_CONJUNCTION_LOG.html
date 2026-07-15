@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>H-lens conjunctive interaction experiment log · J-Lens research report</title>
+<style>
+:root { --paper:#fff; --wash:#f3f1ec; --ink:#222; --muted:#666; --rule:#b8b5ae; --accent:#174a73; }
+* { box-sizing:border-box; } body { margin:0; background:var(--wash); color:var(--ink); font:16px/1.58 Georgia,'Times New Roman',serif; }
+main { max-width:1120px; margin:2rem auto; padding:3.5rem 4.5rem; background:var(--paper); border:1px solid #d7d3ca; box-shadow:0 1px 8px #00000012; }
+h1,h2,h3,table,nav,footer { font-family:Arial,Helvetica,sans-serif; } h1 { font:700 2.2rem/1.15 Georgia,serif; } h2 { margin-top:2.2rem; border-bottom:1px solid var(--rule); padding-bottom:.25rem; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; } nav { margin-bottom:2rem; }
+table { border-collapse:collapse; width:100%; margin:1rem 0 1.5rem; font-size:.86rem; } th,td { border-bottom:1px solid #d6d3cc; padding:.4rem .5rem; text-align:left; vertical-align:top; } th { border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+pre { overflow:auto; padding:1rem; background:#f5f4f0; border:1px solid #dedbd3; } code { font:.88em/1.35 'SFMono-Regular',Consolas,monospace; } blockquote { border-left:3px solid var(--accent); margin-left:0; padding-left:1rem; color:var(--muted); }
+img { max-width:100%; } footer { margin-top:3rem; padding-top:1rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.8rem; }
+@media (max-width:760px) { main { margin:0; padding:2rem 1.2rem; } table { display:block; overflow-x:auto; } }
+</style></head><body><main>
+<nav><a href="../index.html">← Research report</a> · <a href="index.html">Documentation index</a></nav>
+<article><h1>H-lens conjunctive interaction experiment log</h1>
+<p>This chronological log records implementation, validation, and results for
+the proposed second-order/Hessian-lens experiment. The protocol is in
+<a href="HLENS_CONJUNCTION.html"><code>HLENS_CONJUNCTION.md</code></a>.</p>
+<h2>2026-07-14 — Proposed experiment recorded</h2>
+<p>The proposed experiment was added after discussion of whether a Hessian-based
+extension could reveal conjunction-level interactions missed by first-order
+J-lens measurements.</p>
+<p>Current decision:</p>
+<ul>
+<li>begin with Hessian-vector products, not full Hessian matrices;</li>
+<li>use answer-logit margins rather than raw logits as the primary scalar score;</li>
+<li>start on Qwen3-0.6B or SmolLM2 in BF16/FP32;</li>
+<li>validate numerically before using the current GPU queue or attempting 27B;</li>
+<li>extend the existing conjunction fixture, then move to randomized Boolean
+truth-table prompts if the pilot survives controls;</li>
+<li>treat the first output as a curvature diagnostic, not yet as a distributable
+fitted H-lens artifact.</li>
+</ul>
+<p>No H-lens code or results have been produced yet. The next implementation gate
+is a one-prompt, one-layer HVP smoke test with finite-difference validation,
+zero-direction checks, and explicit CUDA-memory cleanup.</p>
+</article>
+<footer>Rendered from <code>experiments/HLENS_CONJUNCTION_LOG.md</code> by <code>scripts/generate_research_report.py</code>.</footer>
+</main></body></html>

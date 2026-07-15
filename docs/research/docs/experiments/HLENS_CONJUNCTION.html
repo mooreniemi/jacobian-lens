@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>H-lens conjunctive interaction experiment · J-Lens research report</title>
+<style>
+:root { --paper:#fff; --wash:#f3f1ec; --ink:#222; --muted:#666; --rule:#b8b5ae; --accent:#174a73; }
+* { box-sizing:border-box; } body { margin:0; background:var(--wash); color:var(--ink); font:16px/1.58 Georgia,'Times New Roman',serif; }
+main { max-width:1120px; margin:2rem auto; padding:3.5rem 4.5rem; background:var(--paper); border:1px solid #d7d3ca; box-shadow:0 1px 8px #00000012; }
+h1,h2,h3,table,nav,footer { font-family:Arial,Helvetica,sans-serif; } h1 { font:700 2.2rem/1.15 Georgia,serif; } h2 { margin-top:2.2rem; border-bottom:1px solid var(--rule); padding-bottom:.25rem; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; } nav { margin-bottom:2rem; }
+table { border-collapse:collapse; width:100%; margin:1rem 0 1.5rem; font-size:.86rem; } th,td { border-bottom:1px solid #d6d3cc; padding:.4rem .5rem; text-align:left; vertical-align:top; } th { border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+pre { overflow:auto; padding:1rem; background:#f5f4f0; border:1px solid #dedbd3; } code { font:.88em/1.35 'SFMono-Regular',Consolas,monospace; } blockquote { border-left:3px solid var(--accent); margin-left:0; padding-left:1rem; color:var(--muted); }
+img { max-width:100%; } footer { margin-top:3rem; padding-top:1rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.8rem; }
+@media (max-width:760px) { main { margin:0; padding:2rem 1.2rem; } table { display:block; overflow-x:auto; } }
+</style></head><body><main>
+<nav><a href="../index.html">← Research report</a> · <a href="index.html">Documentation index</a></nav>
+<article><h1>H-lens conjunctive interaction experiment</h1>
+<p>Status: proposed design; no H-lens results yet<br />
+Summary: this document is the protocol and design record<br />
+Experiment log: <a href="HLENS_CONJUNCTION_LOG.html"><code>HLENS_CONJUNCTION_LOG.md</code></a><br />
+Related protocol: <a href="CONJUNCTION_SWAP.html"><code>CONJUNCTION_SWAP.md</code></a><br />
+Last updated: 2026-07-14</p>
+<h2>1. Research question</h2>
+<p>Does a model's curvature along two property directions reveal a conjunction-level
+interaction that is not visible in first-order J-lens measurements?</p>
+<p>The experiment is motivated by prompts of the form:</p>
+<pre><code class="language-text">The animal that spins webs and has eight legs is a ...
+</code></pre>
+<p>The question is not simply whether the model can answer the prompt. It is
+whether the effect of property A changes when property B is present, and
+whether that interaction can be localized and measured internally.</p>
+<h2>2. Conceptual definition</h2>
+<p>Let <code>s(h)</code> be a scalar model score, such as the logit margin between the
+expected answer and a competing answer, and let <code>u</code> and <code>v</code> be two normalized
+activation directions associated with properties A and B.</p>
+<p>The J-lens is first-order:</p>
+<pre><code class="language-text">s(h + d) ≈ s(h) + gradient(s) · d
+</code></pre>
+<p>The proposed H-lens adds the second-order term:</p>
+<pre><code class="language-text">s(h + d) ≈ s(h) + gradient(s) · d + 1/2 d · Hessian(s) · d
+</code></pre>
+<p>For conjunctions, the primary quantity is the cross-Hessian:</p>
+<pre><code class="language-text">cross(A, B) = u · Hessian(s) · v
+</code></pre>
+<p>This measures whether the effect of A changes in the presence of B. A full
+Hessian is not required: the quantity can be computed with Hessian-vector
+products. The initial H-lens is therefore a curvature/interaction readout,
+not a claim that we have found a new universal vocabulary decoder.</p>
+<h2>3. Hypotheses</h2>
+<h3>H1: second-order predictive improvement</h3>
+<p>For real interventions, a Taylor prediction using the J-lens term plus the
+Hessian term predicts the observed answer-score change better than the J-only
+prediction.</p>
+<h3>H2: conjunction-specific cross-curvature</h3>
+<p>The cross-Hessian between A and B is larger, more reproducible, or more
+directionally structured for genuine conjunctions than for additive,
+scrambled, unrelated-property, and nearby-position controls.</p>
+<h3>H3: localized interaction</h3>
+<p>Cross-curvature peaks at a layer and position associated with combining the
+two properties, rather than merely tracking the norm of either direction or
+generic prompt sensitivity.</p>
+<h3>Null hypothesis</h3>
+<p>The model is locally close to linear in the tested directions, or the relevant
+computation is not captured by these directions. The H term then provides no
+reliable predictive improvement, and cross-curvature is indistinguishable from
+matched controls.</p>
+<h2>4. Concrete experimental design</h2>
+<h3>Phase 0: numerical and pipeline validation</h3>
+<p>Use Qwen3-0.6B or SmolLM2 before touching the 27B model. Run one known-good
+prompt, one layer, one answer margin, and a small set of directions.</p>
+<p>Validate every HVP against a finite-difference estimate:</p>
+<pre><code class="language-text">Hessian · v ≈ [gradient(s at h + epsilon v)
+               - gradient(s at h - epsilon v)] / (2 epsilon)
+</code></pre>
+<p>Check multiple epsilon values, symmetry where available, dtype behavior, and
+that a zero direction gives zero curvature. Fail the run if these checks do
+not pass within a documented numerical tolerance.</p>
+<h3>Phase 1: controlled natural-language conjunctions</h3>
+<p>Use the validated conjunction fixture and retain only items where:</p>
+<ul>
+<li>A alone and B alone identify intended intermediates;</li>
+<li>A and B together identify one intended baseline entity;</li>
+<li>the answer has a measurable baseline margin;</li>
+<li>A and B spans are tokenizer-checked;</li>
+<li>swaps are classified as valid, ambiguous, or contradictory.</li>
+</ul>
+<p>Evaluate the factorial conditions:</p>
+<table>
+<thead>
+<tr>
+  <th>Condition</th>
+  <th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>neither</td>
+  <td>baseline/no-property control</td>
+</tr>
+<tr>
+  <td>A only</td>
+  <td>isolate A</td>
+</tr>
+<tr>
+  <td>B only</td>
+  <td>isolate B</td>
+</tr>
+<tr>
+  <td>A and B</td>
+  <td>conjunction condition</td>
+</tr>
+<tr>
+  <td>A swapped</td>
+  <td>change A while holding B fixed</td>
+</tr>
+<tr>
+  <td>B swapped</td>
+  <td>change B while holding A fixed</td>
+</tr>
+<tr>
+  <td>both swapped</td>
+  <td>test combined effect</td>
+</tr>
+<tr>
+  <td>connective swap</td>
+  <td>test <code>and</code> versus <code>or</code></td>
+</tr>
+<tr>
+  <td>random-word scramble</td>
+  <td>generic lexical perturbation control</td>
+</tr>
+</tbody>
+</table>
+<p>At each selected layer and relevant token position, compute the answer-margin
+gradient, directional curvature for A and B, and the cross-Hessian.</p>
+<h3>Phase 2: causal prediction test</h3>
+<p>For an intervention with displacement <code>d</code>, compare:</p>
+<ol>
+<li>the actual score after applying the activation intervention;</li>
+<li>the J-only Taylor prediction;</li>
+<li>the J-plus-H Taylor prediction.</li>
+</ol>
+<p>The primary outcome is the held-out prediction error reduction from J-only to
+J-plus-H. The intervention direction must be frozen before evaluating the
+held-out prompts, and direction norms must be reported.</p>
+<h3>Phase 3: randomized Boolean extension</h3>
+<p>If the natural-language pilot passes its controls, generate opaque-property
+truth-table prompts with known AND, OR, XOR, implication, and NOT rules. This
+prevents one fact from accidentally determining the answer and makes the
+interaction ground truth explicit.</p>
+<p>The primary behavioral interaction statistic is:</p>
+<pre><code class="language-text">score(1,1) - score(1,0) - score(0,1) + score(0,0)
+</code></pre>
+<p>Compare this statistic with the cross-Hessian measured before intervention and
+with the causal answer change after intervention.</p>
+<h2>5. Controls</h2>
+<p>The minimum control set is:</p>
+<ul>
+<li>matched-norm random directions;</li>
+<li>unrelated semantic directions;</li>
+<li>cross-type substitutions, such as an entity direction replaced by a common
+noun direction;</li>
+<li>nearby non-conjunct positions;</li>
+<li>connective substitution (<code>and</code> to <code>or</code>);</li>
+<li>reversed conjunct order;</li>
+<li>multiple intervention magnitudes;</li>
+<li>finite-difference and autograd HVP agreement.</li>
+</ul>
+<p>If random controls produce effects comparable to the intended A/B directions,
+the result is generic curvature or intervention sensitivity, not evidence for
+conjunction binding.</p>
+<h2>6. Models and precision</h2>
+<p>The first smoke test should use a small model in BF16 or FP32. FP32 is
+preferable for the numerical HVP check if it fits. Quantized 27B weights may
+be acceptable for inference, but second-order autograd through a quantized
+model is not the initial target.</p>
+<p>The 27B follow-up should be a separate model-matched run. It should report
+base-weight precision, activation dtype, device, peak allocated/reserved CUDA
+memory, number of HVPs, and wall-clock time. We must not infer H-lens creation
+cost from the existing J-lens or tuned-lens runs.</p>
+<h2>7. Analysis and uncertainty</h2>
+<p>Report per-item and aggregate results. The primary summaries are:</p>
+<ul>
+<li>held-out J-only versus J-plus-H prediction error;</li>
+<li>cross-Hessian effect size versus each control distribution;</li>
+<li>layer/position localization;</li>
+<li>correlation between cross-curvature and Boolean interaction;</li>
+<li>bootstrap confidence intervals over prompt families;</li>
+<li>sensitivity to direction norm, epsilon, dtype, and answer-margin choice;</li>
+<li>peak memory, HVP count, and fit/evaluation time.</li>
+</ul>
+<p>The pilot is for feasibility and variance estimation. A confirmatory item count
+should be chosen after measuring paired-item variance and the smallest effect
+that would be scientifically meaningful.</p>
+<h2>8. Evidence that would change our mind</h2>
+<h3>Supports the H-lens hypothesis</h3>
+<ul>
+<li>J-plus-H predictions improve held-out intervention prediction over J-only;</li>
+<li>cross-curvature is larger for genuine conjunctions than matched controls;</li>
+<li>the effect is localized and survives norm, position, order, and scramble
+controls;</li>
+<li>cross-curvature tracks the known Boolean interaction in the randomized task;</li>
+<li>results replicate across seeds, paraphrases, and at least one second model.</li>
+</ul>
+<h3>Weakens or falsifies it</h3>
+<ul>
+<li>H terms do not improve prediction beyond J-only;</li>
+<li>cross-curvature is no larger than random or unrelated controls;</li>
+<li>results disappear under small changes in epsilon or direction scale;</li>
+<li>apparent effects are explained by answer-margin size, direction norm, or
+generic perturbation sensitivity;</li>
+<li>HVP validation fails or differs materially across dtype/device settings.</li>
+</ul>
+<p>A null would not prove that the model has no nonlinear conjunction mechanism.
+It would show that this H-lens construction and these directions do not detect
+one reliably.</p>
+<h2>9. Implementation sketch</h2>
+<p>The first implementation should expose a small, testable API rather than add a
+large second-order abstraction immediately:</p>
+<pre><code class="language-python">score = answer_logit - competitor_logit
+gradient = torch.autograd.grad(score, hidden, create_graph=True)[0]
+hvp = torch.autograd.grad((gradient * direction).sum(), hidden)[0]
+directional_curvature = (hvp * direction).sum()
+cross_curvature = (hvp_for_v * direction_u).sum()
+</code></pre>
+<p>The hidden state must remain connected to the suffix computation for the
+backward pass. The full model should not be retained unnecessarily, and each
+prompt should release its graph before the next prompt. Unit tests should
+cover zero directions, scaling laws, finite-difference agreement, layer and
+position indexing, and cleanup after an exception.</p>
+<p>The first deliverable is a diagnostic table, not a new fitted checkpoint. A
+later “H-lens artifact” would require a separate decision about whether to
+store per-layer curvature operators, learned directions, or only a reusable
+HVP-based scoring procedure.</p>
+<h2>10. Relationship to existing experiments</h2>
+<p>This extends the conjunction-swap experiment rather than replacing it. The
+existing J-lens experiment asks where first-order information points; H-lens
+asks whether the effect of one direction depends on another. The Boolean
+extension remains useful because it provides explicit interaction ground truth.</p>
+<p>The first result should therefore be reported as:</p>
+<blockquote>
+<p>second-order curvature and conjunction interaction analysis</p>
+</blockquote>
+<p>and only later renamed an H-lens if it demonstrates a stable, reusable readout
+with a clearly defined user-facing interpretation.</p>
+</article>
+<footer>Rendered from <code>experiments/HLENS_CONJUNCTION.md</code> by <code>scripts/generate_research_report.py</code>.</footer>
+</main></body></html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tuned-lens reproduction track · J-Lens research report</title>
+<style>
+:root { --paper:#fff; --wash:#f3f1ec; --ink:#222; --muted:#666; --rule:#b8b5ae; --accent:#174a73; }
+* { box-sizing:border-box; } body { margin:0; background:var(--wash); color:var(--ink); font:16px/1.58 Georgia,'Times New Roman',serif; }
+main { max-width:1120px; margin:2rem auto; padding:3.5rem 4.5rem; background:var(--paper); border:1px solid #d7d3ca; box-shadow:0 1px 8px #00000012; }
+h1,h2,h3,table,nav,footer { font-family:Arial,Helvetica,sans-serif; } h1 { font:700 2.2rem/1.15 Georgia,serif; } h2 { margin-top:2.2rem; border-bottom:1px solid var(--rule); padding-bottom:.25rem; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; } nav { margin-bottom:2rem; }
+table { border-collapse:collapse; width:100%; margin:1rem 0 1.5rem; font-size:.86rem; } th,td { border-bottom:1px solid #d6d3cc; padding:.4rem .5rem; text-align:left; vertical-align:top; } th { border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+pre { overflow:auto; padding:1rem; background:#f5f4f0; border:1px solid #dedbd3; } code { font:.88em/1.35 'SFMono-Regular',Consolas,monospace; } blockquote { border-left:3px solid var(--accent); margin-left:0; padding-left:1rem; color:var(--muted); }
+img { max-width:100%; } footer { margin-top:3rem; padding-top:1rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.8rem; }
+@media (max-width:760px) { main { margin:0; padding:2rem 1.2rem; } table { display:block; overflow-x:auto; } }
+</style></head><body><main>
+<nav><a href="../index.html">← Research report</a> · <a href="index.html">Documentation index</a></nav>
+<article><h1>Tuned-lens reproduction track</h1>
+<h2>What is known about Anthropic's tuned lens</h2>
+<p>Anthropic do not identify a downloadable, model-specific tuned-lens checkpoint
+or publish the exact tuned-lens training command used in their J-lens study.
+Their report describes tuned lens as the learned affine-translator baseline and
+uses it as a comparator, but the released reproduction detail is about the
+J-lens corpus and Jacobian construction rather than a tuned-lens artifact.
+Therefore we must not call our lens “Anthropic's tuned lens.”</p>
+<p>The strongest public recipe we can reproduce is the original tuned-lens
+recipe: fit on The Pile validation split and evaluate on the held-out Pile test
+split. The official documentation uses <code>val.jsonl</code> for fitting and <code>test.jsonl</code>
+for evaluation, with a 16.4M-token evaluation example. Our model-specific
+implementation retains the same affine-translator and KL-to-final-logits
+objective, while adding Qwen-compatible final-norm dispatch.</p>
+<h2>Artifact names</h2>
+<table>
+<thead>
+<tr>
+  <th>Artifact</th>
+  <th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>tuned-wiki-small-v0</code></td>
+  <td>Existing Wikitext-2 pilot: 100 steps and 256–512 short chunks; not a strong reproduction</td>
+</tr>
+<tr>
+  <td><code>tuned-pile-repro-v1</code></td>
+  <td>Planned model-matched fit on Pile validation, with held-out Pile test metrics</td>
+</tr>
+<tr>
+  <td><code>tuned-pile-repro-v1-causal</code></td>
+  <td>The same validated lens used in the causal intervention suites</td>
+</tr>
+</tbody>
+</table>
+<p>Existing Wikitext artifacts remain in place for provenance, but their manifests
+and experiment-log labels use <code>tuned-wiki-small-v0</code> from this point forward.</p>
+<h2>Staged execution</h2>
+<p>We proceed in increasing resource order and stop on any validation failure:</p>
+<ol>
+<li>Qwen3-0.6B: local end-to-end Pile fit/evaluation smoke, then full pilot.</li>
+<li>SmolLM2-135M and Qwen3.5-0.8B: repeat the same validated recipe.</li>
+<li>Qwen3.5-4B: repeat with the model-matched tokenizer and revision.</li>
+<li>Qwen3.6-27B: run only after the small-model artifacts pass all checks; use
+the cached local/Modal model and persistent dataset volume.</li>
+</ol>
+<p>Every run must record the immutable model revision, tokenizer revision, dataset
+file hashes, token count, sequence length, optimizer and learning-rate
+schedule, precision/quantization, seed, package versions, and artifact hash.</p>
+<p>Precision notation is explicit: <code>compute_dtype</code> describes arithmetic used by
+the forward/translator computation, while <code>base_quantization</code> describes how
+the frozen model weights were loaded. Thus <code>BF16 + NF4</code> means BF16 compute on
+an NF4 4-bit base; it does not mean that the learned translators themselves
+are 4-bit. <code>BF16 + none</code> means an unquantized BF16 base. Logit lens has no fit
+precision; its runtime precision is inherited from the loaded base model.</p>
+<p>Before causal use, the held-out test report must include layer-wise KL,
+cross-entropy, top-1/top-5 accuracy, entropy, and calibration. The causal
+runner must refuse a <code>tuned-pile-repro-v1</code> artifact whose model revision or
+hidden size does not match the evaluated model.</p>
+<h2>Why this is the right next step</h2>
+<p>Tuned lens is trained to predict the final output, so it should beat logit lens
+on that predictive metric. Anthropic's claim for J-lens is different: J-lens
+is intended to expose and causally drive intermediate computations, where the
+tuned lens can “skip ahead” to the answer. A better Pile fit tests whether our
+weak tuned results came from undertraining, without changing that conceptual
+distinction.</p>
+</article>
+<footer>Rendered from <code>TUNED_LENS_REPRODUCTION.md</code> by <code>scripts/generate_research_report.py</code>.</footer>
+</main></body></html>

@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conjunction swap experiment log · J-Lens research report</title>
+<style>
+:root { --paper:#fff; --wash:#f3f1ec; --ink:#222; --muted:#666; --rule:#b8b5ae; --accent:#174a73; }
+* { box-sizing:border-box; } body { margin:0; background:var(--wash); color:var(--ink); font:16px/1.58 Georgia,'Times New Roman',serif; }
+main { max-width:1120px; margin:2rem auto; padding:3.5rem 4.5rem; background:var(--paper); border:1px solid #d7d3ca; box-shadow:0 1px 8px #00000012; }
+h1,h2,h3,table,nav,footer { font-family:Arial,Helvetica,sans-serif; } h1 { font:700 2.2rem/1.15 Georgia,serif; } h2 { margin-top:2.2rem; border-bottom:1px solid var(--rule); padding-bottom:.25rem; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; } nav { margin-bottom:2rem; }
+table { border-collapse:collapse; width:100%; margin:1rem 0 1.5rem; font-size:.86rem; } th,td { border-bottom:1px solid #d6d3cc; padding:.4rem .5rem; text-align:left; vertical-align:top; } th { border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+pre { overflow:auto; padding:1rem; background:#f5f4f0; border:1px solid #dedbd3; } code { font:.88em/1.35 'SFMono-Regular',Consolas,monospace; } blockquote { border-left:3px solid var(--accent); margin-left:0; padding-left:1rem; color:var(--muted); }
+img { max-width:100%; } footer { margin-top:3rem; padding-top:1rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.8rem; }
+@media (max-width:760px) { main { margin:0; padding:2rem 1.2rem; } table { display:block; overflow-x:auto; } }
+</style></head><body><main>
+<nav><a href="../index.html">← Research report</a> · <a href="index.html">Documentation index</a></nav>
+<article><h1>Conjunction swap experiment log</h1>
+<p>This is the chronological record for this experiment. The protocol and preregistration are static documents; this file records what was actually changed, run, observed, and decided.</p>
+<p>Related documents:</p>
+<ul>
+<li><a href="CONJUNCTION_SWAP_SUMMARY.html">summary</a></li>
+<li><a href="CONJUNCTION_SWAP.html">protocol</a></li>
+<li><a href="CONJUNCTION_SWAP_PREREGISTRATION.html">preregistration draft</a></li>
+<li><a href="../../data/experiments/conjunction-swap.json">dataset</a></li>
+</ul>
+<h2>2026-07-12 — Preparation and pilot gate</h2>
+<h3>Completed</h3>
+<ul>
+<li>Added tabulated human-readable output to <code>scripts/eval_conjunction_swap.py</code>; detailed JSON output remains unchanged.</li>
+<li>Added <code>scripts/validate_conjunction_data.py</code> with tokenizer span checks and strict mode.</li>
+<li>Repaired malformed conjunct spans and unchanged B-swaps in the 12-item fixture.</li>
+<li>Strict validation passes all 12 items with zero errors and zero warnings.</li>
+<li>Added the summary and preregistration documents.</li>
+<li>Added an empirical power/sensitivity plan based on pilot variance, paired-item correlation, valid-item rate, and simulation.</li>
+</ul>
+<h3>Existing run</h3>
+<p>The original two-item smoke test completed without an OOM and produced <code>data/experiments/conjunction-swap-results.json</code>. It used the pre-repair fixture, so it is a pipeline check only and must not be treated as evidence or as the final pilot result.</p>
+<h3>Current interpretation</h3>
+<p>Twelve items are appropriate for a pilot and prompt/hook validation, not for a broad claim about conjunction representations. The confirmatory claim requires causal intervention and a larger held-out item set.</p>
+<h3>Open work</h3>
+<ol>
+<li>Rerun the observational pilot on the repaired fixture and inspect the tabulated output.</li>
+<li>Implement causal J-lens-vector/activation substitution with sham and position controls.</li>
+<li>Complete the larger lens fit or otherwise freeze the lens checkpoint used for confirmatory scoring.</li>
+<li>Estimate power from pilot effects and freeze the confirmatory item count and analysis rules.</li>
+</ol>
+<h2>2026-07-12 — Repaired observational pilot</h2>
+<h3>Run</h3>
+<p>Command run in tmux pane <code>0:1.3</code>:</p>
+<pre><code class="language-bash">uv run python scripts/eval_conjunction_swap.py \
+  --lens data/lenses/qwen3.5-0.8b-lens.pt \
+  --data data/experiments/conjunction-swap.json \
+  --out data/experiments/conjunction-swap-pilot-results.json
+</code></pre>
+<p>The run loaded the Qwen3.5-0.8B model with 23.24 GiB free, processed all 12 items and six conditions per item, and completed without an OOM. Output: <code>data/experiments/conjunction-swap-pilot-results.json</code>.</p>
+<h3>Findings</h3>
+<p>The runner produced a tabulated top-1 summary. Several items showed expected directional behavior—for example, France/Italy changed <code>Paris</code> to <code>Rome</code> under the A swap, and France/Italian-language changed <code>French</code> to <code>Italian</code> under the B swap. Other items produced weak answer-position predictions such as <code>a</code>, <code>the</code>, or an empty decoded token. Therefore the run validates the pipeline and reveals prompt/model screening failures, but it is not evidence for the representation hypotheses.</p>
+<h3>Decision</h3>
+<p>Do not use all 12 items for confirmatory statistics. Before causal intervention, add an explicit baseline-quality report using expected answers and answer margins, classify items as valid/ambiguous/invalid, and repair or exclude invalid items according to the preregistered rules. Preserve this complete pilot output as diagnostic data.</p>
+<h3>Next step</h3>
+<p>Implement and unit-test the causal activation/J-lens-vector substitution on a small known-good item, with no-op, sham, nearby-position, and intervention-strength controls before running the full pilot.</p>
+<h2>2026-07-12 — Reporting and scrambling controls</h2>
+<ul>
+<li>Added aggregate summary tables to the evaluator: top-1 change counts/fractions relative to the conjunction baseline, plus expected-answer agreement for conditions with declared answers.</li>
+<li>Added three planned nonspecific-intervention controls to the protocol and preregistration:<ul>
+<li>type-matched semantic scramble;</li>
+<li>cross-type scramble such as <code>Paris</code> to <code>bicycle</code>;</li>
+<li>positional scramble at a nearby non-conjunct token.</li>
+</ul>
+</li>
+<li>The controls are documented but not yet executed; they belong in the causal intervention runner, not in the observational result already collected.</li>
+</ul>
+<h2>2026-07-12 — Noise-floor control design</h2>
+<p>The pilot should include a graded scramble battery rather than only one unrelated substitution: conjunct-order reversal, connective substitution (<code>and</code>/<code>or</code>), within-span word-order scrambling, random content-word replacement with fixed seeds, type-matched semantic scrambles, and cross-type scrambles. The causal phase should add matched-norm random-vector, unrelated-item-vector, and nearby-position controls.</p>
+<p>The intended swap will only be interpreted as specific if it exceeds the relevant control distribution and has the predicted semantic direction. Comparable effects from random-word or random-vector controls will count as nonspecific intervention sensitivity.</p>
+<h2>2026-07-12 — Expanded observational pilot interpretation</h2>
+<p>The expanded run saved <code>data/experiments/conjunction-swap-pilot-controls-results.json</code> and printed per-item, primary-summary, control-summary, and expected-answer tables.</p>
+<h3>Quantitative summary</h3>
+<ul>
+<li>A swap changed the top-1 answer relative to <code>both</code> on 5/12 items (41.7%).</li>
+<li>B swap changed the top-1 answer on 5/12 items (41.7%).</li>
+<li>Double swap changed the top-1 answer on 8/12 items (66.7%).</li>
+<li>Control-order changed the top-1 answer on 5/12 items (41.7%).</li>
+<li><code>and</code> to <code>or</code> changed it on 4/12 items (33.3%).</li>
+<li>Same-type scramble changed it on 5/8 items (62.5%); only eight items had a same-category partner.</li>
+<li>Cross-type scramble changed it on 6/12 items (50.0%).</li>
+<li>Expected baseline answer appeared top-1 for only 4/12 <code>both</code> prompts; it appeared in the saved top-5 for the same 4/12.</li>
+</ul>
+<h3>Interpretation</h3>
+<p>The intended swaps are not more behaviorally specific than the simple controls in this pilot. The 8/12 double-swap rate is compatible with generic prompt perturbation because order and scramble controls produce comparable rates. Only a few items have reliable baseline and swapped answers: France/Italy, Canada/US, Germany/France, and France-language. The remaining items need repair, exclusion, or explicit ambiguity-control status.</p>
+<p>This is therefore a successful screening/noise-floor pilot, not evidence for compositional or bound conjunction representations. The next analysis should use a baseline-quality and answer-margin filter, then run causal interventions only on valid items with matched-norm random, unrelated-vector, and nearby-position controls.</p>
+<h2>2026-07-12 — Calibrated J-lens/logit-lens pilot</h2>
+<p>The evaluator was upgraded using the Anthropic baseline lessons: continuation targets now include context-appropriate leading whitespace, expected-token ranks are recorded, best layer/position is reported, and each condition receives a matched vanilla logit-lens comparison. A two-item smoke test passed, followed by the full 12-item run:</p>
+<p><code>data/experiments/conjunction-swap-calibrated-pilot-results.json</code></p>
+<p>For the unchanged conjunction conditions:</p>
+<ul>
+<li>expected token was model top-1 on 6/12 items;</li>
+<li>best J-lens rank was 1 on 7/12 items;</li>
+<li>best vanilla logit-lens rank was 1 on 4/12 items;</li>
+<li>best J-lens rank was ≤5 on 8/12 items;</li>
+<li>best vanilla logit-lens rank was ≤5 on 8/12 items.</li>
+</ul>
+<p>This confirms that final answer quality and intermediate lens recoverability are distinct. Weak final predictions do not automatically make an item useless for observational lens analysis, but they do make behavioral swap interpretation fragile. The calibrated readout is now the required format for future conjunction analyses. It remains observational and does not establish causality.</p>
+<h2>2026-07-12 — Model/lens pairing and larger fit</h2>
+<p>The experiment matrix is now explicit:</p>
+<table>
+<thead>
+<tr>
+  <th>run</th>
+  <th>model</th>
+  <th>lens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Anthropic baseline</td>
+  <td><code>Qwen/Qwen3.5-4B</code></td>
+  <td>released matching 4B <code>qwen-n1000</code> lens</td>
+</tr>
+<tr>
+  <td>small conjunction</td>
+  <td><code>Qwen/Qwen3.5-0.8B</code></td>
+  <td>locally fitted matching 0.8B lens</td>
+</tr>
+<tr>
+  <td>larger conjunction replication</td>
+  <td><code>Qwen/Qwen3.6-27B</code></td>
+  <td>released matching 27B lens initially; local fit is a separate comparison track</td>
+</tr>
+</tbody>
+</table>
+<p>The preliminary 0.8B lens used in earlier conjunction pilots contains <code>n_prompts=62</code>. A balanced 204-prompt, tokenizer-checked corpus is now prepared at <code>data/lens-prompts/fit-mix-204.json</code>, with 34 prompts per category. Its matched 0.8B lens fit is running in tmux pane <code>0:1.3</code> with checkpointing.</p>
+<p>A locally fitted 27B lens would be scientifically useful for comparison with the released 27B lens, but prior attempts OOMed because fitting retains large autograd graphs even with 4-bit weights. It will be attempted as a memory-bounded secondary track and will not replace the released matched lens if it cannot fit.</p>
+<h2>2026-07-12 — External benchmark sources downloaded</h2>
+<p>We began processing established logical-reasoning datasets for a stronger conjunction corpus:</p>
+<ul>
+<li><strong>ProofWriter</strong> (<code>tasksource/proofwriter</code>): 585,552 train, 85,468 validation, and 174,476 test rows scanned; 15,000 conjunction-bearing candidates saved across splits.</li>
+<li><strong>FOLIO</strong> (<code>tasksource/folio</code>): 1,001 train and 203 validation rows scanned; 1,084 conjunction-bearing candidates saved.</li>
+</ul>
+<p>Derived files:</p>
+<ul>
+<li><code>data/benchmarks/proofwriter-conjunction-candidates.jsonl</code></li>
+<li><code>data/benchmarks/folio-conjunction-candidates.jsonl</code></li>
+<li><code>data/benchmarks/inventory.json</code></li>
+</ul>
+<p>Provenance is recorded in <code>inventory.json</code>. The first filter is intentionally broad: a conjunction appears somewhere in the theory or formal premises, but the rows have not yet been shown to satisfy the stronger design criterion that A alone is ambiguous, B alone is ambiguous, and A∧B uniquely identifies one entity. The next processing step is structural extraction and intersection filtering. ProofWriter is the primary source for controlled cases; FOLIO is reserved for natural-language robustness checks.</p>
+<h2>2026-07-12 — Structural ProofWriter extraction</h2>
+<p>Added <code>scripts/extract_proofwriter_strong_conjunctions.py</code>. It conservatively
+parses simple unary ProofWriter facts and rules, retaining cases with explicit
+A and B facts for an entity, no explicit C fact, and no detected A→C or B→C
+singleton rule. It produced 260 candidates at
+<code>data/benchmarks/proofwriter-strong-conjunctions.jsonl</code>.</p>
+<p>These are not yet experiment-ready. The next CPU validation must deduplicate
+stories, check derivation depth and negation, tokenize the actual Qwen prompt,
+and test that A-only and B-only ablations are genuinely ambiguous while A∧B
+has a unique answer. Only then should examples enter the held-out conjunction
+causal set.</p>
+<h2>2026-07-13 — Strict factorial screen completed</h2>
+<p>The static factorial validator was run on the current 390 extracted
+ProofWriter candidates. Only 9 survived all strict criteria: A ambiguous, B
+ambiguous, a unique A∧B intersection, and no explicit conclusion fact. The
+failure counts were 121 for A ambiguity, 113 for B ambiguity, 184 for a unique
+intersection, and 264 for an explicit conclusion; counts overlap because a row
+can fail multiple criteria.</p>
+<p>The current 12 hand-authored conjunction fixtures remain clean: tokenizer-span
+validation found 0 structural errors and 0 scientific warnings. The strict
+ProofWriter survivors are therefore a held-out seed, not yet a 100-item
+benchmark. Expansion should use fresh controlled templates or a less strict,
+explicitly labeled design rather than silently mixing redundant examples into
+the primary factorial analysis.</p>
+<h2>2026-07-14 — Boolean-rule and self-report extension added to design</h2>
+<p>The experiment protocol now specifies a follow-on randomized Boolean track.
+It will use opaque independently randomized properties and balanced truth
+tables for AND, OR, XOR, implication, and NOT, with operand/connective swaps
+and matched semantic, positional, word-order, and random-vector controls.</p>
+<p>The intended evidence chain is: generated rule → model behavior → probe/J-lens
+readout → causal counterfactual → model self-report. The self-report is not
+treated as evidence by itself; it must predict held-out counterfactuals and
+agree with the causal intervention. The primary interaction statistic is the
+four-cell difference-in-differences, and this dataset will remain separate
+from the natural-fact conjunction pilot until independently preregistered.</p>
+</article>
+<footer>Rendered from <code>experiments/CONJUNCTION_SWAP_LOG.md</code> by <code>scripts/generate_research_report.py</code>.</footer>
+</main></body></html>

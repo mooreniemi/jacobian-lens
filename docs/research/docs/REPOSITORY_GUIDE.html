@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Repository and fork guide · J-Lens research report</title>
+<style>
+:root { --paper:#fff; --wash:#f3f1ec; --ink:#222; --muted:#666; --rule:#b8b5ae; --accent:#174a73; }
+* { box-sizing:border-box; } body { margin:0; background:var(--wash); color:var(--ink); font:16px/1.58 Georgia,'Times New Roman',serif; }
+main { max-width:1120px; margin:2rem auto; padding:3.5rem 4.5rem; background:var(--paper); border:1px solid #d7d3ca; box-shadow:0 1px 8px #00000012; }
+h1,h2,h3,table,nav,footer { font-family:Arial,Helvetica,sans-serif; } h1 { font:700 2.2rem/1.15 Georgia,serif; } h2 { margin-top:2.2rem; border-bottom:1px solid var(--rule); padding-bottom:.25rem; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; } nav { margin-bottom:2rem; }
+table { border-collapse:collapse; width:100%; margin:1rem 0 1.5rem; font-size:.86rem; } th,td { border-bottom:1px solid #d6d3cc; padding:.4rem .5rem; text-align:left; vertical-align:top; } th { border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+pre { overflow:auto; padding:1rem; background:#f5f4f0; border:1px solid #dedbd3; } code { font:.88em/1.35 'SFMono-Regular',Consolas,monospace; } blockquote { border-left:3px solid var(--accent); margin-left:0; padding-left:1rem; color:var(--muted); }
+img { max-width:100%; } footer { margin-top:3rem; padding-top:1rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.8rem; }
+@media (max-width:760px) { main { margin:0; padding:2rem 1.2rem; } table { display:block; overflow-x:auto; } }
+</style></head><body><main>
+<nav><a href="../index.html">← Research report</a> · <a href="index.html">Documentation index</a></nav>
+<article><h1>Repository and fork guide</h1>
+<p>This checkout began as Anthropic's reference repository and now contains a
+local research extension. The source of truth remains reviewable code,
+Markdown protocols/logs, compact JSON fixtures/results, and run manifests.</p>
+<h2>Markdown and HTML</h2>
+<p>Markdown is the editable and version-controlled source. The browser-facing
+HTML is generated, never hand-edited:</p>
+<pre><code class="language-text">docs/*.md
+    ↓  make report
+reports/research/docs/*.html
+</code></pre>
+<p>The generated <code>reports/research/</code> directory is intentionally tracked so a
+checkout contains the same readable report that was used for the research
+review. GitHub's file browser does not serve HTML as a site; use the local
+server command below, or publish this directory with GitHub Pages when a
+hosted report is wanted.</p>
+<p>Refresh the report from the repository root with:</p>
+<pre><code class="language-bash">make report
+</code></pre>
+<p>The report generator reads result JSON and fit manifests, renders every
+Markdown document under <code>docs/</code>, and rewrites relative Markdown links to the
+corresponding HTML pages. This keeps the browser view reproducible after a
+fork while preserving clean diffs and mergeable research notes.</p>
+<h2>Repository layout</h2>
+<p>Track these as source or reviewable research records:</p>
+<ul>
+<li><code>jlens/</code>: reusable library and model adapters;</li>
+<li><code>scripts/</code>: fit, evaluation, validation, and report entry points;</li>
+<li><code>tests/</code>: preflight and regression tests;</li>
+<li><code>notebooks/</code> and <code>walkthrough.ipynb</code>: exploratory/reproduction notebooks;</li>
+<li><code>docs/</code>: protocols, preregistrations, logs, and provenance;</li>
+<li><code>data/experiments/</code>: compact fixtures and JSON result artifacts;</li>
+<li><code>data/evaluations/</code>, <code>data/benchmarks/</code>, and <code>data/lens-prompts/</code>:
+declared datasets and prompt inputs;</li>
+<li><code>pyproject.toml</code>, <code>uv.lock</code>, and <code>Makefile</code>: environment/check commands;</li>
+<li><code>docker/</code>: reproducible local/Modal image recipes.</li>
+</ul>
+<p>Long-running runner requirements and the current audit are in
+<a href="RUNNER_OPERATIONS.html"><code>RUNNER_OPERATIONS.md</code></a>.</p>
+<p>Artifact publication and retrieval instructions are in
+<a href="ARTIFACTS.html"><code>ARTIFACTS.md</code></a>.</p>
+<p>Generated or machine-local material includes rendered reports, downloaded
+corpus shards, model weights, binary lens parameters, MLflow state, caches,
+and notebook checkpoints. Run manifests, event JSONL, and compact evaluation
+JSON should remain reviewable even when large binary artifacts are stored
+elsewhere.</p>
+<h2>Large-file policy</h2>
+<p>Do not put Docker images, downloaded model checkpoints, Pile shards, or fitted
+multi-gigabyte lens tensors in Git or Git LFS. Git LFS stores pointer files in
+Git but still requires separate LFS storage/bandwidth, and GitHub Free permits
+individual LFS files up to 2 GB. Our 3.2 GB 27B lens artifact exceeds that
+limit. Store those artifacts in Hugging Face, Modal volumes, object storage, or
+release assets, and commit the manifest, hash, source revision, and retrieval
+command instead.</p>
+<p>Git LFS is technically suitable for a small, intentionally published binary
+artifact under 2 GB, but we do not currently need it. Compact prompt datasets,
+JSON results, manifests, Markdown, Dockerfiles, and scripts belong in ordinary
+Git. Docker images themselves should be rebuilt from the tracked Dockerfile or
+published to a container registry; they should never be committed as image
+archives.</p>
+<h2>Preparing a personal fork</h2>
+<p>The current <code>origin</code> points to the upstream Anthropic repository. Do not push
+research changes there. After creating a personal GitHub fork, use a separate
+branch and remotes like:</p>
+<pre><code class="language-bash">git remote rename origin upstream
+git remote add origin https://github.com/&lt;your-account&gt;/jacobian-lens.git
+git fetch upstream
+git switch -c research-extension
+</code></pre>
+<p>Before the first push, review <code>git status</code>, run <code>make check</code>, and separate
+commits into infrastructure, experiment protocols/logs, and result artifacts.
+Keep the upstream history intact.</p>
+<h2>Current publishing boundary</h2>
+<p>The Pile predictive artifacts for Qwen3-0.6B and SmolLM2-135M are recorded
+locally; Qwen3-1.7B predictive evaluation is still running. These are not yet
+Pile-trained causal results. The H-lens experiment is also design-only.</p>
+</article>
+<footer>Rendered from <code>REPOSITORY_GUIDE.md</code> by <code>scripts/generate_research_report.py</code>.</footer>
+</main></body></html>

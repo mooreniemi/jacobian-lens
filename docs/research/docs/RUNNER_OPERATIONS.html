@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Experiment-runner operations standard · J-Lens research report</title>
+<style>
+:root { --paper:#fff; --wash:#f3f1ec; --ink:#222; --muted:#666; --rule:#b8b5ae; --accent:#174a73; }
+* { box-sizing:border-box; } body { margin:0; background:var(--wash); color:var(--ink); font:16px/1.58 Georgia,'Times New Roman',serif; }
+main { max-width:1120px; margin:2rem auto; padding:3.5rem 4.5rem; background:var(--paper); border:1px solid #d7d3ca; box-shadow:0 1px 8px #00000012; }
+h1,h2,h3,table,nav,footer { font-family:Arial,Helvetica,sans-serif; } h1 { font:700 2.2rem/1.15 Georgia,serif; } h2 { margin-top:2.2rem; border-bottom:1px solid var(--rule); padding-bottom:.25rem; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; } nav { margin-bottom:2rem; }
+table { border-collapse:collapse; width:100%; margin:1rem 0 1.5rem; font-size:.86rem; } th,td { border-bottom:1px solid #d6d3cc; padding:.4rem .5rem; text-align:left; vertical-align:top; } th { border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+pre { overflow:auto; padding:1rem; background:#f5f4f0; border:1px solid #dedbd3; } code { font:.88em/1.35 'SFMono-Regular',Consolas,monospace; } blockquote { border-left:3px solid var(--accent); margin-left:0; padding-left:1rem; color:var(--muted); }
+img { max-width:100%; } footer { margin-top:3rem; padding-top:1rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.8rem; }
+@media (max-width:760px) { main { margin:0; padding:2rem 1.2rem; } table { display:block; overflow-x:auto; } }
+</style></head><body><main>
+<nav><a href="../index.html">← Research report</a> · <a href="index.html">Documentation index</a></nav>
+<article><h1>Experiment-runner operations standard</h1>
+<p>Every long-running experiment must be observable, resumable, and auditable.
+This is part of the experiment design, not an optional convenience.</p>
+<h2>Required runner features</h2>
+<p>Long-running fit, evaluation, download, and causal runners should provide:</p>
+<ul>
+<li>a preflight phase that prints model, data, precision, batch size, device,
+free memory, and output paths;</li>
+<li>human-readable progress with completed work, total work, elapsed time,
+throughput, ETA, and peak memory where applicable;</li>
+<li>a flushed JSONL event stream beside the output artifact;</li>
+<li>atomic checkpoints at a bounded interval;</li>
+<li><code>--resume</code> behavior that validates model/data/config identity before reuse;</li>
+<li>a final result containing the run configuration, timing, throughput, and
+peak resource measurements;</li>
+<li>explicit interrupted/failed status when possible;</li>
+<li>no overwrite of a completed artifact without an explicit new output path.</li>
+</ul>
+<h2>Current implementation status</h2>
+<table>
+<thead>
+<tr>
+  <th>Runner family</th>
+  <th>Progress</th>
+  <th>Durable events</th>
+  <th>Resume/checkpoint</th>
+  <th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pile tuned-lens evaluation</td>
+  <td>yes</td>
+  <td>yes</td>
+  <td>yes</td>
+  <td>reference implementation</td>
+</tr>
+<tr>
+  <td>Tuned-lens fitting</td>
+  <td>yes</td>
+  <td>yes</td>
+  <td>checkpointed fit state</td>
+  <td>existing implementation; audit resume semantics</td>
+</tr>
+<tr>
+  <td>J-lens fitting</td>
+  <td>checkpoint cadence</td>
+  <td>partial</td>
+  <td>checkpoint files</td>
+  <td>audit before new long run</td>
+</tr>
+<tr>
+  <td>Causal task evaluators</td>
+  <td>tabulated progress</td>
+  <td>result JSON</td>
+  <td>rerun from output boundary</td>
+  <td>add chunk-level checkpoints if runs grow</td>
+</tr>
+<tr>
+  <td>Modal fit/evaluation</td>
+  <td>Modal logs + events</td>
+  <td>yes</td>
+  <td>remote artifact guard</td>
+  <td>verify local resume/retry semantics</td>
+</tr>
+</tbody>
+</table>
+<h2>Pile evaluator command pattern</h2>
+<p>The Pile evaluator writes progress events and a checkpoint by default. To
+resume an interrupted run, repeat the same command with <code>--resume</code> and the
+same output/configuration arguments:</p>
+<pre><code class="language-bash">uv run --extra tuned python scripts/eval_tuned_lens_pile.py \
+  --model /home/alex/models/qwen3-1.7b-hf \
+  --lens data/lenses/qwen3-1.7b-tuned-pile-repro-v1 \
+  --data data/tuned-lens-pile/test.jsonl \
+  --out data/experiments/qwen3-1.7b-tuned-pile-repro-v1-eval.json \
+  --tokens 16400000 --batch-size 16 --dtype bf16 \
+  --progress-every-batches 100 --resume
+</code></pre>
+<p>The checkpoint is deleted only after the final result is written. A changed
+model, lens, data path, token budget, sequence length, or batch size is
+rejected rather than silently producing a mixed result.</p>
+<h2>Pre-run checklist</h2>
+<p>Before submitting or starting a long job:</p>
+<ol>
+<li>Run a fixed small benchmark for candidate batch sizes.</li>
+<li>Confirm the output, event, and checkpoint paths are unique.</li>
+<li>Confirm free GPU memory and expected peak memory.</li>
+<li>Confirm the command prints a useful ETA within the first progress interval.</li>
+<li>Confirm interruption and resume on the small benchmark.</li>
+<li>Record the chosen configuration and the reason in the experiment log.</li>
+</ol>
+<h2>Incident record</h2>
+<p>The Qwen3-1.7B held-out evaluation was started with a conservative
+<code>batch-size 8</code> without a throughput benchmark or resumable aggregate
+checkpoint. It ran for about four hours before being stopped to benchmark a
+larger batch size. This was recoverable because no final artifact was claimed,
+but the wasted compute and missing ETA are process failures. Future runs must
+pass the checklist above.</p>
+</article>
+<footer>Rendered from <code>RUNNER_OPERATIONS.md</code> by <code>scripts/generate_research_report.py</code>.</footer>
+</main></body></html>
