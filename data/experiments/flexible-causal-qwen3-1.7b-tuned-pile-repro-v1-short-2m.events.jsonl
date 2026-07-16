@@ -1,0 +1,1740 @@
+[21:10:45] Qwen kernel mode: off
+[21:10:45] preflight: 23.24 GiB free / 23.53 GiB total
+[21:10:45] loading model /home/alex/models/qwen3-1.7b-hf
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 17732.13it/s]
+[21:10:46] model ready: HFLensModel(Qwen3ForCausalLM, n_layers=28, d_model=2048); 20.02 GiB free
+[21:10:46] trial 1/192 countries/capital: France -> Canada
+[21:10:46] trial 2/192 countries/capital: France -> China
+[21:10:47] trial 3/192 countries/capital: France -> Egypt
+[21:10:47] trial 4/192 countries/capital: Canada -> France
+[21:10:47] trial 5/192 countries/capital: Canada -> China
+[21:10:47] trial 6/192 countries/capital: Canada -> Egypt
+[21:10:47] trial 7/192 countries/capital: China -> France
+[21:10:47] trial 8/192 countries/capital: China -> Canada
+[21:10:47] trial 9/192 countries/capital: China -> Egypt
+[21:10:48] trial 10/192 countries/capital: Egypt -> France
+[21:10:48] trial 11/192 countries/capital: Egypt -> Canada
+[21:10:48] trial 12/192 countries/capital: Egypt -> China
+[21:10:48] trial 13/192 countries/language: France -> Canada
+[21:10:48] trial 14/192 countries/language: France -> China
+[21:10:48] trial 15/192 countries/language: France -> Egypt
+[21:10:48] trial 16/192 countries/language: Canada -> France
+[21:10:49] trial 17/192 countries/language: Canada -> China
+[21:10:49] trial 18/192 countries/language: Canada -> Egypt
+[21:10:49] trial 19/192 countries/language: China -> France
+[21:10:49] trial 20/192 countries/language: China -> Canada
+[21:10:49] trial 21/192 countries/language: China -> Egypt
+[21:10:49] trial 22/192 countries/language: Egypt -> France
+[21:10:50] trial 23/192 countries/language: Egypt -> Canada
+[21:10:50] trial 24/192 countries/language: Egypt -> China
+[21:10:50] trial 25/192 countries/continent: France -> Canada
+[21:10:50] trial 26/192 countries/continent: France -> China
+[21:10:50] trial 27/192 countries/continent: France -> Egypt
+[21:10:50] trial 28/192 countries/continent: Canada -> France
+[21:10:50] trial 29/192 countries/continent: Canada -> China
+[21:10:51] trial 30/192 countries/continent: Canada -> Egypt
+[21:10:51] trial 31/192 countries/continent: China -> France
+[21:10:51] trial 32/192 countries/continent: China -> Canada
+[21:10:51] trial 33/192 countries/continent: China -> Egypt
+[21:10:51] trial 34/192 countries/continent: Egypt -> France
+[21:10:51] trial 35/192 countries/continent: Egypt -> Canada
+[21:10:51] trial 36/192 countries/continent: Egypt -> China
+[21:10:52] trial 37/192 countries/currency: France -> Canada
+[21:10:52] trial 38/192 countries/currency: France -> China
+[21:10:52] trial 39/192 countries/currency: France -> Egypt
+[21:10:52] trial 40/192 countries/currency: Canada -> France
+[21:10:52] trial 41/192 countries/currency: Canada -> China
+[21:10:52] trial 42/192 countries/currency: Canada -> Egypt
+[21:10:53] trial 43/192 countries/currency: China -> France
+[21:10:53] trial 44/192 countries/currency: China -> Canada
+[21:10:53] trial 45/192 countries/currency: China -> Egypt
+[21:10:53] trial 46/192 countries/currency: Egypt -> France
+[21:10:53] trial 47/192 countries/currency: Egypt -> Canada
+[21:10:53] trial 48/192 countries/currency: Egypt -> China
+[21:10:53] trial 49/192 months/season: February -> April
+[21:10:54] trial 50/192 months/season: February -> July
+[21:10:54] trial 51/192 months/season: February -> October
+[21:10:54] trial 52/192 months/season: April -> February
+[21:10:54] trial 53/192 months/season: April -> July
+[21:10:54] trial 54/192 months/season: April -> October
+[21:10:54] trial 55/192 months/season: July -> February
+[21:10:55] trial 56/192 months/season: July -> April
+[21:10:55] trial 57/192 months/season: July -> October
+[21:10:55] trial 58/192 months/season: October -> February
+[21:10:55] trial 59/192 months/season: October -> April
+[21:10:55] trial 60/192 months/season: October -> July
+[21:10:55] trial 61/192 months/number: February -> April
+[21:10:55] trial 62/192 months/number: February -> July
+[21:10:56] trial 63/192 months/number: February -> October
+[21:10:56] trial 64/192 months/number: April -> February
+[21:10:56] trial 65/192 months/number: April -> July
+[21:10:56] trial 66/192 months/number: April -> October
+[21:10:56] trial 67/192 months/number: July -> February
+[21:10:56] trial 68/192 months/number: July -> April
+[21:10:56] trial 69/192 months/number: July -> October
+[21:10:57] trial 70/192 months/number: October -> February
+[21:10:57] trial 71/192 months/number: October -> April
+[21:10:57] trial 72/192 months/number: October -> July
+[21:10:57] trial 73/192 months/holiday: February -> April
+[21:10:57] trial 74/192 months/holiday: February -> July
+[21:10:57] trial 75/192 months/holiday: February -> October
+[21:10:58] trial 76/192 months/holiday: April -> February
+[21:10:58] trial 77/192 months/holiday: April -> July
+[21:10:58] trial 78/192 months/holiday: April -> October
+[21:10:58] trial 79/192 months/holiday: July -> February
+[21:10:58] trial 80/192 months/holiday: July -> April
+[21:10:58] trial 81/192 months/holiday: July -> October
+[21:10:58] trial 82/192 months/holiday: October -> February
+[21:10:59] trial 83/192 months/holiday: October -> April
+[21:10:59] trial 84/192 months/holiday: October -> July
+[21:10:59] trial 85/192 months/next_month: February -> April
+[21:10:59] trial 86/192 months/next_month: February -> July
+[21:10:59] trial 87/192 months/next_month: February -> October
+[21:10:59] trial 88/192 months/next_month: April -> February
+[21:10:59] trial 89/192 months/next_month: April -> July
+[21:11:00] trial 90/192 months/next_month: April -> October
+[21:11:00] trial 91/192 months/next_month: July -> February
+[21:11:00] trial 92/192 months/next_month: July -> April
+[21:11:00] trial 93/192 months/next_month: July -> October
+[21:11:00] trial 94/192 months/next_month: October -> February
+[21:11:00] trial 95/192 months/next_month: October -> April
+[21:11:01] trial 96/192 months/next_month: October -> July
+[21:11:01] trial 101/192 animals/habitat: eagle -> shark
+[21:11:01] trial 102/192 animals/habitat: eagle -> spider
+[21:11:01] trial 104/192 animals/habitat: shark -> eagle
+[21:11:01] trial 105/192 animals/habitat: shark -> spider
+[21:11:01] trial 107/192 animals/habitat: spider -> eagle
+[21:11:01] trial 108/192 animals/habitat: spider -> shark
+[21:11:02] trial 109/192 animals/legs: lion -> eagle
+[21:11:02] trial 110/192 animals/legs: lion -> shark
+[21:11:02] trial 111/192 animals/legs: lion -> spider
+[21:11:02] trial 112/192 animals/legs: eagle -> lion
+[21:11:02] trial 113/192 animals/legs: eagle -> shark
+[21:11:02] trial 114/192 animals/legs: eagle -> spider
+[21:11:03] trial 115/192 animals/legs: shark -> lion
+[21:11:03] trial 116/192 animals/legs: shark -> eagle
+[21:11:03] trial 117/192 animals/legs: shark -> spider
+[21:11:03] trial 118/192 animals/legs: spider -> lion
+[21:11:03] trial 119/192 animals/legs: spider -> eagle
+[21:11:03] trial 120/192 animals/legs: spider -> shark
+[21:11:03] trial 121/192 animals/class: lion -> eagle
+[21:11:04] trial 122/192 animals/class: lion -> shark
+[21:11:04] trial 124/192 animals/class: eagle -> lion
+[21:11:04] trial 125/192 animals/class: eagle -> shark
+[21:11:04] trial 127/192 animals/class: shark -> lion
+[21:11:04] trial 128/192 animals/class: shark -> eagle
+[21:11:04] trial 135/192 animals/group: lion -> spider
+[21:11:04] trial 142/192 animals/group: spider -> lion
+[21:11:05] trial 145/192 numbers/double: three -> five
+[21:11:05] trial 146/192 numbers/double: three -> seven
+[21:11:05] trial 147/192 numbers/double: three -> nine
+[21:11:05] trial 148/192 numbers/double: five -> three
+[21:11:05] trial 149/192 numbers/double: five -> seven
+[21:11:05] trial 150/192 numbers/double: five -> nine
+[21:11:06] trial 151/192 numbers/double: seven -> three
+[21:11:06] trial 152/192 numbers/double: seven -> five
+[21:11:06] trial 153/192 numbers/double: seven -> nine
+[21:11:06] trial 154/192 numbers/double: nine -> three
+[21:11:06] trial 155/192 numbers/double: nine -> five
+[21:11:06] trial 156/192 numbers/double: nine -> seven
+[21:11:06] trial 157/192 numbers/square: three -> five
+[21:11:07] trial 158/192 numbers/square: three -> seven
+[21:11:07] trial 159/192 numbers/square: three -> nine
+[21:11:07] trial 160/192 numbers/square: five -> three
+[21:11:07] trial 161/192 numbers/square: five -> seven
+[21:11:07] trial 162/192 numbers/square: five -> nine
+[21:11:07] trial 163/192 numbers/square: seven -> three
+[21:11:07] trial 164/192 numbers/square: seven -> five
+[21:11:08] trial 165/192 numbers/square: seven -> nine
+[21:11:08] trial 166/192 numbers/square: nine -> three
+[21:11:08] trial 167/192 numbers/square: nine -> five
+[21:11:08] trial 168/192 numbers/square: nine -> seven
+[21:11:08] trial 169/192 numbers/successor: three -> five
+[21:11:08] trial 170/192 numbers/successor: three -> seven
+[21:11:09] trial 171/192 numbers/successor: three -> nine
+[21:11:09] trial 172/192 numbers/successor: five -> three
+[21:11:09] trial 173/192 numbers/successor: five -> seven
+[21:11:09] trial 174/192 numbers/successor: five -> nine
+[21:11:09] trial 175/192 numbers/successor: seven -> three
+[21:11:09] trial 176/192 numbers/successor: seven -> five
+[21:11:09] trial 177/192 numbers/successor: seven -> nine
+[21:11:10] trial 178/192 numbers/successor: nine -> three
+[21:11:10] trial 179/192 numbers/successor: nine -> five
+[21:11:10] trial 180/192 numbers/successor: nine -> seven
+[21:11:10] trial 181/192 numbers/first_letter: three -> five
+[21:11:10] trial 182/192 numbers/first_letter: three -> seven
+[21:11:10] trial 183/192 numbers/first_letter: three -> nine
+[21:11:11] trial 184/192 numbers/first_letter: five -> three
+[21:11:11] trial 185/192 numbers/first_letter: five -> seven
+[21:11:11] trial 186/192 numbers/first_letter: five -> nine
+[21:11:11] trial 187/192 numbers/first_letter: seven -> three
+[21:11:11] trial 188/192 numbers/first_letter: seven -> five
+[21:11:11] trial 189/192 numbers/first_letter: seven -> nine
+[21:11:11] trial 190/192 numbers/first_letter: nine -> three
+[21:11:12] trial 191/192 numbers/first_letter: nine -> five
+[21:11:12] trial 192/192 numbers/first_letter: nine -> seven
+
+Flexible-generalization causal summary:
+| category   | function     | source   | target   |   layer | method   |   target before |   target after |
+|------------|--------------|----------|----------|---------|----------|-----------------|----------------|
+| countries  | capital      | France   | Canada   |       8 | tuned    |            1669 |           1716 |
+| countries  | capital      | France   | Canada   |       8 | logit    |            1669 |            389 |
+| countries  | capital      | France   | Canada   |       8 | random   |            1669 |           1681 |
+| countries  | capital      | France   | Canada   |      14 | tuned    |            1669 |           1269 |
+| countries  | capital      | France   | Canada   |      14 | logit    |            1669 |            174 |
+| countries  | capital      | France   | Canada   |      14 | random   |            1669 |           4249 |
+| countries  | capital      | France   | Canada   |      20 | tuned    |            1669 |             22 |
+| countries  | capital      | France   | Canada   |      20 | logit    |            1669 |             22 |
+| countries  | capital      | France   | Canada   |      20 | random   |            1669 |           1259 |
+| countries  | capital      | France   | China    |       8 | tuned    |             156 |            151 |
+| countries  | capital      | France   | China    |       8 | logit    |             156 |             92 |
+| countries  | capital      | France   | China    |       8 | random   |             156 |            167 |
+| countries  | capital      | France   | China    |      14 | tuned    |             156 |            142 |
+| countries  | capital      | France   | China    |      14 | logit    |             156 |            103 |
+| countries  | capital      | France   | China    |      14 | random   |             156 |            168 |
+| countries  | capital      | France   | China    |      20 | tuned    |             156 |            162 |
+| countries  | capital      | France   | China    |      20 | logit    |             156 |              2 |
+| countries  | capital      | France   | China    |      20 | random   |             156 |            170 |
+| countries  | capital      | France   | Egypt    |       8 | tuned    |             374 |            133 |
+| countries  | capital      | France   | Egypt    |       8 | logit    |             374 |             52 |
+| countries  | capital      | France   | Egypt    |       8 | random   |             374 |            787 |
+| countries  | capital      | France   | Egypt    |      14 | tuned    |             374 |            450 |
+| countries  | capital      | France   | Egypt    |      14 | logit    |             374 |             54 |
+| countries  | capital      | France   | Egypt    |      14 | random   |             374 |            653 |
+| countries  | capital      | France   | Egypt    |      20 | tuned    |             374 |             49 |
+| countries  | capital      | France   | Egypt    |      20 | logit    |             374 |              8 |
+| countries  | capital      | France   | Egypt    |      20 | random   |             374 |            784 |
+| countries  | capital      | Canada   | France   |       8 | tuned    |              47 |             49 |
+| countries  | capital      | Canada   | France   |       8 | logit    |              47 |            102 |
+| countries  | capital      | Canada   | France   |       8 | random   |              47 |             46 |
+| countries  | capital      | Canada   | France   |      14 | tuned    |              47 |             90 |
+| countries  | capital      | Canada   | France   |      14 | logit    |              47 |            139 |
+| countries  | capital      | Canada   | France   |      14 | random   |              47 |             41 |
+| countries  | capital      | Canada   | France   |      20 | tuned    |              47 |           2471 |
+| countries  | capital      | Canada   | France   |      20 | logit    |              47 |             34 |
+| countries  | capital      | Canada   | France   |      20 | random   |              47 |             54 |
+| countries  | capital      | Canada   | China    |       8 | tuned    |             144 |            149 |
+| countries  | capital      | Canada   | China    |       8 | logit    |             144 |            222 |
+| countries  | capital      | Canada   | China    |       8 | random   |             144 |            149 |
+| countries  | capital      | Canada   | China    |      14 | tuned    |             144 |            169 |
+| countries  | capital      | Canada   | China    |      14 | logit    |             144 |            248 |
+| countries  | capital      | Canada   | China    |      14 | random   |             144 |            206 |
+| countries  | capital      | Canada   | China    |      20 | tuned    |             144 |            548 |
+| countries  | capital      | Canada   | China    |      20 | logit    |             144 |             25 |
+| countries  | capital      | Canada   | China    |      20 | random   |             144 |            116 |
+| countries  | capital      | Canada   | Egypt    |       8 | tuned    |            1020 |           1104 |
+| countries  | capital      | Canada   | Egypt    |       8 | logit    |            1020 |            776 |
+| countries  | capital      | Canada   | Egypt    |       8 | random   |            1020 |           2055 |
+| countries  | capital      | Canada   | Egypt    |      14 | tuned    |            1020 |           1067 |
+| countries  | capital      | Canada   | Egypt    |      14 | logit    |            1020 |            601 |
+| countries  | capital      | Canada   | Egypt    |      14 | random   |            1020 |           1097 |
+| countries  | capital      | Canada   | Egypt    |      20 | tuned    |            1020 |           7959 |
+| countries  | capital      | Canada   | Egypt    |      20 | logit    |            1020 |             74 |
+| countries  | capital      | Canada   | Egypt    |      20 | random   |            1020 |           3267 |
+| countries  | capital      | China    | France   |       8 | tuned    |              55 |             41 |
+| countries  | capital      | China    | France   |       8 | logit    |              55 |             67 |
+| countries  | capital      | China    | France   |       8 | random   |              55 |             56 |
+| countries  | capital      | China    | France   |      14 | tuned    |              55 |             61 |
+| countries  | capital      | China    | France   |      14 | logit    |              55 |             57 |
+| countries  | capital      | China    | France   |      14 | random   |              55 |             50 |
+| countries  | capital      | China    | France   |      20 | tuned    |              55 |              7 |
+| countries  | capital      | China    | France   |      20 | logit    |              55 |             13 |
+| countries  | capital      | China    | France   |      20 | random   |              55 |             21 |
+| countries  | capital      | China    | Canada   |       8 | tuned    |            1632 |           1339 |
+| countries  | capital      | China    | Canada   |       8 | logit    |            1632 |            179 |
+| countries  | capital      | China    | Canada   |       8 | random   |            1632 |           2166 |
+| countries  | capital      | China    | Canada   |      14 | tuned    |            1632 |           1283 |
+| countries  | capital      | China    | Canada   |      14 | logit    |            1632 |            258 |
+| countries  | capital      | China    | Canada   |      14 | random   |            1632 |           3199 |
+| countries  | capital      | China    | Canada   |      20 | tuned    |            1632 |             21 |
+| countries  | capital      | China    | Canada   |      20 | logit    |            1632 |             30 |
+| countries  | capital      | China    | Canada   |      20 | random   |            1632 |            659 |
+| countries  | capital      | China    | Egypt    |       8 | tuned    |            1376 |            289 |
+| countries  | capital      | China    | Egypt    |       8 | logit    |            1376 |            209 |
+| countries  | capital      | China    | Egypt    |       8 | random   |            1376 |           3561 |
+| countries  | capital      | China    | Egypt    |      14 | tuned    |            1376 |           1762 |
+| countries  | capital      | China    | Egypt    |      14 | logit    |            1376 |            197 |
+| countries  | capital      | China    | Egypt    |      14 | random   |            1376 |           2046 |
+| countries  | capital      | China    | Egypt    |      20 | tuned    |            1376 |            131 |
+| countries  | capital      | China    | Egypt    |      20 | logit    |            1376 |             29 |
+| countries  | capital      | China    | Egypt    |      20 | random   |            1376 |           1557 |
+| countries  | capital      | Egypt    | France   |       8 | tuned    |              81 |            186 |
+| countries  | capital      | Egypt    | France   |       8 | logit    |              81 |            187 |
+| countries  | capital      | Egypt    | France   |       8 | random   |              81 |            121 |
+| countries  | capital      | Egypt    | France   |      14 | tuned    |              81 |            120 |
+| countries  | capital      | Egypt    | France   |      14 | logit    |              81 |            239 |
+| countries  | capital      | Egypt    | France   |      14 | random   |              81 |            129 |
+| countries  | capital      | Egypt    | France   |      20 | tuned    |              81 |            759 |
+| countries  | capital      | Egypt    | France   |      20 | logit    |              81 |             24 |
+| countries  | capital      | Egypt    | France   |      20 | random   |              81 |             65 |
+| countries  | capital      | Egypt    | Canada   |       8 | tuned    |            1456 |           2227 |
+| countries  | capital      | Egypt    | Canada   |       8 | logit    |            1456 |           1030 |
+| countries  | capital      | Egypt    | Canada   |       8 | random   |            1456 |           4927 |
+| countries  | capital      | Egypt    | Canada   |      14 | tuned    |            1456 |           1093 |
+| countries  | capital      | Egypt    | Canada   |      14 | logit    |            1456 |           1115 |
+| countries  | capital      | Egypt    | Canada   |      14 | random   |            1456 |           1566 |
+| countries  | capital      | Egypt    | Canada   |      20 | tuned    |            1456 |             67 |
+| countries  | capital      | Egypt    | Canada   |      20 | logit    |            1456 |             62 |
+| countries  | capital      | Egypt    | Canada   |      20 | random   |            1456 |           2836 |
+| countries  | capital      | Egypt    | China    |       8 | tuned    |             711 |           2170 |
+| countries  | capital      | Egypt    | China    |       8 | logit    |             711 |           1196 |
+| countries  | capital      | Egypt    | China    |       8 | random   |             711 |           2131 |
+| countries  | capital      | Egypt    | China    |      14 | tuned    |             711 |            851 |
+| countries  | capital      | Egypt    | China    |      14 | logit    |             711 |           1859 |
+| countries  | capital      | Egypt    | China    |      14 | random   |             711 |           1252 |
+| countries  | capital      | Egypt    | China    |      20 | tuned    |             711 |           1732 |
+| countries  | capital      | Egypt    | China    |      20 | logit    |             711 |             81 |
+| countries  | capital      | Egypt    | China    |      20 | random   |             711 |            498 |
+| countries  | language     | France   | Canada   |       8 | tuned    |               4 |              4 |
+| countries  | language     | France   | Canada   |       8 | logit    |               4 |              2 |
+| countries  | language     | France   | Canada   |       8 | random   |               4 |              4 |
+| countries  | language     | France   | Canada   |      14 | tuned    |               4 |              4 |
+| countries  | language     | France   | Canada   |      14 | logit    |               4 |              2 |
+| countries  | language     | France   | Canada   |      14 | random   |               4 |              9 |
+| countries  | language     | France   | Canada   |      20 | tuned    |               4 |              1 |
+| countries  | language     | France   | Canada   |      20 | logit    |               4 |              2 |
+| countries  | language     | France   | Canada   |      20 | random   |               4 |             11 |
+| countries  | language     | France   | China    |       8 | tuned    |              62 |             94 |
+| countries  | language     | France   | China    |       8 | logit    |              62 |             39 |
+| countries  | language     | France   | China    |       8 | random   |              62 |             64 |
+| countries  | language     | France   | China    |      14 | tuned    |              62 |             79 |
+| countries  | language     | France   | China    |      14 | logit    |              62 |             48 |
+| countries  | language     | France   | China    |      14 | random   |              62 |             64 |
+| countries  | language     | France   | China    |      20 | tuned    |              62 |            132 |
+| countries  | language     | France   | China    |      20 | logit    |              62 |             13 |
+| countries  | language     | France   | China    |      20 | random   |              62 |             62 |
+| countries  | language     | France   | Egypt    |       8 | tuned    |              74 |             31 |
+| countries  | language     | France   | Egypt    |       8 | logit    |              74 |             22 |
+| countries  | language     | France   | Egypt    |       8 | random   |              74 |             94 |
+| countries  | language     | France   | Egypt    |      14 | tuned    |              74 |             82 |
+| countries  | language     | France   | Egypt    |      14 | logit    |              74 |             15 |
+| countries  | language     | France   | Egypt    |      14 | random   |              74 |             98 |
+| countries  | language     | France   | Egypt    |      20 | tuned    |              74 |             15 |
+| countries  | language     | France   | Egypt    |      20 | logit    |              74 |              7 |
+| countries  | language     | France   | Egypt    |      20 | random   |              74 |            114 |
+| countries  | language     | Canada   | France   |       8 | tuned    |               2 |              2 |
+| countries  | language     | Canada   | France   |       8 | logit    |               2 |             11 |
+| countries  | language     | Canada   | France   |       8 | random   |               2 |              3 |
+| countries  | language     | Canada   | France   |      14 | tuned    |               2 |              2 |
+| countries  | language     | Canada   | France   |      14 | logit    |               2 |             11 |
+| countries  | language     | Canada   | France   |      14 | random   |               2 |              3 |
+| countries  | language     | Canada   | France   |      20 | tuned    |               2 |            129 |
+| countries  | language     | Canada   | France   |      20 | logit    |               2 |              2 |
+| countries  | language     | Canada   | France   |      20 | random   |               2 |              2 |
+| countries  | language     | Canada   | China    |       8 | tuned    |              29 |             39 |
+| countries  | language     | Canada   | China    |       8 | logit    |              29 |            142 |
+| countries  | language     | Canada   | China    |       8 | random   |              29 |             33 |
+| countries  | language     | Canada   | China    |      14 | tuned    |              29 |             33 |
+| countries  | language     | Canada   | China    |      14 | logit    |              29 |            151 |
+| countries  | language     | Canada   | China    |      14 | random   |              29 |             40 |
+| countries  | language     | Canada   | China    |      20 | tuned    |              29 |            671 |
+| countries  | language     | Canada   | China    |      20 | logit    |              29 |              9 |
+| countries  | language     | Canada   | China    |      20 | random   |              29 |             51 |
+| countries  | language     | Canada   | Egypt    |       8 | tuned    |              92 |             42 |
+| countries  | language     | Canada   | Egypt    |       8 | logit    |              92 |             73 |
+| countries  | language     | Canada   | Egypt    |       8 | random   |              92 |            149 |
+| countries  | language     | Canada   | Egypt    |      14 | tuned    |              92 |             78 |
+| countries  | language     | Canada   | Egypt    |      14 | logit    |              92 |             67 |
+| countries  | language     | Canada   | Egypt    |      14 | random   |              92 |             91 |
+| countries  | language     | Canada   | Egypt    |      20 | tuned    |              92 |            188 |
+| countries  | language     | Canada   | Egypt    |      20 | logit    |              92 |             10 |
+| countries  | language     | Canada   | Egypt    |      20 | random   |              92 |            141 |
+| countries  | language     | China    | France   |       8 | tuned    |              49 |             43 |
+| countries  | language     | China    | France   |       8 | logit    |              49 |             56 |
+| countries  | language     | China    | France   |       8 | random   |              49 |             54 |
+| countries  | language     | China    | France   |      14 | tuned    |              49 |             43 |
+| countries  | language     | China    | France   |      14 | logit    |              49 |             46 |
+| countries  | language     | China    | France   |      14 | random   |              49 |             52 |
+| countries  | language     | China    | France   |      20 | tuned    |              49 |              4 |
+| countries  | language     | China    | France   |      20 | logit    |              49 |              2 |
+| countries  | language     | China    | France   |      20 | random   |              49 |             46 |
+| countries  | language     | China    | Canada   |       8 | tuned    |               1 |              1 |
+| countries  | language     | China    | Canada   |       8 | logit    |               1 |              1 |
+| countries  | language     | China    | Canada   |       8 | random   |               1 |              1 |
+| countries  | language     | China    | Canada   |      14 | tuned    |               1 |              1 |
+| countries  | language     | China    | Canada   |      14 | logit    |               1 |              1 |
+| countries  | language     | China    | Canada   |      14 | random   |               1 |              1 |
+| countries  | language     | China    | Canada   |      20 | tuned    |               1 |              1 |
+| countries  | language     | China    | Canada   |      20 | logit    |               1 |              1 |
+| countries  | language     | China    | Canada   |      20 | random   |               1 |              8 |
+| countries  | language     | China    | Egypt    |       8 | tuned    |             120 |             61 |
+| countries  | language     | China    | Egypt    |       8 | logit    |             120 |             56 |
+| countries  | language     | China    | Egypt    |       8 | random   |             120 |            126 |
+| countries  | language     | China    | Egypt    |      14 | tuned    |             120 |            141 |
+| countries  | language     | China    | Egypt    |      14 | logit    |             120 |             47 |
+| countries  | language     | China    | Egypt    |      14 | random   |             120 |             87 |
+| countries  | language     | China    | Egypt    |      20 | tuned    |             120 |             31 |
+| countries  | language     | China    | Egypt    |      20 | logit    |             120 |             11 |
+| countries  | language     | China    | Egypt    |      20 | random   |             120 |            128 |
+| countries  | language     | Egypt    | France   |       8 | tuned    |               6 |             15 |
+| countries  | language     | Egypt    | France   |       8 | logit    |               6 |             33 |
+| countries  | language     | Egypt    | France   |       8 | random   |               6 |              7 |
+| countries  | language     | Egypt    | France   |      14 | tuned    |               6 |              8 |
+| countries  | language     | Egypt    | France   |      14 | logit    |               6 |             16 |
+| countries  | language     | Egypt    | France   |      14 | random   |               6 |              5 |
+| countries  | language     | Egypt    | France   |      20 | tuned    |               6 |            155 |
+| countries  | language     | Egypt    | France   |      20 | logit    |               6 |              2 |
+| countries  | language     | Egypt    | France   |      20 | random   |               6 |              6 |
+| countries  | language     | Egypt    | Canada   |       8 | tuned    |               4 |              5 |
+| countries  | language     | Egypt    | Canada   |       8 | logit    |               4 |              5 |
+| countries  | language     | Egypt    | Canada   |       8 | random   |               4 |              6 |
+| countries  | language     | Egypt    | Canada   |      14 | tuned    |               4 |              4 |
+| countries  | language     | Egypt    | Canada   |      14 | logit    |               4 |              4 |
+| countries  | language     | Egypt    | Canada   |      14 | random   |               4 |              4 |
+| countries  | language     | Egypt    | Canada   |      20 | tuned    |               4 |              1 |
+| countries  | language     | Egypt    | Canada   |      20 | logit    |               4 |              3 |
+| countries  | language     | Egypt    | Canada   |      20 | random   |               4 |             10 |
+| countries  | language     | Egypt    | China    |       8 | tuned    |              46 |             99 |
+| countries  | language     | Egypt    | China    |       8 | logit    |              46 |            186 |
+| countries  | language     | Egypt    | China    |       8 | random   |              46 |             43 |
+| countries  | language     | Egypt    | China    |      14 | tuned    |              46 |             40 |
+| countries  | language     | Egypt    | China    |      14 | logit    |              46 |            195 |
+| countries  | language     | Egypt    | China    |      14 | random   |              46 |             48 |
+| countries  | language     | Egypt    | China    |      20 | tuned    |              46 |            787 |
+| countries  | language     | Egypt    | China    |      20 | logit    |              46 |             48 |
+| countries  | language     | Egypt    | China    |      20 | random   |              46 |             58 |
+| countries  | continent    | France   | Canada   |       8 | tuned    |              14 |             12 |
+| countries  | continent    | France   | Canada   |       8 | logit    |              14 |              5 |
+| countries  | continent    | France   | Canada   |       8 | random   |              14 |             13 |
+| countries  | continent    | France   | Canada   |      14 | tuned    |              14 |              5 |
+| countries  | continent    | France   | Canada   |      14 | logit    |              14 |              3 |
+| countries  | continent    | France   | Canada   |      14 | random   |              14 |              7 |
+| countries  | continent    | France   | Canada   |      20 | tuned    |              14 |              5 |
+| countries  | continent    | France   | Canada   |      20 | logit    |              14 |              2 |
+| countries  | continent    | France   | Canada   |      20 | random   |              14 |              7 |
+| countries  | continent    | France   | China    |       8 | tuned    |               6 |              5 |
+| countries  | continent    | France   | China    |       8 | logit    |               6 |              4 |
+| countries  | continent    | France   | China    |       8 | random   |               6 |              7 |
+| countries  | continent    | France   | China    |      14 | tuned    |               6 |              5 |
+| countries  | continent    | France   | China    |      14 | logit    |               6 |              4 |
+| countries  | continent    | France   | China    |      14 | random   |               6 |              7 |
+| countries  | continent    | France   | China    |      20 | tuned    |               6 |              8 |
+| countries  | continent    | France   | China    |      20 | logit    |               6 |              2 |
+| countries  | continent    | France   | China    |      20 | random   |               6 |              8 |
+| countries  | continent    | France   | Egypt    |       8 | tuned    |               2 |              2 |
+| countries  | continent    | France   | Egypt    |       8 | logit    |               2 |              2 |
+| countries  | continent    | France   | Egypt    |       8 | random   |               2 |              3 |
+| countries  | continent    | France   | Egypt    |      14 | tuned    |               2 |              2 |
+| countries  | continent    | France   | Egypt    |      14 | logit    |               2 |              2 |
+| countries  | continent    | France   | Egypt    |      14 | random   |               2 |              3 |
+| countries  | continent    | France   | Egypt    |      20 | tuned    |               2 |              2 |
+| countries  | continent    | France   | Egypt    |      20 | logit    |               2 |              2 |
+| countries  | continent    | France   | Egypt    |      20 | random   |               2 |              3 |
+| countries  | continent    | Canada   | France   |       8 | tuned    |              12 |              9 |
+| countries  | continent    | Canada   | France   |       8 | logit    |              12 |             16 |
+| countries  | continent    | Canada   | France   |       8 | random   |              12 |             12 |
+| countries  | continent    | Canada   | France   |      14 | tuned    |              12 |             16 |
+| countries  | continent    | Canada   | France   |      14 | logit    |              12 |             16 |
+| countries  | continent    | Canada   | France   |      14 | random   |              12 |              9 |
+| countries  | continent    | Canada   | France   |      20 | tuned    |              12 |             45 |
+| countries  | continent    | Canada   | France   |      20 | logit    |              12 |              2 |
+| countries  | continent    | Canada   | France   |      20 | random   |              12 |              5 |
+| countries  | continent    | Canada   | China    |       8 | tuned    |              10 |             13 |
+| countries  | continent    | Canada   | China    |       8 | logit    |              10 |             28 |
+| countries  | continent    | Canada   | China    |       8 | random   |              10 |             10 |
+| countries  | continent    | Canada   | China    |      14 | tuned    |              10 |              5 |
+| countries  | continent    | Canada   | China    |      14 | logit    |              10 |             26 |
+| countries  | continent    | Canada   | China    |      14 | random   |              10 |              8 |
+| countries  | continent    | Canada   | China    |      20 | tuned    |              10 |             56 |
+| countries  | continent    | Canada   | China    |      20 | logit    |              10 |              3 |
+| countries  | continent    | Canada   | China    |      20 | random   |              10 |              3 |
+| countries  | continent    | Canada   | Egypt    |       8 | tuned    |              18 |              8 |
+| countries  | continent    | Canada   | Egypt    |       8 | logit    |              18 |             16 |
+| countries  | continent    | Canada   | Egypt    |       8 | random   |              18 |             39 |
+| countries  | continent    | Canada   | Egypt    |      14 | tuned    |              18 |             17 |
+| countries  | continent    | Canada   | Egypt    |      14 | logit    |              18 |              9 |
+| countries  | continent    | Canada   | Egypt    |      14 | random   |              18 |             18 |
+| countries  | continent    | Canada   | Egypt    |      20 | tuned    |              18 |             53 |
+| countries  | continent    | Canada   | Egypt    |      20 | logit    |              18 |              2 |
+| countries  | continent    | Canada   | Egypt    |      20 | random   |              18 |             20 |
+| countries  | continent    | China    | France   |       8 | tuned    |              10 |             10 |
+| countries  | continent    | China    | France   |       8 | logit    |              10 |             10 |
+| countries  | continent    | China    | France   |       8 | random   |              10 |             11 |
+| countries  | continent    | China    | France   |      14 | tuned    |              10 |             11 |
+| countries  | continent    | China    | France   |      14 | logit    |              10 |              8 |
+| countries  | continent    | China    | France   |      14 | random   |              10 |             12 |
+| countries  | continent    | China    | France   |      20 | tuned    |              10 |              4 |
+| countries  | continent    | China    | France   |      20 | logit    |              10 |              3 |
+| countries  | continent    | China    | France   |      20 | random   |              10 |              9 |
+| countries  | continent    | China    | Canada   |       8 | tuned    |              69 |             65 |
+| countries  | continent    | China    | Canada   |       8 | logit    |              69 |             44 |
+| countries  | continent    | China    | Canada   |       8 | random   |              69 |             68 |
+| countries  | continent    | China    | Canada   |      14 | tuned    |              69 |             53 |
+| countries  | continent    | China    | Canada   |      14 | logit    |              69 |             27 |
+| countries  | continent    | China    | Canada   |      14 | random   |              69 |             71 |
+| countries  | continent    | China    | Canada   |      20 | tuned    |              69 |             26 |
+| countries  | continent    | China    | Canada   |      20 | logit    |              69 |              8 |
+| countries  | continent    | China    | Canada   |      20 | random   |              69 |             49 |
+| countries  | continent    | China    | Egypt    |       8 | tuned    |               4 |              3 |
+| countries  | continent    | China    | Egypt    |       8 | logit    |               4 |              4 |
+| countries  | continent    | China    | Egypt    |       8 | random   |               4 |              6 |
+| countries  | continent    | China    | Egypt    |      14 | tuned    |               4 |              4 |
+| countries  | continent    | China    | Egypt    |      14 | logit    |               4 |              3 |
+| countries  | continent    | China    | Egypt    |      14 | random   |               4 |              6 |
+| countries  | continent    | China    | Egypt    |      20 | tuned    |               4 |              2 |
+| countries  | continent    | China    | Egypt    |      20 | logit    |               4 |              2 |
+| countries  | continent    | China    | Egypt    |      20 | random   |               4 |              4 |
+| countries  | continent    | Egypt    | France   |       8 | tuned    |              12 |             11 |
+| countries  | continent    | Egypt    | France   |       8 | logit    |              12 |             15 |
+| countries  | continent    | Egypt    | France   |       8 | random   |              12 |             41 |
+| countries  | continent    | Egypt    | France   |      14 | tuned    |              12 |             13 |
+| countries  | continent    | Egypt    | France   |      14 | logit    |              12 |             18 |
+| countries  | continent    | Egypt    | France   |      14 | random   |              12 |             15 |
+| countries  | continent    | Egypt    | France   |      20 | tuned    |              12 |             16 |
+| countries  | continent    | Egypt    | France   |      20 | logit    |              12 |              4 |
+| countries  | continent    | Egypt    | France   |      20 | random   |              12 |             18 |
+| countries  | continent    | Egypt    | Canada   |       8 | tuned    |               6 |              7 |
+| countries  | continent    | Egypt    | Canada   |       8 | logit    |               6 |              6 |
+| countries  | continent    | Egypt    | Canada   |       8 | random   |               6 |              6 |
+| countries  | continent    | Egypt    | Canada   |      14 | tuned    |               6 |              6 |
+| countries  | continent    | Egypt    | Canada   |      14 | logit    |               6 |              6 |
+| countries  | continent    | Egypt    | Canada   |      14 | random   |               6 |              6 |
+| countries  | continent    | Egypt    | Canada   |      20 | tuned    |               6 |              5 |
+| countries  | continent    | Egypt    | Canada   |      20 | logit    |               6 |              7 |
+| countries  | continent    | Egypt    | Canada   |      20 | random   |               6 |              5 |
+| countries  | continent    | Egypt    | China    |       8 | tuned    |               2 |              2 |
+| countries  | continent    | Egypt    | China    |       8 | logit    |               2 |              2 |
+| countries  | continent    | Egypt    | China    |       8 | random   |               2 |              2 |
+| countries  | continent    | Egypt    | China    |      14 | tuned    |               2 |              2 |
+| countries  | continent    | Egypt    | China    |      14 | logit    |               2 |              2 |
+| countries  | continent    | Egypt    | China    |      14 | random   |               2 |              2 |
+| countries  | continent    | Egypt    | China    |      20 | tuned    |               2 |              2 |
+| countries  | continent    | Egypt    | China    |      20 | logit    |               2 |              2 |
+| countries  | continent    | Egypt    | China    |      20 | random   |               2 |              2 |
+| countries  | currency     | France   | Canada   |       8 | tuned    |            1857 |           1895 |
+| countries  | currency     | France   | Canada   |       8 | logit    |            1857 |           1338 |
+| countries  | currency     | France   | Canada   |       8 | random   |            1857 |           1784 |
+| countries  | currency     | France   | Canada   |      14 | tuned    |            1857 |           1201 |
+| countries  | currency     | France   | Canada   |      14 | logit    |            1857 |           1003 |
+| countries  | currency     | France   | Canada   |      14 | random   |            1857 |           1154 |
+| countries  | currency     | France   | Canada   |      20 | tuned    |            1857 |            325 |
+| countries  | currency     | France   | Canada   |      20 | logit    |            1857 |            818 |
+| countries  | currency     | France   | Canada   |      20 | random   |            1857 |           3390 |
+| countries  | currency     | France   | China    |       8 | tuned    |            5959 |           6711 |
+| countries  | currency     | France   | China    |       8 | logit    |            5959 |           4451 |
+| countries  | currency     | France   | China    |       8 | random   |            5959 |           5861 |
+| countries  | currency     | France   | China    |      14 | tuned    |            5959 |           6286 |
+| countries  | currency     | France   | China    |      14 | logit    |            5959 |           4753 |
+| countries  | currency     | France   | China    |      14 | random   |            5959 |           5823 |
+| countries  | currency     | France   | China    |      20 | tuned    |            5959 |           8472 |
+| countries  | currency     | France   | China    |      20 | logit    |            5959 |            903 |
+| countries  | currency     | France   | China    |      20 | random   |            5959 |           8191 |
+| countries  | currency     | France   | Egypt    |       8 | tuned    |            2269 |           3220 |
+| countries  | currency     | France   | Egypt    |       8 | logit    |            2269 |           3396 |
+| countries  | currency     | France   | Egypt    |       8 | random   |            2269 |            978 |
+| countries  | currency     | France   | Egypt    |      14 | tuned    |            2269 |           1205 |
+| countries  | currency     | France   | Egypt    |      14 | logit    |            2269 |           3526 |
+| countries  | currency     | France   | Egypt    |      14 | random   |            2269 |            807 |
+| countries  | currency     | France   | Egypt    |      20 | tuned    |            2269 |           4980 |
+| countries  | currency     | France   | Egypt    |      20 | logit    |            2269 |           1825 |
+| countries  | currency     | France   | Egypt    |      20 | random   |            2269 |           2965 |
+| countries  | currency     | Canada   | France   |       8 | tuned    |             113 |            109 |
+| countries  | currency     | Canada   | France   |       8 | logit    |             113 |            184 |
+| countries  | currency     | Canada   | France   |       8 | random   |             113 |            113 |
+| countries  | currency     | Canada   | France   |      14 | tuned    |             113 |             83 |
+| countries  | currency     | Canada   | France   |      14 | logit    |             113 |            210 |
+| countries  | currency     | Canada   | France   |      14 | random   |             113 |             89 |
+| countries  | currency     | Canada   | France   |      20 | tuned    |             113 |            601 |
+| countries  | currency     | Canada   | France   |      20 | logit    |             113 |             18 |
+| countries  | currency     | Canada   | France   |      20 | random   |             113 |            161 |
+| countries  | currency     | Canada   | China    |       8 | tuned    |            1747 |           1797 |
+| countries  | currency     | Canada   | China    |       8 | logit    |            1747 |           2857 |
+| countries  | currency     | Canada   | China    |       8 | random   |            1747 |           1670 |
+| countries  | currency     | Canada   | China    |      14 | tuned    |            1747 |           1743 |
+| countries  | currency     | Canada   | China    |      14 | logit    |            1747 |           4115 |
+| countries  | currency     | Canada   | China    |      14 | random   |            1747 |           1568 |
+| countries  | currency     | Canada   | China    |      20 | tuned    |            1747 |          15774 |
+| countries  | currency     | Canada   | China    |      20 | logit    |            1747 |            219 |
+| countries  | currency     | Canada   | China    |      20 | random   |            1747 |           9498 |
+| countries  | currency     | Canada   | Egypt    |       8 | tuned    |             128 |            139 |
+| countries  | currency     | Canada   | Egypt    |       8 | logit    |             128 |            130 |
+| countries  | currency     | Canada   | Egypt    |       8 | random   |             128 |            100 |
+| countries  | currency     | Canada   | Egypt    |      14 | tuned    |             128 |            130 |
+| countries  | currency     | Canada   | Egypt    |      14 | logit    |             128 |            125 |
+| countries  | currency     | Canada   | Egypt    |      14 | random   |             128 |            126 |
+| countries  | currency     | Canada   | Egypt    |      20 | tuned    |             128 |            227 |
+| countries  | currency     | Canada   | Egypt    |      20 | logit    |             128 |             52 |
+| countries  | currency     | Canada   | Egypt    |      20 | random   |             128 |            107 |
+| countries  | currency     | China    | France   |       8 | tuned    |             206 |            168 |
+| countries  | currency     | China    | France   |       8 | logit    |             206 |            224 |
+| countries  | currency     | China    | France   |       8 | random   |             206 |            223 |
+| countries  | currency     | China    | France   |      14 | tuned    |             206 |            190 |
+| countries  | currency     | China    | France   |      14 | logit    |             206 |            201 |
+| countries  | currency     | China    | France   |      14 | random   |             206 |            204 |
+| countries  | currency     | China    | France   |      20 | tuned    |             206 |            139 |
+| countries  | currency     | China    | France   |      20 | logit    |             206 |             45 |
+| countries  | currency     | China    | France   |      20 | random   |             206 |            283 |
+| countries  | currency     | China    | Canada   |       8 | tuned    |            1502 |           1387 |
+| countries  | currency     | China    | Canada   |       8 | logit    |            1502 |            820 |
+| countries  | currency     | China    | Canada   |       8 | random   |            1502 |           1299 |
+| countries  | currency     | China    | Canada   |      14 | tuned    |            1502 |           1007 |
+| countries  | currency     | China    | Canada   |      14 | logit    |            1502 |           1027 |
+| countries  | currency     | China    | Canada   |      14 | random   |            1502 |           1015 |
+| countries  | currency     | China    | Canada   |      20 | tuned    |            1502 |            980 |
+| countries  | currency     | China    | Canada   |      20 | logit    |            1502 |            985 |
+| countries  | currency     | China    | Canada   |      20 | random   |            1502 |           4575 |
+| countries  | currency     | China    | Egypt    |       8 | tuned    |             997 |           1011 |
+| countries  | currency     | China    | Egypt    |       8 | logit    |             997 |            727 |
+| countries  | currency     | China    | Egypt    |       8 | random   |             997 |            589 |
+| countries  | currency     | China    | Egypt    |      14 | tuned    |             997 |           1379 |
+| countries  | currency     | China    | Egypt    |      14 | logit    |             997 |            888 |
+| countries  | currency     | China    | Egypt    |      14 | random   |             997 |            578 |
+| countries  | currency     | China    | Egypt    |      20 | tuned    |             997 |           2099 |
+| countries  | currency     | China    | Egypt    |      20 | logit    |             997 |            796 |
+| countries  | currency     | China    | Egypt    |      20 | random   |             997 |            958 |
+| countries  | currency     | Egypt    | France   |       8 | tuned    |              58 |             48 |
+| countries  | currency     | Egypt    | France   |       8 | logit    |              58 |             81 |
+| countries  | currency     | Egypt    | France   |       8 | random   |              58 |             31 |
+| countries  | currency     | Egypt    | France   |      14 | tuned    |              58 |            103 |
+| countries  | currency     | Egypt    | France   |      14 | logit    |              58 |            104 |
+| countries  | currency     | Egypt    | France   |      14 | random   |              58 |             29 |
+| countries  | currency     | Egypt    | France   |      20 | tuned    |              58 |            124 |
+| countries  | currency     | Egypt    | France   |      20 | logit    |              58 |             23 |
+| countries  | currency     | Egypt    | France   |      20 | random   |              58 |             73 |
+| countries  | currency     | Egypt    | Canada   |       8 | tuned    |             473 |            290 |
+| countries  | currency     | Egypt    | Canada   |       8 | logit    |             473 |            459 |
+| countries  | currency     | Egypt    | Canada   |       8 | random   |             473 |            204 |
+| countries  | currency     | Egypt    | Canada   |      14 | tuned    |             473 |            409 |
+| countries  | currency     | Egypt    | Canada   |      14 | logit    |             473 |            445 |
+| countries  | currency     | Egypt    | Canada   |      14 | random   |             473 |            396 |
+| countries  | currency     | Egypt    | Canada   |      20 | tuned    |             473 |            275 |
+| countries  | currency     | Egypt    | Canada   |      20 | logit    |             473 |            389 |
+| countries  | currency     | Egypt    | Canada   |      20 | random   |             473 |            213 |
+| countries  | currency     | Egypt    | China    |       8 | tuned    |            2036 |           2201 |
+| countries  | currency     | Egypt    | China    |       8 | logit    |            2036 |           3642 |
+| countries  | currency     | Egypt    | China    |       8 | random   |            2036 |            439 |
+| countries  | currency     | Egypt    | China    |      14 | tuned    |            2036 |           3312 |
+| countries  | currency     | Egypt    | China    |      14 | logit    |            2036 |           4421 |
+| countries  | currency     | Egypt    | China    |      14 | random   |            2036 |           1644 |
+| countries  | currency     | Egypt    | China    |      20 | tuned    |            2036 |          12851 |
+| countries  | currency     | Egypt    | China    |      20 | logit    |            2036 |            821 |
+| countries  | currency     | Egypt    | China    |      20 | random   |            2036 |           3646 |
+| months     | season       | February | April    |       8 | tuned    |               1 |              1 |
+| months     | season       | February | April    |       8 | logit    |               1 |              1 |
+| months     | season       | February | April    |       8 | random   |               1 |              2 |
+| months     | season       | February | April    |      14 | tuned    |               1 |              1 |
+| months     | season       | February | April    |      14 | logit    |               1 |              1 |
+| months     | season       | February | April    |      14 | random   |               1 |              1 |
+| months     | season       | February | April    |      20 | tuned    |               1 |              2 |
+| months     | season       | February | April    |      20 | logit    |               1 |              1 |
+| months     | season       | February | April    |      20 | random   |               1 |              1 |
+| months     | season       | February | July     |       8 | tuned    |              30 |             29 |
+| months     | season       | February | July     |       8 | logit    |              30 |             22 |
+| months     | season       | February | July     |       8 | random   |              30 |             36 |
+| months     | season       | February | July     |      14 | tuned    |              30 |             32 |
+| months     | season       | February | July     |      14 | logit    |              30 |             25 |
+| months     | season       | February | July     |      14 | random   |              30 |             37 |
+| months     | season       | February | July     |      20 | tuned    |              30 |             29 |
+| months     | season       | February | July     |      20 | logit    |              30 |              9 |
+| months     | season       | February | July     |      20 | random   |              30 |             31 |
+| months     | season       | February | October  |       8 | tuned    |              27 |             29 |
+| months     | season       | February | October  |       8 | logit    |              27 |             27 |
+| months     | season       | February | October  |       8 | random   |              27 |             31 |
+| months     | season       | February | October  |      14 | tuned    |              27 |             23 |
+| months     | season       | February | October  |      14 | logit    |              27 |             27 |
+| months     | season       | February | October  |      14 | random   |              27 |             24 |
+| months     | season       | February | October  |      20 | tuned    |              27 |             21 |
+| months     | season       | February | October  |      20 | logit    |              27 |             13 |
+| months     | season       | February | October  |      20 | random   |              27 |             26 |
+| months     | season       | April    | February |       8 | tuned    |              12 |              5 |
+| months     | season       | April    | February |       8 | logit    |              12 |             11 |
+| months     | season       | April    | February |       8 | random   |              12 |             10 |
+| months     | season       | April    | February |      14 | tuned    |              12 |             10 |
+| months     | season       | April    | February |      14 | logit    |              12 |             10 |
+| months     | season       | April    | February |      14 | random   |              12 |              9 |
+| months     | season       | April    | February |      20 | tuned    |              12 |             74 |
+| months     | season       | April    | February |      20 | logit    |              12 |              9 |
+| months     | season       | April    | February |      20 | random   |              12 |             16 |
+| months     | season       | April    | July     |       8 | tuned    |               9 |              3 |
+| months     | season       | April    | July     |       8 | logit    |               9 |              3 |
+| months     | season       | April    | July     |       8 | random   |               9 |             18 |
+| months     | season       | April    | July     |      14 | tuned    |               9 |             13 |
+| months     | season       | April    | July     |      14 | logit    |               9 |              3 |
+| months     | season       | April    | July     |      14 | random   |               9 |             16 |
+| months     | season       | April    | July     |      20 | tuned    |               9 |             31 |
+| months     | season       | April    | July     |      20 | logit    |               9 |              2 |
+| months     | season       | April    | July     |      20 | random   |               9 |              7 |
+| months     | season       | April    | October  |       8 | tuned    |              25 |             39 |
+| months     | season       | April    | October  |       8 | logit    |              25 |             30 |
+| months     | season       | April    | October  |       8 | random   |              25 |             29 |
+| months     | season       | April    | October  |      14 | tuned    |              25 |             33 |
+| months     | season       | April    | October  |      14 | logit    |              25 |             27 |
+| months     | season       | April    | October  |      14 | random   |              25 |             30 |
+| months     | season       | April    | October  |      20 | tuned    |              25 |            106 |
+| months     | season       | April    | October  |      20 | logit    |              25 |             13 |
+| months     | season       | April    | October  |      20 | random   |              25 |             47 |
+| months     | season       | July     | February |       8 | tuned    |              62 |             77 |
+| months     | season       | July     | February |       8 | logit    |              62 |             82 |
+| months     | season       | July     | February |       8 | random   |              62 |             76 |
+| months     | season       | July     | February |      14 | tuned    |              62 |             82 |
+| months     | season       | July     | February |      14 | logit    |              62 |             79 |
+| months     | season       | July     | February |      14 | random   |              62 |             83 |
+| months     | season       | July     | February |      20 | tuned    |              62 |             68 |
+| months     | season       | July     | February |      20 | logit    |              62 |             37 |
+| months     | season       | July     | February |      20 | random   |              62 |             67 |
+| months     | season       | July     | April    |       8 | tuned    |              23 |             58 |
+| months     | season       | July     | April    |       8 | logit    |              23 |             57 |
+| months     | season       | July     | April    |       8 | random   |              23 |             47 |
+| months     | season       | July     | April    |      14 | tuned    |              23 |             49 |
+| months     | season       | July     | April    |      14 | logit    |              23 |             45 |
+| months     | season       | July     | April    |      14 | random   |              23 |             38 |
+| months     | season       | July     | April    |      20 | tuned    |              23 |             18 |
+| months     | season       | July     | April    |      20 | logit    |              23 |             27 |
+| months     | season       | July     | April    |      20 | random   |              23 |             86 |
+| months     | season       | July     | October  |       8 | tuned    |              16 |             17 |
+| months     | season       | July     | October  |       8 | logit    |              16 |             18 |
+| months     | season       | July     | October  |       8 | random   |              16 |             15 |
+| months     | season       | July     | October  |      14 | tuned    |              16 |             18 |
+| months     | season       | July     | October  |      14 | logit    |              16 |             21 |
+| months     | season       | July     | October  |      14 | random   |              16 |             16 |
+| months     | season       | July     | October  |      20 | tuned    |              16 |              3 |
+| months     | season       | July     | October  |      20 | logit    |              16 |             16 |
+| months     | season       | July     | October  |      20 | random   |              16 |             21 |
+| months     | season       | October  | February |       8 | tuned    |              25 |             28 |
+| months     | season       | October  | February |       8 | logit    |              25 |             21 |
+| months     | season       | October  | February |       8 | random   |              25 |             26 |
+| months     | season       | October  | February |      14 | tuned    |              25 |             26 |
+| months     | season       | October  | February |      14 | logit    |              25 |             20 |
+| months     | season       | October  | February |      14 | random   |              25 |             36 |
+| months     | season       | October  | February |      20 | tuned    |              25 |             49 |
+| months     | season       | October  | February |      20 | logit    |              25 |              6 |
+| months     | season       | October  | February |      20 | random   |              25 |             15 |
+| months     | season       | October  | April    |       8 | tuned    |              52 |            105 |
+| months     | season       | October  | April    |       8 | logit    |              52 |             52 |
+| months     | season       | October  | April    |       8 | random   |              52 |             62 |
+| months     | season       | October  | April    |      14 | tuned    |              52 |            103 |
+| months     | season       | October  | April    |      14 | logit    |              52 |             51 |
+| months     | season       | October  | April    |      14 | random   |              52 |             93 |
+| months     | season       | October  | April    |      20 | tuned    |              52 |             26 |
+| months     | season       | October  | April    |      20 | logit    |              52 |             24 |
+| months     | season       | October  | April    |      20 | random   |              52 |            130 |
+| months     | season       | October  | July     |       8 | tuned    |              31 |             34 |
+| months     | season       | October  | July     |       8 | logit    |              31 |             21 |
+| months     | season       | October  | July     |       8 | random   |              31 |             28 |
+| months     | season       | October  | July     |      14 | tuned    |              31 |             32 |
+| months     | season       | October  | July     |      14 | logit    |              31 |             21 |
+| months     | season       | October  | July     |      14 | random   |              31 |             29 |
+| months     | season       | October  | July     |      20 | tuned    |              31 |             48 |
+| months     | season       | October  | July     |      20 | logit    |              31 |              7 |
+| months     | season       | October  | July     |      20 | random   |              31 |             26 |
+| months     | number       | February | April    |       8 | tuned    |              18 |             19 |
+| months     | number       | February | April    |       8 | logit    |              18 |             17 |
+| months     | number       | February | April    |       8 | random   |              18 |             26 |
+| months     | number       | February | April    |      14 | tuned    |              18 |             16 |
+| months     | number       | February | April    |      14 | logit    |              18 |             17 |
+| months     | number       | February | April    |      14 | random   |              18 |             21 |
+| months     | number       | February | April    |      20 | tuned    |              18 |             24 |
+| months     | number       | February | April    |      20 | logit    |              18 |             18 |
+| months     | number       | February | April    |      20 | random   |              18 |             18 |
+| months     | number       | February | July     |       8 | tuned    |              44 |             47 |
+| months     | number       | February | July     |       8 | logit    |              44 |             47 |
+| months     | number       | February | July     |       8 | random   |              44 |             44 |
+| months     | number       | February | July     |      14 | tuned    |              44 |             40 |
+| months     | number       | February | July     |      14 | logit    |              44 |             46 |
+| months     | number       | February | July     |      14 | random   |              44 |             43 |
+| months     | number       | February | July     |      20 | tuned    |              44 |             50 |
+| months     | number       | February | July     |      20 | logit    |              44 |             43 |
+| months     | number       | February | July     |      20 | random   |              44 |             52 |
+| months     | number       | February | October  |       8 | tuned    |              71 |             78 |
+| months     | number       | February | October  |       8 | logit    |              71 |             73 |
+| months     | number       | February | October  |       8 | random   |              71 |             64 |
+| months     | number       | February | October  |      14 | tuned    |              71 |             61 |
+| months     | number       | February | October  |      14 | logit    |              71 |             78 |
+| months     | number       | February | October  |      14 | random   |              71 |             60 |
+| months     | number       | February | October  |      20 | tuned    |              71 |             80 |
+| months     | number       | February | October  |      20 | logit    |              71 |             68 |
+| months     | number       | February | October  |      20 | random   |              71 |            115 |
+| months     | number       | April    | February |       8 | tuned    |              54 |             30 |
+| months     | number       | April    | February |       8 | logit    |              54 |             48 |
+| months     | number       | April    | February |       8 | random   |              54 |             48 |
+| months     | number       | April    | February |      14 | tuned    |              54 |             44 |
+| months     | number       | April    | February |      14 | logit    |              54 |             50 |
+| months     | number       | April    | February |      14 | random   |              54 |             62 |
+| months     | number       | April    | February |      20 | tuned    |              54 |            258 |
+| months     | number       | April    | February |      20 | logit    |              54 |             49 |
+| months     | number       | April    | February |      20 | random   |              54 |             48 |
+| months     | number       | April    | July     |       8 | tuned    |              66 |             74 |
+| months     | number       | April    | July     |       8 | logit    |              66 |             55 |
+| months     | number       | April    | July     |       8 | random   |              66 |             61 |
+| months     | number       | April    | July     |      14 | tuned    |              66 |             42 |
+| months     | number       | April    | July     |      14 | logit    |              66 |             57 |
+| months     | number       | April    | July     |      14 | random   |              66 |             97 |
+| months     | number       | April    | July     |      20 | tuned    |              66 |            102 |
+| months     | number       | April    | July     |      20 | logit    |              66 |             61 |
+| months     | number       | April    | July     |      20 | random   |              66 |             84 |
+| months     | number       | April    | October  |       8 | tuned    |             109 |             48 |
+| months     | number       | April    | October  |       8 | logit    |             109 |            102 |
+| months     | number       | April    | October  |       8 | random   |             109 |            113 |
+| months     | number       | April    | October  |      14 | tuned    |             109 |             83 |
+| months     | number       | April    | October  |      14 | logit    |             109 |            105 |
+| months     | number       | April    | October  |      14 | random   |             109 |            116 |
+| months     | number       | April    | October  |      20 | tuned    |             109 |            188 |
+| months     | number       | April    | October  |      20 | logit    |             109 |             94 |
+| months     | number       | April    | October  |      20 | random   |             109 |            184 |
+| months     | number       | July     | February |       8 | tuned    |              49 |             56 |
+| months     | number       | July     | February |       8 | logit    |              49 |             64 |
+| months     | number       | July     | February |       8 | random   |              49 |             50 |
+| months     | number       | July     | February |      14 | tuned    |              49 |             50 |
+| months     | number       | July     | February |      14 | logit    |              49 |             58 |
+| months     | number       | July     | February |      14 | random   |              49 |             52 |
+| months     | number       | July     | February |      20 | tuned    |              49 |             65 |
+| months     | number       | July     | February |      20 | logit    |              49 |             51 |
+| months     | number       | July     | February |      20 | random   |              49 |             51 |
+| months     | number       | July     | April    |       8 | tuned    |              39 |             71 |
+| months     | number       | July     | April    |       8 | logit    |              39 |             32 |
+| months     | number       | July     | April    |       8 | random   |              39 |             46 |
+| months     | number       | July     | April    |      14 | tuned    |              39 |             25 |
+| months     | number       | July     | April    |      14 | logit    |              39 |             33 |
+| months     | number       | July     | April    |      14 | random   |              39 |             61 |
+| months     | number       | July     | April    |      20 | tuned    |              39 |             26 |
+| months     | number       | July     | April    |      20 | logit    |              39 |             38 |
+| months     | number       | July     | April    |      20 | random   |              39 |             44 |
+| months     | number       | July     | October  |       8 | tuned    |              80 |             61 |
+| months     | number       | July     | October  |       8 | logit    |              80 |            110 |
+| months     | number       | July     | October  |       8 | random   |              80 |             89 |
+| months     | number       | July     | October  |      14 | tuned    |              80 |             78 |
+| months     | number       | July     | October  |      14 | logit    |              80 |             97 |
+| months     | number       | July     | October  |      14 | random   |              80 |             81 |
+| months     | number       | July     | October  |      20 | tuned    |              80 |             58 |
+| months     | number       | July     | October  |      20 | logit    |              80 |             94 |
+| months     | number       | July     | October  |      20 | random   |              80 |             80 |
+| months     | number       | October  | February |       8 | tuned    |              78 |             99 |
+| months     | number       | October  | February |       8 | logit    |              78 |             77 |
+| months     | number       | October  | February |       8 | random   |              78 |             69 |
+| months     | number       | October  | February |      14 | tuned    |              78 |             71 |
+| months     | number       | October  | February |      14 | logit    |              78 |             77 |
+| months     | number       | October  | February |      14 | random   |              78 |             88 |
+| months     | number       | October  | February |      20 | tuned    |              78 |            129 |
+| months     | number       | October  | February |      20 | logit    |              78 |             67 |
+| months     | number       | October  | February |      20 | random   |              78 |             76 |
+| months     | number       | October  | April    |       8 | tuned    |              64 |             39 |
+| months     | number       | October  | April    |       8 | logit    |              64 |             64 |
+| months     | number       | October  | April    |       8 | random   |              64 |             47 |
+| months     | number       | October  | April    |      14 | tuned    |              64 |             45 |
+| months     | number       | October  | April    |      14 | logit    |              64 |             61 |
+| months     | number       | October  | April    |      14 | random   |              64 |            103 |
+| months     | number       | October  | April    |      20 | tuned    |              64 |            111 |
+| months     | number       | October  | April    |      20 | logit    |              64 |             60 |
+| months     | number       | October  | April    |      20 | random   |              64 |             85 |
+| months     | number       | October  | July     |       8 | tuned    |              78 |             60 |
+| months     | number       | October  | July     |       8 | logit    |              78 |            112 |
+| months     | number       | October  | July     |       8 | random   |              78 |             88 |
+| months     | number       | October  | July     |      14 | tuned    |              78 |             69 |
+| months     | number       | October  | July     |      14 | logit    |              78 |             91 |
+| months     | number       | October  | July     |      14 | random   |              78 |             85 |
+| months     | number       | October  | July     |      20 | tuned    |              78 |             84 |
+| months     | number       | October  | July     |      20 | logit    |              78 |             85 |
+| months     | number       | October  | July     |      20 | random   |              78 |             75 |
+| months     | holiday      | February | April    |       8 | tuned    |              12 |             11 |
+| months     | holiday      | February | April    |       8 | logit    |              12 |             13 |
+| months     | holiday      | February | April    |       8 | random   |              12 |             21 |
+| months     | holiday      | February | April    |      14 | tuned    |              12 |             21 |
+| months     | holiday      | February | April    |      14 | logit    |              12 |             13 |
+| months     | holiday      | February | April    |      14 | random   |              12 |             16 |
+| months     | holiday      | February | April    |      20 | tuned    |              12 |              6 |
+| months     | holiday      | February | April    |      20 | logit    |              12 |              7 |
+| months     | holiday      | February | April    |      20 | random   |              12 |             31 |
+| months     | holiday      | February | July     |       8 | tuned    |             144 |            170 |
+| months     | holiday      | February | July     |       8 | logit    |             144 |            118 |
+| months     | holiday      | February | July     |       8 | random   |             144 |            151 |
+| months     | holiday      | February | July     |      14 | tuned    |             144 |            154 |
+| months     | holiday      | February | July     |      14 | logit    |             144 |            102 |
+| months     | holiday      | February | July     |      14 | random   |             144 |            147 |
+| months     | holiday      | February | July     |      20 | tuned    |             144 |            100 |
+| months     | holiday      | February | July     |      20 | logit    |             144 |             52 |
+| months     | holiday      | February | July     |      20 | random   |             144 |            193 |
+| months     | holiday      | February | October  |       8 | tuned    |              76 |             92 |
+| months     | holiday      | February | October  |       8 | logit    |              76 |             84 |
+| months     | holiday      | February | October  |       8 | random   |              76 |             76 |
+| months     | holiday      | February | October  |      14 | tuned    |              76 |             73 |
+| months     | holiday      | February | October  |      14 | logit    |              76 |             90 |
+| months     | holiday      | February | October  |      14 | random   |              76 |             64 |
+| months     | holiday      | February | October  |      20 | tuned    |              76 |             19 |
+| months     | holiday      | February | October  |      20 | logit    |              76 |             35 |
+| months     | holiday      | February | October  |      20 | random   |              76 |            150 |
+| months     | holiday      | April    | February |       8 | tuned    |              29 |             39 |
+| months     | holiday      | April    | February |       8 | logit    |              29 |             28 |
+| months     | holiday      | April    | February |       8 | random   |              29 |             19 |
+| months     | holiday      | April    | February |      14 | tuned    |              29 |             30 |
+| months     | holiday      | April    | February |      14 | logit    |              29 |             27 |
+| months     | holiday      | April    | February |      14 | random   |              29 |             19 |
+| months     | holiday      | April    | February |      20 | tuned    |              29 |            117 |
+| months     | holiday      | April    | February |      20 | logit    |              29 |             33 |
+| months     | holiday      | April    | February |      20 | random   |              29 |             51 |
+| months     | holiday      | April    | July     |       8 | tuned    |              61 |             81 |
+| months     | holiday      | April    | July     |       8 | logit    |              61 |             31 |
+| months     | holiday      | April    | July     |       8 | random   |              61 |             79 |
+| months     | holiday      | April    | July     |      14 | tuned    |              61 |             64 |
+| months     | holiday      | April    | July     |      14 | logit    |              61 |             33 |
+| months     | holiday      | April    | July     |      14 | random   |              61 |             81 |
+| months     | holiday      | April    | July     |      20 | tuned    |              61 |            473 |
+| months     | holiday      | April    | July     |      20 | logit    |              61 |             31 |
+| months     | holiday      | April    | July     |      20 | random   |              61 |            272 |
+| months     | holiday      | April    | October  |       8 | tuned    |              36 |             15 |
+| months     | holiday      | April    | October  |       8 | logit    |              36 |             34 |
+| months     | holiday      | April    | October  |       8 | random   |              36 |             37 |
+| months     | holiday      | April    | October  |      14 | tuned    |              36 |             24 |
+| months     | holiday      | April    | October  |      14 | logit    |              36 |             37 |
+| months     | holiday      | April    | October  |      14 | random   |              36 |             28 |
+| months     | holiday      | April    | October  |      20 | tuned    |              36 |            194 |
+| months     | holiday      | April    | October  |      20 | logit    |              36 |             26 |
+| months     | holiday      | April    | October  |      20 | random   |              36 |             63 |
+| months     | holiday      | July     | February |       8 | tuned    |             213 |            203 |
+| months     | holiday      | July     | February |       8 | logit    |             213 |            238 |
+| months     | holiday      | July     | February |       8 | random   |             213 |            205 |
+| months     | holiday      | July     | February |      14 | tuned    |             213 |            256 |
+| months     | holiday      | July     | February |      14 | logit    |             213 |            221 |
+| months     | holiday      | July     | February |      14 | random   |             213 |            192 |
+| months     | holiday      | July     | February |      20 | tuned    |             213 |            253 |
+| months     | holiday      | July     | February |      20 | logit    |             213 |            154 |
+| months     | holiday      | July     | February |      20 | random   |             213 |            196 |
+| months     | holiday      | July     | April    |       8 | tuned    |             104 |            155 |
+| months     | holiday      | July     | April    |       8 | logit    |             104 |            195 |
+| months     | holiday      | July     | April    |       8 | random   |             104 |            236 |
+| months     | holiday      | July     | April    |      14 | tuned    |             104 |            520 |
+| months     | holiday      | July     | April    |      14 | logit    |             104 |            183 |
+| months     | holiday      | July     | April    |      14 | random   |             104 |            192 |
+| months     | holiday      | July     | April    |      20 | tuned    |             104 |             64 |
+| months     | holiday      | July     | April    |      20 | logit    |             104 |            128 |
+| months     | holiday      | July     | April    |      20 | random   |             104 |            477 |
+| months     | holiday      | July     | October  |       8 | tuned    |              14 |             13 |
+| months     | holiday      | July     | October  |       8 | logit    |              14 |             21 |
+| months     | holiday      | July     | October  |       8 | random   |              14 |             13 |
+| months     | holiday      | July     | October  |      14 | tuned    |              14 |             13 |
+| months     | holiday      | July     | October  |      14 | logit    |              14 |             21 |
+| months     | holiday      | July     | October  |      14 | random   |              14 |             13 |
+| months     | holiday      | July     | October  |      20 | tuned    |              14 |              3 |
+| months     | holiday      | July     | October  |      20 | logit    |              14 |             18 |
+| months     | holiday      | July     | October  |      20 | random   |              14 |             15 |
+| months     | holiday      | October  | February |       8 | tuned    |             133 |            117 |
+| months     | holiday      | October  | February |       8 | logit    |             133 |            125 |
+| months     | holiday      | October  | February |       8 | random   |             133 |            125 |
+| months     | holiday      | October  | February |      14 | tuned    |             133 |            150 |
+| months     | holiday      | October  | February |      14 | logit    |             133 |            125 |
+| months     | holiday      | October  | February |      14 | random   |             133 |            122 |
+| months     | holiday      | October  | February |      20 | tuned    |             133 |            385 |
+| months     | holiday      | October  | February |      20 | logit    |             133 |             82 |
+| months     | holiday      | October  | February |      20 | random   |             133 |            111 |
+| months     | holiday      | October  | April    |       8 | tuned    |             135 |            274 |
+| months     | holiday      | October  | April    |       8 | logit    |             135 |            143 |
+| months     | holiday      | October  | April    |       8 | random   |             135 |            433 |
+| months     | holiday      | October  | April    |      14 | tuned    |             135 |            309 |
+| months     | holiday      | October  | April    |      14 | logit    |             135 |            134 |
+| months     | holiday      | October  | April    |      14 | random   |             135 |            240 |
+| months     | holiday      | October  | April    |      20 | tuned    |             135 |             74 |
+| months     | holiday      | October  | April    |      20 | logit    |             135 |             78 |
+| months     | holiday      | October  | April    |      20 | random   |             135 |            458 |
+| months     | holiday      | October  | July     |       8 | tuned    |              23 |             21 |
+| months     | holiday      | October  | July     |       8 | logit    |              23 |             20 |
+| months     | holiday      | October  | July     |       8 | random   |              23 |             24 |
+| months     | holiday      | October  | July     |      14 | tuned    |              23 |             25 |
+| months     | holiday      | October  | July     |      14 | logit    |              23 |             16 |
+| months     | holiday      | October  | July     |      14 | random   |              23 |             26 |
+| months     | holiday      | October  | July     |      20 | tuned    |              23 |             36 |
+| months     | holiday      | October  | July     |      20 | logit    |              23 |             13 |
+| months     | holiday      | October  | July     |      20 | random   |              23 |             31 |
+| months     | next_month   | February | April    |       8 | tuned    |              14 |             13 |
+| months     | next_month   | February | April    |       8 | logit    |              14 |             15 |
+| months     | next_month   | February | April    |       8 | random   |              14 |             19 |
+| months     | next_month   | February | April    |      14 | tuned    |              14 |             18 |
+| months     | next_month   | February | April    |      14 | logit    |              14 |             15 |
+| months     | next_month   | February | April    |      14 | random   |              14 |             19 |
+| months     | next_month   | February | April    |      20 | tuned    |              14 |             26 |
+| months     | next_month   | February | April    |      20 | logit    |              14 |             15 |
+| months     | next_month   | February | April    |      20 | random   |              14 |             18 |
+| months     | next_month   | February | July     |       8 | tuned    |              28 |             28 |
+| months     | next_month   | February | July     |       8 | logit    |              28 |             26 |
+| months     | next_month   | February | July     |       8 | random   |              28 |             28 |
+| months     | next_month   | February | July     |      14 | tuned    |              28 |             23 |
+| months     | next_month   | February | July     |      14 | logit    |              28 |             25 |
+| months     | next_month   | February | July     |      14 | random   |              28 |             28 |
+| months     | next_month   | February | July     |      20 | tuned    |              28 |             25 |
+| months     | next_month   | February | July     |      20 | logit    |              28 |             23 |
+| months     | next_month   | February | July     |      20 | random   |              28 |             26 |
+| months     | next_month   | February | October  |       8 | tuned    |              34 |             44 |
+| months     | next_month   | February | October  |       8 | logit    |              34 |             35 |
+| months     | next_month   | February | October  |       8 | random   |              34 |             45 |
+| months     | next_month   | February | October  |      14 | tuned    |              34 |             33 |
+| months     | next_month   | February | October  |      14 | logit    |              34 |             34 |
+| months     | next_month   | February | October  |      14 | random   |              34 |             50 |
+| months     | next_month   | February | October  |      20 | tuned    |              34 |             29 |
+| months     | next_month   | February | October  |      20 | logit    |              34 |             33 |
+| months     | next_month   | February | October  |      20 | random   |              34 |             50 |
+| months     | next_month   | April    | February |       8 | tuned    |              14 |             13 |
+| months     | next_month   | April    | February |       8 | logit    |              14 |             17 |
+| months     | next_month   | April    | February |       8 | random   |              14 |             16 |
+| months     | next_month   | April    | February |      14 | tuned    |              14 |             18 |
+| months     | next_month   | April    | February |      14 | logit    |              14 |             18 |
+| months     | next_month   | April    | February |      14 | random   |              14 |             19 |
+| months     | next_month   | April    | February |      20 | tuned    |              14 |             39 |
+| months     | next_month   | April    | February |      20 | logit    |              14 |             18 |
+| months     | next_month   | April    | February |      20 | random   |              14 |             22 |
+| months     | next_month   | April    | July     |       8 | tuned    |              29 |             24 |
+| months     | next_month   | April    | July     |       8 | logit    |              29 |             19 |
+| months     | next_month   | April    | July     |       8 | random   |              29 |             25 |
+| months     | next_month   | April    | July     |      14 | tuned    |              29 |             22 |
+| months     | next_month   | April    | July     |      14 | logit    |              29 |             28 |
+| months     | next_month   | April    | July     |      14 | random   |              29 |             46 |
+| months     | next_month   | April    | July     |      20 | tuned    |              29 |             50 |
+| months     | next_month   | April    | July     |      20 | logit    |              29 |             26 |
+| months     | next_month   | April    | July     |      20 | random   |              29 |             39 |
+| months     | next_month   | April    | October  |       8 | tuned    |              47 |             39 |
+| months     | next_month   | April    | October  |       8 | logit    |              47 |             46 |
+| months     | next_month   | April    | October  |       8 | random   |              47 |             54 |
+| months     | next_month   | April    | October  |      14 | tuned    |              47 |             49 |
+| months     | next_month   | April    | October  |      14 | logit    |              47 |             46 |
+| months     | next_month   | April    | October  |      14 | random   |              47 |             72 |
+| months     | next_month   | April    | October  |      20 | tuned    |              47 |            115 |
+| months     | next_month   | April    | October  |      20 | logit    |              47 |             44 |
+| months     | next_month   | April    | October  |      20 | random   |              47 |             55 |
+| months     | next_month   | July     | February |       8 | tuned    |              31 |             34 |
+| months     | next_month   | July     | February |       8 | logit    |              31 |             34 |
+| months     | next_month   | July     | February |       8 | random   |              31 |             33 |
+| months     | next_month   | July     | February |      14 | tuned    |              31 |             35 |
+| months     | next_month   | July     | February |      14 | logit    |              31 |             35 |
+| months     | next_month   | July     | February |      14 | random   |              31 |             37 |
+| months     | next_month   | July     | February |      20 | tuned    |              31 |             43 |
+| months     | next_month   | July     | February |      20 | logit    |              31 |             31 |
+| months     | next_month   | July     | February |      20 | random   |              31 |             37 |
+| months     | next_month   | July     | April    |       8 | tuned    |              27 |             30 |
+| months     | next_month   | July     | April    |       8 | logit    |              27 |             30 |
+| months     | next_month   | July     | April    |       8 | random   |              27 |             34 |
+| months     | next_month   | July     | April    |      14 | tuned    |              27 |             35 |
+| months     | next_month   | July     | April    |      14 | logit    |              27 |             29 |
+| months     | next_month   | July     | April    |      14 | random   |              27 |             42 |
+| months     | next_month   | July     | April    |      20 | tuned    |              27 |             39 |
+| months     | next_month   | July     | April    |      20 | logit    |              27 |             26 |
+| months     | next_month   | July     | April    |      20 | random   |              27 |             50 |
+| months     | next_month   | July     | October  |       8 | tuned    |              34 |             32 |
+| months     | next_month   | July     | October  |       8 | logit    |              34 |             39 |
+| months     | next_month   | July     | October  |       8 | random   |              34 |             34 |
+| months     | next_month   | July     | October  |      14 | tuned    |              34 |             37 |
+| months     | next_month   | July     | October  |      14 | logit    |              34 |             39 |
+| months     | next_month   | July     | October  |      14 | random   |              34 |             35 |
+| months     | next_month   | July     | October  |      20 | tuned    |              34 |             23 |
+| months     | next_month   | July     | October  |      20 | logit    |              34 |             34 |
+| months     | next_month   | July     | October  |      20 | random   |              34 |             39 |
+| months     | next_month   | October  | February |       8 | tuned    |              17 |             18 |
+| months     | next_month   | October  | February |       8 | logit    |              17 |             17 |
+| months     | next_month   | October  | February |       8 | random   |              17 |             13 |
+| months     | next_month   | October  | February |      14 | tuned    |              17 |             16 |
+| months     | next_month   | October  | February |      14 | logit    |              17 |             17 |
+| months     | next_month   | October  | February |      14 | random   |              17 |             17 |
+| months     | next_month   | October  | February |      20 | tuned    |              17 |             43 |
+| months     | next_month   | October  | February |      20 | logit    |              17 |             17 |
+| months     | next_month   | October  | February |      20 | random   |              17 |             16 |
+| months     | next_month   | October  | April    |       8 | tuned    |              25 |             35 |
+| months     | next_month   | October  | April    |       8 | logit    |              25 |             25 |
+| months     | next_month   | October  | April    |       8 | random   |              25 |             26 |
+| months     | next_month   | October  | April    |      14 | tuned    |              25 |             32 |
+| months     | next_month   | October  | April    |      14 | logit    |              25 |             24 |
+| months     | next_month   | October  | April    |      14 | random   |              25 |             43 |
+| months     | next_month   | October  | April    |      20 | tuned    |              25 |             20 |
+| months     | next_month   | October  | April    |      20 | logit    |              25 |             20 |
+| months     | next_month   | October  | April    |      20 | random   |              25 |             41 |
+| months     | next_month   | October  | July     |       8 | tuned    |              20 |             21 |
+| months     | next_month   | October  | July     |       8 | logit    |              20 |             19 |
+| months     | next_month   | October  | July     |       8 | random   |              20 |             18 |
+| months     | next_month   | October  | July     |      14 | tuned    |              20 |             21 |
+| months     | next_month   | October  | July     |      14 | logit    |              20 |             19 |
+| months     | next_month   | October  | July     |      14 | random   |              20 |             19 |
+| months     | next_month   | October  | July     |      20 | tuned    |              20 |             21 |
+| months     | next_month   | October  | July     |      20 | logit    |              20 |             16 |
+| months     | next_month   | October  | July     |      20 | random   |              20 |             20 |
+| animals    | habitat      | eagle    | shark    |       8 | tuned    |             119 |            157 |
+| animals    | habitat      | eagle    | shark    |       8 | logit    |             119 |            157 |
+| animals    | habitat      | eagle    | shark    |       8 | random   |             119 |            312 |
+| animals    | habitat      | eagle    | shark    |      14 | tuned    |             119 |            108 |
+| animals    | habitat      | eagle    | shark    |      14 | logit    |             119 |            152 |
+| animals    | habitat      | eagle    | shark    |      14 | random   |             119 |            123 |
+| animals    | habitat      | eagle    | shark    |      20 | tuned    |             119 |             28 |
+| animals    | habitat      | eagle    | shark    |      20 | logit    |             119 |             71 |
+| animals    | habitat      | eagle    | shark    |      20 | random   |             119 |            476 |
+| animals    | habitat      | eagle    | spider   |       8 | tuned    |             178 |            200 |
+| animals    | habitat      | eagle    | spider   |       8 | logit    |             178 |            178 |
+| animals    | habitat      | eagle    | spider   |       8 | random   |             178 |            229 |
+| animals    | habitat      | eagle    | spider   |      14 | tuned    |             178 |            185 |
+| animals    | habitat      | eagle    | spider   |      14 | logit    |             178 |            188 |
+| animals    | habitat      | eagle    | spider   |      14 | random   |             178 |            318 |
+| animals    | habitat      | eagle    | spider   |      20 | tuned    |             178 |            242 |
+| animals    | habitat      | eagle    | spider   |      20 | logit    |             178 |            179 |
+| animals    | habitat      | eagle    | spider   |      20 | random   |             178 |            287 |
+| animals    | habitat      | shark    | eagle    |       8 | tuned    |            3286 |           2694 |
+| animals    | habitat      | shark    | eagle    |       8 | logit    |            3286 |           2917 |
+| animals    | habitat      | shark    | eagle    |       8 | random   |            3286 |           2382 |
+| animals    | habitat      | shark    | eagle    |      14 | tuned    |            3286 |           3849 |
+| animals    | habitat      | shark    | eagle    |      14 | logit    |            3286 |           2600 |
+| animals    | habitat      | shark    | eagle    |      14 | random   |            3286 |           3311 |
+| animals    | habitat      | shark    | eagle    |      20 | tuned    |            3286 |           3750 |
+| animals    | habitat      | shark    | eagle    |      20 | logit    |            3286 |           2310 |
+| animals    | habitat      | shark    | eagle    |      20 | random   |            3286 |           4672 |
+| animals    | habitat      | shark    | spider   |       8 | tuned    |            2620 |            914 |
+| animals    | habitat      | shark    | spider   |       8 | logit    |            2620 |           2565 |
+| animals    | habitat      | shark    | spider   |       8 | random   |            2620 |           2691 |
+| animals    | habitat      | shark    | spider   |      14 | tuned    |            2620 |           2787 |
+| animals    | habitat      | shark    | spider   |      14 | logit    |            2620 |           2173 |
+| animals    | habitat      | shark    | spider   |      14 | random   |            2620 |           3132 |
+| animals    | habitat      | shark    | spider   |      20 | tuned    |            2620 |            173 |
+| animals    | habitat      | shark    | spider   |      20 | logit    |            2620 |           2630 |
+| animals    | habitat      | shark    | spider   |      20 | random   |            2620 |            770 |
+| animals    | habitat      | spider   | eagle    |       8 | tuned    |             261 |            238 |
+| animals    | habitat      | spider   | eagle    |       8 | logit    |             261 |            166 |
+| animals    | habitat      | spider   | eagle    |       8 | random   |             261 |            289 |
+| animals    | habitat      | spider   | eagle    |      14 | tuned    |             261 |            285 |
+| animals    | habitat      | spider   | eagle    |      14 | logit    |             261 |            198 |
+| animals    | habitat      | spider   | eagle    |      14 | random   |             261 |            371 |
+| animals    | habitat      | spider   | eagle    |      20 | tuned    |             261 |            160 |
+| animals    | habitat      | spider   | eagle    |      20 | logit    |             261 |            165 |
+| animals    | habitat      | spider   | eagle    |      20 | random   |             261 |            473 |
+| animals    | habitat      | spider   | shark    |       8 | tuned    |               8 |            116 |
+| animals    | habitat      | spider   | shark    |       8 | logit    |               8 |              5 |
+| animals    | habitat      | spider   | shark    |       8 | random   |               8 |            127 |
+| animals    | habitat      | spider   | shark    |      14 | tuned    |               8 |             11 |
+| animals    | habitat      | spider   | shark    |      14 | logit    |               8 |              3 |
+| animals    | habitat      | spider   | shark    |      14 | random   |               8 |             23 |
+| animals    | habitat      | spider   | shark    |      20 | tuned    |               8 |              1 |
+| animals    | habitat      | spider   | shark    |      20 | logit    |               8 |              2 |
+| animals    | habitat      | spider   | shark    |      20 | random   |               8 |             43 |
+| animals    | legs         | lion     | eagle    |       8 | tuned    |              71 |             65 |
+| animals    | legs         | lion     | eagle    |       8 | logit    |              71 |             68 |
+| animals    | legs         | lion     | eagle    |       8 | random   |              71 |             73 |
+| animals    | legs         | lion     | eagle    |      14 | tuned    |              71 |             56 |
+| animals    | legs         | lion     | eagle    |      14 | logit    |              71 |             66 |
+| animals    | legs         | lion     | eagle    |      14 | random   |              71 |             69 |
+| animals    | legs         | lion     | eagle    |      20 | tuned    |              71 |             75 |
+| animals    | legs         | lion     | eagle    |      20 | logit    |              71 |             70 |
+| animals    | legs         | lion     | eagle    |      20 | random   |              71 |             76 |
+| animals    | legs         | lion     | shark    |       8 | tuned    |             165 |             89 |
+| animals    | legs         | lion     | shark    |       8 | logit    |             165 |            213 |
+| animals    | legs         | lion     | shark    |       8 | random   |             165 |            175 |
+| animals    | legs         | lion     | shark    |      14 | tuned    |             165 |            226 |
+| animals    | legs         | lion     | shark    |      14 | logit    |             165 |            185 |
+| animals    | legs         | lion     | shark    |      14 | random   |             165 |            157 |
+| animals    | legs         | lion     | shark    |      20 | tuned    |             165 |            176 |
+| animals    | legs         | lion     | shark    |      20 | logit    |             165 |            172 |
+| animals    | legs         | lion     | shark    |      20 | random   |             165 |            138 |
+| animals    | legs         | lion     | spider   |       8 | tuned    |              75 |             76 |
+| animals    | legs         | lion     | spider   |       8 | logit    |              75 |            153 |
+| animals    | legs         | lion     | spider   |       8 | random   |              75 |             71 |
+| animals    | legs         | lion     | spider   |      14 | tuned    |              75 |             85 |
+| animals    | legs         | lion     | spider   |      14 | logit    |              75 |            112 |
+| animals    | legs         | lion     | spider   |      14 | random   |              75 |             76 |
+| animals    | legs         | lion     | spider   |      20 | tuned    |              75 |             92 |
+| animals    | legs         | lion     | spider   |      20 | logit    |              75 |             81 |
+| animals    | legs         | lion     | spider   |      20 | random   |              75 |             95 |
+| animals    | legs         | eagle    | lion     |       8 | tuned    |              36 |             35 |
+| animals    | legs         | eagle    | lion     |       8 | logit    |              36 |             28 |
+| animals    | legs         | eagle    | lion     |       8 | random   |              36 |             39 |
+| animals    | legs         | eagle    | lion     |      14 | tuned    |              36 |             33 |
+| animals    | legs         | eagle    | lion     |      14 | logit    |              36 |             37 |
+| animals    | legs         | eagle    | lion     |      14 | random   |              36 |             25 |
+| animals    | legs         | eagle    | lion     |      20 | tuned    |              36 |             34 |
+| animals    | legs         | eagle    | lion     |      20 | logit    |              36 |             34 |
+| animals    | legs         | eagle    | lion     |      20 | random   |              36 |             37 |
+| animals    | legs         | eagle    | shark    |       8 | tuned    |             131 |            163 |
+| animals    | legs         | eagle    | shark    |       8 | logit    |             131 |            169 |
+| animals    | legs         | eagle    | shark    |       8 | random   |             131 |            311 |
+| animals    | legs         | eagle    | shark    |      14 | tuned    |             131 |            159 |
+| animals    | legs         | eagle    | shark    |      14 | logit    |             131 |            135 |
+| animals    | legs         | eagle    | shark    |      14 | random   |             131 |            142 |
+| animals    | legs         | eagle    | shark    |      20 | tuned    |             131 |            132 |
+| animals    | legs         | eagle    | shark    |      20 | logit    |             131 |            138 |
+| animals    | legs         | eagle    | shark    |      20 | random   |             131 |            114 |
+| animals    | legs         | eagle    | spider   |       8 | tuned    |              57 |             45 |
+| animals    | legs         | eagle    | spider   |       8 | logit    |              57 |            115 |
+| animals    | legs         | eagle    | spider   |       8 | random   |              57 |             55 |
+| animals    | legs         | eagle    | spider   |      14 | tuned    |              57 |             51 |
+| animals    | legs         | eagle    | spider   |      14 | logit    |              57 |             72 |
+| animals    | legs         | eagle    | spider   |      14 | random   |              57 |             59 |
+| animals    | legs         | eagle    | spider   |      20 | tuned    |              57 |             56 |
+| animals    | legs         | eagle    | spider   |      20 | logit    |              57 |             66 |
+| animals    | legs         | eagle    | spider   |      20 | random   |              57 |             64 |
+| animals    | legs         | shark    | lion     |       8 | tuned    |              64 |             26 |
+| animals    | legs         | shark    | lion     |       8 | logit    |              64 |             97 |
+| animals    | legs         | shark    | lion     |       8 | random   |              64 |             47 |
+| animals    | legs         | shark    | lion     |      14 | tuned    |              64 |             80 |
+| animals    | legs         | shark    | lion     |      14 | logit    |              64 |             65 |
+| animals    | legs         | shark    | lion     |      14 | random   |              64 |             66 |
+| animals    | legs         | shark    | lion     |      20 | tuned    |              64 |             64 |
+| animals    | legs         | shark    | lion     |      20 | logit    |              64 |             65 |
+| animals    | legs         | shark    | lion     |      20 | random   |              64 |             83 |
+| animals    | legs         | shark    | eagle    |       8 | tuned    |              77 |            142 |
+| animals    | legs         | shark    | eagle    |       8 | logit    |              77 |             93 |
+| animals    | legs         | shark    | eagle    |       8 | random   |              77 |             61 |
+| animals    | legs         | shark    | eagle    |      14 | tuned    |              77 |             75 |
+| animals    | legs         | shark    | eagle    |      14 | logit    |              77 |             79 |
+| animals    | legs         | shark    | eagle    |      14 | random   |              77 |             81 |
+| animals    | legs         | shark    | eagle    |      20 | tuned    |              77 |             78 |
+| animals    | legs         | shark    | eagle    |      20 | logit    |              77 |             78 |
+| animals    | legs         | shark    | eagle    |      20 | random   |              77 |            105 |
+| animals    | legs         | shark    | spider   |       8 | tuned    |              86 |             22 |
+| animals    | legs         | shark    | spider   |       8 | logit    |              86 |             92 |
+| animals    | legs         | shark    | spider   |       8 | random   |              86 |             82 |
+| animals    | legs         | shark    | spider   |      14 | tuned    |              86 |            191 |
+| animals    | legs         | shark    | spider   |      14 | logit    |              86 |             89 |
+| animals    | legs         | shark    | spider   |      14 | random   |              86 |             91 |
+| animals    | legs         | shark    | spider   |      20 | tuned    |              86 |            114 |
+| animals    | legs         | shark    | spider   |      20 | logit    |              86 |             85 |
+| animals    | legs         | shark    | spider   |      20 | random   |              86 |            171 |
+| animals    | legs         | spider   | lion     |       8 | tuned    |              90 |             80 |
+| animals    | legs         | spider   | lion     |       8 | logit    |              90 |            174 |
+| animals    | legs         | spider   | lion     |       8 | random   |              90 |             80 |
+| animals    | legs         | spider   | lion     |      14 | tuned    |              90 |            115 |
+| animals    | legs         | spider   | lion     |      14 | logit    |              90 |            116 |
+| animals    | legs         | spider   | lion     |      14 | random   |              90 |             98 |
+| animals    | legs         | spider   | lion     |      20 | tuned    |              90 |            136 |
+| animals    | legs         | spider   | lion     |      20 | logit    |              90 |             96 |
+| animals    | legs         | spider   | lion     |      20 | random   |              90 |            121 |
+| animals    | legs         | spider   | eagle    |       8 | tuned    |             107 |             98 |
+| animals    | legs         | spider   | eagle    |       8 | logit    |             107 |            154 |
+| animals    | legs         | spider   | eagle    |       8 | random   |             107 |            110 |
+| animals    | legs         | spider   | eagle    |      14 | tuned    |             107 |             93 |
+| animals    | legs         | spider   | eagle    |      14 | logit    |             107 |            119 |
+| animals    | legs         | spider   | eagle    |      14 | random   |             107 |            118 |
+| animals    | legs         | spider   | eagle    |      20 | tuned    |             107 |            158 |
+| animals    | legs         | spider   | eagle    |      20 | logit    |             107 |            107 |
+| animals    | legs         | spider   | eagle    |      20 | random   |             107 |            120 |
+| animals    | legs         | spider   | shark    |       8 | tuned    |             267 |            126 |
+| animals    | legs         | spider   | shark    |       8 | logit    |             267 |            303 |
+| animals    | legs         | spider   | shark    |       8 | random   |             267 |            389 |
+| animals    | legs         | spider   | shark    |      14 | tuned    |             267 |            383 |
+| animals    | legs         | spider   | shark    |      14 | logit    |             267 |            304 |
+| animals    | legs         | spider   | shark    |      14 | random   |             267 |            284 |
+| animals    | legs         | spider   | shark    |      20 | tuned    |             267 |            969 |
+| animals    | legs         | spider   | shark    |      20 | logit    |             267 |            265 |
+| animals    | legs         | spider   | shark    |      20 | random   |             267 |            188 |
+| animals    | class        | lion     | eagle    |       8 | tuned    |             164 |            159 |
+| animals    | class        | lion     | eagle    |       8 | logit    |             164 |            168 |
+| animals    | class        | lion     | eagle    |       8 | random   |             164 |            156 |
+| animals    | class        | lion     | eagle    |      14 | tuned    |             164 |            366 |
+| animals    | class        | lion     | eagle    |      14 | logit    |             164 |            134 |
+| animals    | class        | lion     | eagle    |      14 | random   |             164 |            190 |
+| animals    | class        | lion     | eagle    |      20 | tuned    |             164 |            286 |
+| animals    | class        | lion     | eagle    |      20 | logit    |             164 |             99 |
+| animals    | class        | lion     | eagle    |      20 | random   |             164 |            167 |
+| animals    | class        | lion     | shark    |       8 | tuned    |             321 |            102 |
+| animals    | class        | lion     | shark    |       8 | logit    |             321 |            299 |
+| animals    | class        | lion     | shark    |       8 | random   |             321 |            163 |
+| animals    | class        | lion     | shark    |      14 | tuned    |             321 |            357 |
+| animals    | class        | lion     | shark    |      14 | logit    |             321 |            311 |
+| animals    | class        | lion     | shark    |      14 | random   |             321 |            255 |
+| animals    | class        | lion     | shark    |      20 | tuned    |             321 |            423 |
+| animals    | class        | lion     | shark    |      20 | logit    |             321 |            274 |
+| animals    | class        | lion     | shark    |      20 | random   |             321 |            222 |
+| animals    | class        | eagle    | lion     |       8 | tuned    |             227 |            205 |
+| animals    | class        | eagle    | lion     |       8 | logit    |             227 |            226 |
+| animals    | class        | eagle    | lion     |       8 | random   |             227 |            233 |
+| animals    | class        | eagle    | lion     |      14 | tuned    |             227 |            284 |
+| animals    | class        | eagle    | lion     |      14 | logit    |             227 |            238 |
+| animals    | class        | eagle    | lion     |      14 | random   |             227 |            251 |
+| animals    | class        | eagle    | lion     |      20 | tuned    |             227 |            261 |
+| animals    | class        | eagle    | lion     |      20 | logit    |             227 |            157 |
+| animals    | class        | eagle    | lion     |      20 | random   |             227 |            329 |
+| animals    | class        | eagle    | shark    |       8 | tuned    |             128 |             49 |
+| animals    | class        | eagle    | shark    |       8 | logit    |             128 |            143 |
+| animals    | class        | eagle    | shark    |       8 | random   |             128 |             55 |
+| animals    | class        | eagle    | shark    |      14 | tuned    |             128 |            114 |
+| animals    | class        | eagle    | shark    |      14 | logit    |             128 |            143 |
+| animals    | class        | eagle    | shark    |      14 | random   |             128 |            135 |
+| animals    | class        | eagle    | shark    |      20 | tuned    |             128 |             68 |
+| animals    | class        | eagle    | shark    |      20 | logit    |             128 |             87 |
+| animals    | class        | eagle    | shark    |      20 | random   |             128 |             57 |
+| animals    | class        | shark    | lion     |       8 | tuned    |              67 |             48 |
+| animals    | class        | shark    | lion     |       8 | logit    |              67 |             71 |
+| animals    | class        | shark    | lion     |       8 | random   |              67 |             69 |
+| animals    | class        | shark    | lion     |      14 | tuned    |              67 |             44 |
+| animals    | class        | shark    | lion     |      14 | logit    |              67 |             71 |
+| animals    | class        | shark    | lion     |      14 | random   |              67 |             75 |
+| animals    | class        | shark    | lion     |      20 | tuned    |              67 |             72 |
+| animals    | class        | shark    | lion     |      20 | logit    |              67 |             47 |
+| animals    | class        | shark    | lion     |      20 | random   |              67 |             56 |
+| animals    | class        | shark    | eagle    |       8 | tuned    |             228 |             95 |
+| animals    | class        | shark    | eagle    |       8 | logit    |             228 |            194 |
+| animals    | class        | shark    | eagle    |       8 | random   |             228 |            316 |
+| animals    | class        | shark    | eagle    |      14 | tuned    |             228 |            252 |
+| animals    | class        | shark    | eagle    |      14 | logit    |             228 |            143 |
+| animals    | class        | shark    | eagle    |      14 | random   |             228 |            265 |
+| animals    | class        | shark    | eagle    |      20 | tuned    |             228 |           1150 |
+| animals    | class        | shark    | eagle    |      20 | logit    |             228 |             58 |
+| animals    | class        | shark    | eagle    |      20 | random   |             228 |            507 |
+| animals    | group        | lion     | spider   |       8 | tuned    |              65 |             66 |
+| animals    | group        | lion     | spider   |       8 | logit    |              65 |             97 |
+| animals    | group        | lion     | spider   |       8 | random   |              65 |             57 |
+| animals    | group        | lion     | spider   |      14 | tuned    |              65 |             69 |
+| animals    | group        | lion     | spider   |      14 | logit    |              65 |             72 |
+| animals    | group        | lion     | spider   |      14 | random   |              65 |             60 |
+| animals    | group        | lion     | spider   |      20 | tuned    |              65 |             62 |
+| animals    | group        | lion     | spider   |      20 | logit    |              65 |             59 |
+| animals    | group        | lion     | spider   |      20 | random   |              65 |             34 |
+| animals    | group        | spider   | lion     |       8 | tuned    |             298 |            293 |
+| animals    | group        | spider   | lion     |       8 | logit    |             298 |            186 |
+| animals    | group        | spider   | lion     |       8 | random   |             298 |            307 |
+| animals    | group        | spider   | lion     |      14 | tuned    |             298 |            276 |
+| animals    | group        | spider   | lion     |      14 | logit    |             298 |            227 |
+| animals    | group        | spider   | lion     |      14 | random   |             298 |            322 |
+| animals    | group        | spider   | lion     |      20 | tuned    |             298 |            190 |
+| animals    | group        | spider   | lion     |      20 | logit    |             298 |            157 |
+| animals    | group        | spider   | lion     |      20 | random   |             298 |            321 |
+| numbers    | double       | three    | five     |       8 | tuned    |              43 |             43 |
+| numbers    | double       | three    | five     |       8 | logit    |              43 |             42 |
+| numbers    | double       | three    | five     |       8 | random   |              43 |             43 |
+| numbers    | double       | three    | five     |      14 | tuned    |              43 |             41 |
+| numbers    | double       | three    | five     |      14 | logit    |              43 |             39 |
+| numbers    | double       | three    | five     |      14 | random   |              43 |             45 |
+| numbers    | double       | three    | five     |      20 | tuned    |              43 |             33 |
+| numbers    | double       | three    | five     |      20 | logit    |              43 |             37 |
+| numbers    | double       | three    | five     |      20 | random   |              43 |             47 |
+| numbers    | double       | three    | seven    |       8 | tuned    |              59 |             59 |
+| numbers    | double       | three    | seven    |       8 | logit    |              59 |             59 |
+| numbers    | double       | three    | seven    |       8 | random   |              59 |             58 |
+| numbers    | double       | three    | seven    |      14 | tuned    |              59 |             67 |
+| numbers    | double       | three    | seven    |      14 | logit    |              59 |             58 |
+| numbers    | double       | three    | seven    |      14 | random   |              59 |             57 |
+| numbers    | double       | three    | seven    |      20 | tuned    |              59 |             44 |
+| numbers    | double       | three    | seven    |      20 | logit    |              59 |             50 |
+| numbers    | double       | three    | seven    |      20 | random   |              59 |             58 |
+| numbers    | double       | three    | nine     |       8 | tuned    |             140 |            149 |
+| numbers    | double       | three    | nine     |       8 | logit    |             140 |            143 |
+| numbers    | double       | three    | nine     |       8 | random   |             140 |            124 |
+| numbers    | double       | three    | nine     |      14 | tuned    |             140 |            158 |
+| numbers    | double       | three    | nine     |      14 | logit    |             140 |            149 |
+| numbers    | double       | three    | nine     |      14 | random   |             140 |            128 |
+| numbers    | double       | three    | nine     |      20 | tuned    |             140 |             89 |
+| numbers    | double       | three    | nine     |      20 | logit    |             140 |            128 |
+| numbers    | double       | three    | nine     |      20 | random   |             140 |            115 |
+| numbers    | double       | five     | three    |       8 | tuned    |              29 |             32 |
+| numbers    | double       | five     | three    |       8 | logit    |              29 |             34 |
+| numbers    | double       | five     | three    |       8 | random   |              29 |             33 |
+| numbers    | double       | five     | three    |      14 | tuned    |              29 |             28 |
+| numbers    | double       | five     | three    |      14 | logit    |              29 |             31 |
+| numbers    | double       | five     | three    |      14 | random   |              29 |             29 |
+| numbers    | double       | five     | three    |      20 | tuned    |              29 |             29 |
+| numbers    | double       | five     | three    |      20 | logit    |              29 |             24 |
+| numbers    | double       | five     | three    |      20 | random   |              29 |             30 |
+| numbers    | double       | five     | seven    |       8 | tuned    |              34 |             33 |
+| numbers    | double       | five     | seven    |       8 | logit    |              34 |             31 |
+| numbers    | double       | five     | seven    |       8 | random   |              34 |             30 |
+| numbers    | double       | five     | seven    |      14 | tuned    |              34 |             29 |
+| numbers    | double       | five     | seven    |      14 | logit    |              34 |             35 |
+| numbers    | double       | five     | seven    |      14 | random   |              34 |             22 |
+| numbers    | double       | five     | seven    |      20 | tuned    |              34 |             33 |
+| numbers    | double       | five     | seven    |      20 | logit    |              34 |             26 |
+| numbers    | double       | five     | seven    |      20 | random   |              34 |             30 |
+| numbers    | double       | five     | nine     |       8 | tuned    |             128 |            123 |
+| numbers    | double       | five     | nine     |       8 | logit    |             128 |            146 |
+| numbers    | double       | five     | nine     |       8 | random   |             128 |            132 |
+| numbers    | double       | five     | nine     |      14 | tuned    |             128 |            136 |
+| numbers    | double       | five     | nine     |      14 | logit    |             128 |            133 |
+| numbers    | double       | five     | nine     |      14 | random   |             128 |            130 |
+| numbers    | double       | five     | nine     |      20 | tuned    |             128 |             86 |
+| numbers    | double       | five     | nine     |      20 | logit    |             128 |            104 |
+| numbers    | double       | five     | nine     |      20 | random   |             128 |             97 |
+| numbers    | double       | seven    | three    |       8 | tuned    |              37 |             41 |
+| numbers    | double       | seven    | three    |       8 | logit    |              37 |             37 |
+| numbers    | double       | seven    | three    |       8 | random   |              37 |             43 |
+| numbers    | double       | seven    | three    |      14 | tuned    |              37 |             43 |
+| numbers    | double       | seven    | three    |      14 | logit    |              37 |             36 |
+| numbers    | double       | seven    | three    |      14 | random   |              37 |             54 |
+| numbers    | double       | seven    | three    |      20 | tuned    |              37 |             37 |
+| numbers    | double       | seven    | three    |      20 | logit    |              37 |             38 |
+| numbers    | double       | seven    | three    |      20 | random   |              37 |             39 |
+| numbers    | double       | seven    | five     |       8 | tuned    |              19 |             17 |
+| numbers    | double       | seven    | five     |       8 | logit    |              19 |             21 |
+| numbers    | double       | seven    | five     |       8 | random   |              19 |             28 |
+| numbers    | double       | seven    | five     |      14 | tuned    |              19 |             28 |
+| numbers    | double       | seven    | five     |      14 | logit    |              19 |             22 |
+| numbers    | double       | seven    | five     |      14 | random   |              19 |             32 |
+| numbers    | double       | seven    | five     |      20 | tuned    |              19 |             18 |
+| numbers    | double       | seven    | five     |      20 | logit    |              19 |             19 |
+| numbers    | double       | seven    | five     |      20 | random   |              19 |             27 |
+| numbers    | double       | seven    | nine     |       8 | tuned    |              69 |             82 |
+| numbers    | double       | seven    | nine     |       8 | logit    |              69 |             69 |
+| numbers    | double       | seven    | nine     |       8 | random   |              69 |             75 |
+| numbers    | double       | seven    | nine     |      14 | tuned    |              69 |             99 |
+| numbers    | double       | seven    | nine     |      14 | logit    |              69 |             71 |
+| numbers    | double       | seven    | nine     |      14 | random   |              69 |             67 |
+| numbers    | double       | seven    | nine     |      20 | tuned    |              69 |             62 |
+| numbers    | double       | seven    | nine     |      20 | logit    |              69 |             67 |
+| numbers    | double       | seven    | nine     |      20 | random   |              69 |             59 |
+| numbers    | double       | nine     | three    |       8 | tuned    |              39 |             41 |
+| numbers    | double       | nine     | three    |       8 | logit    |              39 |             34 |
+| numbers    | double       | nine     | three    |       8 | random   |              39 |             42 |
+| numbers    | double       | nine     | three    |      14 | tuned    |              39 |             36 |
+| numbers    | double       | nine     | three    |      14 | logit    |              39 |             34 |
+| numbers    | double       | nine     | three    |      14 | random   |              39 |             44 |
+| numbers    | double       | nine     | three    |      20 | tuned    |              39 |             42 |
+| numbers    | double       | nine     | three    |      20 | logit    |              39 |             25 |
+| numbers    | double       | nine     | three    |      20 | random   |              39 |             40 |
+| numbers    | double       | nine     | five     |       8 | tuned    |              32 |             28 |
+| numbers    | double       | nine     | five     |       8 | logit    |              32 |             31 |
+| numbers    | double       | nine     | five     |       8 | random   |              32 |             39 |
+| numbers    | double       | nine     | five     |      14 | tuned    |              32 |             26 |
+| numbers    | double       | nine     | five     |      14 | logit    |              32 |             29 |
+| numbers    | double       | nine     | five     |      14 | random   |              32 |             41 |
+| numbers    | double       | nine     | five     |      20 | tuned    |              32 |             35 |
+| numbers    | double       | nine     | five     |      20 | logit    |              32 |             25 |
+| numbers    | double       | nine     | five     |      20 | random   |              32 |             36 |
+| numbers    | double       | nine     | seven    |       8 | tuned    |              32 |             38 |
+| numbers    | double       | nine     | seven    |       8 | logit    |              32 |             33 |
+| numbers    | double       | nine     | seven    |       8 | random   |              32 |             32 |
+| numbers    | double       | nine     | seven    |      14 | tuned    |              32 |             28 |
+| numbers    | double       | nine     | seven    |      14 | logit    |              32 |             34 |
+| numbers    | double       | nine     | seven    |      14 | random   |              32 |             28 |
+| numbers    | double       | nine     | seven    |      20 | tuned    |              32 |             36 |
+| numbers    | double       | nine     | seven    |      20 | logit    |              32 |             30 |
+| numbers    | double       | nine     | seven    |      20 | random   |              32 |             27 |
+| numbers    | square       | three    | five     |       8 | tuned    |              28 |             24 |
+| numbers    | square       | three    | five     |       8 | logit    |              28 |             25 |
+| numbers    | square       | three    | five     |       8 | random   |              28 |             19 |
+| numbers    | square       | three    | five     |      14 | tuned    |              28 |             28 |
+| numbers    | square       | three    | five     |      14 | logit    |              28 |             26 |
+| numbers    | square       | three    | five     |      14 | random   |              28 |             27 |
+| numbers    | square       | three    | five     |      20 | tuned    |              28 |             25 |
+| numbers    | square       | three    | five     |      20 | logit    |              28 |             22 |
+| numbers    | square       | three    | five     |      20 | random   |              28 |             32 |
+| numbers    | square       | three    | seven    |       8 | tuned    |              59 |             58 |
+| numbers    | square       | three    | seven    |       8 | logit    |              59 |             60 |
+| numbers    | square       | three    | seven    |       8 | random   |              59 |             55 |
+| numbers    | square       | three    | seven    |      14 | tuned    |              59 |             50 |
+| numbers    | square       | three    | seven    |      14 | logit    |              59 |             58 |
+| numbers    | square       | three    | seven    |      14 | random   |              59 |             54 |
+| numbers    | square       | three    | seven    |      20 | tuned    |              59 |             55 |
+| numbers    | square       | three    | seven    |      20 | logit    |              59 |             55 |
+| numbers    | square       | three    | seven    |      20 | random   |              59 |             62 |
+| numbers    | square       | three    | nine     |       8 | tuned    |             211 |            215 |
+| numbers    | square       | three    | nine     |       8 | logit    |             211 |            217 |
+| numbers    | square       | three    | nine     |       8 | random   |             211 |            176 |
+| numbers    | square       | three    | nine     |      14 | tuned    |             211 |            240 |
+| numbers    | square       | three    | nine     |      14 | logit    |             211 |            207 |
+| numbers    | square       | three    | nine     |      14 | random   |             211 |            202 |
+| numbers    | square       | three    | nine     |      20 | tuned    |             211 |            138 |
+| numbers    | square       | three    | nine     |      20 | logit    |             211 |            209 |
+| numbers    | square       | three    | nine     |      20 | random   |             211 |            239 |
+| numbers    | square       | five     | three    |       8 | tuned    |              37 |             38 |
+| numbers    | square       | five     | three    |       8 | logit    |              37 |             37 |
+| numbers    | square       | five     | three    |       8 | random   |              37 |             38 |
+| numbers    | square       | five     | three    |      14 | tuned    |              37 |             39 |
+| numbers    | square       | five     | three    |      14 | logit    |              37 |             37 |
+| numbers    | square       | five     | three    |      14 | random   |              37 |             39 |
+| numbers    | square       | five     | three    |      20 | tuned    |              37 |             37 |
+| numbers    | square       | five     | three    |      20 | logit    |              37 |             36 |
+| numbers    | square       | five     | three    |      20 | random   |              37 |             37 |
+| numbers    | square       | five     | seven    |       8 | tuned    |              37 |             43 |
+| numbers    | square       | five     | seven    |       8 | logit    |              37 |             39 |
+| numbers    | square       | five     | seven    |       8 | random   |              37 |             34 |
+| numbers    | square       | five     | seven    |      14 | tuned    |              37 |             43 |
+| numbers    | square       | five     | seven    |      14 | logit    |              37 |             40 |
+| numbers    | square       | five     | seven    |      14 | random   |              37 |             33 |
+| numbers    | square       | five     | seven    |      20 | tuned    |              37 |             39 |
+| numbers    | square       | five     | seven    |      20 | logit    |              37 |             38 |
+| numbers    | square       | five     | seven    |      20 | random   |              37 |             39 |
+| numbers    | square       | five     | nine     |       8 | tuned    |             151 |            149 |
+| numbers    | square       | five     | nine     |       8 | logit    |             151 |            177 |
+| numbers    | square       | five     | nine     |       8 | random   |             151 |            143 |
+| numbers    | square       | five     | nine     |      14 | tuned    |             151 |            166 |
+| numbers    | square       | five     | nine     |      14 | logit    |             151 |            192 |
+| numbers    | square       | five     | nine     |      14 | random   |             151 |            154 |
+| numbers    | square       | five     | nine     |      20 | tuned    |             151 |            117 |
+| numbers    | square       | five     | nine     |      20 | logit    |             151 |            158 |
+| numbers    | square       | five     | nine     |      20 | random   |             151 |            163 |
+| numbers    | square       | seven    | three    |       8 | tuned    |              23 |             22 |
+| numbers    | square       | seven    | three    |       8 | logit    |              23 |             22 |
+| numbers    | square       | seven    | three    |       8 | random   |              23 |             23 |
+| numbers    | square       | seven    | three    |      14 | tuned    |              23 |             16 |
+| numbers    | square       | seven    | three    |      14 | logit    |              23 |             20 |
+| numbers    | square       | seven    | three    |      14 | random   |              23 |             26 |
+| numbers    | square       | seven    | three    |      20 | tuned    |              23 |             23 |
+| numbers    | square       | seven    | three    |      20 | logit    |              23 |             23 |
+| numbers    | square       | seven    | three    |      20 | random   |              23 |             23 |
+| numbers    | square       | seven    | five     |       8 | tuned    |              19 |             17 |
+| numbers    | square       | seven    | five     |       8 | logit    |              19 |             15 |
+| numbers    | square       | seven    | five     |       8 | random   |              19 |             17 |
+| numbers    | square       | seven    | five     |      14 | tuned    |              19 |             22 |
+| numbers    | square       | seven    | five     |      14 | logit    |              19 |             17 |
+| numbers    | square       | seven    | five     |      14 | random   |              19 |             18 |
+| numbers    | square       | seven    | five     |      20 | tuned    |              19 |             21 |
+| numbers    | square       | seven    | five     |      20 | logit    |              19 |             19 |
+| numbers    | square       | seven    | five     |      20 | random   |              19 |             21 |
+| numbers    | square       | seven    | nine     |       8 | tuned    |             122 |            121 |
+| numbers    | square       | seven    | nine     |       8 | logit    |             122 |            114 |
+| numbers    | square       | seven    | nine     |       8 | random   |             122 |            113 |
+| numbers    | square       | seven    | nine     |      14 | tuned    |             122 |            145 |
+| numbers    | square       | seven    | nine     |      14 | logit    |             122 |            120 |
+| numbers    | square       | seven    | nine     |      14 | random   |             122 |            115 |
+| numbers    | square       | seven    | nine     |      20 | tuned    |             122 |            103 |
+| numbers    | square       | seven    | nine     |      20 | logit    |             122 |            119 |
+| numbers    | square       | seven    | nine     |      20 | random   |             122 |            134 |
+| numbers    | square       | nine     | three    |       8 | tuned    |              12 |             21 |
+| numbers    | square       | nine     | three    |       8 | logit    |              12 |             11 |
+| numbers    | square       | nine     | three    |       8 | random   |              12 |             16 |
+| numbers    | square       | nine     | three    |      14 | tuned    |              12 |             10 |
+| numbers    | square       | nine     | three    |      14 | logit    |              12 |             11 |
+| numbers    | square       | nine     | three    |      14 | random   |              12 |             16 |
+| numbers    | square       | nine     | three    |      20 | tuned    |              12 |              9 |
+| numbers    | square       | nine     | three    |      20 | logit    |              12 |             29 |
+| numbers    | square       | nine     | three    |      20 | random   |              12 |             23 |
+| numbers    | square       | nine     | five     |       8 | tuned    |              19 |             17 |
+| numbers    | square       | nine     | five     |       8 | logit    |              19 |             16 |
+| numbers    | square       | nine     | five     |       8 | random   |              19 |             18 |
+| numbers    | square       | nine     | five     |      14 | tuned    |              19 |             22 |
+| numbers    | square       | nine     | five     |      14 | logit    |              19 |             18 |
+| numbers    | square       | nine     | five     |      14 | random   |              19 |             19 |
+| numbers    | square       | nine     | five     |      20 | tuned    |              19 |             16 |
+| numbers    | square       | nine     | five     |      20 | logit    |              19 |             16 |
+| numbers    | square       | nine     | five     |      20 | random   |              19 |             21 |
+| numbers    | square       | nine     | seven    |       8 | tuned    |              26 |             24 |
+| numbers    | square       | nine     | seven    |       8 | logit    |              26 |             26 |
+| numbers    | square       | nine     | seven    |       8 | random   |              26 |             24 |
+| numbers    | square       | nine     | seven    |      14 | tuned    |              26 |             31 |
+| numbers    | square       | nine     | seven    |      14 | logit    |              26 |             26 |
+| numbers    | square       | nine     | seven    |      14 | random   |              26 |             23 |
+| numbers    | square       | nine     | seven    |      20 | tuned    |              26 |             29 |
+| numbers    | square       | nine     | seven    |      20 | logit    |              26 |             25 |
+| numbers    | square       | nine     | seven    |      20 | random   |              26 |             25 |
+| numbers    | successor    | three    | five     |       8 | tuned    |              32 |             32 |
+| numbers    | successor    | three    | five     |       8 | logit    |              32 |             22 |
+| numbers    | successor    | three    | five     |       8 | random   |              32 |             41 |
+| numbers    | successor    | three    | five     |      14 | tuned    |              32 |             36 |
+| numbers    | successor    | three    | five     |      14 | logit    |              32 |             24 |
+| numbers    | successor    | three    | five     |      14 | random   |              32 |             36 |
+| numbers    | successor    | three    | five     |      20 | tuned    |              32 |             27 |
+| numbers    | successor    | three    | five     |      20 | logit    |              32 |             35 |
+| numbers    | successor    | three    | five     |      20 | random   |              32 |             35 |
+| numbers    | successor    | three    | seven    |       8 | tuned    |              38 |             40 |
+| numbers    | successor    | three    | seven    |       8 | logit    |              38 |             39 |
+| numbers    | successor    | three    | seven    |       8 | random   |              38 |             42 |
+| numbers    | successor    | three    | seven    |      14 | tuned    |              38 |             22 |
+| numbers    | successor    | three    | seven    |      14 | logit    |              38 |             39 |
+| numbers    | successor    | three    | seven    |      14 | random   |              38 |             43 |
+| numbers    | successor    | three    | seven    |      20 | tuned    |              38 |             38 |
+| numbers    | successor    | three    | seven    |      20 | logit    |              38 |             56 |
+| numbers    | successor    | three    | seven    |      20 | random   |              38 |             39 |
+| numbers    | successor    | three    | nine     |       8 | tuned    |              67 |             66 |
+| numbers    | successor    | three    | nine     |       8 | logit    |              67 |             66 |
+| numbers    | successor    | three    | nine     |       8 | random   |              67 |             79 |
+| numbers    | successor    | three    | nine     |      14 | tuned    |              67 |             70 |
+| numbers    | successor    | three    | nine     |      14 | logit    |              67 |             65 |
+| numbers    | successor    | three    | nine     |      14 | random   |              67 |             75 |
+| numbers    | successor    | three    | nine     |      20 | tuned    |              67 |             49 |
+| numbers    | successor    | three    | nine     |      20 | logit    |              67 |            103 |
+| numbers    | successor    | three    | nine     |      20 | random   |              67 |             74 |
+| numbers    | successor    | five     | three    |       8 | tuned    |              38 |             48 |
+| numbers    | successor    | five     | three    |       8 | logit    |              38 |             33 |
+| numbers    | successor    | five     | three    |       8 | random   |              38 |             49 |
+| numbers    | successor    | five     | three    |      14 | tuned    |              38 |             38 |
+| numbers    | successor    | five     | three    |      14 | logit    |              38 |             40 |
+| numbers    | successor    | five     | three    |      14 | random   |              38 |             39 |
+| numbers    | successor    | five     | three    |      20 | tuned    |              38 |             40 |
+| numbers    | successor    | five     | three    |      20 | logit    |              38 |             43 |
+| numbers    | successor    | five     | three    |      20 | random   |              38 |             41 |
+| numbers    | successor    | five     | seven    |       8 | tuned    |              42 |             41 |
+| numbers    | successor    | five     | seven    |       8 | logit    |              42 |             41 |
+| numbers    | successor    | five     | seven    |       8 | random   |              42 |             50 |
+| numbers    | successor    | five     | seven    |      14 | tuned    |              42 |             31 |
+| numbers    | successor    | five     | seven    |      14 | logit    |              42 |             47 |
+| numbers    | successor    | five     | seven    |      14 | random   |              42 |             49 |
+| numbers    | successor    | five     | seven    |      20 | tuned    |              42 |             49 |
+| numbers    | successor    | five     | seven    |      20 | logit    |              42 |             62 |
+| numbers    | successor    | five     | seven    |      20 | random   |              42 |             44 |
+| numbers    | successor    | five     | nine     |       8 | tuned    |              66 |             59 |
+| numbers    | successor    | five     | nine     |       8 | logit    |              66 |             57 |
+| numbers    | successor    | five     | nine     |       8 | random   |              66 |             82 |
+| numbers    | successor    | five     | nine     |      14 | tuned    |              66 |             63 |
+| numbers    | successor    | five     | nine     |      14 | logit    |              66 |             85 |
+| numbers    | successor    | five     | nine     |      14 | random   |              66 |             77 |
+| numbers    | successor    | five     | nine     |      20 | tuned    |              66 |             66 |
+| numbers    | successor    | five     | nine     |      20 | logit    |              66 |             92 |
+| numbers    | successor    | five     | nine     |      20 | random   |              66 |             69 |
+| numbers    | successor    | seven    | three    |       8 | tuned    |              55 |             57 |
+| numbers    | successor    | seven    | three    |       8 | logit    |              55 |             56 |
+| numbers    | successor    | seven    | three    |       8 | random   |              55 |             58 |
+| numbers    | successor    | seven    | three    |      14 | tuned    |              55 |             44 |
+| numbers    | successor    | seven    | three    |      14 | logit    |              55 |             56 |
+| numbers    | successor    | seven    | three    |      14 | random   |              55 |             62 |
+| numbers    | successor    | seven    | three    |      20 | tuned    |              55 |             54 |
+| numbers    | successor    | seven    | three    |      20 | logit    |              55 |             53 |
+| numbers    | successor    | seven    | three    |      20 | random   |              55 |             55 |
+| numbers    | successor    | seven    | five     |       8 | tuned    |              52 |             50 |
+| numbers    | successor    | seven    | five     |       8 | logit    |              52 |             50 |
+| numbers    | successor    | seven    | five     |       8 | random   |              52 |             57 |
+| numbers    | successor    | seven    | five     |      14 | tuned    |              52 |             36 |
+| numbers    | successor    | seven    | five     |      14 | logit    |              52 |             53 |
+| numbers    | successor    | seven    | five     |      14 | random   |              52 |             55 |
+| numbers    | successor    | seven    | five     |      20 | tuned    |              52 |             49 |
+| numbers    | successor    | seven    | five     |      20 | logit    |              52 |             58 |
+| numbers    | successor    | seven    | five     |      20 | random   |              52 |             51 |
+| numbers    | successor    | seven    | nine     |       8 | tuned    |              76 |             83 |
+| numbers    | successor    | seven    | nine     |       8 | logit    |              76 |             76 |
+| numbers    | successor    | seven    | nine     |       8 | random   |              76 |             92 |
+| numbers    | successor    | seven    | nine     |      14 | tuned    |              76 |             77 |
+| numbers    | successor    | seven    | nine     |      14 | logit    |              76 |             75 |
+| numbers    | successor    | seven    | nine     |      14 | random   |              76 |            129 |
+| numbers    | successor    | seven    | nine     |      20 | tuned    |              76 |             63 |
+| numbers    | successor    | seven    | nine     |      20 | logit    |              76 |             72 |
+| numbers    | successor    | seven    | nine     |      20 | random   |              76 |             97 |
+| numbers    | successor    | nine     | three    |       8 | tuned    |              61 |             69 |
+| numbers    | successor    | nine     | three    |       8 | logit    |              61 |             63 |
+| numbers    | successor    | nine     | three    |       8 | random   |              61 |             69 |
+| numbers    | successor    | nine     | three    |      14 | tuned    |              61 |             65 |
+| numbers    | successor    | nine     | three    |      14 | logit    |              61 |             57 |
+| numbers    | successor    | nine     | three    |      14 | random   |              61 |             64 |
+| numbers    | successor    | nine     | three    |      20 | tuned    |              61 |             67 |
+| numbers    | successor    | nine     | three    |      20 | logit    |              61 |             55 |
+| numbers    | successor    | nine     | three    |      20 | random   |              61 |             64 |
+| numbers    | successor    | nine     | five     |       8 | tuned    |              58 |             53 |
+| numbers    | successor    | nine     | five     |       8 | logit    |              58 |             66 |
+| numbers    | successor    | nine     | five     |       8 | random   |              58 |             65 |
+| numbers    | successor    | nine     | five     |      14 | tuned    |              58 |             57 |
+| numbers    | successor    | nine     | five     |      14 | logit    |              58 |             66 |
+| numbers    | successor    | nine     | five     |      14 | random   |              58 |             62 |
+| numbers    | successor    | nine     | five     |      20 | tuned    |              58 |             53 |
+| numbers    | successor    | nine     | five     |      20 | logit    |              58 |             57 |
+| numbers    | successor    | nine     | five     |      20 | random   |              58 |             61 |
+| numbers    | successor    | nine     | seven    |       8 | tuned    |              41 |             42 |
+| numbers    | successor    | nine     | seven    |       8 | logit    |              41 |             41 |
+| numbers    | successor    | nine     | seven    |       8 | random   |              41 |             45 |
+| numbers    | successor    | nine     | seven    |      14 | tuned    |              41 |             16 |
+| numbers    | successor    | nine     | seven    |      14 | logit    |              41 |             41 |
+| numbers    | successor    | nine     | seven    |      14 | random   |              41 |             54 |
+| numbers    | successor    | nine     | seven    |      20 | tuned    |              41 |             40 |
+| numbers    | successor    | nine     | seven    |      20 | logit    |              41 |             40 |
+| numbers    | successor    | nine     | seven    |      20 | random   |              41 |             45 |
+| numbers    | first_letter | three    | five     |       8 | tuned    |             219 |            198 |
+| numbers    | first_letter | three    | five     |       8 | logit    |             219 |            252 |
+| numbers    | first_letter | three    | five     |       8 | random   |             219 |            232 |
+| numbers    | first_letter | three    | five     |      14 | tuned    |             219 |            221 |
+| numbers    | first_letter | three    | five     |      14 | logit    |             219 |            243 |
+| numbers    | first_letter | three    | five     |      14 | random   |             219 |            213 |
+| numbers    | first_letter | three    | five     |      20 | tuned    |             219 |            163 |
+| numbers    | first_letter | three    | five     |      20 | logit    |             219 |            210 |
+| numbers    | first_letter | three    | five     |      20 | random   |             219 |            222 |
+| numbers    | first_letter | three    | seven    |       8 | tuned    |             112 |            126 |
+| numbers    | first_letter | three    | seven    |       8 | logit    |             112 |            103 |
+| numbers    | first_letter | three    | seven    |       8 | random   |             112 |            120 |
+| numbers    | first_letter | three    | seven    |      14 | tuned    |             112 |            158 |
+| numbers    | first_letter | three    | seven    |      14 | logit    |             112 |            103 |
+| numbers    | first_letter | three    | seven    |      14 | random   |             112 |            153 |
+| numbers    | first_letter | three    | seven    |      20 | tuned    |             112 |            112 |
+| numbers    | first_letter | three    | seven    |      20 | logit    |             112 |            104 |
+| numbers    | first_letter | three    | seven    |      20 | random   |             112 |            114 |
+| numbers    | first_letter | three    | nine     |       8 | tuned    |             451 |            587 |
+| numbers    | first_letter | three    | nine     |       8 | logit    |             451 |            435 |
+| numbers    | first_letter | three    | nine     |       8 | random   |             451 |            436 |
+| numbers    | first_letter | three    | nine     |      14 | tuned    |             451 |            479 |
+| numbers    | first_letter | three    | nine     |      14 | logit    |             451 |            450 |
+| numbers    | first_letter | three    | nine     |      14 | random   |             451 |            425 |
+| numbers    | first_letter | three    | nine     |      20 | tuned    |             451 |            333 |
+| numbers    | first_letter | three    | nine     |      20 | logit    |             451 |            382 |
+| numbers    | first_letter | three    | nine     |      20 | random   |             451 |            467 |
+| numbers    | first_letter | five     | three    |       8 | tuned    |             320 |            446 |
+| numbers    | first_letter | five     | three    |       8 | logit    |             320 |            425 |
+| numbers    | first_letter | five     | three    |       8 | random   |             320 |            452 |
+| numbers    | first_letter | five     | three    |      14 | tuned    |             320 |            296 |
+| numbers    | first_letter | five     | three    |      14 | logit    |             320 |            448 |
+| numbers    | first_letter | five     | three    |      14 | random   |             320 |            329 |
+| numbers    | first_letter | five     | three    |      20 | tuned    |             320 |            319 |
+| numbers    | first_letter | five     | three    |      20 | logit    |             320 |            381 |
+| numbers    | first_letter | five     | three    |      20 | random   |             320 |            322 |
+| numbers    | first_letter | five     | seven    |       8 | tuned    |             208 |            165 |
+| numbers    | first_letter | five     | seven    |       8 | logit    |             208 |            160 |
+| numbers    | first_letter | five     | seven    |       8 | random   |             208 |            246 |
+| numbers    | first_letter | five     | seven    |      14 | tuned    |             208 |            298 |
+| numbers    | first_letter | five     | seven    |      14 | logit    |             208 |            206 |
+| numbers    | first_letter | five     | seven    |      14 | random   |             208 |            242 |
+| numbers    | first_letter | five     | seven    |      20 | tuned    |             208 |            206 |
+| numbers    | first_letter | five     | seven    |      20 | logit    |             208 |            233 |
+| numbers    | first_letter | five     | seven    |      20 | random   |             208 |            220 |
+| numbers    | first_letter | five     | nine     |       8 | tuned    |             349 |            310 |
+| numbers    | first_letter | five     | nine     |       8 | logit    |             349 |            244 |
+| numbers    | first_letter | five     | nine     |       8 | random   |             349 |            331 |
+| numbers    | first_letter | five     | nine     |      14 | tuned    |             349 |            349 |
+| numbers    | first_letter | five     | nine     |      14 | logit    |             349 |            289 |
+| numbers    | first_letter | five     | nine     |      14 | random   |             349 |            319 |
+| numbers    | first_letter | five     | nine     |      20 | tuned    |             349 |            255 |
+| numbers    | first_letter | five     | nine     |      20 | logit    |             349 |            335 |
+| numbers    | first_letter | five     | nine     |      20 | random   |             349 |            347 |
+| numbers    | first_letter | seven    | three    |       8 | tuned    |             341 |            400 |
+| numbers    | first_letter | seven    | three    |       8 | logit    |             341 |            316 |
+| numbers    | first_letter | seven    | three    |       8 | random   |             341 |            333 |
+| numbers    | first_letter | seven    | three    |      14 | tuned    |             341 |            481 |
+| numbers    | first_letter | seven    | three    |      14 | logit    |             341 |            262 |
+| numbers    | first_letter | seven    | three    |      14 | random   |             341 |            384 |
+| numbers    | first_letter | seven    | three    |      20 | tuned    |             341 |            347 |
+| numbers    | first_letter | seven    | three    |      20 | logit    |             341 |            392 |
+| numbers    | first_letter | seven    | three    |      20 | random   |             341 |            321 |
+| numbers    | first_letter | seven    | five     |       8 | tuned    |             403 |            303 |
+| numbers    | first_letter | seven    | five     |       8 | logit    |             403 |            262 |
+| numbers    | first_letter | seven    | five     |       8 | random   |             403 |            423 |
+| numbers    | first_letter | seven    | five     |      14 | tuned    |             403 |            533 |
+| numbers    | first_letter | seven    | five     |      14 | logit    |             403 |            305 |
+| numbers    | first_letter | seven    | five     |      14 | random   |             403 |            395 |
+| numbers    | first_letter | seven    | five     |      20 | tuned    |             403 |            274 |
+| numbers    | first_letter | seven    | five     |      20 | logit    |             403 |            322 |
+| numbers    | first_letter | seven    | five     |      20 | random   |             403 |            426 |
+| numbers    | first_letter | seven    | nine     |       8 | tuned    |             491 |            516 |
+| numbers    | first_letter | seven    | nine     |       8 | logit    |             491 |            505 |
+| numbers    | first_letter | seven    | nine     |       8 | random   |             491 |            482 |
+| numbers    | first_letter | seven    | nine     |      14 | tuned    |             491 |           1106 |
+| numbers    | first_letter | seven    | nine     |      14 | logit    |             491 |            482 |
+| numbers    | first_letter | seven    | nine     |      14 | random   |             491 |            574 |
+| numbers    | first_letter | seven    | nine     |      20 | tuned    |             491 |            375 |
+| numbers    | first_letter | seven    | nine     |      20 | logit    |             491 |            491 |
+| numbers    | first_letter | seven    | nine     |      20 | random   |             491 |            526 |
+| numbers    | first_letter | nine     | three    |       8 | tuned    |             237 |            314 |
+| numbers    | first_letter | nine     | three    |       8 | logit    |             237 |            226 |
+| numbers    | first_letter | nine     | three    |       8 | random   |             237 |            271 |
+| numbers    | first_letter | nine     | three    |      14 | tuned    |             237 |            210 |
+| numbers    | first_letter | nine     | three    |      14 | logit    |             237 |            225 |
+| numbers    | first_letter | nine     | three    |      14 | random   |             237 |            260 |
+| numbers    | first_letter | nine     | three    |      20 | tuned    |             237 |            220 |
+| numbers    | first_letter | nine     | three    |      20 | logit    |             237 |            264 |
+| numbers    | first_letter | nine     | three    |      20 | random   |             237 |            234 |
+| numbers    | first_letter | nine     | five     |       8 | tuned    |             237 |            201 |
+| numbers    | first_letter | nine     | five     |       8 | logit    |             237 |            178 |
+| numbers    | first_letter | nine     | five     |       8 | random   |             237 |            228 |
+| numbers    | first_letter | nine     | five     |      14 | tuned    |             237 |            198 |
+| numbers    | first_letter | nine     | five     |      14 | logit    |             237 |            194 |
+| numbers    | first_letter | nine     | five     |      14 | random   |             237 |            227 |
+| numbers    | first_letter | nine     | five     |      20 | tuned    |             237 |            221 |
+| numbers    | first_letter | nine     | five     |      20 | logit    |             237 |            220 |
+| numbers    | first_letter | nine     | five     |      20 | random   |             237 |            225 |
+| numbers    | first_letter | nine     | seven    |       8 | tuned    |             156 |            156 |
+| numbers    | first_letter | nine     | seven    |       8 | logit    |             156 |            161 |
+| numbers    | first_letter | nine     | seven    |       8 | random   |             156 |            164 |
+| numbers    | first_letter | nine     | seven    |      14 | tuned    |             156 |            695 |
+| numbers    | first_letter | nine     | seven    |      14 | logit    |             156 |            149 |
+| numbers    | first_letter | nine     | seven    |      14 | random   |             156 |            202 |
+| numbers    | first_letter | nine     | seven    |      20 | tuned    |             156 |            164 |
+| numbers    | first_letter | nine     | seven    |      20 | logit    |             156 |            155 |
+| numbers    | first_letter | nine     | seven    |      20 | random   |             156 |            169 |
+
+Aggregate target-answer movement:
+| method   |   n |   improved |   median Δrank |   top-1 |   top-5 |
+|----------|-----|------------|----------------|---------|---------|
+| tuned    | 510 |        224 |              0 |       8 |      36 |
+| logit    | 510 |        282 |              1 |       6 |      42 |
+| random   | 510 |        158 |             -3 |       4 |      21 |
+[21:11:12] wrote 170 results (22 skipped) to data/experiments/flexible-causal-qwen3-1.7b-tuned-pile-repro-v1-short-2m.json
+	Command being timed: "uv run python scripts/eval_flexible_causal.py --model /home/alex/models/qwen3-1.7b-hf --lens-local data/lenses/qwen3-1.7b-tuned-pile-repro-v1-short-2m-patch-basis.pt --layers 8,14,20 --methods tuned,logit,random --qwen-kernels off --min-free-gib 6 --data data/experiments/flexible-generalization.json --out data/experiments/flexible-causal-qwen3-1.7b-tuned-pile-repro-v1-short-2m.json"
+	User time (seconds): 30.60
+	System time (seconds): 1.19
+	Percent of CPU this job got: 106%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:29.75
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 4166032
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 551731
+	Voluntary context switches: 7094
+	Involuntary context switches: 865
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 544
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

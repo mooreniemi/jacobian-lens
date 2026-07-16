@@ -4,7 +4,7 @@ This log records the local reproduction of Anthropic's Jacobian-lens work, chang
 
 ## Status
 
-- Last updated: 2026-07-14
+- Last updated: 2026-07-15
 - Workspace: `/home/alex/Code/jlens/jacobian-lens`
 - Hardware: NVIDIA GeForce RTX 3090, 24 GB VRAM, 31 GB system RAM
 - Primary environment: project `.venv`, PyTorch 2.12.0+cu130, Transformers 5.9.0
@@ -223,6 +223,23 @@ The same prompt sets, layer aggregation rule, and item-level metrics should be
 used across rows wherever the model tokenizer permits. Multi-token concepts
 must be handled with an explicit span intervention or recorded as skips; they
 must not be silently truncated.
+
+### Design correction — balanced model × intervention coverage
+
+The Qwen3-1.7B short-2M run is not a replacement for balanced coverage. It
+adds a new model/intervention dimension that must be completed symmetrically:
+
+| Dimension | Existing models | Qwen3-1.7B |
+|---|---|---|
+| Pile tuned lens, short-2M causal suite | Run the same three causal tasks for SmolLM2-135M, Qwen3-0.6B, Qwen3.5-0.8B, Qwen3.5-4B, and Qwen3.6-27B where resources permit | Already complete provisionally |
+| J-lens | Existing model-matched artifacts/runs | Obtain or fit a model-matched 1.7B J-lens before claiming a full intervention comparison |
+| Wikitext tuned lens | Existing pilot rows | Run the same Wikitext pilot if it is retained as a comparison condition |
+| Logit and random controls | Existing rows | Already present in the short-2M causal suite |
+
+The report coverage matrix now exposes these as separate statuses rather than
+making the 1.7B addition look like a complete new model row. Cross-model plots
+show the 1.7B short-2M bars with their explicit provenance label; they are not
+silently treated as equivalent to the Wikitext tuned bars.
 
 The corresponding hypothesis-to-test table is maintained in
 [`docs/HYPOTHESIS_TEST_MATRIX.md`](HYPOTHESIS_TEST_MATRIX.md).
@@ -735,10 +752,11 @@ SmolLM2's best-layer top-1 was 37.4% tuned versus 28.6% logit; Qwen3-0.6B's
 final-layer top-1 was 37.1% tuned versus 38.2% logit, so tuned is not uniformly
 better on every endpoint metric.
 
-Qwen3-1.7B fitting then completed in 676.5 s with 5.09 GiB peak VRAM. Its
-16.4M-token held-out evaluation is the active single-GPU job; the JSON artifact
-is not yet present. The causal queue remains gated until that final predictive
-artifact exists and all three validation checks pass.
+Qwen3-1.7B fitting then completed in 676.5 s with 5.09 GiB peak VRAM. The
+canonical 16.4M-token held-out evaluation was started but intentionally stopped
+after its runtime estimate reached roughly 6.5 hours; its checkpoint remains
+available. A short 200k/1M/2M predictive ladder is now complete, and any causal
+suite using it must be labeled provisional rather than canonical.
 
 ### 2026-07-14 — Report refresh process documented
 
@@ -749,3 +767,57 @@ editable, reviewable source; the browser-facing report is generated with
 SmolLM2 predictive artifacts and distinguishes them from the still-running
 Qwen3-1.7B evaluation. Pile predictive artifacts do not change causal plots
 until their model-matched causal suites have run.
+### 2026-07-15 — Qwen3-1.7B short predictive evaluation ladder
+
+The canonical 16.4M-token held-out Pile evaluation was intentionally stopped
+after its runtime estimate reached roughly 6.5 hours. Its checkpoint and event
+stream remain preserved, but no final artifact was admitted. We then ran a
+three-budget predictive ladder on the same Qwen3-1.7B tuned Pile lens using the
+same 3090, BF16 compute, 128-token chunks, and batch size 16:
+
+| Input budget | Scored tokens | Runtime | Peak VRAM | Status |
+|---:|---:|---:|---:|---|
+| 200,000 | 198,501 | 290.6 s | 12.89 GiB | complete |
+| 1,000,000 | 992,251 | about 24 min | 12.89 GiB | complete |
+| 2,000,000 | 1,984,375 | 2,892.1 s | 12.89 GiB | complete |
+
+The 200k and 1M estimates were already close: final-layer tuned top-1 was
+39.7% and 39.9%, while final-layer logit top-1 was 43.8% and 43.7%. Early and
+middle-layer tuned KL remained far below logit KL. These are predictive
+precision/sensitivity checks, not causal evidence; the Pile-trained causal
+suite is the next guarded step and will be labeled short-2M unless the full
+held-out gate is later completed.
+
+### 2026-07-15 — Provisional Qwen3-1.7B Pile causal smoke and suite queue
+
+We exported a model-matched patch basis from the Qwen3-1.7B
+`tuned-pile-repro-v1` translator and ran guarded causal smoke tests with BF16
+compute, an unquantized model, layers 8/14/20, patching at all positions, and
+`tuned`, `logit`, and norm-matched `random` controls. The smoke outputs are
+stored separately from validated causal results because the canonical 16.4M
+held-out predictive gate is incomplete.
+
+| Task | Items / scored conditions | Tuned | Logit | Random | Interpretation |
+|---|---:|---:|---:|---:|---|
+| Verbal report, sport | 3 / 3 per method | improved 2; median Δrank 4 | improved 0; median −107 | improved 1; median −91 | diagnostic only; tiny sample |
+| Two-hop, 5-item smoke | 5 / 15 per method | improved 5; median Δrank 0 | improved 2; median 0 | improved 4; median 0 | diagnostic only; layer observations are clustered |
+| Flexible generalization, 5-item smoke | 5 / 15 per method | improved 6; median −5 | improved 11; median 119 | improved 4; median −12 | logit moved targets more on this tiny sample |
+
+The full provisional runner, `scripts/run_qwen3_1.7b_short_pile_causal.sh`,
+then completed all three suites. It writes one independently named JSON result
+per causal task and an event stream beside each output, skips already-valid
+outputs, performs a free-VRAM preflight, and uses the `short-2m` label
+throughout.
+
+| Task | Scored conditions | Skipped | Tuned | Logit | Random |
+|---|---:|---:|---|---|---|
+| Verbal report | 42 per method | 0 | improved 14; median Δrank −28 | improved 18; median −16.5 | improved 14; median −11 |
+| Two-hop reasoning | 204 per method | 22 items | improved 95; median 0; top-5 33 | improved 102; median 0.5; top-5 40 | improved 65; median −2; top-5 29 |
+| Flexible generalization | 510 per method | 22 items | improved 224; median 0; top-5 36 | improved 282; median 1; top-5 42 | improved 158; median −3; top-5 21 |
+
+These outputs are diagnostic, not validated reproduction evidence: the
+canonical 16.4M-token predictive gate remains unfinished. On this short
+track, logit has the largest raw improvement rate in the two-hop and flexible
+tasks, while tuned exceeds random; verbal report is inconclusive and tuned's
+median movement is not better than the controls. No claim that tuned beats
+logit or J-lens should be made from this run.

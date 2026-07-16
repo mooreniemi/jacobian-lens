@@ -1,0 +1,4 @@
+{"event": "preflight", "time": "2026-07-14T23:41:13-0400", "target_input_tokens": 16400000, "target_scored_tokens": 16271875, "batch_size": 16, "sequence_length": 128, "dtype": "bf16"}
+{"event": "tokenizer_loaded", "time": "2026-07-14T23:41:13-0400", "elapsed_s": 0.4854270520154387}
+{"event": "model_loaded", "time": "2026-07-14T23:41:14-0400", "elapsed_s": 1.8041038250084966, "layers": 28, "hidden_size": 2048, "peak_allocated_gib": 4.004}
+{"event": "progress", "time": "2026-07-14T23:46:09-0400", "batches": 100, "input_tokens": 204800, "scored_tokens": 203200, "elapsed_s": 296.7, "scored_tokens_per_s": 684.91, "eta_s": 23460.9, "peak_allocated_gib": 12.887, "peak_reserved_gib": 14.199}

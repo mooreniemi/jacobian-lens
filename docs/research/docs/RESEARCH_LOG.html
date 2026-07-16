@@ -18,7 +18,7 @@ img { max-width:100%; } footer { margin-top:3rem; padding-top:1rem; border-top:1
 <p>This log records the local reproduction of Anthropic's Jacobian-lens work, changes made for this machine, and experiments added afterward.</p>
 <h2>Status</h2>
 <ul>
-<li>Last updated: 2026-07-14</li>
+<li>Last updated: 2026-07-15</li>
 <li>Workspace: <code>/home/alex/Code/jlens/jacobian-lens</code></li>
 <li>Hardware: NVIDIA GeForce RTX 3090, 24 GB VRAM, 31 GB system RAM</li>
 <li>Primary environment: project <code>.venv</code>, PyTorch 2.12.0+cu130, Transformers 5.9.0</li>
@@ -184,6 +184,44 @@ with a J-lens or logit-lens direction.</p>
 used across rows wherever the model tokenizer permits. Multi-token concepts
 must be handled with an explicit span intervention or recorded as skips; they
 must not be silently truncated.</p>
+<h3>Design correction — balanced model × intervention coverage</h3>
+<p>The Qwen3-1.7B short-2M run is not a replacement for balanced coverage. It
+adds a new model/intervention dimension that must be completed symmetrically:</p>
+<table>
+<thead>
+<tr>
+  <th>Dimension</th>
+  <th>Existing models</th>
+  <th>Qwen3-1.7B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pile tuned lens, short-2M causal suite</td>
+  <td>Run the same three causal tasks for SmolLM2-135M, Qwen3-0.6B, Qwen3.5-0.8B, Qwen3.5-4B, and Qwen3.6-27B where resources permit</td>
+  <td>Already complete provisionally</td>
+</tr>
+<tr>
+  <td>J-lens</td>
+  <td>Existing model-matched artifacts/runs</td>
+  <td>Obtain or fit a model-matched 1.7B J-lens before claiming a full intervention comparison</td>
+</tr>
+<tr>
+  <td>Wikitext tuned lens</td>
+  <td>Existing pilot rows</td>
+  <td>Run the same Wikitext pilot if it is retained as a comparison condition</td>
+</tr>
+<tr>
+  <td>Logit and random controls</td>
+  <td>Existing rows</td>
+  <td>Already present in the short-2M causal suite</td>
+</tr>
+</tbody>
+</table>
+<p>The report coverage matrix now exposes these as separate statuses rather than
+making the 1.7B addition look like a complete new model row. Cross-model plots
+show the 1.7B short-2M bars with their explicit provenance label; they are not
+silently treated as equivalent to the Wikitext tuned bars.</p>
 <p>The corresponding hypothesis-to-test table is maintained in
 <a href="HYPOTHESIS_TEST_MATRIX.html"><code>docs/HYPOTHESIS_TEST_MATRIX.md</code></a>.</p>
 <h3>2026-07-13 — Qwen3-0.6B matched T1–T3 cells</h3>
@@ -663,10 +701,11 @@ intervention results.</p>
 SmolLM2's best-layer top-1 was 37.4% tuned versus 28.6% logit; Qwen3-0.6B's
 final-layer top-1 was 37.1% tuned versus 38.2% logit, so tuned is not uniformly
 better on every endpoint metric.</p>
-<p>Qwen3-1.7B fitting then completed in 676.5 s with 5.09 GiB peak VRAM. Its
-16.4M-token held-out evaluation is the active single-GPU job; the JSON artifact
-is not yet present. The causal queue remains gated until that final predictive
-artifact exists and all three validation checks pass.</p>
+<p>Qwen3-1.7B fitting then completed in 676.5 s with 5.09 GiB peak VRAM. The
+canonical 16.4M-token held-out evaluation was started but intentionally stopped
+after its runtime estimate reached roughly 6.5 hours; its checkpoint remains
+available. A short 200k/1M/2M predictive ladder is now complete, and any causal
+suite using it must be labeled provisional rather than canonical.</p>
 <h3>2026-07-14 — Report refresh process documented</h3>
 <p>The repository now documents the Markdown-to-HTML boundary in
 <a href="REPOSITORY_GUIDE.html"><code>docs/REPOSITORY_GUIDE.md</code></a>. Markdown remains the
@@ -675,6 +714,146 @@ editable, reviewable source; the browser-facing report is generated with
 SmolLM2 predictive artifacts and distinguishes them from the still-running
 Qwen3-1.7B evaluation. Pile predictive artifacts do not change causal plots
 until their model-matched causal suites have run.</p>
+<h3>2026-07-15 — Qwen3-1.7B short predictive evaluation ladder</h3>
+<p>The canonical 16.4M-token held-out Pile evaluation was intentionally stopped
+after its runtime estimate reached roughly 6.5 hours. Its checkpoint and event
+stream remain preserved, but no final artifact was admitted. We then ran a
+three-budget predictive ladder on the same Qwen3-1.7B tuned Pile lens using the
+same 3090, BF16 compute, 128-token chunks, and batch size 16:</p>
+<table>
+<thead>
+<tr>
+  <th style="text-align:right">Input budget</th>
+  <th style="text-align:right">Scored tokens</th>
+  <th style="text-align:right">Runtime</th>
+  <th style="text-align:right">Peak VRAM</th>
+  <th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:right">200,000</td>
+  <td style="text-align:right">198,501</td>
+  <td style="text-align:right">290.6 s</td>
+  <td style="text-align:right">12.89 GiB</td>
+  <td>complete</td>
+</tr>
+<tr>
+  <td style="text-align:right">1,000,000</td>
+  <td style="text-align:right">992,251</td>
+  <td style="text-align:right">about 24 min</td>
+  <td style="text-align:right">12.89 GiB</td>
+  <td>complete</td>
+</tr>
+<tr>
+  <td style="text-align:right">2,000,000</td>
+  <td style="text-align:right">1,984,375</td>
+  <td style="text-align:right">2,892.1 s</td>
+  <td style="text-align:right">12.89 GiB</td>
+  <td>complete</td>
+</tr>
+</tbody>
+</table>
+<p>The 200k and 1M estimates were already close: final-layer tuned top-1 was
+39.7% and 39.9%, while final-layer logit top-1 was 43.8% and 43.7%. Early and
+middle-layer tuned KL remained far below logit KL. These are predictive
+precision/sensitivity checks, not causal evidence; the Pile-trained causal
+suite is the next guarded step and will be labeled short-2M unless the full
+held-out gate is later completed.</p>
+<h3>2026-07-15 — Provisional Qwen3-1.7B Pile causal smoke and suite queue</h3>
+<p>We exported a model-matched patch basis from the Qwen3-1.7B
+<code>tuned-pile-repro-v1</code> translator and ran guarded causal smoke tests with BF16
+compute, an unquantized model, layers 8/14/20, patching at all positions, and
+<code>tuned</code>, <code>logit</code>, and norm-matched <code>random</code> controls. The smoke outputs are
+stored separately from validated causal results because the canonical 16.4M
+held-out predictive gate is incomplete.</p>
+<table>
+<thead>
+<tr>
+  <th>Task</th>
+  <th style="text-align:right">Items / scored conditions</th>
+  <th style="text-align:right">Tuned</th>
+  <th style="text-align:right">Logit</th>
+  <th style="text-align:right">Random</th>
+  <th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Verbal report, sport</td>
+  <td style="text-align:right">3 / 3 per method</td>
+  <td style="text-align:right">improved 2; median Δrank 4</td>
+  <td style="text-align:right">improved 0; median −107</td>
+  <td style="text-align:right">improved 1; median −91</td>
+  <td>diagnostic only; tiny sample</td>
+</tr>
+<tr>
+  <td>Two-hop, 5-item smoke</td>
+  <td style="text-align:right">5 / 15 per method</td>
+  <td style="text-align:right">improved 5; median Δrank 0</td>
+  <td style="text-align:right">improved 2; median 0</td>
+  <td style="text-align:right">improved 4; median 0</td>
+  <td>diagnostic only; layer observations are clustered</td>
+</tr>
+<tr>
+  <td>Flexible generalization, 5-item smoke</td>
+  <td style="text-align:right">5 / 15 per method</td>
+  <td style="text-align:right">improved 6; median −5</td>
+  <td style="text-align:right">improved 11; median 119</td>
+  <td style="text-align:right">improved 4; median −12</td>
+  <td>logit moved targets more on this tiny sample</td>
+</tr>
+</tbody>
+</table>
+<p>The full provisional runner, <code>scripts/run_qwen3_1.7b_short_pile_causal.sh</code>,
+then completed all three suites. It writes one independently named JSON result
+per causal task and an event stream beside each output, skips already-valid
+outputs, performs a free-VRAM preflight, and uses the <code>short-2m</code> label
+throughout.</p>
+<table>
+<thead>
+<tr>
+  <th>Task</th>
+  <th style="text-align:right">Scored conditions</th>
+  <th style="text-align:right">Skipped</th>
+  <th>Tuned</th>
+  <th>Logit</th>
+  <th>Random</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Verbal report</td>
+  <td style="text-align:right">42 per method</td>
+  <td style="text-align:right">0</td>
+  <td>improved 14; median Δrank −28</td>
+  <td>improved 18; median −16.5</td>
+  <td>improved 14; median −11</td>
+</tr>
+<tr>
+  <td>Two-hop reasoning</td>
+  <td style="text-align:right">204 per method</td>
+  <td style="text-align:right">22 items</td>
+  <td>improved 95; median 0; top-5 33</td>
+  <td>improved 102; median 0.5; top-5 40</td>
+  <td>improved 65; median −2; top-5 29</td>
+</tr>
+<tr>
+  <td>Flexible generalization</td>
+  <td style="text-align:right">510 per method</td>
+  <td style="text-align:right">22 items</td>
+  <td>improved 224; median 0; top-5 36</td>
+  <td>improved 282; median 1; top-5 42</td>
+  <td>improved 158; median −3; top-5 21</td>
+</tr>
+</tbody>
+</table>
+<p>These outputs are diagnostic, not validated reproduction evidence: the
+canonical 16.4M-token predictive gate remains unfinished. On this short
+track, logit has the largest raw improvement rate in the two-hop and flexible
+tasks, while tuned exceeds random; verbal report is inconclusive and tuned's
+median movement is not better than the controls. No claim that tuned beats
+logit or J-lens should be made from this run.</p>
 </article>
 <footer>Rendered from <code>RESEARCH_LOG.md</code> by <code>scripts/generate_research_report.py</code>.</footer>
 </main></body></html>

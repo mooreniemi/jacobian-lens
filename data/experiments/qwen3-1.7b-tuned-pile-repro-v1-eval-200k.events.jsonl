@@ -1,0 +1,5 @@
+{"event": "preflight", "time": "2026-07-14T23:47:28-0400", "target_input_tokens": 200000, "target_scored_tokens": 198501, "batch_size": 16, "sequence_length": 128, "dtype": "bf16"}
+{"event": "tokenizer_loaded", "time": "2026-07-14T23:47:28-0400", "elapsed_s": 0.48616695002419874}
+{"event": "model_loaded", "time": "2026-07-14T23:47:29-0400", "elapsed_s": 1.847134781011846, "layers": 28, "hidden_size": 2048, "peak_allocated_gib": 4.004}
+{"event": "progress", "time": "2026-07-14T23:52:18-0400", "batches": 98, "input_tokens": 200064, "scored_tokens": 198501, "elapsed_s": 290.6, "scored_tokens_per_s": 683.11, "eta_s": 0.0, "peak_allocated_gib": 12.887, "peak_reserved_gib": 14.199}
+{"event": "complete", "time": "2026-07-14T23:52:18-0400", "input_tokens": 200064, "scored_tokens": 198501, "elapsed_s": 290.58508427103516, "scored_tokens_per_s": 683.1080146386788, "peak_allocated_gib": 12.887333869934082, "peak_reserved_gib": 14.19921875, "output": "data/experiments/qwen3-1.7b-tuned-pile-repro-v1-eval-200k.json"}

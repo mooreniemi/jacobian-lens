@@ -1,0 +1,720 @@
+[21:10:30] Qwen kernel mode: off
+[21:10:30] preflight: 23.24 GiB free / 23.53 GiB total
+[21:10:30] loading model /home/alex/models/qwen3-1.7b-hf
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 16333.33it/s]
+[21:10:31] model ready: HFLensModel(Qwen3ForCausalLM, n_layers=28, d_model=2048); 20.02 GiB free
+[21:10:32] item 1/90 amazon-language: Brazil -> Mexico; answer Portuguese -> Spanish
+[21:10:32] item 2/90 animal-cover-turtle: turtle -> snake; answer shell -> scale
+[21:10:32] item 3/90 animal-legs-buffalo2: buffalo -> spider; answer four -> eight
+[21:10:32] item 4/90 animal-nose-elephant: elephant -> snake; answer trunk -> tongue
+[21:10:32] item 5/90 atomic-80-state: mercury -> iron; answer liquid -> solid
+[21:10:33] item 7/90 beverage-source-wine: wine -> beer; answer grape -> barley
+[21:10:33] item 10/90 bird-time-owl: owl -> eagle; answer night -> day
+[21:10:33] item 16/90 christmas-season: Christmas -> Easter; answer winter -> spring
+[21:10:33] item 17/90 city-state-Philadelphia: Philadelphia -> Seattle; answer Pennsylvania -> Washington
+[21:10:33] item 18/90 colosseum-currency: Italy -> Mexico; answer Euro -> peso
+[21:10:33] item 19/90 element-color-gold2: gold -> silver; answer yellow -> gray
+[21:10:33] item 23/90 ex-city-capital-Barcelona-Toronto: Spain -> Canada; answer Madrid -> Ottawa
+[21:10:34] item 24/90 ex-city-capital-Lyon-Naples: France -> Italy; answer Paris -> Rome
+[21:10:34] item 25/90 ex-city-capital-Naples-Barcelona: Italy -> Spain; answer Rome -> Madrid
+[21:10:34] item 26/90 ex-city-capital-Toronto-Lyon: Canada -> France; answer Ottawa -> Paris
+[21:10:34] item 27/90 ex-city-continent-Toronto-Lyon: Canada -> France; answer North -> Europe
+[21:10:34] item 28/90 ex-city-currency-Toronto-Beijing: Canada -> China; answer Canadian -> yuan
+[21:10:34] item 30/90 ex-city-language-Lyon-Naples: France -> Italy; answer French -> Italian
+[21:10:35] item 31/90 ex-element-state-26-8: iron -> oxygen; answer solid -> gas
+[21:10:35] item 32/90 ex-element-state-26-80: iron -> mercury; answer solid -> liquid
+[21:10:35] item 33/90 ex-element-state-8-26: oxygen -> iron; answer gas -> solid
+[21:10:35] item 34/90 ex-element-state-8-80: oxygen -> mercury; answer gas -> liquid
+[21:10:35] item 35/90 ex-element-state-80-8: mercury -> oxygen; answer liquid -> gas
+[21:10:35] item 36/90 ex-element-symbol-11-26: sodium -> iron; answer Na -> Fe
+[21:10:35] item 37/90 ex-element-symbol-26-79: iron -> gold; answer Fe -> Au
+[21:10:36] item 38/90 ex-planet-color-third-fourth: Earth -> Mars; answer blue -> red
+[21:10:36] item 39/90 ex2-city-capital-Munich: Germany -> Japan; answer Berlin -> Tokyo
+[21:10:36] item 40/90 ex2-city-capital-Osaka: Japan -> Germany; answer Tokyo -> Berlin
+[21:10:36] item 41/90 ex2-city-continent-Lima: Peru -> Egypt; answer South -> Africa
+[21:10:36] item 42/90 ex2-city-continent-Sydney: Australia -> Peru; answer Australia -> South
+[21:10:36] item 43/90 ex2-city-language-Cairo: Egypt -> Russia; answer Arabic -> Russian
+[21:10:36] item 44/90 ex2-city-language-Moscow: Russia -> Egypt; answer Russian -> Arabic
+[21:10:37] item 45/90 ex2-language-capital-Greek: Greece -> Sweden; answer Athens -> Stockholm
+[21:10:37] item 46/90 ex2-language-capital-Hungarian: Hungary -> Poland; answer Budapest -> Warsaw
+[21:10:37] item 47/90 ex2-language-capital-Polish: Poland -> Greece; answer Warsaw -> Athens
+[21:10:37] item 48/90 ex2-language-capital-Swedish: Sweden -> Hungary; answer Stockholm -> Budapest
+[21:10:37] item 49/90 ex2-river-capital-Thames: England -> Germany; answer London -> Berlin
+[21:10:37] item 50/90 food-animal-butter: butter -> honey; answer cow -> bee
+[21:10:38] item 51/90 food-animal-honey: honey -> butter; answer bee -> cow
+[21:10:38] item 52/90 fruit-grows-grape: grape -> apple; answer vine -> tree
+[21:10:38] item 55/90 gem-color-ruby: ruby -> pearl; answer red -> white
+[21:10:38] item 57/90 greatwall-ocean: China -> Brazil; answer Pacific -> Atlantic
+[21:10:38] item 58/90 holiday-month-christmas2: Christmas -> Easter; answer December -> April
+[21:10:38] item 59/90 instr-body-trumpet: trumpet -> drums; answer lips -> hands
+[21:10:38] item 60/90 instr-hit-drums: drums -> piano; answer sticks -> keys
+[21:10:39] item 61/90 mars-color: Mars -> Earth; answer red -> blue
+[21:10:39] item 62/90 month-3-godof: Mars -> Venus; answer war -> love
+[21:10:39] item 63/90 organ-acid-stomach: stomach -> heart; answer acid -> blood
+[21:10:39] item 64/90 organ-count-kidney2: kidney -> heart; answer two -> one
+[21:10:39] item 66/90 organ-location-heart: heart -> brain; answer chest -> head
+[21:10:39] item 68/90 paper-continent: China -> France; answer Asia -> Europe
+[21:10:40] item 70/90 person-country-napoleon: Napoleon -> Lincoln; answer France -> America
+[21:10:40] item 71/90 person-country-shakespeare: Shakespeare -> Einstein; answer England -> Germany
+[21:10:40] item 72/90 person-firstname-darwin: Darwin -> Einstein; answer Charles -> Albert
+[21:10:40] item 73/90 person-firstname-einstein: Einstein -> Newton; answer Albert -> Isaac
+[21:10:40] item 74/90 person-firstname-mozart: Mozart -> Darwin; answer Wolfgang -> Charles
+[21:10:40] item 75/90 person-firstname-newton: Newton -> Shakespeare; answer Isaac -> William
+[21:10:40] item 76/90 person-firstname-shakespeare: Shakespeare -> Mozart; answer William -> Wolfgang
+[21:10:41] item 78/90 planet-rings-saturn2: Saturn -> Jupiter; answer rings -> spot
+[21:10:41] item 79/90 rhyme-chair-flag: bear -> buffalo; answer California -> Wyoming
+[21:10:41] item 80/90 rhyme-rain-neighbor: Spain -> Belgium; answer Portugal -> France
+[21:10:41] item 81/90 rhyme-spoon-orbit: moon -> Europa; answer Earth -> Jupiter
+[21:10:41] item 82/90 season-next-winter: winter -> summer; answer spring -> autumn
+[21:10:41] item 83/90 spaceneedle-border: Seattle -> Philadelphia; answer Canada -> New
+[21:10:42] item 85/90 sport-equip-tennis: tennis -> golf; answer racket -> club
+[21:10:42] item 86/90 super-populous-capital: China -> India; answer Beijing -> Delhi
+[21:10:42] item 87/90 super-smallest-continent: Vatican -> Singapore; answer Europe -> Asia
+[21:10:42] item 89/90 vehicle-power-bicycle: bicycle -> train; answer legs -> engine
+
+Multihop causal summary:
+| item                              |   layer | method   |   answer before |   swap-answer before |   answer after |   swap-answer after |
+|-----------------------------------|---------|----------|-----------------|----------------------|----------------|---------------------|
+| amazon-language                   |       8 | tuned    |              14 |                    4 |            140 |                  60 |
+| amazon-language                   |       8 | logit    |              14 |                    4 |              4 |                  11 |
+| amazon-language                   |       8 | random   |              14 |                    4 |             70 |                  20 |
+| amazon-language                   |      14 | tuned    |              14 |                    4 |              4 |                   3 |
+| amazon-language                   |      14 | logit    |              14 |                    4 |              4 |                  13 |
+| amazon-language                   |      14 | random   |              14 |                    4 |             33 |                   9 |
+| amazon-language                   |      20 | tuned    |              14 |                    4 |             14 |                   8 |
+| amazon-language                   |      20 | logit    |              14 |                    4 |              3 |                  14 |
+| amazon-language                   |      20 | random   |              14 |                    4 |             14 |                   6 |
+| animal-cover-turtle               |       8 | tuned    |               3 |                    2 |              3 |                   2 |
+| animal-cover-turtle               |       8 | logit    |               3 |                    2 |              3 |                   2 |
+| animal-cover-turtle               |       8 | random   |               3 |                    2 |              3 |                   2 |
+| animal-cover-turtle               |      14 | tuned    |               3 |                    2 |              7 |                   1 |
+| animal-cover-turtle               |      14 | logit    |               3 |                    2 |              3 |                   2 |
+| animal-cover-turtle               |      14 | random   |               3 |                    2 |              4 |                   2 |
+| animal-cover-turtle               |      20 | tuned    |               3 |                    2 |              1 |                   6 |
+| animal-cover-turtle               |      20 | logit    |               3 |                    2 |              4 |                   2 |
+| animal-cover-turtle               |      20 | random   |               3 |                    2 |              5 |                   2 |
+| animal-legs-buffalo2              |       8 | tuned    |               2 |                   12 |              2 |                  10 |
+| animal-legs-buffalo2              |       8 | logit    |               2 |                   12 |              2 |                   9 |
+| animal-legs-buffalo2              |       8 | random   |               2 |                   12 |              3 |                  11 |
+| animal-legs-buffalo2              |      14 | tuned    |               2 |                   12 |              2 |                  10 |
+| animal-legs-buffalo2              |      14 | logit    |               2 |                   12 |              2 |                  10 |
+| animal-legs-buffalo2              |      14 | random   |               2 |                   12 |              2 |                   8 |
+| animal-legs-buffalo2              |      20 | tuned    |               2 |                   12 |              2 |                  13 |
+| animal-legs-buffalo2              |      20 | logit    |               2 |                   12 |              2 |                  12 |
+| animal-legs-buffalo2              |      20 | random   |               2 |                   12 |              2 |                   9 |
+| animal-nose-elephant              |       8 | tuned    |               1 |                    6 |              3 |                  24 |
+| animal-nose-elephant              |       8 | logit    |               1 |                    6 |              1 |                  10 |
+| animal-nose-elephant              |       8 | random   |               1 |                    6 |              9 |                  22 |
+| animal-nose-elephant              |      14 | tuned    |               1 |                    6 |              2 |                   3 |
+| animal-nose-elephant              |      14 | logit    |               1 |                    6 |              2 |                   9 |
+| animal-nose-elephant              |      14 | random   |               1 |                    6 |              5 |                   9 |
+| animal-nose-elephant              |      20 | tuned    |               1 |                    6 |              1 |                  41 |
+| animal-nose-elephant              |      20 | logit    |               1 |                    6 |              1 |                   9 |
+| animal-nose-elephant              |      20 | random   |               1 |                    6 |              2 |                  11 |
+| atomic-80-state                   |       8 | tuned    |               2 |                    4 |              3 |                  11 |
+| atomic-80-state                   |       8 | logit    |               2 |                    4 |              2 |                   4 |
+| atomic-80-state                   |       8 | random   |               2 |                    4 |              1 |                   4 |
+| atomic-80-state                   |      14 | tuned    |               2 |                    4 |              2 |                   4 |
+| atomic-80-state                   |      14 | logit    |               2 |                    4 |              2 |                   4 |
+| atomic-80-state                   |      14 | random   |               2 |                    4 |              2 |                   4 |
+| atomic-80-state                   |      20 | tuned    |               2 |                    4 |              1 |                   4 |
+| atomic-80-state                   |      20 | logit    |               2 |                    4 |              2 |                   4 |
+| atomic-80-state                   |      20 | random   |               2 |                    4 |              1 |                   3 |
+| beverage-source-wine              |       8 | tuned    |               2 |                  275 |              3 |                  18 |
+| beverage-source-wine              |       8 | logit    |               2 |                  275 |              2 |                 117 |
+| beverage-source-wine              |       8 | random   |               2 |                  275 |              2 |                  92 |
+| beverage-source-wine              |      14 | tuned    |               2 |                  275 |              2 |                 225 |
+| beverage-source-wine              |      14 | logit    |               2 |                  275 |              2 |                 173 |
+| beverage-source-wine              |      14 | random   |               2 |                  275 |              2 |                 203 |
+| beverage-source-wine              |      20 | tuned    |               2 |                  275 |              1 |                 937 |
+| beverage-source-wine              |      20 | logit    |               2 |                  275 |              2 |                 108 |
+| beverage-source-wine              |      20 | random   |               2 |                  275 |              3 |                 293 |
+| bird-time-owl                     |       8 | tuned    |             619 |                  820 |            756 |                 707 |
+| bird-time-owl                     |       8 | logit    |             619 |                  820 |            616 |                 592 |
+| bird-time-owl                     |       8 | random   |             619 |                  820 |           1130 |                1205 |
+| bird-time-owl                     |      14 | tuned    |             619 |                  820 |            574 |                 698 |
+| bird-time-owl                     |      14 | logit    |             619 |                  820 |            595 |                 536 |
+| bird-time-owl                     |      14 | random   |             619 |                  820 |            633 |                 783 |
+| bird-time-owl                     |      20 | tuned    |             619 |                  820 |            531 |                1104 |
+| bird-time-owl                     |      20 | logit    |             619 |                  820 |            803 |                 642 |
+| bird-time-owl                     |      20 | random   |             619 |                  820 |            951 |                1152 |
+| christmas-season                  |       8 | tuned    |               6 |                   71 |              6 |                  70 |
+| christmas-season                  |       8 | logit    |               6 |                   71 |              7 |                  69 |
+| christmas-season                  |       8 | random   |               6 |                   71 |              6 |                  71 |
+| christmas-season                  |      14 | tuned    |               6 |                   71 |              3 |                  94 |
+| christmas-season                  |      14 | logit    |               6 |                   71 |              7 |                  71 |
+| christmas-season                  |      14 | random   |               6 |                   71 |              6 |                  78 |
+| christmas-season                  |      20 | tuned    |               6 |                   71 |              7 |                  33 |
+| christmas-season                  |      20 | logit    |               6 |                   71 |              6 |                  23 |
+| christmas-season                  |      20 | random   |               6 |                   71 |              4 |                  74 |
+| city-state-Philadelphia           |       8 | tuned    |               1 |                   12 |              3 |                  12 |
+| city-state-Philadelphia           |       8 | logit    |               1 |                   12 |              8 |                  11 |
+| city-state-Philadelphia           |       8 | random   |               1 |                   12 |              1 |                  12 |
+| city-state-Philadelphia           |      14 | tuned    |               1 |                   12 |              7 |                   9 |
+| city-state-Philadelphia           |      14 | logit    |               1 |                   12 |              5 |                   9 |
+| city-state-Philadelphia           |      14 | random   |               1 |                   12 |              1 |                  11 |
+| city-state-Philadelphia           |      20 | tuned    |               1 |                   12 |              2 |                  11 |
+| city-state-Philadelphia           |      20 | logit    |               1 |                   12 |             10 |                   5 |
+| city-state-Philadelphia           |      20 | random   |               1 |                   12 |              1 |                  10 |
+| colosseum-currency                |       8 | tuned    |               2 |                  883 |              2 |                2417 |
+| colosseum-currency                |       8 | logit    |               2 |                  883 |              2 |                2068 |
+| colosseum-currency                |       8 | random   |               2 |                  883 |              1 |                 824 |
+| colosseum-currency                |      14 | tuned    |               2 |                  883 |              3 |                1629 |
+| colosseum-currency                |      14 | logit    |               2 |                  883 |              2 |                3108 |
+| colosseum-currency                |      14 | random   |               2 |                  883 |              1 |                1472 |
+| colosseum-currency                |      20 | tuned    |               2 |                  883 |             30 |                 205 |
+| colosseum-currency                |      20 | logit    |               2 |                  883 |              2 |                 952 |
+| colosseum-currency                |      20 | random   |               2 |                  883 |              5 |                 361 |
+| element-color-gold2               |       8 | tuned    |               5 |                   22 |              4 |                  21 |
+| element-color-gold2               |       8 | logit    |               5 |                   22 |              4 |                  20 |
+| element-color-gold2               |       8 | random   |               5 |                   22 |              7 |                  16 |
+| element-color-gold2               |      14 | tuned    |               5 |                   22 |              7 |                  20 |
+| element-color-gold2               |      14 | logit    |               5 |                   22 |              4 |                  19 |
+| element-color-gold2               |      14 | random   |               5 |                   22 |              6 |                  17 |
+| element-color-gold2               |      20 | tuned    |               5 |                   22 |              4 |                  11 |
+| element-color-gold2               |      20 | logit    |               5 |                   22 |              4 |                  20 |
+| element-color-gold2               |      20 | random   |               5 |                   22 |              4 |                  15 |
+| ex-city-capital-Barcelona-Toronto |       8 | tuned    |               1 |                 1072 |              1 |                1356 |
+| ex-city-capital-Barcelona-Toronto |       8 | logit    |               1 |                 1072 |              2 |                 710 |
+| ex-city-capital-Barcelona-Toronto |       8 | random   |               1 |                 1072 |              1 |                 552 |
+| ex-city-capital-Barcelona-Toronto |      14 | tuned    |               1 |                 1072 |              1 |                 475 |
+| ex-city-capital-Barcelona-Toronto |      14 | logit    |               1 |                 1072 |              2 |                 614 |
+| ex-city-capital-Barcelona-Toronto |      14 | random   |               1 |                 1072 |              1 |                 186 |
+| ex-city-capital-Barcelona-Toronto |      20 | tuned    |               1 |                 1072 |              9 |                 104 |
+| ex-city-capital-Barcelona-Toronto |      20 | logit    |               1 |                 1072 |              5 |                  63 |
+| ex-city-capital-Barcelona-Toronto |      20 | random   |               1 |                 1072 |              1 |                 678 |
+| ex-city-capital-Lyon-Naples       |       8 | tuned    |               2 |                   98 |              2 |                  88 |
+| ex-city-capital-Lyon-Naples       |       8 | logit    |               2 |                   98 |              1 |                  11 |
+| ex-city-capital-Lyon-Naples       |       8 | random   |               2 |                   98 |              2 |                 106 |
+| ex-city-capital-Lyon-Naples       |      14 | tuned    |               2 |                   98 |              2 |                 407 |
+| ex-city-capital-Lyon-Naples       |      14 | logit    |               2 |                   98 |              1 |                  15 |
+| ex-city-capital-Lyon-Naples       |      14 | random   |               2 |                   98 |              1 |                 138 |
+| ex-city-capital-Lyon-Naples       |      20 | tuned    |               2 |                   98 |              2 |                 114 |
+| ex-city-capital-Lyon-Naples       |      20 | logit    |               2 |                   98 |              7 |                   7 |
+| ex-city-capital-Lyon-Naples       |      20 | random   |               2 |                   98 |              1 |                 132 |
+| ex-city-capital-Naples-Barcelona  |       8 | tuned    |               1 |                   19 |              1 |                  14 |
+| ex-city-capital-Naples-Barcelona  |       8 | logit    |               1 |                   19 |              1 |                  15 |
+| ex-city-capital-Naples-Barcelona  |       8 | random   |               1 |                   19 |              1 |                  24 |
+| ex-city-capital-Naples-Barcelona  |      14 | tuned    |               1 |                   19 |              2 |                  10 |
+| ex-city-capital-Naples-Barcelona  |      14 | logit    |               1 |                   19 |              1 |                  16 |
+| ex-city-capital-Naples-Barcelona  |      14 | random   |               1 |                   19 |              1 |                  21 |
+| ex-city-capital-Naples-Barcelona  |      20 | tuned    |               1 |                   19 |             74 |                   8 |
+| ex-city-capital-Naples-Barcelona  |      20 | logit    |               1 |                   19 |              1 |                   4 |
+| ex-city-capital-Naples-Barcelona  |      20 | random   |               1 |                   19 |             15 |                  48 |
+| ex-city-capital-Toronto-Lyon      |       8 | tuned    |               1 |                   79 |              1 |                  60 |
+| ex-city-capital-Toronto-Lyon      |       8 | logit    |               1 |                   79 |              1 |                 914 |
+| ex-city-capital-Toronto-Lyon      |       8 | random   |               1 |                   79 |              1 |                  71 |
+| ex-city-capital-Toronto-Lyon      |      14 | tuned    |               1 |                   79 |              1 |                 111 |
+| ex-city-capital-Toronto-Lyon      |      14 | logit    |               1 |                   79 |              1 |                 860 |
+| ex-city-capital-Toronto-Lyon      |      14 | random   |               1 |                   79 |              1 |                  34 |
+| ex-city-capital-Toronto-Lyon      |      20 | tuned    |               1 |                   79 |              2 |               10028 |
+| ex-city-capital-Toronto-Lyon      |      20 | logit    |               1 |                   79 |              1 |                  51 |
+| ex-city-capital-Toronto-Lyon      |      20 | random   |               1 |                   79 |              1 |                  47 |
+| ex-city-continent-Toronto-Lyon    |       8 | tuned    |               1 |                   32 |              1 |                  30 |
+| ex-city-continent-Toronto-Lyon    |       8 | logit    |               1 |                   32 |              2 |                  80 |
+| ex-city-continent-Toronto-Lyon    |       8 | random   |               1 |                   32 |              1 |                  30 |
+| ex-city-continent-Toronto-Lyon    |      14 | tuned    |               1 |                   32 |              1 |                  30 |
+| ex-city-continent-Toronto-Lyon    |      14 | logit    |               1 |                   32 |              2 |                  80 |
+| ex-city-continent-Toronto-Lyon    |      14 | random   |               1 |                   32 |              2 |                  40 |
+| ex-city-continent-Toronto-Lyon    |      20 | tuned    |               1 |                   32 |             19 |                 202 |
+| ex-city-continent-Toronto-Lyon    |      20 | logit    |               1 |                   32 |              3 |                  15 |
+| ex-city-continent-Toronto-Lyon    |      20 | random   |               1 |                   32 |              7 |                  77 |
+| ex-city-currency-Toronto-Beijing  |       8 | tuned    |               1 |                   50 |              1 |                  62 |
+| ex-city-currency-Toronto-Beijing  |       8 | logit    |               1 |                   50 |              1 |                  81 |
+| ex-city-currency-Toronto-Beijing  |       8 | random   |               1 |                   50 |              1 |                  53 |
+| ex-city-currency-Toronto-Beijing  |      14 | tuned    |               1 |                   50 |              1 |                  46 |
+| ex-city-currency-Toronto-Beijing  |      14 | logit    |               1 |                   50 |              1 |                  91 |
+| ex-city-currency-Toronto-Beijing  |      14 | random   |               1 |                   50 |              1 |                  51 |
+| ex-city-currency-Toronto-Beijing  |      20 | tuned    |               1 |                   50 |              2 |                2124 |
+| ex-city-currency-Toronto-Beijing  |      20 | logit    |               1 |                   50 |              1 |                   6 |
+| ex-city-currency-Toronto-Beijing  |      20 | random   |               1 |                   50 |              2 |                 345 |
+| ex-city-language-Lyon-Naples      |       8 | tuned    |               1 |                   26 |              1 |                  25 |
+| ex-city-language-Lyon-Naples      |       8 | logit    |               1 |                   26 |              1 |                   3 |
+| ex-city-language-Lyon-Naples      |       8 | random   |               1 |                   26 |              1 |                  33 |
+| ex-city-language-Lyon-Naples      |      14 | tuned    |               1 |                   26 |              1 |                  22 |
+| ex-city-language-Lyon-Naples      |      14 | logit    |               1 |                   26 |              1 |                   2 |
+| ex-city-language-Lyon-Naples      |      14 | random   |               1 |                   26 |              1 |                  43 |
+| ex-city-language-Lyon-Naples      |      20 | tuned    |               1 |                   26 |              1 |                  22 |
+| ex-city-language-Lyon-Naples      |      20 | logit    |               1 |                   26 |              2 |                   1 |
+| ex-city-language-Lyon-Naples      |      20 | random   |               1 |                   26 |              1 |                  27 |
+| ex-element-state-26-8             |       8 | tuned    |               4 |                    2 |              5 |                   2 |
+| ex-element-state-26-8             |       8 | logit    |               4 |                    2 |              5 |                   2 |
+| ex-element-state-26-8             |       8 | random   |               4 |                    2 |              5 |                   2 |
+| ex-element-state-26-8             |      14 | tuned    |               4 |                    2 |              4 |                   2 |
+| ex-element-state-26-8             |      14 | logit    |               4 |                    2 |              4 |                   2 |
+| ex-element-state-26-8             |      14 | random   |               4 |                    2 |              4 |                   2 |
+| ex-element-state-26-8             |      20 | tuned    |               4 |                    2 |              4 |                   2 |
+| ex-element-state-26-8             |      20 | logit    |               4 |                    2 |              4 |                   2 |
+| ex-element-state-26-8             |      20 | random   |               4 |                    2 |              4 |                   2 |
+| ex-element-state-26-80            |       8 | tuned    |               4 |                    3 |              5 |                   3 |
+| ex-element-state-26-80            |       8 | logit    |               4 |                    3 |              4 |                   3 |
+| ex-element-state-26-80            |       8 | random   |               4 |                    3 |              5 |                   3 |
+| ex-element-state-26-80            |      14 | tuned    |               4 |                    3 |              5 |                   3 |
+| ex-element-state-26-80            |      14 | logit    |               4 |                    3 |              4 |                   3 |
+| ex-element-state-26-80            |      14 | random   |               4 |                    3 |              4 |                   3 |
+| ex-element-state-26-80            |      20 | tuned    |               4 |                    3 |              5 |                   2 |
+| ex-element-state-26-80            |      20 | logit    |               4 |                    3 |              4 |                   3 |
+| ex-element-state-26-80            |      20 | random   |               4 |                    3 |              4 |                   2 |
+| ex-element-state-8-26             |       8 | tuned    |               2 |                    3 |              2 |                   3 |
+| ex-element-state-8-26             |       8 | logit    |               2 |                    3 |              2 |                   3 |
+| ex-element-state-8-26             |       8 | random   |               2 |                    3 |              2 |                   3 |
+| ex-element-state-8-26             |      14 | tuned    |               2 |                    3 |              2 |                   3 |
+| ex-element-state-8-26             |      14 | logit    |               2 |                    3 |              2 |                   3 |
+| ex-element-state-8-26             |      14 | random   |               2 |                    3 |              2 |                   4 |
+| ex-element-state-8-26             |      20 | tuned    |               2 |                    3 |              2 |                   3 |
+| ex-element-state-8-26             |      20 | logit    |               2 |                    3 |              2 |                   3 |
+| ex-element-state-8-26             |      20 | random   |               2 |                    3 |              2 |                   4 |
+| ex-element-state-8-80             |       8 | tuned    |               2 |                    4 |              2 |                   3 |
+| ex-element-state-8-80             |       8 | logit    |               2 |                    4 |              2 |                   3 |
+| ex-element-state-8-80             |       8 | random   |               2 |                    4 |              2 |                   3 |
+| ex-element-state-8-80             |      14 | tuned    |               2 |                    4 |              2 |                   3 |
+| ex-element-state-8-80             |      14 | logit    |               2 |                    4 |              2 |                   4 |
+| ex-element-state-8-80             |      14 | random   |               2 |                    4 |              2 |                   3 |
+| ex-element-state-8-80             |      20 | tuned    |               2 |                    4 |              1 |                   3 |
+| ex-element-state-8-80             |      20 | logit    |               2 |                    4 |              2 |                   3 |
+| ex-element-state-8-80             |      20 | random   |               2 |                    4 |              2 |                   3 |
+| ex-element-state-80-8             |       8 | tuned    |               3 |                    2 |              2 |                   3 |
+| ex-element-state-80-8             |       8 | logit    |               3 |                    2 |              3 |                   2 |
+| ex-element-state-80-8             |       8 | random   |               3 |                    2 |              3 |                   2 |
+| ex-element-state-80-8             |      14 | tuned    |               3 |                    2 |              2 |                   3 |
+| ex-element-state-80-8             |      14 | logit    |               3 |                    2 |              2 |                   2 |
+| ex-element-state-80-8             |      14 | random   |               3 |                    2 |              2 |                   3 |
+| ex-element-state-80-8             |      20 | tuned    |               3 |                    2 |              2 |                   3 |
+| ex-element-state-80-8             |      20 | logit    |               3 |                    2 |              2 |                   3 |
+| ex-element-state-80-8             |      20 | random   |               3 |                    2 |              2 |                   3 |
+| ex-element-symbol-11-26           |       8 | tuned    |               1 |                  157 |              3 |                  51 |
+| ex-element-symbol-11-26           |       8 | logit    |               1 |                  157 |              1 |                 140 |
+| ex-element-symbol-11-26           |       8 | random   |               1 |                  157 |              1 |                  77 |
+| ex-element-symbol-11-26           |      14 | tuned    |               1 |                  157 |              1 |                 151 |
+| ex-element-symbol-11-26           |      14 | logit    |               1 |                  157 |              1 |                 110 |
+| ex-element-symbol-11-26           |      14 | random   |               1 |                  157 |              1 |                 170 |
+| ex-element-symbol-11-26           |      20 | tuned    |               1 |                  157 |              1 |                 183 |
+| ex-element-symbol-11-26           |      20 | logit    |               1 |                  157 |              1 |                  97 |
+| ex-element-symbol-11-26           |      20 | random   |               1 |                  157 |              1 |                 173 |
+| ex-element-symbol-26-79           |       8 | tuned    |               1 |                   75 |              1 |                  76 |
+| ex-element-symbol-26-79           |       8 | logit    |               1 |                   75 |              1 |                  78 |
+| ex-element-symbol-26-79           |       8 | random   |               1 |                   75 |              1 |                  79 |
+| ex-element-symbol-26-79           |      14 | tuned    |               1 |                   75 |              1 |                  78 |
+| ex-element-symbol-26-79           |      14 | logit    |               1 |                   75 |              1 |                  78 |
+| ex-element-symbol-26-79           |      14 | random   |               1 |                   75 |              1 |                  97 |
+| ex-element-symbol-26-79           |      20 | tuned    |               1 |                   75 |              1 |                  37 |
+| ex-element-symbol-26-79           |      20 | logit    |               1 |                   75 |              1 |                  64 |
+| ex-element-symbol-26-79           |      20 | random   |               1 |                   75 |              1 |                  77 |
+| ex-planet-color-third-fourth      |       8 | tuned    |               1 |                    4 |              1 |                   5 |
+| ex-planet-color-third-fourth      |       8 | logit    |               1 |                    4 |              1 |                   3 |
+| ex-planet-color-third-fourth      |       8 | random   |               1 |                    4 |              1 |                   5 |
+| ex-planet-color-third-fourth      |      14 | tuned    |               1 |                    4 |              2 |                   1 |
+| ex-planet-color-third-fourth      |      14 | logit    |               1 |                    4 |              1 |                   4 |
+| ex-planet-color-third-fourth      |      14 | random   |               1 |                    4 |              1 |                  11 |
+| ex-planet-color-third-fourth      |      20 | tuned    |               1 |                    4 |              2 |                   5 |
+| ex-planet-color-third-fourth      |      20 | logit    |               1 |                    4 |              1 |                   2 |
+| ex-planet-color-third-fourth      |      20 | random   |               1 |                    4 |              5 |                   6 |
+| ex2-city-capital-Munich           |       8 | tuned    |               4 |                  630 |              8 |                5471 |
+| ex2-city-capital-Munich           |       8 | logit    |               4 |                  630 |              3 |                1566 |
+| ex2-city-capital-Munich           |       8 | random   |               4 |                  630 |              1 |                 621 |
+| ex2-city-capital-Munich           |      14 | tuned    |               4 |                  630 |              1 |                 585 |
+| ex2-city-capital-Munich           |      14 | logit    |               4 |                  630 |              4 |                1670 |
+| ex2-city-capital-Munich           |      14 | random   |               4 |                  630 |              2 |                 785 |
+| ex2-city-capital-Munich           |      20 | tuned    |               4 |                  630 |              4 |                 474 |
+| ex2-city-capital-Munich           |      20 | logit    |               4 |                  630 |              5 |                 277 |
+| ex2-city-capital-Munich           |      20 | random   |               4 |                  630 |              1 |                 646 |
+| ex2-city-capital-Osaka            |       8 | tuned    |               5 |                  303 |             14 |                 253 |
+| ex2-city-capital-Osaka            |       8 | logit    |               5 |                  303 |              4 |                 139 |
+| ex2-city-capital-Osaka            |       8 | random   |               5 |                  303 |              5 |                 137 |
+| ex2-city-capital-Osaka            |      14 | tuned    |               5 |                  303 |              4 |                 135 |
+| ex2-city-capital-Osaka            |      14 | logit    |               5 |                  303 |              6 |                  92 |
+| ex2-city-capital-Osaka            |      14 | random   |               5 |                  303 |              5 |                 269 |
+| ex2-city-capital-Osaka            |      20 | tuned    |               5 |                  303 |              4 |                 187 |
+| ex2-city-capital-Osaka            |      20 | logit    |               5 |                  303 |             18 |                  12 |
+| ex2-city-capital-Osaka            |      20 | random   |               5 |                  303 |              4 |                 243 |
+| ex2-city-continent-Lima           |       8 | tuned    |               3 |                  437 |              2 |                  85 |
+| ex2-city-continent-Lima           |       8 | logit    |               3 |                  437 |              1 |                 297 |
+| ex2-city-continent-Lima           |       8 | random   |               3 |                  437 |              5 |                 450 |
+| ex2-city-continent-Lima           |      14 | tuned    |               3 |                  437 |              3 |                 395 |
+| ex2-city-continent-Lima           |      14 | logit    |               3 |                  437 |              3 |                 256 |
+| ex2-city-continent-Lima           |      14 | random   |               3 |                  437 |              3 |                 387 |
+| ex2-city-continent-Lima           |      20 | tuned    |               3 |                  437 |              1 |                 801 |
+| ex2-city-continent-Lima           |      20 | logit    |               3 |                  437 |              3 |                  65 |
+| ex2-city-continent-Lima           |      20 | random   |               3 |                  437 |              3 |                 361 |
+| ex2-city-continent-Sydney         |       8 | tuned    |               1 |                    7 |              1 |                   7 |
+| ex2-city-continent-Sydney         |       8 | logit    |               1 |                    7 |              1 |                   8 |
+| ex2-city-continent-Sydney         |       8 | random   |               1 |                    7 |              1 |                   9 |
+| ex2-city-continent-Sydney         |      14 | tuned    |               1 |                    7 |              1 |                   7 |
+| ex2-city-continent-Sydney         |      14 | logit    |               1 |                    7 |              1 |                   9 |
+| ex2-city-continent-Sydney         |      14 | random   |               1 |                    7 |              2 |                   9 |
+| ex2-city-continent-Sydney         |      20 | tuned    |               1 |                    7 |             11 |                   4 |
+| ex2-city-continent-Sydney         |      20 | logit    |               1 |                    7 |              7 |                   4 |
+| ex2-city-continent-Sydney         |      20 | random   |               1 |                    7 |              3 |                  10 |
+| ex2-city-language-Cairo           |       8 | tuned    |               1 |                  221 |              1 |                 424 |
+| ex2-city-language-Cairo           |       8 | logit    |               1 |                  221 |              1 |                 255 |
+| ex2-city-language-Cairo           |       8 | random   |               1 |                  221 |              1 |                 210 |
+| ex2-city-language-Cairo           |      14 | tuned    |               1 |                  221 |              1 |                 249 |
+| ex2-city-language-Cairo           |      14 | logit    |               1 |                  221 |              1 |                 312 |
+| ex2-city-language-Cairo           |      14 | random   |               1 |                  221 |              1 |                 200 |
+| ex2-city-language-Cairo           |      20 | tuned    |               1 |                  221 |              2 |                  20 |
+| ex2-city-language-Cairo           |      20 | logit    |               1 |                  221 |              1 |                  58 |
+| ex2-city-language-Cairo           |      20 | random   |               1 |                  221 |              1 |                 309 |
+| ex2-city-language-Moscow          |       8 | tuned    |               1 |                  224 |              1 |                  17 |
+| ex2-city-language-Moscow          |       8 | logit    |               1 |                  224 |              1 |                 126 |
+| ex2-city-language-Moscow          |       8 | random   |               1 |                  224 |              1 |                 199 |
+| ex2-city-language-Moscow          |      14 | tuned    |               1 |                  224 |              1 |                 152 |
+| ex2-city-language-Moscow          |      14 | logit    |               1 |                  224 |              1 |                  88 |
+| ex2-city-language-Moscow          |      14 | random   |               1 |                  224 |              1 |                 182 |
+| ex2-city-language-Moscow          |      20 | tuned    |               1 |                  224 |              1 |                 421 |
+| ex2-city-language-Moscow          |      20 | logit    |               1 |                  224 |              1 |                  19 |
+| ex2-city-language-Moscow          |      20 | random   |               1 |                  224 |              1 |                 123 |
+| ex2-language-capital-Greek        |       8 | tuned    |               2 |                  306 |              3 |                 151 |
+| ex2-language-capital-Greek        |       8 | logit    |               2 |                  306 |              3 |                 235 |
+| ex2-language-capital-Greek        |       8 | random   |               2 |                  306 |              2 |                 384 |
+| ex2-language-capital-Greek        |      14 | tuned    |               2 |                  306 |              3 |                 227 |
+| ex2-language-capital-Greek        |      14 | logit    |               2 |                  306 |              3 |                 266 |
+| ex2-language-capital-Greek        |      14 | random   |               2 |                  306 |              2 |                 344 |
+| ex2-language-capital-Greek        |      20 | tuned    |               2 |                  306 |              3 |                 133 |
+| ex2-language-capital-Greek        |      20 | logit    |               2 |                  306 |              4 |                  19 |
+| ex2-language-capital-Greek        |      20 | random   |               2 |                  306 |              2 |                 292 |
+| ex2-language-capital-Hungarian    |       8 | tuned    |               3 |                   70 |              3 |                 164 |
+| ex2-language-capital-Hungarian    |       8 | logit    |               3 |                   70 |              3 |                 127 |
+| ex2-language-capital-Hungarian    |       8 | random   |               3 |                   70 |              3 |                  53 |
+| ex2-language-capital-Hungarian    |      14 | tuned    |               3 |                   70 |              6 |                  69 |
+| ex2-language-capital-Hungarian    |      14 | logit    |               3 |                   70 |              3 |                 140 |
+| ex2-language-capital-Hungarian    |      14 | random   |               3 |                   70 |              4 |                  85 |
+| ex2-language-capital-Hungarian    |      20 | tuned    |               3 |                   70 |              4 |                  21 |
+| ex2-language-capital-Hungarian    |      20 | logit    |               3 |                   70 |              3 |                  35 |
+| ex2-language-capital-Hungarian    |      20 | random   |               3 |                   70 |              3 |                 109 |
+| ex2-language-capital-Polish       |       8 | tuned    |               2 |                 1254 |              3 |                 291 |
+| ex2-language-capital-Polish       |       8 | logit    |               2 |                 1254 |              4 |                 206 |
+| ex2-language-capital-Polish       |       8 | random   |               2 |                 1254 |              2 |                1528 |
+| ex2-language-capital-Polish       |      14 | tuned    |               2 |                 1254 |              2 |                 405 |
+| ex2-language-capital-Polish       |      14 | logit    |               2 |                 1254 |              4 |                 200 |
+| ex2-language-capital-Polish       |      14 | random   |               2 |                 1254 |              2 |                2100 |
+| ex2-language-capital-Polish       |      20 | tuned    |               2 |                 1254 |              3 |                 742 |
+| ex2-language-capital-Polish       |      20 | logit    |               2 |                 1254 |              5 |                 172 |
+| ex2-language-capital-Polish       |      20 | random   |               2 |                 1254 |              3 |                1376 |
+| ex2-language-capital-Swedish      |       8 | tuned    |               3 |                  473 |              1 |                 585 |
+| ex2-language-capital-Swedish      |       8 | logit    |               3 |                  473 |              1 |                 902 |
+| ex2-language-capital-Swedish      |       8 | random   |               3 |                  473 |              4 |                 629 |
+| ex2-language-capital-Swedish      |      14 | tuned    |               3 |                  473 |              1 |                1790 |
+| ex2-language-capital-Swedish      |      14 | logit    |               3 |                  473 |              1 |                1110 |
+| ex2-language-capital-Swedish      |      14 | random   |               3 |                  473 |              5 |                1572 |
+| ex2-language-capital-Swedish      |      20 | tuned    |               3 |                  473 |              1 |                1575 |
+| ex2-language-capital-Swedish      |      20 | logit    |               3 |                  473 |              3 |                 220 |
+| ex2-language-capital-Swedish      |      20 | random   |               3 |                  473 |              4 |                 631 |
+| ex2-river-capital-Thames          |       8 | tuned    |               1 |                   23 |              4 |                  14 |
+| ex2-river-capital-Thames          |       8 | logit    |               1 |                   23 |              1 |                  19 |
+| ex2-river-capital-Thames          |       8 | random   |               1 |                   23 |              1 |                  21 |
+| ex2-river-capital-Thames          |      14 | tuned    |               1 |                   23 |              1 |                  45 |
+| ex2-river-capital-Thames          |      14 | logit    |               1 |                   23 |              1 |                  16 |
+| ex2-river-capital-Thames          |      14 | random   |               1 |                   23 |              1 |                  20 |
+| ex2-river-capital-Thames          |      20 | tuned    |               1 |                   23 |              1 |                  10 |
+| ex2-river-capital-Thames          |      20 | logit    |               1 |                   23 |              1 |                  11 |
+| ex2-river-capital-Thames          |      20 | random   |               1 |                   23 |              1 |                  25 |
+| food-animal-butter                |       8 | tuned    |               1 |                   30 |              1 |                  29 |
+| food-animal-butter                |       8 | logit    |               1 |                   30 |              1 |                  16 |
+| food-animal-butter                |       8 | random   |               1 |                   30 |              1 |                  30 |
+| food-animal-butter                |      14 | tuned    |               1 |                   30 |              1 |                  40 |
+| food-animal-butter                |      14 | logit    |               1 |                   30 |              1 |                  15 |
+| food-animal-butter                |      14 | random   |               1 |                   30 |              1 |                  74 |
+| food-animal-butter                |      20 | tuned    |               1 |                   30 |              4 |                 276 |
+| food-animal-butter                |      20 | logit    |               1 |                   30 |              1 |                   6 |
+| food-animal-butter                |      20 | random   |               1 |                   30 |              2 |                  59 |
+| food-animal-honey                 |       8 | tuned    |               2 |                  885 |              2 |                 825 |
+| food-animal-honey                 |       8 | logit    |               2 |                  885 |              2 |                1177 |
+| food-animal-honey                 |       8 | random   |               2 |                  885 |              2 |                 969 |
+| food-animal-honey                 |      14 | tuned    |               2 |                  885 |              4 |                 916 |
+| food-animal-honey                 |      14 | logit    |               2 |                  885 |              2 |                1124 |
+| food-animal-honey                 |      14 | random   |               2 |                  885 |              4 |                 695 |
+| food-animal-honey                 |      20 | tuned    |               2 |                  885 |              3 |                3334 |
+| food-animal-honey                 |      20 | logit    |               2 |                  885 |              2 |                1391 |
+| food-animal-honey                 |      20 | random   |               2 |                  885 |              4 |                2199 |
+| fruit-grows-grape                 |       8 | tuned    |              10 |                    4 |             10 |                   4 |
+| fruit-grows-grape                 |       8 | logit    |              10 |                    4 |             14 |                   5 |
+| fruit-grows-grape                 |       8 | random   |              10 |                    4 |             10 |                   3 |
+| fruit-grows-grape                 |      14 | tuned    |              10 |                    4 |              3 |                   5 |
+| fruit-grows-grape                 |      14 | logit    |              10 |                    4 |             17 |                   4 |
+| fruit-grows-grape                 |      14 | random   |              10 |                    4 |              8 |                   1 |
+| fruit-grows-grape                 |      20 | tuned    |              10 |                    4 |             72 |                  23 |
+| fruit-grows-grape                 |      20 | logit    |              10 |                    4 |             18 |                   3 |
+| fruit-grows-grape                 |      20 | random   |              10 |                    4 |             26 |                   3 |
+| gem-color-ruby                    |       8 | tuned    |              37 |                   79 |             10 |                   6 |
+| gem-color-ruby                    |       8 | logit    |              37 |                   79 |             35 |                  30 |
+| gem-color-ruby                    |       8 | random   |              37 |                   79 |             65 |                 121 |
+| gem-color-ruby                    |      14 | tuned    |              37 |                   79 |             27 |                  45 |
+| gem-color-ruby                    |      14 | logit    |              37 |                   79 |             36 |                  53 |
+| gem-color-ruby                    |      14 | random   |              37 |                   79 |             66 |                 138 |
+| gem-color-ruby                    |      20 | tuned    |              37 |                   79 |             55 |                  78 |
+| gem-color-ruby                    |      20 | logit    |              37 |                   79 |             57 |                  41 |
+| gem-color-ruby                    |      20 | random   |              37 |                   79 |             48 |                  97 |
+| greatwall-ocean                   |       8 | tuned    |               6 |                   20 |              5 |                  14 |
+| greatwall-ocean                   |       8 | logit    |               6 |                   20 |              8 |                  16 |
+| greatwall-ocean                   |       8 | random   |               6 |                   20 |             11 |                  19 |
+| greatwall-ocean                   |      14 | tuned    |               6 |                   20 |             13 |                  28 |
+| greatwall-ocean                   |      14 | logit    |               6 |                   20 |              5 |                  16 |
+| greatwall-ocean                   |      14 | random   |               6 |                   20 |              7 |                  25 |
+| greatwall-ocean                   |      20 | tuned    |               6 |                   20 |             19 |                  24 |
+| greatwall-ocean                   |      20 | logit    |               6 |                   20 |              6 |                  18 |
+| greatwall-ocean                   |      20 | random   |               6 |                   20 |             15 |                 205 |
+| holiday-month-christmas2          |       8 | tuned    |               1 |                  253 |              1 |                 278 |
+| holiday-month-christmas2          |       8 | logit    |               1 |                  253 |              1 |                 225 |
+| holiday-month-christmas2          |       8 | random   |               1 |                  253 |              1 |                 285 |
+| holiday-month-christmas2          |      14 | tuned    |               1 |                  253 |              1 |                 366 |
+| holiday-month-christmas2          |      14 | logit    |               1 |                  253 |              1 |                 261 |
+| holiday-month-christmas2          |      14 | random   |               1 |                  253 |              1 |                 315 |
+| holiday-month-christmas2          |      20 | tuned    |               1 |                  253 |              1 |                  60 |
+| holiday-month-christmas2          |      20 | logit    |               1 |                  253 |              1 |                  15 |
+| holiday-month-christmas2          |      20 | random   |               1 |                  253 |              1 |                 169 |
+| instr-body-trumpet                |       8 | tuned    |               7 |                  351 |              2 |                 580 |
+| instr-body-trumpet                |       8 | logit    |               7 |                  351 |              6 |                 358 |
+| instr-body-trumpet                |       8 | random   |               7 |                  351 |             11 |                 685 |
+| instr-body-trumpet                |      14 | tuned    |               7 |                  351 |             19 |                 447 |
+| instr-body-trumpet                |      14 | logit    |               7 |                  351 |              7 |                 438 |
+| instr-body-trumpet                |      14 | random   |               7 |                  351 |             10 |                 403 |
+| instr-body-trumpet                |      20 | tuned    |               7 |                  351 |            117 |               10527 |
+| instr-body-trumpet                |      20 | logit    |               7 |                  351 |              7 |                 385 |
+| instr-body-trumpet                |      20 | random   |               7 |                  351 |             53 |                 264 |
+| instr-hit-drums                   |       8 | tuned    |              78 |                 5459 |             74 |                4878 |
+| instr-hit-drums                   |       8 | logit    |              78 |                 5459 |             85 |                6225 |
+| instr-hit-drums                   |       8 | random   |              78 |                 5459 |             77 |                6357 |
+| instr-hit-drums                   |      14 | tuned    |              78 |                 5459 |             70 |                6510 |
+| instr-hit-drums                   |      14 | logit    |              78 |                 5459 |             68 |                4566 |
+| instr-hit-drums                   |      14 | random   |              78 |                 5459 |             61 |                9259 |
+| instr-hit-drums                   |      20 | tuned    |              78 |                 5459 |            383 |               10160 |
+| instr-hit-drums                   |      20 | logit    |              78 |                 5459 |             86 |                5344 |
+| instr-hit-drums                   |      20 | random   |              78 |                 5459 |             29 |               11695 |
+| mars-color                        |       8 | tuned    |               9 |                   12 |              7 |                  12 |
+| mars-color                        |       8 | logit    |               9 |                   12 |             10 |                  13 |
+| mars-color                        |       8 | random   |               9 |                   12 |             12 |                  14 |
+| mars-color                        |      14 | tuned    |               9 |                   12 |             11 |                  16 |
+| mars-color                        |      14 | logit    |               9 |                   12 |              7 |                  14 |
+| mars-color                        |      14 | random   |               9 |                   12 |             18 |                   6 |
+| mars-color                        |      20 | tuned    |               9 |                   12 |             21 |                  19 |
+| mars-color                        |      20 | logit    |               9 |                   12 |              7 |                  14 |
+| mars-color                        |      20 | random   |               9 |                   12 |              8 |                  19 |
+| month-3-godof                     |       8 | tuned    |               1 |                   16 |              1 |                  19 |
+| month-3-godof                     |       8 | logit    |               1 |                   16 |              2 |                  32 |
+| month-3-godof                     |       8 | random   |               1 |                   16 |              1 |                  25 |
+| month-3-godof                     |      14 | tuned    |               1 |                   16 |             11 |                  33 |
+| month-3-godof                     |      14 | logit    |               1 |                   16 |              2 |                  19 |
+| month-3-godof                     |      14 | random   |               1 |                   16 |             62 |                  93 |
+| month-3-godof                     |      20 | tuned    |               1 |                   16 |            548 |                  74 |
+| month-3-godof                     |      20 | logit    |               1 |                   16 |              1 |                  13 |
+| month-3-godof                     |      20 | random   |               1 |                   16 |            352 |                 149 |
+| organ-acid-stomach                |       8 | tuned    |              33 |                   60 |             34 |                  48 |
+| organ-acid-stomach                |       8 | logit    |              33 |                   60 |             34 |                  51 |
+| organ-acid-stomach                |       8 | random   |              33 |                   60 |             46 |                  84 |
+| organ-acid-stomach                |      14 | tuned    |              33 |                   60 |             30 |                  50 |
+| organ-acid-stomach                |      14 | logit    |              33 |                   60 |             34 |                  62 |
+| organ-acid-stomach                |      14 | random   |              33 |                   60 |             29 |                  84 |
+| organ-acid-stomach                |      20 | tuned    |              33 |                   60 |             38 |                  69 |
+| organ-acid-stomach                |      20 | logit    |              33 |                   60 |             45 |                  50 |
+| organ-acid-stomach                |      20 | random   |              33 |                   60 |             30 |                  65 |
+| organ-count-kidney2               |       8 | tuned    |               2 |                   11 |              3 |                  11 |
+| organ-count-kidney2               |       8 | logit    |               2 |                   11 |              3 |                  11 |
+| organ-count-kidney2               |       8 | random   |               2 |                   11 |              2 |                  11 |
+| organ-count-kidney2               |      14 | tuned    |               2 |                   11 |              2 |                  23 |
+| organ-count-kidney2               |      14 | logit    |               2 |                   11 |              2 |                  11 |
+| organ-count-kidney2               |      14 | random   |               2 |                   11 |              3 |                  15 |
+| organ-count-kidney2               |      20 | tuned    |               2 |                   11 |              2 |                  17 |
+| organ-count-kidney2               |      20 | logit    |               2 |                   11 |              3 |                  11 |
+| organ-count-kidney2               |      20 | random   |               2 |                   11 |              2 |                   9 |
+| organ-location-heart              |       8 | tuned    |              48 |                  520 |             53 |                 522 |
+| organ-location-heart              |       8 | logit    |              48 |                  520 |             32 |                 616 |
+| organ-location-heart              |       8 | random   |              48 |                  520 |             81 |                 819 |
+| organ-location-heart              |      14 | tuned    |              48 |                  520 |             39 |                 453 |
+| organ-location-heart              |      14 | logit    |              48 |                  520 |             44 |                 699 |
+| organ-location-heart              |      14 | random   |              48 |                  520 |             42 |                 504 |
+| organ-location-heart              |      20 | tuned    |              48 |                  520 |             58 |                 159 |
+| organ-location-heart              |      20 | logit    |              48 |                  520 |             38 |                 653 |
+| organ-location-heart              |      20 | random   |              48 |                  520 |             44 |                 705 |
+| paper-continent                   |       8 | tuned    |              16 |                  100 |             15 |                 102 |
+| paper-continent                   |       8 | logit    |              16 |                  100 |             13 |                 107 |
+| paper-continent                   |       8 | random   |              16 |                  100 |             17 |                 117 |
+| paper-continent                   |      14 | tuned    |              16 |                  100 |             13 |                  78 |
+| paper-continent                   |      14 | logit    |              16 |                  100 |             17 |                 106 |
+| paper-continent                   |      14 | random   |              16 |                  100 |             17 |                 109 |
+| paper-continent                   |      20 | tuned    |              16 |                  100 |             25 |                  35 |
+| paper-continent                   |      20 | logit    |              16 |                  100 |             17 |                  65 |
+| paper-continent                   |      20 | random   |              16 |                  100 |             17 |                 175 |
+| person-country-napoleon           |       8 | tuned    |               6 |                   99 |              5 |                  69 |
+| person-country-napoleon           |       8 | logit    |               6 |                   99 |              7 |                  47 |
+| person-country-napoleon           |       8 | random   |               6 |                   99 |              5 |                 113 |
+| person-country-napoleon           |      14 | tuned    |               6 |                   99 |              9 |                  99 |
+| person-country-napoleon           |      14 | logit    |               6 |                   99 |              9 |                  49 |
+| person-country-napoleon           |      14 | random   |               6 |                   99 |              7 |                 114 |
+| person-country-napoleon           |      20 | tuned    |               6 |                   99 |              3 |                 172 |
+| person-country-napoleon           |      20 | logit    |               6 |                   99 |              8 |                  58 |
+| person-country-napoleon           |      20 | random   |               6 |                   99 |              8 |                 200 |
+| person-country-shakespeare        |       8 | tuned    |              52 |                  160 |             85 |                 185 |
+| person-country-shakespeare        |       8 | logit    |              52 |                  160 |             32 |                 132 |
+| person-country-shakespeare        |       8 | random   |              52 |                  160 |             60 |                 134 |
+| person-country-shakespeare        |      14 | tuned    |              52 |                  160 |             68 |                 188 |
+| person-country-shakespeare        |      14 | logit    |              52 |                  160 |             26 |                 127 |
+| person-country-shakespeare        |      14 | random   |              52 |                  160 |            133 |                 163 |
+| person-country-shakespeare        |      20 | tuned    |              52 |                  160 |            739 |                 431 |
+| person-country-shakespeare        |      20 | logit    |              52 |                  160 |             49 |                 153 |
+| person-country-shakespeare        |      20 | random   |              52 |                  160 |            205 |                 293 |
+| person-firstname-darwin           |       8 | tuned    |               1 |                   71 |              1 |                  74 |
+| person-firstname-darwin           |       8 | logit    |               1 |                   71 |              1 |                  70 |
+| person-firstname-darwin           |       8 | random   |               1 |                   71 |              1 |                  78 |
+| person-firstname-darwin           |      14 | tuned    |               1 |                   71 |              2 |                  57 |
+| person-firstname-darwin           |      14 | logit    |               1 |                   71 |              1 |                  68 |
+| person-firstname-darwin           |      14 | random   |               1 |                   71 |              1 |                  78 |
+| person-firstname-darwin           |      20 | tuned    |               1 |                   71 |              1 |                  34 |
+| person-firstname-darwin           |      20 | logit    |               1 |                   71 |              1 |                  52 |
+| person-firstname-darwin           |      20 | random   |               1 |                   71 |              2 |                  30 |
+| person-firstname-einstein         |       8 | tuned    |               1 |                    3 |              1 |                   3 |
+| person-firstname-einstein         |       8 | logit    |               1 |                    3 |              1 |                   3 |
+| person-firstname-einstein         |       8 | random   |               1 |                    3 |              1 |                   5 |
+| person-firstname-einstein         |      14 | tuned    |               1 |                    3 |              1 |                   4 |
+| person-firstname-einstein         |      14 | logit    |               1 |                    3 |              1 |                   3 |
+| person-firstname-einstein         |      14 | random   |               1 |                    3 |              1 |                   6 |
+| person-firstname-einstein         |      20 | tuned    |               1 |                    3 |              1 |                  94 |
+| person-firstname-einstein         |      20 | logit    |               1 |                    3 |              1 |                   3 |
+| person-firstname-einstein         |      20 | random   |               1 |                    3 |              1 |                  31 |
+| person-firstname-mozart           |       8 | tuned    |               4 |                   53 |              5 |                  79 |
+| person-firstname-mozart           |       8 | logit    |               4 |                   53 |              6 |                  53 |
+| person-firstname-mozart           |       8 | random   |               4 |                   53 |              2 |                  71 |
+| person-firstname-mozart           |      14 | tuned    |               4 |                   53 |              3 |                  55 |
+| person-firstname-mozart           |      14 | logit    |               4 |                   53 |              4 |                  46 |
+| person-firstname-mozart           |      14 | random   |               4 |                   53 |              5 |                  54 |
+| person-firstname-mozart           |      20 | tuned    |               4 |                   53 |              2 |                 214 |
+| person-firstname-mozart           |      20 | logit    |               4 |                   53 |              6 |                  36 |
+| person-firstname-mozart           |      20 | random   |               4 |                   53 |              9 |                  90 |
+| person-firstname-newton           |       8 | tuned    |               1 |                   14 |              1 |                  33 |
+| person-firstname-newton           |       8 | logit    |               1 |                   14 |              1 |                   9 |
+| person-firstname-newton           |       8 | random   |               1 |                   14 |              1 |                  21 |
+| person-firstname-newton           |      14 | tuned    |               1 |                   14 |              1 |                  13 |
+| person-firstname-newton           |      14 | logit    |               1 |                   14 |              1 |                   8 |
+| person-firstname-newton           |      14 | random   |               1 |                   14 |              2 |                  14 |
+| person-firstname-newton           |      20 | tuned    |               1 |                   14 |              1 |                   4 |
+| person-firstname-newton           |      20 | logit    |               1 |                   14 |              1 |                   8 |
+| person-firstname-newton           |      20 | random   |               1 |                   14 |              1 |                   6 |
+| person-firstname-shakespeare      |       8 | tuned    |               1 |                  248 |              1 |                 216 |
+| person-firstname-shakespeare      |       8 | logit    |               1 |                  248 |              1 |                 302 |
+| person-firstname-shakespeare      |       8 | random   |               1 |                  248 |              1 |                 298 |
+| person-firstname-shakespeare      |      14 | tuned    |               1 |                  248 |              1 |                 183 |
+| person-firstname-shakespeare      |      14 | logit    |               1 |                  248 |              1 |                 316 |
+| person-firstname-shakespeare      |      14 | random   |               1 |                  248 |              1 |                 273 |
+| person-firstname-shakespeare      |      20 | tuned    |               1 |                  248 |              3 |                 278 |
+| person-firstname-shakespeare      |      20 | logit    |               1 |                  248 |              1 |                  94 |
+| person-firstname-shakespeare      |      20 | random   |               1 |                  248 |              1 |                1410 |
+| planet-rings-saturn2              |       8 | tuned    |               2 |                  941 |              3 |                 987 |
+| planet-rings-saturn2              |       8 | logit    |               2 |                  941 |              5 |                1046 |
+| planet-rings-saturn2              |       8 | random   |               2 |                  941 |              2 |                 848 |
+| planet-rings-saturn2              |      14 | tuned    |               2 |                  941 |              2 |                 853 |
+| planet-rings-saturn2              |      14 | logit    |               2 |                  941 |              8 |                1109 |
+| planet-rings-saturn2              |      14 | random   |               2 |                  941 |              2 |                1004 |
+| planet-rings-saturn2              |      20 | tuned    |               2 |                  941 |              5 |                 696 |
+| planet-rings-saturn2              |      20 | logit    |               2 |                  941 |              2 |                 919 |
+| planet-rings-saturn2              |      20 | random   |               2 |                  941 |              3 |                1220 |
+| rhyme-chair-flag                  |       8 | tuned    |              59 |                   17 |             64 |                  16 |
+| rhyme-chair-flag                  |       8 | logit    |              59 |                   17 |             58 |                  17 |
+| rhyme-chair-flag                  |       8 | random   |              59 |                   17 |             64 |                  15 |
+| rhyme-chair-flag                  |      14 | tuned    |              59 |                   17 |             53 |                  13 |
+| rhyme-chair-flag                  |      14 | logit    |              59 |                   17 |             61 |                  17 |
+| rhyme-chair-flag                  |      14 | random   |              59 |                   17 |             66 |                  13 |
+| rhyme-chair-flag                  |      20 | tuned    |              59 |                   17 |             15 |                  38 |
+| rhyme-chair-flag                  |      20 | logit    |              59 |                   17 |             58 |                  17 |
+| rhyme-chair-flag                  |      20 | random   |              59 |                   17 |             46 |                  16 |
+| rhyme-rain-neighbor               |       8 | tuned    |              34 |                   11 |             21 |                  12 |
+| rhyme-rain-neighbor               |       8 | logit    |              34 |                   11 |             18 |                  12 |
+| rhyme-rain-neighbor               |       8 | random   |              34 |                   11 |             36 |                  11 |
+| rhyme-rain-neighbor               |      14 | tuned    |              34 |                   11 |             27 |                  10 |
+| rhyme-rain-neighbor               |      14 | logit    |              34 |                   11 |             20 |                  12 |
+| rhyme-rain-neighbor               |      14 | random   |              34 |                   11 |             24 |                  11 |
+| rhyme-rain-neighbor               |      20 | tuned    |              34 |                   11 |             43 |                  11 |
+| rhyme-rain-neighbor               |      20 | logit    |              34 |                   11 |             25 |                  12 |
+| rhyme-rain-neighbor               |      20 | random   |              34 |                   11 |             27 |                  10 |
+| rhyme-spoon-orbit                 |       8 | tuned    |               1 |                   10 |              1 |                   8 |
+| rhyme-spoon-orbit                 |       8 | logit    |               1 |                   10 |              1 |                  25 |
+| rhyme-spoon-orbit                 |       8 | random   |               1 |                   10 |              1 |                  35 |
+| rhyme-spoon-orbit                 |      14 | tuned    |               1 |                   10 |              1 |                   8 |
+| rhyme-spoon-orbit                 |      14 | logit    |               1 |                   10 |              1 |                  26 |
+| rhyme-spoon-orbit                 |      14 | random   |               1 |                   10 |              1 |                  11 |
+| rhyme-spoon-orbit                 |      20 | tuned    |               1 |                   10 |              1 |                  10 |
+| rhyme-spoon-orbit                 |      20 | logit    |               1 |                   10 |              1 |                  18 |
+| rhyme-spoon-orbit                 |      20 | random   |               1 |                   10 |              1 |                  10 |
+| season-next-winter                |       8 | tuned    |               5 |                   22 |              7 |                  27 |
+| season-next-winter                |       8 | logit    |               5 |                   22 |              5 |                  27 |
+| season-next-winter                |       8 | random   |               5 |                   22 |              5 |                  20 |
+| season-next-winter                |      14 | tuned    |               5 |                   22 |              7 |                  29 |
+| season-next-winter                |      14 | logit    |               5 |                   22 |              5 |                  23 |
+| season-next-winter                |      14 | random   |               5 |                   22 |              8 |                  30 |
+| season-next-winter                |      20 | tuned    |               5 |                   22 |              4 |                  21 |
+| season-next-winter                |      20 | logit    |               5 |                   22 |              4 |                  24 |
+| season-next-winter                |      20 | random   |               5 |                   22 |              5 |                  25 |
+| spaceneedle-border                |       8 | tuned    |              13 |                   43 |             13 |                  50 |
+| spaceneedle-border                |       8 | logit    |              13 |                   43 |             13 |                  76 |
+| spaceneedle-border                |       8 | random   |              13 |                   43 |             13 |                  43 |
+| spaceneedle-border                |      14 | tuned    |              13 |                   43 |             12 |                  48 |
+| spaceneedle-border                |      14 | logit    |              13 |                   43 |             12 |                  85 |
+| spaceneedle-border                |      14 | random   |              13 |                   43 |             12 |                  64 |
+| spaceneedle-border                |      20 | tuned    |              13 |                   43 |             11 |                  27 |
+| spaceneedle-border                |      20 | logit    |              13 |                   43 |             13 |                  49 |
+| spaceneedle-border                |      20 | random   |              13 |                   43 |             12 |                  22 |
+| sport-equip-tennis                |       8 | tuned    |               4 |                   11 |              5 |                  11 |
+| sport-equip-tennis                |       8 | logit    |               4 |                   11 |              5 |                   9 |
+| sport-equip-tennis                |       8 | random   |               4 |                   11 |              5 |                  11 |
+| sport-equip-tennis                |      14 | tuned    |               4 |                   11 |              5 |                  12 |
+| sport-equip-tennis                |      14 | logit    |               4 |                   11 |              4 |                  10 |
+| sport-equip-tennis                |      14 | random   |               4 |                   11 |              6 |                  10 |
+| sport-equip-tennis                |      20 | tuned    |               4 |                   11 |              4 |                   9 |
+| sport-equip-tennis                |      20 | logit    |               4 |                   11 |              8 |                   4 |
+| sport-equip-tennis                |      20 | random   |               4 |                   11 |              4 |                  11 |
+| super-populous-capital            |       8 | tuned    |              25 |                  115 |             29 |                  98 |
+| super-populous-capital            |       8 | logit    |              25 |                  115 |             58 |                  51 |
+| super-populous-capital            |       8 | random   |              25 |                  115 |             29 |                 204 |
+| super-populous-capital            |      14 | tuned    |              25 |                  115 |             32 |                  47 |
+| super-populous-capital            |      14 | logit    |              25 |                  115 |             85 |                  52 |
+| super-populous-capital            |      14 | random   |              25 |                  115 |             64 |                 346 |
+| super-populous-capital            |      20 | tuned    |              25 |                  115 |            113 |                  23 |
+| super-populous-capital            |      20 | logit    |              25 |                  115 |             51 |                  53 |
+| super-populous-capital            |      20 | random   |              25 |                  115 |             39 |                 173 |
+| super-smallest-continent          |       8 | tuned    |               4 |                    2 |              4 |                   3 |
+| super-smallest-continent          |       8 | logit    |               4 |                    2 |              2 |                   3 |
+| super-smallest-continent          |       8 | random   |               4 |                    2 |              6 |                   1 |
+| super-smallest-continent          |      14 | tuned    |               4 |                    2 |              4 |                   3 |
+| super-smallest-continent          |      14 | logit    |               4 |                    2 |              1 |                   3 |
+| super-smallest-continent          |      14 | random   |               4 |                    2 |              4 |                   2 |
+| super-smallest-continent          |      20 | tuned    |               4 |                    2 |             30 |                   1 |
+| super-smallest-continent          |      20 | logit    |               4 |                    2 |              4 |                   2 |
+| super-smallest-continent          |      20 | random   |               4 |                    2 |             11 |                   2 |
+| vehicle-power-bicycle             |       8 | tuned    |               3 |                   58 |              9 |                 145 |
+| vehicle-power-bicycle             |       8 | logit    |               3 |                   58 |              3 |                  59 |
+| vehicle-power-bicycle             |       8 | random   |               3 |                   58 |             19 |                  41 |
+| vehicle-power-bicycle             |      14 | tuned    |               3 |                   58 |              5 |                 103 |
+| vehicle-power-bicycle             |      14 | logit    |               3 |                   58 |              3 |                  59 |
+| vehicle-power-bicycle             |      14 | random   |               3 |                   58 |              3 |                  34 |
+| vehicle-power-bicycle             |      20 | tuned    |               3 |                   58 |              8 |                  46 |
+| vehicle-power-bicycle             |      20 | logit    |               3 |                   58 |              4 |                  59 |
+| vehicle-power-bicycle             |      20 | random   |               3 |                   58 |              1 |                  70 |
+
+Aggregate swap-answer movement:
+| intervention   |   n |   improved |   median Δrank |   top-1 |   top-5 |
+|----------------|-----|------------|----------------|---------|---------|
+| tuned          | 204 |         95 |            0   |       3 |      33 |
+| logit          | 204 |        102 |            0.5 |       1 |      40 |
+| random         | 204 |         65 |           -2   |       2 |      29 |
+[21:10:42] wrote 68 results (22 skipped) to data/experiments/multihop-causal-qwen3-1.7b-tuned-pile-repro-v1-short-2m.json
+	Command being timed: "uv run python scripts/eval_multihop_causal.py --model /home/alex/models/qwen3-1.7b-hf --lens-local data/lenses/qwen3-1.7b-tuned-pile-repro-v1-short-2m-patch-basis.pt --layers 8,14,20 --methods tuned,logit,random --qwen-kernels off --min-free-gib 6 --data data/experiments/probe-swap.json --patch-positions all --out data/experiments/multihop-causal-qwen3-1.7b-tuned-pile-repro-v1-short-2m.json"
+	User time (seconds): 15.26
+	System time (seconds): 1.20
+	Percent of CPU this job got: 114%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:14.44
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 4165892
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 566584
+	Voluntary context switches: 6660
+	Involuntary context switches: 470
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 280
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

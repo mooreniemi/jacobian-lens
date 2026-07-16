@@ -1,0 +1,375 @@
+{
+  "model": "/home/alex/models/qwen3-1.7b-hf",
+  "lens_repo": "neuronpedia/jacobian-lens",
+  "lens_file": "qwen3.5-4b/jlens/Salesforce-wikitext/Qwen3.5-4B_jacobian_lens_n1000.pt",
+  "lens_revision": "qwen-n1000",
+  "lens_local": "data/lenses/qwen3-1.7b-tuned-pile-repro-v1-short-2m-patch-basis.pt",
+  "precision": {
+    "compute_dtype": "bf16",
+    "base_quantization": "none"
+  },
+  "kernel_mode": "off",
+  "patch_positions": "all",
+  "layers": [
+    8,
+    14,
+    20
+  ],
+  "methods": [
+    "tuned",
+    "logit",
+    "random"
+  ],
+  "items": [
+    {
+      "category": "sport",
+      "prompt": "Think of a sport. Answer in one word.",
+      "source": "Basketball",
+      "target": "Rugby",
+      "source_rank_before": 11,
+      "target_rank_before": 63,
+      "candidate_ranks_before": {
+        "Basketball": 11,
+        "Soccer": 20,
+        "Tennis": 17,
+        "Football": 18,
+        "Baseball": 22,
+        "Golf": 67,
+        "Hockey": 126,
+        "Rugby": 63,
+        "Cricket": 24,
+        "Chess": 91,
+        "Boxing": 153,
+        "Swimming": 55,
+        "Running": 242,
+        "Cycling": 242
+      },
+      "answer_position": 9,
+      "layers": {
+        "8": {
+          "tuned": {
+            "source_rank_after": 10,
+            "target_rank_after": 1418,
+            "candidate_ranks_after": {
+              "Basketball": 10,
+              "Soccer": 30,
+              "Tennis": 58,
+              "Football": 30,
+              "Baseball": 42,
+              "Golf": 122,
+              "Hockey": 175,
+              "Rugby": 1418,
+              "Cricket": 103,
+              "Chess": 68,
+              "Boxing": 982,
+              "Swimming": 80,
+              "Running": 627,
+              "Cycling": 936
+            },
+            "top": [
+              " What",
+              " ",
+              " The",
+              " -",
+              " \\n\\n",
+              " (",
+              " For",
+              " Which",
+              " A",
+              " How"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 11,
+            "target_rank_after": 279,
+            "candidate_ranks_after": {
+              "Basketball": 11,
+              "Soccer": 22,
+              "Tennis": 16,
+              "Football": 32,
+              "Baseball": 19,
+              "Golf": 91,
+              "Hockey": 149,
+              "Rugby": 279,
+              "Cricket": 52,
+              "Chess": 79,
+              "Boxing": 216,
+              "Swimming": 91,
+              "Running": 349,
+              "Cycling": 475
+            },
+            "top": [
+              " What",
+              " Which",
+              " ",
+              " For",
+              " \\n\\n",
+              " -",
+              " How",
+              " The",
+              " what",
+              " \\n"
+            ]
+          },
+          "random": {
+            "source_rank_after": 11,
+            "target_rank_after": 206,
+            "candidate_ranks_after": {
+              "Basketball": 11,
+              "Soccer": 63,
+              "Tennis": 37,
+              "Football": 53,
+              "Baseball": 53,
+              "Golf": 222,
+              "Hockey": 327,
+              "Rugby": 206,
+              "Cricket": 136,
+              "Chess": 210,
+              "Boxing": 708,
+              "Swimming": 157,
+              "Running": 1162,
+              "Cycling": 2677
+            },
+            "top": [
+              " What",
+              " ",
+              " For",
+              " Which",
+              " The",
+              " How",
+              " (",
+              " -",
+              " what",
+              " \\n\\n"
+            ]
+          }
+        },
+        "14": {
+          "tuned": {
+            "source_rank_after": 15,
+            "target_rank_after": 59,
+            "candidate_ranks_after": {
+              "Basketball": 15,
+              "Soccer": 22,
+              "Tennis": 17,
+              "Football": 18,
+              "Baseball": 24,
+              "Golf": 78,
+              "Hockey": 143,
+              "Rugby": 59,
+              "Cricket": 25,
+              "Chess": 110,
+              "Boxing": 169,
+              "Swimming": 59,
+              "Running": 299,
+              "Cycling": 278
+            },
+            "top": [
+              " What",
+              " Which",
+              " -",
+              " ",
+              " \\n\\n",
+              " For",
+              " \\n",
+              " The",
+              " what",
+              " How"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 8,
+            "target_rank_after": 170,
+            "candidate_ranks_after": {
+              "Basketball": 8,
+              "Soccer": 20,
+              "Tennis": 15,
+              "Football": 22,
+              "Baseball": 19,
+              "Golf": 74,
+              "Hockey": 116,
+              "Rugby": 170,
+              "Cricket": 33,
+              "Chess": 74,
+              "Boxing": 149,
+              "Swimming": 68,
+              "Running": 276,
+              "Cycling": 292
+            },
+            "top": [
+              " What",
+              " Which",
+              " ",
+              " For",
+              " \\n\\n",
+              " -",
+              " what",
+              " Basketball",
+              " \\n",
+              " How"
+            ]
+          },
+          "random": {
+            "source_rank_after": 11,
+            "target_rank_after": 59,
+            "candidate_ranks_after": {
+              "Basketball": 11,
+              "Soccer": 19,
+              "Tennis": 17,
+              "Football": 19,
+              "Baseball": 22,
+              "Golf": 65,
+              "Hockey": 128,
+              "Rugby": 59,
+              "Cricket": 23,
+              "Chess": 89,
+              "Boxing": 164,
+              "Swimming": 51,
+              "Running": 243,
+              "Cycling": 245
+            },
+            "top": [
+              " What",
+              " Which",
+              " -",
+              " ",
+              " \\n\\n",
+              " For",
+              " \\n",
+              " The",
+              " what",
+              " How"
+            ]
+          }
+        },
+        "20": {
+          "tuned": {
+            "source_rank_after": 97,
+            "target_rank_after": 17,
+            "candidate_ranks_after": {
+              "Basketball": 97,
+              "Soccer": 45,
+              "Tennis": 30,
+              "Football": 33,
+              "Baseball": 65,
+              "Golf": 87,
+              "Hockey": 326,
+              "Rugby": 17,
+              "Cricket": 20,
+              "Chess": 698,
+              "Boxing": 304,
+              "Swimming": 63,
+              "Running": 186,
+              "Cycling": 514
+            },
+            "top": [
+              " What",
+              " ",
+              " \\n",
+              " \\n\\n",
+              " -",
+              " Which",
+              "  \\n",
+              " For",
+              " The",
+              " what"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 13,
+            "target_rank_after": 82,
+            "candidate_ranks_after": {
+              "Basketball": 13,
+              "Soccer": 18,
+              "Tennis": 17,
+              "Football": 19,
+              "Baseball": 19,
+              "Golf": 73,
+              "Hockey": 129,
+              "Rugby": 82,
+              "Cricket": 27,
+              "Chess": 88,
+              "Boxing": 144,
+              "Swimming": 58,
+              "Running": 257,
+              "Cycling": 234
+            },
+            "top": [
+              " What",
+              " Which",
+              " -",
+              " ",
+              " For",
+              " \\n\\n",
+              " what",
+              " The",
+              " \\n",
+              " How"
+            ]
+          },
+          "random": {
+            "source_rank_after": 12,
+            "target_rank_after": 154,
+            "candidate_ranks_after": {
+              "Basketball": 12,
+              "Soccer": 42,
+              "Tennis": 21,
+              "Football": 14,
+              "Baseball": 47,
+              "Golf": 36,
+              "Hockey": 244,
+              "Rugby": 154,
+              "Cricket": 28,
+              "Chess": 90,
+              "Boxing": 652,
+              "Swimming": 36,
+              "Running": 410,
+              "Cycling": 456
+            },
+            "top": [
+              " What",
+              " Which",
+              " For",
+              " ",
+              " \\n\\n",
+              " \\n",
+              " The",
+              " what",
+              " How",
+              " -"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "aggregate": [
+    [
+      "tuned",
+      3,
+      2,
+      4,
+      -435,
+      0,
+      0
+    ],
+    [
+      "logit",
+      3,
+      0,
+      -107,
+      -114,
+      0,
+      0
+    ],
+    [
+      "random",
+      3,
+      1,
+      -91,
+      -76.7,
+      0,
+      0
+    ]
+  ]
+}

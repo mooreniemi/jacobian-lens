@@ -1,0 +1,180 @@
+[21:10:24] Qwen kernel mode: off
+[21:10:24] preflight: 23.24 GiB free / 23.53 GiB total
+[21:10:24] loading model /home/alex/models/qwen3-1.7b-hf
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 15742.18it/s]
+[21:10:25] model ready: HFLensModel(Qwen3ForCausalLM, n_layers=28, d_model=2048); 20.02 GiB free
+[21:10:25] category country: source=China rank=12, target=Germany rank=14, positions=10
+[21:10:26] category color: source=Blue rank=12, target=Cyan rank=181, positions=10
+[21:10:26] category fruit: source=Apple rank=9, target=Lemon rank=22, positions=10
+[21:10:26] category sport: source=Basketball rank=11, target=Soccer rank=20, positions=10
+[21:10:26] category instrument: source=Piano rank=29, target=Bass rank=234, positions=10
+[21:10:26] category planet: source=Earth rank=15, target=Titan rank=302, positions=10
+[21:10:26] category tree: source=Ash rank=583, target=Cherry rank=757, positions=10
+[21:10:27] category bird: source=Owl rank=134, target=Falcon rank=680, positions=10
+[21:10:27] category language: source=English rank=46, target=Latin rank=168, positions=10
+[21:10:27] category profession: source=Teacher rank=13, target=Chef rank=194, positions=10
+[21:10:27] category beverage: source=Coffee rank=13, target=Rum rank=651, positions=10
+[21:10:27] category organ: source=Brain rank=48, target=Ear rank=419, positions=10
+[21:10:27] category city: source=Paris rank=12, target=Lima rank=1243, positions=10
+[21:10:27] category river: source=Amazon rank=887, target=Thames rank=2970, positions=10
+
+Causal verbal-report summary:
+| category   |   layer | method   |   src before |   tgt before |   src after |   tgt after |
+|------------|---------|----------|--------------|--------------|-------------|-------------|
+| country    |       8 | tuned    |           12 |           14 |          37 |           9 |
+| country    |       8 | logit    |           12 |           14 |          93 |           8 |
+| country    |       8 | random   |           12 |           14 |          16 |          13 |
+| country    |      14 | tuned    |           12 |           14 |          12 |          38 |
+| country    |      14 | logit    |           12 |           14 |          93 |           9 |
+| country    |      14 | random   |           12 |           14 |          13 |          11 |
+| country    |      20 | tuned    |           12 |           14 |         854 |           2 |
+| country    |      20 | logit    |           12 |           14 |          30 |          11 |
+| country    |      20 | random   |           12 |           14 |          28 |          19 |
+| color      |       8 | tuned    |           12 |          181 |          39 |        1708 |
+| color      |       8 | logit    |           12 |          181 |           9 |        1817 |
+| color      |       8 | random   |           12 |          181 |          39 |         186 |
+| color      |      14 | tuned    |           12 |          181 |          33 |        1105 |
+| color      |      14 | logit    |           12 |          181 |          10 |        1401 |
+| color      |      14 | random   |           12 |          181 |          17 |          98 |
+| color      |      20 | tuned    |           12 |          181 |         604 |           7 |
+| color      |      20 | logit    |           12 |          181 |          10 |         629 |
+| color      |      20 | random   |           12 |          181 |          17 |         233 |
+| fruit      |       8 | tuned    |            9 |           22 |          11 |          16 |
+| fruit      |       8 | logit    |            9 |           22 |           8 |          29 |
+| fruit      |       8 | random   |            9 |           22 |          13 |         121 |
+| fruit      |      14 | tuned    |            9 |           22 |          11 |          23 |
+| fruit      |      14 | logit    |            9 |           22 |           8 |          32 |
+| fruit      |      14 | random   |            9 |           22 |           5 |          26 |
+| fruit      |      20 | tuned    |            9 |           22 |          49 |          18 |
+| fruit      |      20 | logit    |            9 |           22 |           4 |          54 |
+| fruit      |      20 | random   |            9 |           22 |          56 |         104 |
+| sport      |       8 | tuned    |           11 |           20 |          11 |          20 |
+| sport      |       8 | logit    |           11 |           20 |           5 |         178 |
+| sport      |       8 | random   |           11 |           20 |          13 |          19 |
+| sport      |      14 | tuned    |           11 |           20 |          12 |          34 |
+| sport      |      14 | logit    |           11 |           20 |           7 |         205 |
+| sport      |      14 | random   |           11 |           20 |          10 |          21 |
+| sport      |      20 | tuned    |           11 |           20 |           4 |         120 |
+| sport      |      20 | logit    |           11 |           20 |           7 |          55 |
+| sport      |      20 | random   |           11 |           20 |          11 |          32 |
+| instrument |       8 | tuned    |           29 |          234 |          40 |         263 |
+| instrument |       8 | logit    |           29 |          234 |          30 |         289 |
+| instrument |       8 | random   |           29 |          234 |          32 |         326 |
+| instrument |      14 | tuned    |           29 |          234 |          37 |         238 |
+| instrument |      14 | logit    |           29 |          234 |          38 |         257 |
+| instrument |      14 | random   |           29 |          234 |          29 |         237 |
+| instrument |      20 | tuned    |           29 |          234 |          48 |         155 |
+| instrument |      20 | logit    |           29 |          234 |          86 |          59 |
+| instrument |      20 | random   |           29 |          234 |          31 |         244 |
+| planet     |       8 | tuned    |           15 |          302 |          38 |        1064 |
+| planet     |       8 | logit    |           15 |          302 |           9 |         388 |
+| planet     |       8 | random   |           15 |          302 |          27 |         453 |
+| planet     |      14 | tuned    |           15 |          302 |          27 |        1488 |
+| planet     |      14 | logit    |           15 |          302 |          11 |         375 |
+| planet     |      14 | random   |           15 |          302 |          55 |         265 |
+| planet     |      20 | tuned    |           15 |          302 |           9 |         604 |
+| planet     |      20 | logit    |           15 |          302 |          27 |         215 |
+| planet     |      20 | random   |           15 |          302 |          11 |         276 |
+| tree       |       8 | tuned    |          583 |          757 |         480 |         784 |
+| tree       |       8 | logit    |          583 |          757 |         405 |         975 |
+| tree       |       8 | random   |          583 |          757 |         514 |         710 |
+| tree       |      14 | tuned    |          583 |          757 |         805 |         805 |
+| tree       |      14 | logit    |          583 |          757 |         541 |         846 |
+| tree       |      14 | random   |          583 |          757 |         468 |         608 |
+| tree       |      20 | tuned    |          583 |          757 |         231 |        3214 |
+| tree       |      20 | logit    |          583 |          757 |         874 |         402 |
+| tree       |      20 | random   |          583 |          757 |         460 |         411 |
+| bird       |       8 | tuned    |          134 |          680 |         116 |        1125 |
+| bird       |       8 | logit    |          134 |          680 |         218 |         653 |
+| bird       |       8 | random   |          134 |          680 |         220 |         684 |
+| bird       |      14 | tuned    |          134 |          680 |         295 |        1060 |
+| bird       |      14 | logit    |          134 |          680 |         199 |         595 |
+| bird       |      14 | random   |          134 |          680 |         241 |         831 |
+| bird       |      20 | tuned    |          134 |          680 |         420 |         326 |
+| bird       |      20 | logit    |          134 |          680 |         331 |         331 |
+| bird       |      20 | random   |          134 |          680 |         155 |         548 |
+| language   |       8 | tuned    |           46 |          168 |          49 |         263 |
+| language   |       8 | logit    |           46 |          168 |          50 |         159 |
+| language   |       8 | random   |           46 |          168 |          54 |         194 |
+| language   |      14 | tuned    |           46 |          168 |          26 |         222 |
+| language   |      14 | logit    |           46 |          168 |          48 |         143 |
+| language   |      14 | random   |           46 |          168 |          49 |         208 |
+| language   |      20 | tuned    |           46 |          168 |          19 |       10541 |
+| language   |      20 | logit    |           46 |          168 |          41 |         172 |
+| language   |      20 | random   |           46 |          168 |          61 |         508 |
+| profession |       8 | tuned    |           13 |          194 |         330 |         123 |
+| profession |       8 | logit    |           13 |          194 |         129 |          71 |
+| profession |       8 | random   |           13 |          194 |          17 |         187 |
+| profession |      14 | tuned    |           13 |          194 |          13 |          50 |
+| profession |      14 | logit    |           13 |          194 |          64 |          34 |
+| profession |      14 | random   |           13 |          194 |          13 |          92 |
+| profession |      20 | tuned    |           13 |          194 |          31 |          28 |
+| profession |      20 | logit    |           13 |          194 |          49 |          24 |
+| profession |      20 | random   |           13 |          194 |          13 |         118 |
+| beverage   |       8 | tuned    |           13 |          651 |          12 |        1484 |
+| beverage   |       8 | logit    |           13 |          651 |          13 |         759 |
+| beverage   |       8 | random   |           13 |          651 |          25 |        1038 |
+| beverage   |      14 | tuned    |           13 |          651 |          14 |         672 |
+| beverage   |      14 | logit    |           13 |          651 |          18 |         585 |
+| beverage   |      14 | random   |           13 |          651 |          21 |         911 |
+| beverage   |      20 | tuned    |           13 |          651 |           8 |        1858 |
+| beverage   |      20 | logit    |           13 |          651 |          28 |         238 |
+| beverage   |      20 | random   |           13 |          651 |          13 |         722 |
+| organ      |       8 | tuned    |           48 |          419 |          40 |         337 |
+| organ      |       8 | logit    |           48 |          419 |          45 |         481 |
+| organ      |       8 | random   |           48 |          419 |          60 |         496 |
+| organ      |      14 | tuned    |           48 |          419 |          19 |         404 |
+| organ      |      14 | logit    |           48 |          419 |          51 |         446 |
+| organ      |      14 | random   |           48 |          419 |         141 |        2411 |
+| organ      |      20 | tuned    |           48 |          419 |        2807 |         129 |
+| organ      |      20 | logit    |           48 |          419 |         117 |         228 |
+| organ      |      20 | random   |           48 |          419 |          73 |         537 |
+| city       |       8 | tuned    |           12 |         1243 |         189 |       10862 |
+| city       |       8 | logit    |           12 |         1243 |          11 |        2656 |
+| city       |       8 | random   |           12 |         1243 |           5 |        1274 |
+| city       |      14 | tuned    |           12 |         1243 |          15 |        2014 |
+| city       |      14 | logit    |           12 |         1243 |          11 |        2515 |
+| city       |      14 | random   |           12 |         1243 |           8 |        2332 |
+| city       |      20 | tuned    |           12 |         1243 |          15 |         774 |
+| city       |      20 | logit    |           12 |         1243 |          13 |         951 |
+| city       |      20 | random   |           12 |         1243 |          12 |        1167 |
+| river      |       8 | tuned    |          887 |         2970 |         309 |        7059 |
+| river      |       8 | logit    |          887 |         2970 |         393 |        9012 |
+| river      |       8 | random   |          887 |         2970 |        1345 |        4254 |
+| river      |      14 | tuned    |          887 |         2970 |         744 |        3102 |
+| river      |      14 | logit    |          887 |         2970 |         403 |        7246 |
+| river      |      14 | random   |          887 |         2970 |         839 |        3063 |
+| river      |      20 | tuned    |          887 |         2970 |         116 |       23138 |
+| river      |      20 | logit    |          887 |         2970 |         413 |        5503 |
+| river      |      20 | random   |          887 |         2970 |         938 |        3877 |
+
+Aggregate target-rank changes (positive means target improved):
+| method   |   n |   improved |   median Δrank |   mean Δrank |   target top-1 |   target top-10 |
+|----------|-----|------------|----------------|--------------|----------------|-----------------|
+| tuned    |  42 |         14 |          -28   |      -1279.1 |              0 |               3 |
+| logit    |  42 |         18 |          -16.5 |       -416   |              0 |               2 |
+| random   |  42 |         14 |          -11   |       -150   |              0 |               0 |
+[21:10:28] wrote 14 causal results to data/experiments/verbal-report-causal-qwen3-1.7b-tuned-pile-repro-v1-short-2m.json
+	Command being timed: "uv run python scripts/eval_verbal_report_causal.py --model /home/alex/models/qwen3-1.7b-hf --lens-local data/lenses/qwen3-1.7b-tuned-pile-repro-v1-short-2m-patch-basis.pt --layers 8,14,20 --methods tuned,logit,random --qwen-kernels off --min-free-gib 6 --data data/experiments/verbal-report.json --categories country color fruit sport instrument planet tree bird language profession beverage organ city river --patch-positions all --out data/experiments/verbal-report-causal-qwen3-1.7b-tuned-pile-repro-v1-short-2m.json"
+	User time (seconds): 7.07
+	System time (seconds): 1.23
+	Percent of CPU this job got: 132%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:06.28
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 4166140
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 561128
+	Voluntary context switches: 6941
+	Involuntary context switches: 474
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 216
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

@@ -1,0 +1,397 @@
+{
+  "model": "/home/alex/models/qwen3-1.7b-hf",
+  "lens_file": "qwen3.5-4b/jlens/Salesforce-wikitext/Qwen3.5-4B_jacobian_lens_n1000.pt",
+  "lens_local": "data/lenses/qwen3-1.7b-tuned-pile-repro-v1-short-2m-patch-basis.pt",
+  "precision": {
+    "compute_dtype": "bf16",
+    "base_quantization": "none"
+  },
+  "kernel_mode": "off",
+  "patch_positions": "all",
+  "layers": [
+    8,
+    14,
+    20
+  ],
+  "methods": [
+    "tuned",
+    "logit",
+    "random"
+  ],
+  "n_input": 5,
+  "n_used": 5,
+  "skipped": [],
+  "items": [
+    {
+      "name": "amazon-language",
+      "category": "multihop",
+      "prompt": "Fact: The language spoken in the country where the Amazon River ends is ",
+      "intermediate": "Brazil",
+      "answer": "Portuguese",
+      "swap_to": "Mexico",
+      "swap_answer": "Spanish",
+      "answer_position": 14,
+      "source_token": 15948,
+      "target_token": 12270,
+      "answer_token": 42188,
+      "swap_answer_token": 15154,
+      "answer_rank_before": 14,
+      "swap_answer_rank_before": 4,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 140,
+            "swap_answer_rank_after": 60,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 11,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 70,
+            "swap_answer_rank_after": 20,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 13,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 33,
+            "swap_answer_rank_after": 9,
+            "swap_answer_top_k": true
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 14,
+            "swap_answer_rank_after": 8,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 14,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 14,
+            "swap_answer_rank_after": 6,
+            "swap_answer_top_k": true
+          }
+        }
+      }
+    },
+    {
+      "name": "animal-cover-turtle",
+      "category": "animal-cover",
+      "prompt": "Fact: The hard covering on the back of the slow reptile that can pull its head inside its body is called a",
+      "intermediate": "turtle",
+      "answer": "shell",
+      "swap_to": "snake",
+      "swap_answer": "scale",
+      "answer_position": 23,
+      "source_token": 36089,
+      "target_token": 25265,
+      "answer_token": 12528,
+      "swap_answer_token": 5452,
+      "answer_rank_before": 3,
+      "swap_answer_rank_before": 2,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 7,
+            "swap_answer_rank_after": 1,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 6,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          }
+        }
+      }
+    },
+    {
+      "name": "animal-legs-buffalo2",
+      "category": "animal-legs",
+      "prompt": "Fact: The number of legs on the large horned animal that roamed the American plains in huge herds is",
+      "intermediate": "buffalo",
+      "answer": "four",
+      "swap_to": "spider",
+      "swap_answer": "eight",
+      "answer_position": 22,
+      "source_token": 81355,
+      "target_token": 34354,
+      "answer_token": 3040,
+      "swap_answer_token": 8063,
+      "answer_rank_before": 2,
+      "swap_answer_rank_before": 12,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 10,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 9,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 11,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 10,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 10,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 8,
+            "swap_answer_top_k": true
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 13,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 12,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 9,
+            "swap_answer_top_k": true
+          }
+        }
+      }
+    },
+    {
+      "name": "animal-nose-elephant",
+      "category": "animal-nose",
+      "prompt": "Fact: The long flexible body part that the largest land animal uses to pick things up is called a",
+      "intermediate": "elephant",
+      "answer": "trunk",
+      "swap_to": "snake",
+      "swap_answer": "tongue",
+      "answer_position": 19,
+      "source_token": 45740,
+      "target_token": 25265,
+      "answer_token": 37311,
+      "swap_answer_token": 24459,
+      "answer_rank_before": 1,
+      "swap_answer_rank_before": 6,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 24,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 10,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 9,
+            "swap_answer_rank_after": 22,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 9,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 9,
+            "swap_answer_top_k": true
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 41,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 9,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 11,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "atomic-80-state",
+      "category": "multihop",
+      "prompt": "Fact: The state of matter at room temperature of the element with atomic number 80 is ",
+      "intermediate": "mercury",
+      "answer": "liquid",
+      "swap_to": "iron",
+      "swap_answer": "solid",
+      "answer_position": 19,
+      "source_token": 50752,
+      "target_token": 11001,
+      "answer_token": 14473,
+      "swap_answer_token": 6437,
+      "answer_rank_before": 2,
+      "swap_answer_rank_before": 4,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 11,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          }
+        }
+      }
+    }
+  ],
+  "aggregate": [
+    [
+      "tuned",
+      15,
+      5,
+      0,
+      1,
+      6
+    ],
+    [
+      "logit",
+      15,
+      2,
+      0,
+      0,
+      6
+    ],
+    [
+      "random",
+      15,
+      4,
+      0,
+      0,
+      6
+    ]
+  ]
+}

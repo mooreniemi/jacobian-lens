@@ -1,0 +1,4238 @@
+{
+  "model": "/home/alex/models/qwen3-1.7b-hf",
+  "lens_repo": "neuronpedia/jacobian-lens",
+  "lens_file": "qwen3.5-4b/jlens/Salesforce-wikitext/Qwen3.5-4B_jacobian_lens_n1000.pt",
+  "lens_revision": "qwen-n1000",
+  "lens_local": "data/lenses/qwen3-1.7b-tuned-pile-repro-v1-short-2m-patch-basis.pt",
+  "precision": {
+    "compute_dtype": "bf16",
+    "base_quantization": "none"
+  },
+  "kernel_mode": "off",
+  "patch_positions": "all",
+  "layers": [
+    8,
+    14,
+    20
+  ],
+  "methods": [
+    "tuned",
+    "logit",
+    "random"
+  ],
+  "items": [
+    {
+      "category": "country",
+      "prompt": "Think of a country. Answer in one word.",
+      "source": "China",
+      "target": "Germany",
+      "source_rank_before": 12,
+      "target_rank_before": 14,
+      "candidate_ranks_before": {
+        "Japan": 17,
+        "France": 16,
+        "Brazil": 94,
+        "China": 12,
+        "India": 17,
+        "Spain": 65,
+        "Italy": 21,
+        "Germany": 14,
+        "Canada": 27,
+        "Mexico": 43,
+        "Egypt": 31,
+        "Peru": 193,
+        "Kenya": 38,
+        "Norway": 175
+      },
+      "answer_position": 9,
+      "layers": {
+        "8": {
+          "tuned": {
+            "source_rank_after": 37,
+            "target_rank_after": 9,
+            "candidate_ranks_after": {
+              "Japan": 24,
+              "France": 16,
+              "Brazil": 65,
+              "China": 37,
+              "India": 37,
+              "Spain": 37,
+              "Italy": 16,
+              "Germany": 9,
+              "Canada": 37,
+              "Mexico": 90,
+              "Egypt": 37,
+              "Peru": 168,
+              "Kenya": 53,
+              "Norway": 90
+            },
+            "top": [
+              " What",
+              " ",
+              " The",
+              " Which",
+              " (",
+              " -",
+              " \\n\\n",
+              " Who",
+              " A",
+              " For"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 93,
+            "target_rank_after": 8,
+            "candidate_ranks_after": {
+              "Japan": 22,
+              "France": 13,
+              "Brazil": 78,
+              "China": 93,
+              "India": 38,
+              "Spain": 22,
+              "Italy": 16,
+              "Germany": 8,
+              "Canada": 22,
+              "Mexico": 71,
+              "Egypt": 38,
+              "Peru": 183,
+              "Kenya": 48,
+              "Norway": 78
+            },
+            "top": [
+              " Which",
+              " What",
+              " ",
+              " Where",
+              " -",
+              " The",
+              " \\n\\n",
+              " For",
+              " Germany",
+              " ("
+            ]
+          },
+          "random": {
+            "source_rank_after": 16,
+            "target_rank_after": 13,
+            "candidate_ranks_after": {
+              "Japan": 24,
+              "France": 16,
+              "Brazil": 205,
+              "China": 16,
+              "India": 91,
+              "Spain": 91,
+              "Italy": 20,
+              "Germany": 13,
+              "Canada": 110,
+              "Mexico": 58,
+              "Egypt": 55,
+              "Peru": 265,
+              "Kenya": 91,
+              "Norway": 110
+            },
+            "top": [
+              " What",
+              " ",
+              " (",
+              " For",
+              " The",
+              " Which",
+              " \\n\\n",
+              " -",
+              " Where",
+              " How"
+            ]
+          }
+        },
+        "14": {
+          "tuned": {
+            "source_rank_after": 12,
+            "target_rank_after": 38,
+            "candidate_ranks_after": {
+              "Japan": 16,
+              "France": 24,
+              "Brazil": 91,
+              "China": 12,
+              "India": 14,
+              "Spain": 106,
+              "Italy": 44,
+              "Germany": 38,
+              "Canada": 42,
+              "Mexico": 55,
+              "Egypt": 44,
+              "Peru": 249,
+              "Kenya": 35,
+              "Norway": 206
+            },
+            "top": [
+              " What",
+              " Which",
+              " -",
+              " \\n\\n",
+              " Where",
+              " ",
+              " The",
+              " \\n",
+              " For",
+              " How"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 93,
+            "target_rank_after": 9,
+            "candidate_ranks_after": {
+              "Japan": 26,
+              "France": 14,
+              "Brazil": 93,
+              "China": 93,
+              "India": 47,
+              "Spain": 22,
+              "Italy": 16,
+              "Germany": 9,
+              "Canada": 26,
+              "Mexico": 72,
+              "Egypt": 47,
+              "Peru": 184,
+              "Kenya": 52,
+              "Norway": 101
+            },
+            "top": [
+              " What",
+              " Which",
+              " -",
+              " ",
+              " Where",
+              " \\n\\n",
+              " The",
+              " For",
+              " Germany",
+              " \\n"
+            ]
+          },
+          "random": {
+            "source_rank_after": 13,
+            "target_rank_after": 11,
+            "candidate_ranks_after": {
+              "Japan": 19,
+              "France": 15,
+              "Brazil": 159,
+              "China": 13,
+              "India": 27,
+              "Spain": 59,
+              "Italy": 21,
+              "Germany": 11,
+              "Canada": 31,
+              "Mexico": 40,
+              "Egypt": 31,
+              "Peru": 207,
+              "Kenya": 36,
+              "Norway": 133
+            },
+            "top": [
+              " What",
+              " Which",
+              " ",
+              " \\n\\n",
+              " -",
+              " The",
+              " Where",
+              " \\n",
+              " (",
+              " For"
+            ]
+          }
+        },
+        "20": {
+          "tuned": {
+            "source_rank_after": 854,
+            "target_rank_after": 2,
+            "candidate_ranks_after": {
+              "Japan": 100,
+              "France": 36,
+              "Brazil": 147,
+              "China": 854,
+              "India": 218,
+              "Spain": 36,
+              "Italy": 14,
+              "Germany": 2,
+              "Canada": 75,
+              "Mexico": 90,
+              "Egypt": 29,
+              "Peru": 100,
+              "Kenya": 62,
+              "Norway": 58
+            },
+            "top": [
+              " Which",
+              " Germany",
+              " ",
+              " What",
+              " \\n\\n",
+              " The",
+              " In",
+              " Where",
+              " \\n",
+              " ("
+            ]
+          },
+          "logit": {
+            "source_rank_after": 30,
+            "target_rank_after": 11,
+            "candidate_ranks_after": {
+              "Japan": 18,
+              "France": 15,
+              "Brazil": 80,
+              "China": 30,
+              "India": 18,
+              "Spain": 43,
+              "Italy": 16,
+              "Germany": 11,
+              "Canada": 30,
+              "Mexico": 43,
+              "Egypt": 30,
+              "Peru": 174,
+              "Kenya": 30,
+              "Norway": 146
+            },
+            "top": [
+              " What",
+              " Which",
+              " ",
+              " -",
+              " The",
+              " \\n\\n",
+              " Where",
+              " \\n",
+              " (",
+              " For"
+            ]
+          },
+          "random": {
+            "source_rank_after": 28,
+            "target_rank_after": 19,
+            "candidate_ranks_after": {
+              "Japan": 13,
+              "France": 10,
+              "Brazil": 68,
+              "China": 28,
+              "India": 85,
+              "Spain": 119,
+              "Italy": 17,
+              "Germany": 19,
+              "Canada": 119,
+              "Mexico": 40,
+              "Egypt": 28,
+              "Peru": 331,
+              "Kenya": 102,
+              "Norway": 176
+            },
+            "top": [
+              " Which",
+              " What",
+              " ",
+              " Where",
+              " The",
+              " \\n\\n",
+              " Country",
+              " For",
+              " -",
+              " France"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "category": "color",
+      "prompt": "Think of a color. Answer in one word.",
+      "source": "Blue",
+      "target": "Cyan",
+      "source_rank_before": 12,
+      "target_rank_before": 181,
+      "candidate_ranks_before": {
+        "Blue": 12,
+        "Red": 15,
+        "Green": 18,
+        "Yellow": 24,
+        "Black": 50,
+        "White": 19,
+        "Orange": 22,
+        "Purple": 32,
+        "Pink": 50,
+        "Brown": 37,
+        "Gray": 173,
+        "Gold": 105,
+        "Silver": 181,
+        "Cyan": 181
+      },
+      "answer_position": 9,
+      "layers": {
+        "8": {
+          "tuned": {
+            "source_rank_after": 39,
+            "target_rank_after": 1708,
+            "candidate_ranks_after": {
+              "Blue": 39,
+              "Red": 34,
+              "Green": 53,
+              "Yellow": 239,
+              "Black": 252,
+              "White": 150,
+              "Orange": 190,
+              "Purple": 375,
+              "Pink": 905,
+              "Brown": 133,
+              "Gray": 2169,
+              "Gold": 659,
+              "Silver": 460,
+              "Cyan": 1708
+            },
+            "top": [
+              " -",
+              " ",
+              " What",
+              " |",
+              " \\n",
+              " The",
+              " \\n\\n",
+              " A",
+              " Which",
+              " ("
+            ]
+          },
+          "logit": {
+            "source_rank_after": 9,
+            "target_rank_after": 1817,
+            "candidate_ranks_after": {
+              "Blue": 9,
+              "Red": 25,
+              "Green": 23,
+              "Yellow": 38,
+              "Black": 60,
+              "White": 16,
+              "Orange": 34,
+              "Purple": 43,
+              "Pink": 60,
+              "Brown": 25,
+              "Gray": 175,
+              "Gold": 123,
+              "Silver": 154,
+              "Cyan": 1817
+            },
+            "top": [
+              " \\n\\n",
+              " What",
+              " How",
+              " -",
+              " The",
+              " ",
+              " \\n",
+              " A",
+              " Blue",
+              " Which"
+            ]
+          },
+          "random": {
+            "source_rank_after": 39,
+            "target_rank_after": 186,
+            "candidate_ranks_after": {
+              "Blue": 39,
+              "Red": 145,
+              "Green": 304,
+              "Yellow": 92,
+              "Black": 82,
+              "White": 60,
+              "Orange": 141,
+              "Purple": 77,
+              "Pink": 50,
+              "Brown": 209,
+              "Gray": 258,
+              "Gold": 1287,
+              "Silver": 1563,
+              "Cyan": 186
+            },
+            "top": [
+              " What",
+              " The",
+              " \\n",
+              " How",
+              " ",
+              " \\n\\n",
+              " For",
+              " A",
+              " If",
+              " It"
+            ]
+          }
+        },
+        "14": {
+          "tuned": {
+            "source_rank_after": 33,
+            "target_rank_after": 1105,
+            "candidate_ranks_after": {
+              "Blue": 33,
+              "Red": 38,
+              "Green": 28,
+              "Yellow": 85,
+              "Black": 156,
+              "White": 48,
+              "Orange": 104,
+              "Purple": 101,
+              "Pink": 133,
+              "Brown": 156,
+              "Gray": 435,
+              "Gold": 224,
+              "Silver": 766,
+              "Cyan": 1105
+            },
+            "top": [
+              " The",
+              " What",
+              " \\n",
+              " A",
+              " ",
+              " \\n\\n",
+              " If",
+              " How",
+              " For",
+              " Which"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 10,
+            "target_rank_after": 1401,
+            "candidate_ranks_after": {
+              "Blue": 10,
+              "Red": 22,
+              "Green": 22,
+              "Yellow": 43,
+              "Black": 73,
+              "White": 21,
+              "Orange": 34,
+              "Purple": 47,
+              "Pink": 60,
+              "Brown": 27,
+              "Gray": 168,
+              "Gold": 125,
+              "Silver": 186,
+              "Cyan": 1401
+            },
+            "top": [
+              " The",
+              " \\n\\n",
+              " -",
+              " What",
+              " How",
+              " ",
+              " \\n",
+              " Which",
+              " A",
+              " Blue"
+            ]
+          },
+          "random": {
+            "source_rank_after": 17,
+            "target_rank_after": 98,
+            "candidate_ranks_after": {
+              "Blue": 17,
+              "Red": 36,
+              "Green": 68,
+              "Yellow": 42,
+              "Black": 100,
+              "White": 20,
+              "Orange": 29,
+              "Purple": 66,
+              "Pink": 21,
+              "Brown": 39,
+              "Gray": 71,
+              "Gold": 1813,
+              "Silver": 1233,
+              "Cyan": 98
+            },
+            "top": [
+              " The",
+              " \\n",
+              " What",
+              " A",
+              " \\n\\n",
+              " ",
+              " For",
+              " Which",
+              " Color",
+              " If"
+            ]
+          }
+        },
+        "20": {
+          "tuned": {
+            "source_rank_after": 604,
+            "target_rank_after": 7,
+            "candidate_ranks_after": {
+              "Blue": 604,
+              "Red": 14,
+              "Green": 28,
+              "Yellow": 35,
+              "Black": 426,
+              "White": 53,
+              "Orange": 109,
+              "Purple": 213,
+              "Pink": 196,
+              "Brown": 569,
+              "Gray": 652,
+              "Gold": 348,
+              "Silver": 2162,
+              "Cyan": 7
+            },
+            "top": [
+              " What",
+              " \\n",
+              " The",
+              " ",
+              " How",
+              " When",
+              " If",
+              " Cyan",
+              " -",
+              " \\n\\n"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 10,
+            "target_rank_after": 629,
+            "candidate_ranks_after": {
+              "Blue": 10,
+              "Red": 14,
+              "Green": 18,
+              "Yellow": 31,
+              "Black": 48,
+              "White": 19,
+              "Orange": 29,
+              "Purple": 33,
+              "Pink": 56,
+              "Brown": 29,
+              "Gray": 171,
+              "Gold": 88,
+              "Silver": 143,
+              "Cyan": 629
+            },
+            "top": [
+              " What",
+              " The",
+              " -",
+              " How",
+              " \\n\\n",
+              " ",
+              " A",
+              " Which",
+              " \\n",
+              " Blue"
+            ]
+          },
+          "random": {
+            "source_rank_after": 17,
+            "target_rank_after": 233,
+            "candidate_ranks_after": {
+              "Blue": 17,
+              "Red": 36,
+              "Green": 22,
+              "Yellow": 6,
+              "Black": 81,
+              "White": 57,
+              "Orange": 11,
+              "Purple": 36,
+              "Pink": 36,
+              "Brown": 20,
+              "Gray": 28,
+              "Gold": 153,
+              "Silver": 217,
+              "Cyan": 233
+            },
+            "top": [
+              " What",
+              " Which",
+              " How",
+              " The",
+              " ",
+              " Yellow",
+              " A",
+              " S",
+              " For",
+              " \\n\\n"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "category": "fruit",
+      "prompt": "Think of a fruit. Answer in one word.",
+      "source": "Apple",
+      "target": "Lemon",
+      "source_rank_before": 9,
+      "target_rank_before": 22,
+      "candidate_ranks_before": {
+        "Apple": 9,
+        "Orange": 22,
+        "Banana": 15,
+        "Grape": 28,
+        "Mango": 71,
+        "Cherry": 40,
+        "Peach": 44,
+        "Lemon": 22,
+        "Lime": 367,
+        "Plum": 129,
+        "Berry": 588,
+        "Fig": 276,
+        "Date": 588
+      },
+      "answer_position": 9,
+      "layers": {
+        "8": {
+          "tuned": {
+            "source_rank_after": 11,
+            "target_rank_after": 16,
+            "candidate_ranks_after": {
+              "Apple": 11,
+              "Orange": 39,
+              "Banana": 21,
+              "Grape": 26,
+              "Mango": 103,
+              "Cherry": 40,
+              "Peach": 51,
+              "Lemon": 16,
+              "Lime": 171,
+              "Plum": 48,
+              "Berry": 564,
+              "Fig": 319,
+              "Date": 144
+            },
+            "top": [
+              " How",
+              " The",
+              " Which",
+              " What",
+              " App",
+              " -",
+              " A",
+              " ",
+              " \\n\\n",
+              " Or"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 8,
+            "target_rank_after": 29,
+            "candidate_ranks_after": {
+              "Apple": 8,
+              "Orange": 24,
+              "Banana": 15,
+              "Grape": 28,
+              "Mango": 77,
+              "Cherry": 44,
+              "Peach": 58,
+              "Lemon": 29,
+              "Lime": 468,
+              "Plum": 128,
+              "Berry": 649,
+              "Fig": 284,
+              "Date": 483
+            },
+            "top": [
+              " What",
+              " How",
+              " Which",
+              " Or",
+              " -",
+              " ",
+              " \\n\\n",
+              " Apple",
+              " The",
+              " App"
+            ]
+          },
+          "random": {
+            "source_rank_after": 13,
+            "target_rank_after": 121,
+            "candidate_ranks_after": {
+              "Apple": 13,
+              "Orange": 54,
+              "Banana": 21,
+              "Grape": 69,
+              "Mango": 79,
+              "Cherry": 69,
+              "Peach": 121,
+              "Lemon": 121,
+              "Lime": 930,
+              "Plum": 174,
+              "Berry": 930,
+              "Fig": 555,
+              "Date": 4249
+            },
+            "top": [
+              " What",
+              " How",
+              " Or",
+              " -",
+              " \\n\\n",
+              " ",
+              " Which",
+              " The",
+              " A",
+              " \\n"
+            ]
+          }
+        },
+        "14": {
+          "tuned": {
+            "source_rank_after": 11,
+            "target_rank_after": 23,
+            "candidate_ranks_after": {
+              "Apple": 11,
+              "Orange": 22,
+              "Banana": 15,
+              "Grape": 29,
+              "Mango": 63,
+              "Cherry": 51,
+              "Peach": 63,
+              "Lemon": 23,
+              "Lime": 489,
+              "Plum": 173,
+              "Berry": 632,
+              "Fig": 383,
+              "Date": 1211
+            },
+            "top": [
+              " What",
+              " How",
+              " Which",
+              " Or",
+              " \\n\\n",
+              " The",
+              " -",
+              " A",
+              " ",
+              " \\n"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 8,
+            "target_rank_after": 32,
+            "candidate_ranks_after": {
+              "Apple": 8,
+              "Orange": 26,
+              "Banana": 16,
+              "Grape": 30,
+              "Mango": 86,
+              "Cherry": 49,
+              "Peach": 61,
+              "Lemon": 32,
+              "Lime": 480,
+              "Plum": 161,
+              "Berry": 624,
+              "Fig": 285,
+              "Date": 565
+            },
+            "top": [
+              " What",
+              " Which",
+              " How",
+              " Or",
+              " -",
+              " ",
+              " \\n\\n",
+              " App",
+              " Apple",
+              " The"
+            ]
+          },
+          "random": {
+            "source_rank_after": 5,
+            "target_rank_after": 26,
+            "candidate_ranks_after": {
+              "Apple": 5,
+              "Orange": 20,
+              "Banana": 15,
+              "Grape": 24,
+              "Mango": 58,
+              "Cherry": 36,
+              "Peach": 42,
+              "Lemon": 26,
+              "Lime": 307,
+              "Plum": 94,
+              "Berry": 623,
+              "Fig": 271,
+              "Date": 728
+            },
+            "top": [
+              " What",
+              " Or",
+              " Which",
+              " How",
+              " The",
+              " -",
+              " \\n\\n",
+              " Apple",
+              " ",
+              " App"
+            ]
+          }
+        },
+        "20": {
+          "tuned": {
+            "source_rank_after": 49,
+            "target_rank_after": 18,
+            "candidate_ranks_after": {
+              "Apple": 49,
+              "Orange": 43,
+              "Banana": 6,
+              "Grape": 23,
+              "Mango": 82,
+              "Cherry": 65,
+              "Peach": 14,
+              "Lemon": 18,
+              "Lime": 861,
+              "Plum": 8,
+              "Berry": 668,
+              "Fig": 305,
+              "Date": 447
+            },
+            "top": [
+              " What",
+              " \\n\\n",
+              " How",
+              " Which",
+              " \\n",
+              " Banana",
+              " Pear",
+              " Plum",
+              " Chick",
+              " "
+            ]
+          },
+          "logit": {
+            "source_rank_after": 4,
+            "target_rank_after": 54,
+            "candidate_ranks_after": {
+              "Apple": 4,
+              "Orange": 25,
+              "Banana": 15,
+              "Grape": 29,
+              "Mango": 82,
+              "Cherry": 41,
+              "Peach": 54,
+              "Lemon": 54,
+              "Lime": 533,
+              "Plum": 148,
+              "Berry": 629,
+              "Fig": 287,
+              "Date": 598
+            },
+            "top": [
+              " What",
+              " Which",
+              " How",
+              " Apple",
+              " Or",
+              " The",
+              " ",
+              " -",
+              " A",
+              " App"
+            ]
+          },
+          "random": {
+            "source_rank_after": 56,
+            "target_rank_after": 104,
+            "candidate_ranks_after": {
+              "Apple": 56,
+              "Orange": 6,
+              "Banana": 120,
+              "Grape": 8,
+              "Mango": 181,
+              "Cherry": 53,
+              "Peach": 402,
+              "Lemon": 104,
+              "Lime": 507,
+              "Plum": 338,
+              "Berry": 7211,
+              "Fig": 1454,
+              "Date": 4155
+            },
+            "top": [
+              " Which",
+              " What",
+              " How",
+              " Or",
+              " The",
+              " ",
+              " Orange",
+              " Grape",
+              " One",
+              " For"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "category": "sport",
+      "prompt": "Think of a sport. Answer in one word.",
+      "source": "Basketball",
+      "target": "Soccer",
+      "source_rank_before": 11,
+      "target_rank_before": 20,
+      "candidate_ranks_before": {
+        "Basketball": 11,
+        "Soccer": 20,
+        "Tennis": 17,
+        "Football": 18,
+        "Baseball": 22,
+        "Golf": 67,
+        "Hockey": 126,
+        "Rugby": 63,
+        "Cricket": 24,
+        "Chess": 91,
+        "Boxing": 153,
+        "Swimming": 55,
+        "Running": 242,
+        "Cycling": 242
+      },
+      "answer_position": 9,
+      "layers": {
+        "8": {
+          "tuned": {
+            "source_rank_after": 11,
+            "target_rank_after": 20,
+            "candidate_ranks_after": {
+              "Basketball": 11,
+              "Soccer": 20,
+              "Tennis": 17,
+              "Football": 18,
+              "Baseball": 19,
+              "Golf": 59,
+              "Hockey": 116,
+              "Rugby": 59,
+              "Cricket": 23,
+              "Chess": 77,
+              "Boxing": 123,
+              "Swimming": 35,
+              "Running": 220,
+              "Cycling": 195
+            },
+            "top": [
+              " What",
+              " Which",
+              " -",
+              " ",
+              " \\n\\n",
+              " For",
+              " The",
+              " \\n",
+              " what",
+              " How"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 5,
+            "target_rank_after": 178,
+            "candidate_ranks_after": {
+              "Basketball": 5,
+              "Soccer": 178,
+              "Tennis": 17,
+              "Football": 72,
+              "Baseball": 28,
+              "Golf": 94,
+              "Hockey": 193,
+              "Rugby": 94,
+              "Cricket": 30,
+              "Chess": 62,
+              "Boxing": 117,
+              "Swimming": 77,
+              "Running": 178,
+              "Cycling": 200
+            },
+            "top": [
+              " What",
+              " ",
+              " -",
+              " For",
+              " Basketball",
+              " The",
+              " \\n\\n",
+              " Which",
+              " How",
+              " A"
+            ]
+          },
+          "random": {
+            "source_rank_after": 13,
+            "target_rank_after": 19,
+            "candidate_ranks_after": {
+              "Basketball": 13,
+              "Soccer": 19,
+              "Tennis": 17,
+              "Football": 19,
+              "Baseball": 22,
+              "Golf": 72,
+              "Hockey": 146,
+              "Rugby": 66,
+              "Cricket": 26,
+              "Chess": 103,
+              "Boxing": 171,
+              "Swimming": 58,
+              "Running": 268,
+              "Cycling": 321
+            },
+            "top": [
+              " What",
+              " Which",
+              " -",
+              " ",
+              " For",
+              " \\n\\n",
+              " The",
+              " \\n",
+              " what",
+              " How"
+            ]
+          }
+        },
+        "14": {
+          "tuned": {
+            "source_rank_after": 12,
+            "target_rank_after": 34,
+            "candidate_ranks_after": {
+              "Basketball": 12,
+              "Soccer": 34,
+              "Tennis": 17,
+              "Football": 24,
+              "Baseball": 24,
+              "Golf": 72,
+              "Hockey": 204,
+              "Rugby": 68,
+              "Cricket": 45,
+              "Chess": 72,
+              "Boxing": 241,
+              "Swimming": 45,
+              "Running": 283,
+              "Cycling": 313
+            },
+            "top": [
+              " What",
+              " ",
+              " -",
+              " Which",
+              " \\n\\n",
+              " The",
+              " what",
+              " How",
+              " \\n",
+              " For"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 7,
+            "target_rank_after": 205,
+            "candidate_ranks_after": {
+              "Basketball": 7,
+              "Soccer": 205,
+              "Tennis": 21,
+              "Football": 86,
+              "Baseball": 24,
+              "Golf": 111,
+              "Hockey": 205,
+              "Rugby": 124,
+              "Cricket": 42,
+              "Chess": 63,
+              "Boxing": 137,
+              "Swimming": 93,
+              "Running": 249,
+              "Cycling": 276
+            },
+            "top": [
+              " What",
+              " ",
+              " -",
+              " For",
+              " Which",
+              " \\n\\n",
+              " Basketball",
+              " The",
+              " How",
+              " A"
+            ]
+          },
+          "random": {
+            "source_rank_after": 10,
+            "target_rank_after": 21,
+            "candidate_ranks_after": {
+              "Basketball": 10,
+              "Soccer": 21,
+              "Tennis": 16,
+              "Football": 18,
+              "Baseball": 25,
+              "Golf": 75,
+              "Hockey": 138,
+              "Rugby": 68,
+              "Cricket": 37,
+              "Chess": 84,
+              "Boxing": 262,
+              "Swimming": 51,
+              "Running": 408,
+              "Cycling": 420
+            },
+            "top": [
+              " What",
+              " ",
+              " -",
+              " Which",
+              " The",
+              " \\n\\n",
+              " \\n",
+              " For",
+              " what",
+              " Basketball"
+            ]
+          }
+        },
+        "20": {
+          "tuned": {
+            "source_rank_after": 4,
+            "target_rank_after": 120,
+            "candidate_ranks_after": {
+              "Basketball": 4,
+              "Soccer": 120,
+              "Tennis": 19,
+              "Football": 32,
+              "Baseball": 24,
+              "Golf": 68,
+              "Hockey": 115,
+              "Rugby": 96,
+              "Cricket": 34,
+              "Chess": 53,
+              "Boxing": 115,
+              "Swimming": 51,
+              "Running": 293,
+              "Cycling": 192
+            },
+            "top": [
+              " What",
+              " Which",
+              " -",
+              " Basketball",
+              " what",
+              " ",
+              " For",
+              " How",
+              " (",
+              " The"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 7,
+            "target_rank_after": 55,
+            "candidate_ranks_after": {
+              "Basketball": 7,
+              "Soccer": 55,
+              "Tennis": 18,
+              "Football": 26,
+              "Baseball": 16,
+              "Golf": 77,
+              "Hockey": 117,
+              "Rugby": 63,
+              "Cricket": 33,
+              "Chess": 53,
+              "Boxing": 145,
+              "Swimming": 55,
+              "Running": 216,
+              "Cycling": 173
+            },
+            "top": [
+              " What",
+              " Which",
+              " -",
+              " ",
+              " For",
+              " \\n\\n",
+              " The",
+              " Basketball",
+              " what",
+              " \\n"
+            ]
+          },
+          "random": {
+            "source_rank_after": 11,
+            "target_rank_after": 32,
+            "candidate_ranks_after": {
+              "Basketball": 11,
+              "Soccer": 32,
+              "Tennis": 19,
+              "Football": 13,
+              "Baseball": 35,
+              "Golf": 42,
+              "Hockey": 179,
+              "Rugby": 118,
+              "Cricket": 23,
+              "Chess": 91,
+              "Boxing": 397,
+              "Swimming": 28,
+              "Running": 272,
+              "Cycling": 364
+            },
+            "top": [
+              " What",
+              " Which",
+              " For",
+              " ",
+              " \\n\\n",
+              " \\n",
+              " -",
+              " The",
+              " what",
+              " How"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "category": "instrument",
+      "prompt": "Think of a instrument. Answer in one word.",
+      "source": "Piano",
+      "target": "Bass",
+      "source_rank_before": 29,
+      "target_rank_before": 234,
+      "candidate_ranks_before": {
+        "Piano": 29,
+        "Guitar": 61,
+        "Drum": 362,
+        "Bass": 234,
+        "Organ": 362,
+        "Horn": 2096,
+        "Sax": 777,
+        "Bell": 1530
+      },
+      "answer_position": 9,
+      "layers": {
+        "8": {
+          "tuned": {
+            "source_rank_after": 40,
+            "target_rank_after": 263,
+            "candidate_ranks_after": {
+              "Piano": 40,
+              "Guitar": 120,
+              "Drum": 662,
+              "Bass": 263,
+              "Organ": 346,
+              "Horn": 2441,
+              "Sax": 1208,
+              "Bell": 2023
+            },
+            "top": [
+              " What",
+              " The",
+              " A",
+              " ",
+              " \\n\\n",
+              " \\n",
+              " Which",
+              " what",
+              " For",
+              " -"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 30,
+            "target_rank_after": 289,
+            "candidate_ranks_after": {
+              "Piano": 30,
+              "Guitar": 63,
+              "Drum": 428,
+              "Bass": 289,
+              "Organ": 354,
+              "Horn": 2401,
+              "Sax": 844,
+              "Bell": 1910
+            },
+            "top": [
+              " What",
+              " The",
+              " ",
+              " A",
+              " \\n\\n",
+              " \\n",
+              " For",
+              " -",
+              " Which",
+              " what"
+            ]
+          },
+          "random": {
+            "source_rank_after": 32,
+            "target_rank_after": 326,
+            "candidate_ranks_after": {
+              "Piano": 32,
+              "Guitar": 78,
+              "Drum": 587,
+              "Bass": 326,
+              "Organ": 558,
+              "Horn": 3041,
+              "Sax": 502,
+              "Bell": 1451
+            },
+            "top": [
+              " The",
+              " What",
+              " ",
+              " A",
+              " For",
+              " \\n\\n",
+              " \\n",
+              " -",
+              " (",
+              " \""
+            ]
+          }
+        },
+        "14": {
+          "tuned": {
+            "source_rank_after": 37,
+            "target_rank_after": 238,
+            "candidate_ranks_after": {
+              "Piano": 37,
+              "Guitar": 60,
+              "Drum": 411,
+              "Bass": 238,
+              "Organ": 411,
+              "Horn": 2502,
+              "Sax": 961,
+              "Bell": 1655
+            },
+            "top": [
+              " What",
+              " The",
+              " ",
+              " A",
+              " \\n\\n",
+              " \\n",
+              " For",
+              " -",
+              " what",
+              " Which"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 38,
+            "target_rank_after": 257,
+            "candidate_ranks_after": {
+              "Piano": 38,
+              "Guitar": 72,
+              "Drum": 439,
+              "Bass": 257,
+              "Organ": 380,
+              "Horn": 2801,
+              "Sax": 960,
+              "Bell": 1710
+            },
+            "top": [
+              " What",
+              " The",
+              " ",
+              " A",
+              " \\n\\n",
+              " \\n",
+              " For",
+              " -",
+              " what",
+              " Which"
+            ]
+          },
+          "random": {
+            "source_rank_after": 29,
+            "target_rank_after": 237,
+            "candidate_ranks_after": {
+              "Piano": 29,
+              "Guitar": 57,
+              "Drum": 407,
+              "Bass": 237,
+              "Organ": 457,
+              "Horn": 2173,
+              "Sax": 796,
+              "Bell": 1422
+            },
+            "top": [
+              " What",
+              " The",
+              " A",
+              " ",
+              " \\n\\n",
+              " \\n",
+              " For",
+              " -",
+              " what",
+              " Which"
+            ]
+          }
+        },
+        "20": {
+          "tuned": {
+            "source_rank_after": 48,
+            "target_rank_after": 155,
+            "candidate_ranks_after": {
+              "Piano": 48,
+              "Guitar": 67,
+              "Drum": 345,
+              "Bass": 155,
+              "Organ": 415,
+              "Horn": 2670,
+              "Sax": 857,
+              "Bell": 1692
+            },
+            "top": [
+              " What",
+              " The",
+              " ",
+              " A",
+              " \\n\\n",
+              " \\n",
+              " For",
+              " -",
+              " what",
+              " Which"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 86,
+            "target_rank_after": 59,
+            "candidate_ranks_after": {
+              "Piano": 86,
+              "Guitar": 70,
+              "Drum": 347,
+              "Bass": 59,
+              "Organ": 443,
+              "Horn": 2442,
+              "Sax": 921,
+              "Bell": 1322
+            },
+            "top": [
+              " What",
+              " The",
+              " ",
+              " A",
+              " \\n\\n",
+              " \\n",
+              " For",
+              " -",
+              " what",
+              " Which"
+            ]
+          },
+          "random": {
+            "source_rank_after": 31,
+            "target_rank_after": 244,
+            "candidate_ranks_after": {
+              "Piano": 31,
+              "Guitar": 62,
+              "Drum": 417,
+              "Bass": 244,
+              "Organ": 345,
+              "Horn": 1881,
+              "Sax": 766,
+              "Bell": 1329
+            },
+            "top": [
+              " What",
+              " The",
+              " ",
+              " A",
+              " \\n\\n",
+              " For",
+              " \\n",
+              " -",
+              " Which",
+              " How"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "category": "planet",
+      "prompt": "Think of a planet. Answer in one word.",
+      "source": "Earth",
+      "target": "Titan",
+      "source_rank_before": 15,
+      "target_rank_before": 302,
+      "candidate_ranks_before": {
+        "Neptune": 94,
+        "Saturn": 77,
+        "Jupiter": 113,
+        "Mars": 39,
+        "Venus": 113,
+        "Mercury": 273,
+        "Earth": 15,
+        "Pluto": 194,
+        "Moon": 228,
+        "Titan": 302,
+        "Sun": 210
+      },
+      "answer_position": 9,
+      "layers": {
+        "8": {
+          "tuned": {
+            "source_rank_after": 38,
+            "target_rank_after": 1064,
+            "candidate_ranks_after": {
+              "Neptune": 317,
+              "Saturn": 175,
+              "Jupiter": 237,
+              "Mars": 181,
+              "Venus": 366,
+              "Mercury": 830,
+              "Earth": 38,
+              "Pluto": 719,
+              "Moon": 341,
+              "Titan": 1064,
+              "Sun": 276
+            },
+            "top": [
+              " What",
+              " ",
+              " -",
+              " The",
+              " How",
+              " (",
+              " \\n\\n",
+              " A",
+              " Which",
+              "  \\n"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 9,
+            "target_rank_after": 388,
+            "candidate_ranks_after": {
+              "Neptune": 76,
+              "Saturn": 76,
+              "Jupiter": 106,
+              "Mars": 38,
+              "Venus": 116,
+              "Mercury": 237,
+              "Earth": 9,
+              "Pluto": 181,
+              "Moon": 202,
+              "Titan": 388,
+              "Sun": 213
+            },
+            "top": [
+              " What",
+              " -",
+              " The",
+              " ",
+              " Which",
+              " How",
+              " \\n\\n",
+              " A",
+              " |",
+              " Earth"
+            ]
+          },
+          "random": {
+            "source_rank_after": 27,
+            "target_rank_after": 453,
+            "candidate_ranks_after": {
+              "Neptune": 232,
+              "Saturn": 166,
+              "Jupiter": 166,
+              "Mars": 80,
+              "Venus": 232,
+              "Mercury": 279,
+              "Earth": 27,
+              "Pluto": 256,
+              "Moon": 415,
+              "Titan": 453,
+              "Sun": 243
+            },
+            "top": [
+              " What",
+              " ",
+              " -",
+              " The",
+              " How",
+              " Which",
+              " \\n\\n",
+              " For",
+              " A",
+              " ("
+            ]
+          }
+        },
+        "14": {
+          "tuned": {
+            "source_rank_after": 27,
+            "target_rank_after": 1488,
+            "candidate_ranks_after": {
+              "Neptune": 419,
+              "Saturn": 195,
+              "Jupiter": 328,
+              "Mars": 419,
+              "Venus": 1330,
+              "Mercury": 1663,
+              "Earth": 27,
+              "Pluto": 656,
+              "Moon": 895,
+              "Titan": 1488,
+              "Sun": 244
+            },
+            "top": [
+              " What",
+              " How",
+              " The",
+              " ",
+              " \\n\\n",
+              " \\n",
+              " One",
+              " A",
+              "  \\n",
+              " Who"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 11,
+            "target_rank_after": 375,
+            "candidate_ranks_after": {
+              "Neptune": 97,
+              "Saturn": 87,
+              "Jupiter": 127,
+              "Mars": 43,
+              "Venus": 127,
+              "Mercury": 269,
+              "Earth": 11,
+              "Pluto": 207,
+              "Moon": 225,
+              "Titan": 375,
+              "Sun": 217
+            },
+            "top": [
+              " What",
+              " -",
+              " The",
+              " ",
+              " How",
+              " Which",
+              " \\n\\n",
+              " A",
+              " \\n",
+              " |"
+            ]
+          },
+          "random": {
+            "source_rank_after": 55,
+            "target_rank_after": 265,
+            "candidate_ranks_after": {
+              "Neptune": 846,
+              "Saturn": 204,
+              "Jupiter": 404,
+              "Mars": 106,
+              "Venus": 333,
+              "Mercury": 511,
+              "Earth": 55,
+              "Pluto": 187,
+              "Moon": 578,
+              "Titan": 265,
+              "Sun": 253
+            },
+            "top": [
+              " What",
+              " The",
+              " ",
+              " _",
+              " -",
+              " A",
+              " Which",
+              " How",
+              " One",
+              " \""
+            ]
+          }
+        },
+        "20": {
+          "tuned": {
+            "source_rank_after": 9,
+            "target_rank_after": 604,
+            "candidate_ranks_after": {
+              "Neptune": 74,
+              "Saturn": 83,
+              "Jupiter": 107,
+              "Mars": 35,
+              "Venus": 119,
+              "Mercury": 280,
+              "Earth": 9,
+              "Pluto": 185,
+              "Moon": 239,
+              "Titan": 604,
+              "Sun": 203
+            },
+            "top": [
+              " What",
+              " -",
+              " The",
+              " ",
+              " Which",
+              " How",
+              " \\n\\n",
+              " A",
+              " Earth",
+              " |"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 27,
+            "target_rank_after": 215,
+            "candidate_ranks_after": {
+              "Neptune": 107,
+              "Saturn": 88,
+              "Jupiter": 116,
+              "Mars": 58,
+              "Venus": 136,
+              "Mercury": 305,
+              "Earth": 27,
+              "Pluto": 215,
+              "Moon": 252,
+              "Titan": 215,
+              "Sun": 221
+            },
+            "top": [
+              " What",
+              " -",
+              " The",
+              " ",
+              " Which",
+              " How",
+              " \\n\\n",
+              " A",
+              " \\n",
+              " |"
+            ]
+          },
+          "random": {
+            "source_rank_after": 11,
+            "target_rank_after": 276,
+            "candidate_ranks_after": {
+              "Neptune": 108,
+              "Saturn": 75,
+              "Jupiter": 121,
+              "Mars": 38,
+              "Venus": 98,
+              "Mercury": 199,
+              "Earth": 11,
+              "Pluto": 152,
+              "Moon": 206,
+              "Titan": 276,
+              "Sun": 169
+            },
+            "top": [
+              " What",
+              " -",
+              " ",
+              " The",
+              " Which",
+              " How",
+              " \\n\\n",
+              " A",
+              " \\n",
+              " Where"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "category": "tree",
+      "prompt": "Think of a tree. Answer in one word.",
+      "source": "Ash",
+      "target": "Cherry",
+      "source_rank_before": 583,
+      "target_rank_before": 757,
+      "candidate_ranks_before": {
+        "Oak": 1672,
+        "Pine": 729,
+        "Maple": 1797,
+        "Birch": 9862,
+        "Cedar": 11308,
+        "Elm": 12090,
+        "Willow": 1731,
+        "Cherry": 757,
+        "Palm": 4376,
+        "Ash": 583,
+        "Fir": 20932
+      },
+      "answer_position": 9,
+      "layers": {
+        "8": {
+          "tuned": {
+            "source_rank_after": 480,
+            "target_rank_after": 784,
+            "candidate_ranks_after": {
+              "Oak": 1878,
+              "Pine": 749,
+              "Maple": 1810,
+              "Birch": 10245,
+              "Cedar": 10956,
+              "Elm": 11731,
+              "Willow": 1662,
+              "Cherry": 784,
+              "Palm": 4481,
+              "Ash": 480,
+              "Fir": 22287
+            },
+            "top": [
+              " What",
+              " The",
+              " How",
+              " -",
+              " A",
+              " When",
+              " ",
+              " In",
+              " \\n\\n",
+              " If"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 405,
+            "target_rank_after": 975,
+            "candidate_ranks_after": {
+              "Oak": 1820,
+              "Pine": 817,
+              "Maple": 2069,
+              "Birch": 9043,
+              "Cedar": 12317,
+              "Elm": 13627,
+              "Willow": 1820,
+              "Cherry": 975,
+              "Palm": 4718,
+              "Ash": 405,
+              "Fir": 21306
+            },
+            "top": [
+              " What",
+              " How",
+              " The",
+              " -",
+              " When",
+              " In",
+              " \\n\\n",
+              " ",
+              " A",
+              " \\n"
+            ]
+          },
+          "random": {
+            "source_rank_after": 514,
+            "target_rank_after": 710,
+            "candidate_ranks_after": {
+              "Oak": 2019,
+              "Pine": 688,
+              "Maple": 2285,
+              "Birch": 10693,
+              "Cedar": 12757,
+              "Elm": 12757,
+              "Willow": 2186,
+              "Cherry": 710,
+              "Palm": 5183,
+              "Ash": 514,
+              "Fir": 22625
+            },
+            "top": [
+              " What",
+              " How",
+              " The",
+              " -",
+              " ",
+              " When",
+              " \\n\\n",
+              " A",
+              " In",
+              " \\n"
+            ]
+          }
+        },
+        "14": {
+          "tuned": {
+            "source_rank_after": 805,
+            "target_rank_after": 805,
+            "candidate_ranks_after": {
+              "Oak": 1330,
+              "Pine": 733,
+              "Maple": 2039,
+              "Birch": 8653,
+              "Cedar": 11256,
+              "Elm": 11641,
+              "Willow": 1659,
+              "Cherry": 805,
+              "Palm": 4078,
+              "Ash": 805,
+              "Fir": 20134
+            },
+            "top": [
+              " What",
+              " How",
+              " The",
+              " -",
+              " A",
+              " When",
+              " If",
+              " ",
+              " In",
+              " \\n\\n"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 541,
+            "target_rank_after": 846,
+            "candidate_ranks_after": {
+              "Oak": 1807,
+              "Pine": 766,
+              "Maple": 1954,
+              "Birch": 9597,
+              "Cedar": 11046,
+              "Elm": 13529,
+              "Willow": 1739,
+              "Cherry": 846,
+              "Palm": 4842,
+              "Ash": 541,
+              "Fir": 20508
+            },
+            "top": [
+              " What",
+              " How",
+              " The",
+              " -",
+              " When",
+              " A",
+              " In",
+              " ",
+              " \\n\\n",
+              " If"
+            ]
+          },
+          "random": {
+            "source_rank_after": 468,
+            "target_rank_after": 608,
+            "candidate_ranks_after": {
+              "Oak": 1605,
+              "Pine": 578,
+              "Maple": 2170,
+              "Birch": 7958,
+              "Cedar": 11385,
+              "Elm": 10027,
+              "Willow": 2089,
+              "Cherry": 608,
+              "Palm": 4843,
+              "Ash": 468,
+              "Fir": 17872
+            },
+            "top": [
+              " What",
+              " How",
+              " The",
+              " -",
+              " When",
+              " ",
+              " A",
+              " \\n\\n",
+              " \\n",
+              " In"
+            ]
+          }
+        },
+        "20": {
+          "tuned": {
+            "source_rank_after": 231,
+            "target_rank_after": 3214,
+            "candidate_ranks_after": {
+              "Oak": 2093,
+              "Pine": 974,
+              "Maple": 1549,
+              "Birch": 13331,
+              "Cedar": 12880,
+              "Elm": 12880,
+              "Willow": 1643,
+              "Cherry": 3214,
+              "Palm": 3724,
+              "Ash": 231,
+              "Fir": 21580
+            },
+            "top": [
+              " What",
+              " How",
+              " The",
+              " -",
+              " When",
+              " A",
+              " In",
+              " \\n\\n",
+              " ",
+              " If"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 874,
+            "target_rank_after": 402,
+            "candidate_ranks_after": {
+              "Oak": 1737,
+              "Pine": 688,
+              "Maple": 1737,
+              "Birch": 10424,
+              "Cedar": 10789,
+              "Elm": 12838,
+              "Willow": 1737,
+              "Cherry": 402,
+              "Palm": 4558,
+              "Ash": 874,
+              "Fir": 21250
+            },
+            "top": [
+              " What",
+              " How",
+              " The",
+              " -",
+              " A",
+              " ",
+              " When",
+              " \\n\\n",
+              " In",
+              " If"
+            ]
+          },
+          "random": {
+            "source_rank_after": 460,
+            "target_rank_after": 411,
+            "candidate_ranks_after": {
+              "Oak": 1162,
+              "Pine": 478,
+              "Maple": 1718,
+              "Birch": 6227,
+              "Cedar": 8614,
+              "Elm": 7850,
+              "Willow": 1783,
+              "Cherry": 411,
+              "Palm": 5645,
+              "Ash": 460,
+              "Fir": 13957
+            },
+            "top": [
+              " What",
+              " How",
+              " The",
+              " -",
+              " A",
+              " ",
+              " When",
+              " \\n\\n",
+              " In",
+              " If"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "category": "bird",
+      "prompt": "Think of a bird. Answer in one word.",
+      "source": "Owl",
+      "target": "Falcon",
+      "source_rank_before": 134,
+      "target_rank_before": 680,
+      "candidate_ranks_before": {
+        "Robin": 149,
+        "Eagle": 215,
+        "Crow": 470,
+        "Owl": 134,
+        "Hawk": 2134,
+        "Dove": 2493,
+        "Cardinal": 913,
+        "Falcon": 680,
+        "Swan": 1615,
+        "Duck": 324,
+        "Goose": 309,
+        "Raven": 288,
+        "Finch": 578
+      },
+      "answer_position": 9,
+      "layers": {
+        "8": {
+          "tuned": {
+            "source_rank_after": 116,
+            "target_rank_after": 1125,
+            "candidate_ranks_after": {
+              "Robin": 161,
+              "Eagle": 262,
+              "Crow": 953,
+              "Owl": 116,
+              "Hawk": 5175,
+              "Dove": 4017,
+              "Cardinal": 1403,
+              "Falcon": 1125,
+              "Swan": 1233,
+              "Duck": 304,
+              "Goose": 394,
+              "Raven": 427,
+              "Finch": 779
+            },
+            "top": [
+              " -",
+              " What",
+              " The",
+              " A",
+              " ",
+              " Which",
+              " \\n\\n",
+              " \\n",
+              " what",
+              " How"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 218,
+            "target_rank_after": 653,
+            "candidate_ranks_after": {
+              "Robin": 191,
+              "Eagle": 228,
+              "Crow": 625,
+              "Owl": 218,
+              "Hawk": 2229,
+              "Dove": 3079,
+              "Cardinal": 1245,
+              "Falcon": 653,
+              "Swan": 2133,
+              "Duck": 353,
+              "Goose": 385,
+              "Raven": 353,
+              "Finch": 682
+            },
+            "top": [
+              " What",
+              " A",
+              " The",
+              " -",
+              " Which",
+              " ",
+              " \\n\\n",
+              " How",
+              " \\n",
+              "  \\n"
+            ]
+          },
+          "random": {
+            "source_rank_after": 220,
+            "target_rank_after": 684,
+            "candidate_ranks_after": {
+              "Robin": 212,
+              "Eagle": 253,
+              "Crow": 785,
+              "Owl": 220,
+              "Hawk": 2087,
+              "Dove": 5154,
+              "Cardinal": 819,
+              "Falcon": 684,
+              "Swan": 2389,
+              "Duck": 592,
+              "Goose": 819,
+              "Raven": 268,
+              "Finch": 513
+            },
+            "top": [
+              " A",
+              " What",
+              " The",
+              " -",
+              " Which",
+              " ",
+              " How",
+              " \\n\\n",
+              " \\n",
+              " _"
+            ]
+          }
+        },
+        "14": {
+          "tuned": {
+            "source_rank_after": 295,
+            "target_rank_after": 1060,
+            "candidate_ranks_after": {
+              "Robin": 219,
+              "Eagle": 305,
+              "Crow": 571,
+              "Owl": 295,
+              "Hawk": 2337,
+              "Dove": 4120,
+              "Cardinal": 1514,
+              "Falcon": 1060,
+              "Swan": 2403,
+              "Duck": 422,
+              "Goose": 517,
+              "Raven": 422,
+              "Finch": 1691
+            },
+            "top": [
+              " What",
+              " A",
+              " -",
+              " The",
+              " Which",
+              " \\n\\n",
+              " ",
+              " \\n",
+              " How",
+              " If"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 199,
+            "target_rank_after": 595,
+            "candidate_ranks_after": {
+              "Robin": 172,
+              "Eagle": 208,
+              "Crow": 626,
+              "Owl": 199,
+              "Hawk": 2108,
+              "Dove": 2725,
+              "Cardinal": 1126,
+              "Falcon": 595,
+              "Swan": 1948,
+              "Duck": 306,
+              "Goose": 346,
+              "Raven": 335,
+              "Finch": 675
+            },
+            "top": [
+              " What",
+              " A",
+              " -",
+              " The",
+              " Which",
+              " ",
+              " \\n\\n",
+              " \\n",
+              " How",
+              "  \\n"
+            ]
+          },
+          "random": {
+            "source_rank_after": 241,
+            "target_rank_after": 831,
+            "candidate_ranks_after": {
+              "Robin": 213,
+              "Eagle": 360,
+              "Crow": 550,
+              "Owl": 241,
+              "Hawk": 2950,
+              "Dove": 7836,
+              "Cardinal": 950,
+              "Falcon": 831,
+              "Swan": 3144,
+              "Duck": 780,
+              "Goose": 454,
+              "Raven": 277,
+              "Finch": 249
+            },
+            "top": [
+              " What",
+              " A",
+              " The",
+              " -",
+              " ",
+              " Which",
+              " How",
+              " \\n\\n",
+              " \\n",
+              " what"
+            ]
+          }
+        },
+        "20": {
+          "tuned": {
+            "source_rank_after": 420,
+            "target_rank_after": 326,
+            "candidate_ranks_after": {
+              "Robin": 241,
+              "Eagle": 236,
+              "Crow": 528,
+              "Owl": 420,
+              "Hawk": 1929,
+              "Dove": 2756,
+              "Cardinal": 799,
+              "Falcon": 326,
+              "Swan": 1432,
+              "Duck": 368,
+              "Goose": 347,
+              "Raven": 387,
+              "Finch": 467
+            },
+            "top": [
+              " What",
+              " A",
+              " -",
+              " The",
+              " Which",
+              " ",
+              " \\n\\n",
+              " \\n",
+              " How",
+              "  \\n"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 331,
+            "target_rank_after": 331,
+            "candidate_ranks_after": {
+              "Robin": 167,
+              "Eagle": 196,
+              "Crow": 484,
+              "Owl": 331,
+              "Hawk": 2104,
+              "Dove": 2573,
+              "Cardinal": 916,
+              "Falcon": 331,
+              "Swan": 1682,
+              "Duck": 312,
+              "Goose": 294,
+              "Raven": 294,
+              "Finch": 553
+            },
+            "top": [
+              " What",
+              " A",
+              " -",
+              " The",
+              " Which",
+              " ",
+              " \\n\\n",
+              " How",
+              " \\n",
+              " what"
+            ]
+          },
+          "random": {
+            "source_rank_after": 155,
+            "target_rank_after": 548,
+            "candidate_ranks_after": {
+              "Robin": 143,
+              "Eagle": 228,
+              "Crow": 509,
+              "Owl": 155,
+              "Hawk": 2021,
+              "Dove": 4021,
+              "Cardinal": 832,
+              "Falcon": 548,
+              "Swan": 1822,
+              "Duck": 429,
+              "Goose": 382,
+              "Raven": 265,
+              "Finch": 487
+            },
+            "top": [
+              " What",
+              " A",
+              " The",
+              " -",
+              " Which",
+              " ",
+              " How",
+              " \\n\\n",
+              " \\n",
+              " what"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "category": "language",
+      "prompt": "Think of a language. Answer in one word.",
+      "source": "English",
+      "target": "Latin",
+      "source_rank_before": 46,
+      "target_rank_before": 168,
+      "candidate_ranks_before": {
+        "Japanese": 61,
+        "Spanish": 104,
+        "French": 76,
+        "English": 46,
+        "German": 65,
+        "Chinese": 76,
+        "Russian": 138,
+        "Arabic": 295,
+        "Korean": 241,
+        "Italian": 127,
+        "Hindi": 1015,
+        "Dutch": 310,
+        "Greek": 152,
+        "Latin": 168
+      },
+      "answer_position": 9,
+      "layers": {
+        "8": {
+          "tuned": {
+            "source_rank_after": 49,
+            "target_rank_after": 263,
+            "candidate_ranks_after": {
+              "Japanese": 89,
+              "Spanish": 130,
+              "French": 95,
+              "English": 49,
+              "German": 70,
+              "Chinese": 95,
+              "Russian": 140,
+              "Arabic": 401,
+              "Korean": 279,
+              "Italian": 140,
+              "Hindi": 1133,
+              "Dutch": 298,
+              "Greek": 165,
+              "Latin": 263
+            },
+            "top": [
+              " What",
+              " Which",
+              " For",
+              " The",
+              " In",
+              " -",
+              " \\n\\n",
+              " ",
+              " \\n",
+              " If"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 50,
+            "target_rank_after": 159,
+            "candidate_ranks_after": {
+              "Japanese": 62,
+              "Spanish": 109,
+              "French": 78,
+              "English": 50,
+              "German": 67,
+              "Chinese": 78,
+              "Russian": 138,
+              "Arabic": 307,
+              "Korean": 257,
+              "Italian": 128,
+              "Hindi": 1001,
+              "Dutch": 352,
+              "Greek": 148,
+              "Latin": 159
+            },
+            "top": [
+              " What",
+              " Which",
+              " For",
+              " The",
+              " In",
+              " -",
+              " \\n\\n",
+              " ",
+              " \\n",
+              " If"
+            ]
+          },
+          "random": {
+            "source_rank_after": 54,
+            "target_rank_after": 194,
+            "candidate_ranks_after": {
+              "Japanese": 57,
+              "Spanish": 105,
+              "French": 75,
+              "English": 54,
+              "German": 57,
+              "Chinese": 69,
+              "Russian": 128,
+              "Arabic": 328,
+              "Korean": 224,
+              "Italian": 105,
+              "Hindi": 927,
+              "Dutch": 277,
+              "Greek": 144,
+              "Latin": 194
+            },
+            "top": [
+              " What",
+              " Which",
+              " For",
+              " In",
+              " The",
+              " \\n",
+              " \\n\\n",
+              " ",
+              " -",
+              " If"
+            ]
+          }
+        },
+        "14": {
+          "tuned": {
+            "source_rank_after": 26,
+            "target_rank_after": 222,
+            "candidate_ranks_after": {
+              "Japanese": 63,
+              "Spanish": 81,
+              "French": 66,
+              "English": 26,
+              "German": 81,
+              "Chinese": 63,
+              "Russian": 123,
+              "Arabic": 364,
+              "Korean": 165,
+              "Italian": 110,
+              "Hindi": 685,
+              "Dutch": 255,
+              "Greek": 196,
+              "Latin": 222
+            },
+            "top": [
+              " What",
+              " Which",
+              " For",
+              " In",
+              " ",
+              " The",
+              " \\n\\n",
+              " \\n",
+              " -",
+              " If"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 48,
+            "target_rank_after": 143,
+            "candidate_ranks_after": {
+              "Japanese": 63,
+              "Spanish": 100,
+              "French": 77,
+              "English": 48,
+              "German": 63,
+              "Chinese": 77,
+              "Russian": 125,
+              "Arabic": 257,
+              "Korean": 235,
+              "Italian": 125,
+              "Hindi": 893,
+              "Dutch": 315,
+              "Greek": 143,
+              "Latin": 143
+            },
+            "top": [
+              " What",
+              " Which",
+              " For",
+              " In",
+              " The",
+              " -",
+              " ",
+              " \\n",
+              " \\n\\n",
+              " If"
+            ]
+          },
+          "random": {
+            "source_rank_after": 49,
+            "target_rank_after": 208,
+            "candidate_ranks_after": {
+              "Japanese": 44,
+              "Spanish": 89,
+              "French": 68,
+              "English": 49,
+              "German": 52,
+              "Chinese": 75,
+              "Russian": 104,
+              "Arabic": 358,
+              "Korean": 219,
+              "Italian": 96,
+              "Hindi": 859,
+              "Dutch": 261,
+              "Greek": 148,
+              "Latin": 208
+            },
+            "top": [
+              " What",
+              " Which",
+              " For",
+              " The",
+              " -",
+              " In",
+              " \\n\\n",
+              " \\n",
+              " ",
+              " If"
+            ]
+          }
+        },
+        "20": {
+          "tuned": {
+            "source_rank_after": 19,
+            "target_rank_after": 10541,
+            "candidate_ranks_after": {
+              "Japanese": 44,
+              "Spanish": 129,
+              "French": 63,
+              "English": 19,
+              "German": 122,
+              "Chinese": 129,
+              "Russian": 122,
+              "Arabic": 1076,
+              "Korean": 729,
+              "Italian": 193,
+              "Hindi": 768,
+              "Dutch": 524,
+              "Greek": 405,
+              "Latin": 10541
+            },
+            "top": [
+              " What",
+              " Which",
+              " \\n\\n",
+              " \\n",
+              " The",
+              " ",
+              " In",
+              " For",
+              "  \\n",
+              " When"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 41,
+            "target_rank_after": 172,
+            "candidate_ranks_after": {
+              "Japanese": 62,
+              "Spanish": 105,
+              "French": 78,
+              "English": 41,
+              "German": 62,
+              "Chinese": 78,
+              "Russian": 139,
+              "Arabic": 291,
+              "Korean": 234,
+              "Italian": 126,
+              "Hindi": 940,
+              "Dutch": 307,
+              "Greek": 146,
+              "Latin": 172
+            },
+            "top": [
+              " What",
+              " Which",
+              " For",
+              " The",
+              " In",
+              " -",
+              " ",
+              " \\n",
+              " \\n\\n",
+              " If"
+            ]
+          },
+          "random": {
+            "source_rank_after": 61,
+            "target_rank_after": 508,
+            "candidate_ranks_after": {
+              "Japanese": 27,
+              "Spanish": 108,
+              "French": 47,
+              "English": 61,
+              "German": 68,
+              "Chinese": 82,
+              "Russian": 190,
+              "Arabic": 442,
+              "Korean": 361,
+              "Italian": 103,
+              "Hindi": 142,
+              "Dutch": 760,
+              "Greek": 138,
+              "Latin": 508
+            },
+            "top": [
+              " What",
+              " Which",
+              " For",
+              " The",
+              " In",
+              " \\n\\n",
+              " ",
+              " \\n",
+              " How",
+              " \\"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "category": "profession",
+      "prompt": "Think of a profession. Answer in one word.",
+      "source": "Teacher",
+      "target": "Chef",
+      "source_rank_before": 13,
+      "target_rank_before": 194,
+      "candidate_ranks_before": {
+        "Teacher": 13,
+        "Doctor": 46,
+        "Engineer": 144,
+        "Lawyer": 326,
+        "Nurse": 70,
+        "Chef": 194,
+        "Pilot": 316,
+        "Artist": 274,
+        "Writer": 720,
+        "Farmer": 87,
+        "Actor": 448,
+        "Judge": 3330
+      },
+      "answer_position": 9,
+      "layers": {
+        "8": {
+          "tuned": {
+            "source_rank_after": 330,
+            "target_rank_after": 123,
+            "candidate_ranks_after": {
+              "Teacher": 330,
+              "Doctor": 142,
+              "Engineer": 892,
+              "Lawyer": 2223,
+              "Nurse": 404,
+              "Chef": 123,
+              "Pilot": 1288,
+              "Artist": 1288,
+              "Writer": 3291,
+              "Farmer": 164,
+              "Actor": 2135,
+              "Judge": 3429
+            },
+            "top": [
+              " What",
+              " ",
+              " A",
+              " The",
+              " (",
+              " \\n\\n",
+              "  \\n",
+              " -",
+              " \\n",
+              " Which"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 129,
+            "target_rank_after": 71,
+            "candidate_ranks_after": {
+              "Teacher": 129,
+              "Doctor": 102,
+              "Engineer": 346,
+              "Lawyer": 577,
+              "Nurse": 143,
+              "Chef": 71,
+              "Pilot": 449,
+              "Artist": 396,
+              "Writer": 1274,
+              "Farmer": 86,
+              "Actor": 803,
+              "Judge": 2724
+            },
+            "top": [
+              " What",
+              " -",
+              " (",
+              " Which",
+              " The",
+              " For",
+              " ",
+              " A",
+              " \\n\\n",
+              " \\n"
+            ]
+          },
+          "random": {
+            "source_rank_after": 17,
+            "target_rank_after": 187,
+            "candidate_ranks_after": {
+              "Teacher": 17,
+              "Doctor": 64,
+              "Engineer": 558,
+              "Lawyer": 352,
+              "Nurse": 122,
+              "Chef": 187,
+              "Pilot": 320,
+              "Artist": 851,
+              "Writer": 2147,
+              "Farmer": 126,
+              "Actor": 1782,
+              "Judge": 1622
+            },
+            "top": [
+              " What",
+              " (",
+              " For",
+              " ",
+              " -",
+              " \\n\\n",
+              " The",
+              " \\n",
+              "  \\n",
+              " A"
+            ]
+          }
+        },
+        "14": {
+          "tuned": {
+            "source_rank_after": 13,
+            "target_rank_after": 50,
+            "candidate_ranks_after": {
+              "Teacher": 13,
+              "Doctor": 17,
+              "Engineer": 69,
+              "Lawyer": 111,
+              "Nurse": 22,
+              "Chef": 50,
+              "Pilot": 149,
+              "Artist": 257,
+              "Writer": 257,
+              "Farmer": 59,
+              "Actor": 387,
+              "Judge": 1721
+            },
+            "top": [
+              " What",
+              " -",
+              " (",
+              " ",
+              " A",
+              " The",
+              " For",
+              " Which",
+              " \\n\\n",
+              " what"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 64,
+            "target_rank_after": 34,
+            "candidate_ranks_after": {
+              "Teacher": 64,
+              "Doctor": 64,
+              "Engineer": 196,
+              "Lawyer": 290,
+              "Nurse": 94,
+              "Chef": 34,
+              "Pilot": 311,
+              "Artist": 254,
+              "Writer": 837,
+              "Farmer": 53,
+              "Actor": 410,
+              "Judge": 2292
+            },
+            "top": [
+              " What",
+              " -",
+              " (",
+              " Which",
+              " The",
+              " For",
+              " ",
+              " \\n\\n",
+              " A",
+              "  \\n"
+            ]
+          },
+          "random": {
+            "source_rank_after": 13,
+            "target_rank_after": 92,
+            "candidate_ranks_after": {
+              "Teacher": 13,
+              "Doctor": 121,
+              "Engineer": 641,
+              "Lawyer": 507,
+              "Nurse": 261,
+              "Chef": 92,
+              "Pilot": 139,
+              "Artist": 476,
+              "Writer": 2499,
+              "Farmer": 49,
+              "Actor": 765,
+              "Judge": 1374
+            },
+            "top": [
+              " What",
+              " (",
+              " The",
+              " ",
+              " -",
+              " \\n\\n",
+              " \\n",
+              " For",
+              " what",
+              " A"
+            ]
+          }
+        },
+        "20": {
+          "tuned": {
+            "source_rank_after": 31,
+            "target_rank_after": 28,
+            "candidate_ranks_after": {
+              "Teacher": 31,
+              "Doctor": 49,
+              "Engineer": 154,
+              "Lawyer": 280,
+              "Nurse": 49,
+              "Chef": 28,
+              "Pilot": 333,
+              "Artist": 204,
+              "Writer": 435,
+              "Farmer": 75,
+              "Actor": 375,
+              "Judge": 3047
+            },
+            "top": [
+              " What",
+              " (",
+              " -",
+              " \\n\\n",
+              " ",
+              " Which",
+              " For",
+              " A",
+              "  \\n",
+              " The"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 49,
+            "target_rank_after": 24,
+            "candidate_ranks_after": {
+              "Teacher": 49,
+              "Doctor": 49,
+              "Engineer": 169,
+              "Lawyer": 251,
+              "Nurse": 70,
+              "Chef": 24,
+              "Pilot": 251,
+              "Artist": 307,
+              "Writer": 685,
+              "Farmer": 54,
+              "Actor": 368,
+              "Judge": 2304
+            },
+            "top": [
+              " What",
+              " -",
+              " (",
+              " Which",
+              " ",
+              " For",
+              " \\n\\n",
+              " A",
+              " The",
+              "  \\n"
+            ]
+          },
+          "random": {
+            "source_rank_after": 13,
+            "target_rank_after": 118,
+            "candidate_ranks_after": {
+              "Teacher": 13,
+              "Doctor": 66,
+              "Engineer": 179,
+              "Lawyer": 252,
+              "Nurse": 60,
+              "Chef": 118,
+              "Pilot": 179,
+              "Artist": 284,
+              "Writer": 700,
+              "Farmer": 66,
+              "Actor": 952,
+              "Judge": 2378
+            },
+            "top": [
+              " What",
+              " -",
+              " (",
+              " ",
+              " For",
+              " Which",
+              " \\n\\n",
+              " The",
+              " A",
+              " \\n"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "category": "beverage",
+      "prompt": "Think of a beverage. Answer in one word.",
+      "source": "Coffee",
+      "target": "Rum",
+      "source_rank_before": 13,
+      "target_rank_before": 651,
+      "candidate_ranks_before": {
+        "Coffee": 13,
+        "Tea": 25,
+        "Water": 152,
+        "Wine": 770,
+        "Beer": 494,
+        "Juice": 494,
+        "Milk": 38,
+        "Soda": 235,
+        "Rum": 651,
+        "Gin": 6139
+      },
+      "answer_position": 9,
+      "layers": {
+        "8": {
+          "tuned": {
+            "source_rank_after": 12,
+            "target_rank_after": 1484,
+            "candidate_ranks_after": {
+              "Coffee": 12,
+              "Tea": 24,
+              "Water": 126,
+              "Wine": 936,
+              "Beer": 1311,
+              "Juice": 850,
+              "Milk": 39,
+              "Soda": 181,
+              "Rum": 1484,
+              "Gin": 5439
+            },
+            "top": [
+              " What",
+              " The",
+              " \\n\\n",
+              " Which",
+              " \\n",
+              " -",
+              " ",
+              " If",
+              " |",
+              " A"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 13,
+            "target_rank_after": 759,
+            "candidate_ranks_after": {
+              "Coffee": 13,
+              "Tea": 25,
+              "Water": 173,
+              "Wine": 804,
+              "Beer": 498,
+              "Juice": 498,
+              "Milk": 38,
+              "Soda": 239,
+              "Rum": 759,
+              "Gin": 5729
+            },
+            "top": [
+              " What",
+              " The",
+              " -",
+              " Which",
+              " ",
+              " \\n\\n",
+              " How",
+              " \\n",
+              " what",
+              " A"
+            ]
+          },
+          "random": {
+            "source_rank_after": 25,
+            "target_rank_after": 1038,
+            "candidate_ranks_after": {
+              "Coffee": 25,
+              "Tea": 39,
+              "Water": 409,
+              "Wine": 1749,
+              "Beer": 749,
+              "Juice": 523,
+              "Milk": 80,
+              "Soda": 426,
+              "Rum": 1038,
+              "Gin": 6131
+            },
+            "top": [
+              " What",
+              " The",
+              " ",
+              " \\n\\n",
+              " -",
+              " How",
+              " \"",
+              " For",
+              " what",
+              " ("
+            ]
+          }
+        },
+        "14": {
+          "tuned": {
+            "source_rank_after": 14,
+            "target_rank_after": 672,
+            "candidate_ranks_after": {
+              "Coffee": 14,
+              "Tea": 25,
+              "Water": 189,
+              "Wine": 1135,
+              "Beer": 723,
+              "Juice": 594,
+              "Milk": 40,
+              "Soda": 280,
+              "Rum": 672,
+              "Gin": 5771
+            },
+            "top": [
+              " What",
+              " The",
+              " \\n\\n",
+              " Which",
+              " ",
+              " How",
+              " -",
+              " \\n",
+              " what",
+              " For"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 18,
+            "target_rank_after": 585,
+            "candidate_ranks_after": {
+              "Coffee": 18,
+              "Tea": 28,
+              "Water": 157,
+              "Wine": 807,
+              "Beer": 508,
+              "Juice": 552,
+              "Milk": 40,
+              "Soda": 244,
+              "Rum": 585,
+              "Gin": 6823
+            },
+            "top": [
+              " What",
+              " The",
+              " -",
+              " Which",
+              " ",
+              " \\n\\n",
+              " How",
+              " what",
+              " \\n",
+              " For"
+            ]
+          },
+          "random": {
+            "source_rank_after": 21,
+            "target_rank_after": 911,
+            "candidate_ranks_after": {
+              "Coffee": 21,
+              "Tea": 29,
+              "Water": 273,
+              "Wine": 982,
+              "Beer": 554,
+              "Juice": 501,
+              "Milk": 57,
+              "Soda": 297,
+              "Rum": 911,
+              "Gin": 5616
+            },
+            "top": [
+              " What",
+              " The",
+              " -",
+              " Which",
+              " ",
+              " \\n\\n",
+              " what",
+              " How",
+              " \\n",
+              " A"
+            ]
+          }
+        },
+        "20": {
+          "tuned": {
+            "source_rank_after": 8,
+            "target_rank_after": 1858,
+            "candidate_ranks_after": {
+              "Coffee": 8,
+              "Tea": 23,
+              "Water": 168,
+              "Wine": 842,
+              "Beer": 762,
+              "Juice": 418,
+              "Milk": 27,
+              "Soda": 257,
+              "Rum": 1858,
+              "Gin": 6880
+            },
+            "top": [
+              " What",
+              " The",
+              " Which",
+              " ",
+              " How",
+              " \\n\\n",
+              " -",
+              " Coffee",
+              " For",
+              " \\n"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 28,
+            "target_rank_after": 238,
+            "candidate_ranks_after": {
+              "Coffee": 28,
+              "Tea": 33,
+              "Water": 172,
+              "Wine": 756,
+              "Beer": 462,
+              "Juice": 537,
+              "Milk": 41,
+              "Soda": 261,
+              "Rum": 238,
+              "Gin": 5718
+            },
+            "top": [
+              " What",
+              " The",
+              " Which",
+              " -",
+              " ",
+              " \\n\\n",
+              " How",
+              " what",
+              " \\n",
+              " For"
+            ]
+          },
+          "random": {
+            "source_rank_after": 13,
+            "target_rank_after": 722,
+            "candidate_ranks_after": {
+              "Coffee": 13,
+              "Tea": 24,
+              "Water": 189,
+              "Wine": 1039,
+              "Beer": 516,
+              "Juice": 463,
+              "Milk": 40,
+              "Soda": 249,
+              "Rum": 722,
+              "Gin": 4569
+            },
+            "top": [
+              " What",
+              " The",
+              " Which",
+              " ",
+              " How",
+              " \\n\\n",
+              " -",
+              " what",
+              " \\n",
+              " A"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "category": "organ",
+      "prompt": "Think of a organ. Answer in one word.",
+      "source": "Brain",
+      "target": "Ear",
+      "source_rank_before": 48,
+      "target_rank_before": 419,
+      "candidate_ranks_before": {
+        "Heart": 419,
+        "Brain": 48,
+        "Liver": 4241,
+        "Lung": 1443,
+        "Skin": 1443,
+        "Eye": 1887,
+        "Ear": 419,
+        "Bone": 1737,
+        "Muscle": 1807,
+        "Nose": 2394
+      },
+      "answer_position": 9,
+      "layers": {
+        "8": {
+          "tuned": {
+            "source_rank_after": 40,
+            "target_rank_after": 337,
+            "candidate_ranks_after": {
+              "Heart": 307,
+              "Brain": 40,
+              "Liver": 3256,
+              "Lung": 924,
+              "Skin": 1512,
+              "Eye": 1512,
+              "Ear": 337,
+              "Bone": 1384,
+              "Muscle": 1718,
+              "Nose": 2029
+            },
+            "top": [
+              " The",
+              " What",
+              " A",
+              " -",
+              " ",
+              " Organ",
+              " For",
+              " \\n\\n",
+              " How",
+              " |"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 45,
+            "target_rank_after": 481,
+            "candidate_ranks_after": {
+              "Heart": 398,
+              "Brain": 45,
+              "Liver": 4352,
+              "Lung": 1411,
+              "Skin": 1489,
+              "Eye": 1838,
+              "Ear": 481,
+              "Bone": 1838,
+              "Muscle": 1702,
+              "Nose": 2559
+            },
+            "top": [
+              " The",
+              " What",
+              " A",
+              " -",
+              " ",
+              " |",
+              " For",
+              " Organ",
+              " How",
+              " \\n\\n"
+            ]
+          },
+          "random": {
+            "source_rank_after": 60,
+            "target_rank_after": 496,
+            "candidate_ranks_after": {
+              "Heart": 576,
+              "Brain": 60,
+              "Liver": 3855,
+              "Lung": 1495,
+              "Skin": 2092,
+              "Eye": 2092,
+              "Ear": 496,
+              "Bone": 1557,
+              "Muscle": 1872,
+              "Nose": 2342
+            },
+            "top": [
+              " The",
+              " A",
+              " What",
+              " ",
+              " -",
+              " For",
+              " \\n\\n",
+              " Organ",
+              " How",
+              " In"
+            ]
+          }
+        },
+        "14": {
+          "tuned": {
+            "source_rank_after": 19,
+            "target_rank_after": 404,
+            "candidate_ranks_after": {
+              "Heart": 1374,
+              "Brain": 19,
+              "Liver": 2330,
+              "Lung": 2150,
+              "Skin": 2854,
+              "Eye": 807,
+              "Ear": 404,
+              "Bone": 4973,
+              "Muscle": 1475,
+              "Nose": 4022
+            },
+            "top": [
+              " What",
+              " The",
+              " How",
+              " ",
+              " -",
+              " A",
+              " \\n\\n",
+              " Organ",
+              " \\n",
+              " In"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 51,
+            "target_rank_after": 446,
+            "candidate_ranks_after": {
+              "Heart": 446,
+              "Brain": 51,
+              "Liver": 4587,
+              "Lung": 1745,
+              "Skin": 1678,
+              "Eye": 1990,
+              "Ear": 446,
+              "Bone": 1895,
+              "Muscle": 1745,
+              "Nose": 2834
+            },
+            "top": [
+              " The",
+              " What",
+              " A",
+              " -",
+              " ",
+              " For",
+              " \\n\\n",
+              " Organ",
+              " |",
+              " How"
+            ]
+          },
+          "random": {
+            "source_rank_after": 141,
+            "target_rank_after": 2411,
+            "candidate_ranks_after": {
+              "Heart": 1579,
+              "Brain": 141,
+              "Liver": 3735,
+              "Lung": 2813,
+              "Skin": 3524,
+              "Eye": 3524,
+              "Ear": 2411,
+              "Bone": 2332,
+              "Muscle": 2332,
+              "Nose": 4948
+            },
+            "top": [
+              " The",
+              " A",
+              " What",
+              " One",
+              " ",
+              " _",
+              " For",
+              " Organ",
+              " It",
+              " -"
+            ]
+          }
+        },
+        "20": {
+          "tuned": {
+            "source_rank_after": 2807,
+            "target_rank_after": 129,
+            "candidate_ranks_after": {
+              "Heart": 3760,
+              "Brain": 2807,
+              "Liver": 8377,
+              "Lung": 4408,
+              "Skin": 6165,
+              "Eye": 3998,
+              "Ear": 129,
+              "Bone": 11116,
+              "Muscle": 3313,
+              "Nose": 1771
+            },
+            "top": [
+              " \\n",
+              " The",
+              " Organ",
+              " ",
+              " What",
+              " A",
+              " \\n\\n",
+              " When",
+              " One",
+              " For"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 117,
+            "target_rank_after": 228,
+            "candidate_ranks_after": {
+              "Heart": 443,
+              "Brain": 117,
+              "Liver": 4474,
+              "Lung": 1307,
+              "Skin": 1529,
+              "Eye": 1747,
+              "Ear": 228,
+              "Bone": 1830,
+              "Muscle": 1747,
+              "Nose": 2174
+            },
+            "top": [
+              " The",
+              " What",
+              " A",
+              " -",
+              " ",
+              " \\n\\n",
+              " For",
+              " Organ",
+              " In",
+              " |"
+            ]
+          },
+          "random": {
+            "source_rank_after": 73,
+            "target_rank_after": 537,
+            "candidate_ranks_after": {
+              "Heart": 848,
+              "Brain": 73,
+              "Liver": 1752,
+              "Lung": 398,
+              "Skin": 4073,
+              "Eye": 1081,
+              "Ear": 537,
+              "Bone": 2940,
+              "Muscle": 2510,
+              "Nose": 3249
+            },
+            "top": [
+              " What",
+              " The",
+              " Which",
+              " How",
+              " A",
+              " ",
+              " Organ",
+              " For",
+              " \\n\\n",
+              " One"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "category": "city",
+      "prompt": "Think of a city. Answer in one word.",
+      "source": "Paris",
+      "target": "Lima",
+      "source_rank_before": 12,
+      "target_rank_before": 1243,
+      "candidate_ranks_before": {
+        "Tokyo": 30,
+        "Paris": 12,
+        "London": 18,
+        "Rome": 93,
+        "Berlin": 125,
+        "Madrid": 213,
+        "Moscow": 151,
+        "Beijing": 31,
+        "Cairo": 475,
+        "Sydney": 125,
+        "Lima": 1243,
+        "Dublin": 1243,
+        "Athens": 389,
+        "Seoul": 496
+      },
+      "answer_position": 9,
+      "layers": {
+        "8": {
+          "tuned": {
+            "source_rank_after": 189,
+            "target_rank_after": 10862,
+            "candidate_ranks_after": {
+              "Tokyo": 235,
+              "Paris": 189,
+              "London": 93,
+              "Rome": 306,
+              "Berlin": 801,
+              "Madrid": 2094,
+              "Moscow": 964,
+              "Beijing": 739,
+              "Cairo": 5723,
+              "Sydney": 925,
+              "Lima": 10862,
+              "Dublin": 4761,
+              "Athens": 1650,
+              "Seoul": 4246
+            },
+            "top": [
+              " ",
+              " What",
+              " The",
+              " \\n\\n",
+              " \\n",
+              " Which",
+              " If",
+              " A",
+              " In",
+              " ("
+            ]
+          },
+          "logit": {
+            "source_rank_after": 11,
+            "target_rank_after": 2656,
+            "candidate_ranks_after": {
+              "Tokyo": 35,
+              "Paris": 11,
+              "London": 17,
+              "Rome": 93,
+              "Berlin": 171,
+              "Madrid": 292,
+              "Moscow": 161,
+              "Beijing": 62,
+              "Cairo": 657,
+              "Sydney": 152,
+              "Lima": 2656,
+              "Dublin": 1141,
+              "Athens": 405,
+              "Seoul": 779
+            },
+            "top": [
+              " What",
+              " Which",
+              " ",
+              " The",
+              " \\n\\n",
+              " How",
+              " Where",
+              " -",
+              " \\n",
+              " In"
+            ]
+          },
+          "random": {
+            "source_rank_after": 5,
+            "target_rank_after": 1274,
+            "candidate_ranks_after": {
+              "Tokyo": 52,
+              "Paris": 5,
+              "London": 72,
+              "Rome": 303,
+              "Berlin": 125,
+              "Madrid": 346,
+              "Moscow": 264,
+              "Beijing": 42,
+              "Cairo": 6873,
+              "Sydney": 330,
+              "Lima": 1274,
+              "Dublin": 2322,
+              "Athens": 323,
+              "Seoul": 616
+            },
+            "top": [
+              " What",
+              " How",
+              " ",
+              " The",
+              " Paris",
+              " For",
+              " Where",
+              " \\",
+              " A",
+              " ("
+            ]
+          }
+        },
+        "14": {
+          "tuned": {
+            "source_rank_after": 15,
+            "target_rank_after": 2014,
+            "candidate_ranks_after": {
+              "Tokyo": 31,
+              "Paris": 15,
+              "London": 13,
+              "Rome": 91,
+              "Berlin": 151,
+              "Madrid": 345,
+              "Moscow": 177,
+              "Beijing": 87,
+              "Cairo": 1840,
+              "Sydney": 136,
+              "Lima": 2014,
+              "Dublin": 2403,
+              "Athens": 513,
+              "Seoul": 584
+            },
+            "top": [
+              " What",
+              " \\n\\n",
+              " ",
+              " \\n",
+              " The",
+              " Which",
+              " How",
+              " A",
+              " For",
+              " Where"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 11,
+            "target_rank_after": 2515,
+            "candidate_ranks_after": {
+              "Tokyo": 31,
+              "Paris": 11,
+              "London": 17,
+              "Rome": 86,
+              "Berlin": 156,
+              "Madrid": 288,
+              "Moscow": 161,
+              "Beijing": 50,
+              "Cairo": 568,
+              "Sydney": 151,
+              "Lima": 2515,
+              "Dublin": 1238,
+              "Athens": 385,
+              "Seoul": 724
+            },
+            "top": [
+              " What",
+              " Which",
+              " The",
+              " ",
+              " \\n\\n",
+              " How",
+              " Where",
+              " -",
+              " \\n",
+              " In"
+            ]
+          },
+          "random": {
+            "source_rank_after": 8,
+            "target_rank_after": 2332,
+            "candidate_ranks_after": {
+              "Tokyo": 57,
+              "Paris": 8,
+              "London": 49,
+              "Rome": 229,
+              "Berlin": 127,
+              "Madrid": 389,
+              "Moscow": 343,
+              "Beijing": 53,
+              "Cairo": 3951,
+              "Sydney": 399,
+              "Lima": 2332,
+              "Dublin": 1436,
+              "Athens": 888,
+              "Seoul": 2193
+            },
+            "top": [
+              " What",
+              " ",
+              " The",
+              " \\n",
+              " \\n\\n",
+              " How",
+              " Which",
+              " \\",
+              " Paris",
+              " -"
+            ]
+          }
+        },
+        "20": {
+          "tuned": {
+            "source_rank_after": 15,
+            "target_rank_after": 774,
+            "candidate_ranks_after": {
+              "Tokyo": 37,
+              "Paris": 15,
+              "London": 18,
+              "Rome": 118,
+              "Berlin": 171,
+              "Madrid": 215,
+              "Moscow": 164,
+              "Beijing": 32,
+              "Cairo": 465,
+              "Sydney": 140,
+              "Lima": 774,
+              "Dublin": 1349,
+              "Athens": 482,
+              "Seoul": 516
+            },
+            "top": [
+              " What",
+              " Which",
+              " ",
+              " The",
+              " \\n\\n",
+              " How",
+              " -",
+              " Where",
+              " \\n",
+              " In"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 13,
+            "target_rank_after": 951,
+            "candidate_ranks_after": {
+              "Tokyo": 28,
+              "Paris": 13,
+              "London": 17,
+              "Rome": 87,
+              "Berlin": 136,
+              "Madrid": 214,
+              "Moscow": 142,
+              "Beijing": 33,
+              "Cairo": 483,
+              "Sydney": 114,
+              "Lima": 951,
+              "Dublin": 1213,
+              "Athens": 327,
+              "Seoul": 502
+            },
+            "top": [
+              " What",
+              " Which",
+              " ",
+              " The",
+              " \\n\\n",
+              " How",
+              " Where",
+              " -",
+              " \\n",
+              " In"
+            ]
+          },
+          "random": {
+            "source_rank_after": 12,
+            "target_rank_after": 1167,
+            "candidate_ranks_after": {
+              "Tokyo": 31,
+              "Paris": 12,
+              "London": 17,
+              "Rome": 102,
+              "Berlin": 131,
+              "Madrid": 216,
+              "Moscow": 154,
+              "Beijing": 35,
+              "Cairo": 552,
+              "Sydney": 140,
+              "Lima": 1167,
+              "Dublin": 1481,
+              "Athens": 404,
+              "Seoul": 595
+            },
+            "top": [
+              " What",
+              " Which",
+              " The",
+              " ",
+              " How",
+              " \\n\\n",
+              " Where",
+              " -",
+              " \\n",
+              " In"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "category": "river",
+      "prompt": "Think of a river. Answer in one word.",
+      "source": "Amazon",
+      "target": "Thames",
+      "source_rank_before": 887,
+      "target_rank_before": 2970,
+      "candidate_ranks_before": {
+        "Amazon": 887,
+        "Nile": 1330,
+        "Thames": 2970,
+        "Congo": 4786,
+        "Jordan": 4129,
+        "Ohio": 7469,
+        "Mississippi": 4271
+      },
+      "answer_position": 9,
+      "layers": {
+        "8": {
+          "tuned": {
+            "source_rank_after": 309,
+            "target_rank_after": 7059,
+            "candidate_ranks_after": {
+              "Amazon": 309,
+              "Nile": 1797,
+              "Thames": 7059,
+              "Congo": 5665,
+              "Jordan": 2717,
+              "Ohio": 8257,
+              "Mississippi": 4293
+            },
+            "top": [
+              " What",
+              " The",
+              " How",
+              " A",
+              " -",
+              " ",
+              " what",
+              " Which",
+              " In",
+              " When"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 393,
+            "target_rank_after": 9012,
+            "candidate_ranks_after": {
+              "Amazon": 393,
+              "Nile": 1578,
+              "Thames": 9012,
+              "Congo": 5267,
+              "Jordan": 3000,
+              "Ohio": 8682,
+              "Mississippi": 4882
+            },
+            "top": [
+              " What",
+              " The",
+              " How",
+              " -",
+              " ",
+              " A",
+              " \\n\\n",
+              " When",
+              " In",
+              " Which"
+            ]
+          },
+          "random": {
+            "source_rank_after": 1345,
+            "target_rank_after": 4254,
+            "candidate_ranks_after": {
+              "Amazon": 1345,
+              "Nile": 3010,
+              "Thames": 4254,
+              "Congo": 4556,
+              "Jordan": 11127,
+              "Ohio": 9101,
+              "Mississippi": 2653
+            },
+            "top": [
+              " What",
+              " How",
+              " The",
+              " A",
+              " ",
+              " -",
+              " \\n\\n",
+              " When",
+              " _",
+              " In"
+            ]
+          }
+        },
+        "14": {
+          "tuned": {
+            "source_rank_after": 744,
+            "target_rank_after": 3102,
+            "candidate_ranks_after": {
+              "Amazon": 744,
+              "Nile": 1234,
+              "Thames": 3102,
+              "Congo": 4440,
+              "Jordan": 4162,
+              "Ohio": 6961,
+              "Mississippi": 3861
+            },
+            "top": [
+              " What",
+              " The",
+              " How",
+              " -",
+              " A",
+              " ",
+              " When",
+              " \\n\\n",
+              " |",
+              " In"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 403,
+            "target_rank_after": 7246,
+            "candidate_ranks_after": {
+              "Amazon": 403,
+              "Nile": 1404,
+              "Thames": 7246,
+              "Congo": 4671,
+              "Jordan": 3227,
+              "Ohio": 8344,
+              "Mississippi": 4202
+            },
+            "top": [
+              " What",
+              " The",
+              " How",
+              " -",
+              " ",
+              " A",
+              " \\n\\n",
+              " When",
+              " what",
+              " In"
+            ]
+          },
+          "random": {
+            "source_rank_after": 839,
+            "target_rank_after": 3063,
+            "candidate_ranks_after": {
+              "Amazon": 839,
+              "Nile": 1275,
+              "Thames": 3063,
+              "Congo": 4390,
+              "Jordan": 4109,
+              "Ohio": 7145,
+              "Mississippi": 4109
+            },
+            "top": [
+              " What",
+              " The",
+              " How",
+              " -",
+              " A",
+              " ",
+              " When",
+              " \\n\\n",
+              " In",
+              " |"
+            ]
+          }
+        },
+        "20": {
+          "tuned": {
+            "source_rank_after": 116,
+            "target_rank_after": 23138,
+            "candidate_ranks_after": {
+              "Amazon": 116,
+              "Nile": 1773,
+              "Thames": 23138,
+              "Congo": 4102,
+              "Jordan": 3139,
+              "Ohio": 7270,
+              "Mississippi": 3139
+            },
+            "top": [
+              " What",
+              " How",
+              " The",
+              " -",
+              " \\n\\n",
+              " A",
+              " \\n",
+              " ",
+              " When",
+              " Which"
+            ]
+          },
+          "logit": {
+            "source_rank_after": 413,
+            "target_rank_after": 5503,
+            "candidate_ranks_after": {
+              "Amazon": 413,
+              "Nile": 1389,
+              "Thames": 5503,
+              "Congo": 5337,
+              "Jordan": 3289,
+              "Ohio": 8390,
+              "Mississippi": 4593
+            },
+            "top": [
+              " What",
+              " The",
+              " How",
+              " -",
+              " ",
+              " A",
+              " \\n\\n",
+              " When",
+              " In",
+              " |"
+            ]
+          },
+          "random": {
+            "source_rank_after": 938,
+            "target_rank_after": 3877,
+            "candidate_ranks_after": {
+              "Amazon": 938,
+              "Nile": 1453,
+              "Thames": 3877,
+              "Congo": 3877,
+              "Jordan": 8941,
+              "Ohio": 10610,
+              "Mississippi": 2426
+            },
+            "top": [
+              " What",
+              " The",
+              " How",
+              " ",
+              " -",
+              " A",
+              " \\n\\n",
+              " When",
+              " Which",
+              " \\n"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "aggregate": [
+    [
+      "tuned",
+      42,
+      14,
+      -28.0,
+      -1279.1,
+      0,
+      3
+    ],
+    [
+      "logit",
+      42,
+      18,
+      -16.5,
+      -416.0,
+      0,
+      2
+    ],
+    [
+      "random",
+      42,
+      14,
+      -11.0,
+      -150,
+      0,
+      0
+    ]
+  ]
+}
