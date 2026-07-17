@@ -354,10 +354,10 @@ def coverage_table() -> str:
         ("tuned-pile-repro-v1", "pile"),
     ]
     pile_states = {
-        "Qwen3-0.6B": "FULL PREDICTIVE / SHORT-2M CAUSAL TODO",
-        "SmolLM2-135M": "FULL PREDICTIVE / SHORT-2M CAUSAL TODO",
+        "Qwen3-0.6B": "VALIDATED PREDICTIVE + CAUSAL COMPLETE",
+        "SmolLM2-135M": "VALIDATED PREDICTIVE + CAUSAL COMPLETE",
         "Qwen3-1.7B": "SHORT-2M CAUSAL COMPLETE / FULL GATE INCOMPLETE",
-        "Qwen3.5-0.8B": "FIT + SHORT-2M CAUSAL TODO",
+        "Qwen3.5-0.8B": "VALIDATED PREDICTIVE + CAUSAL COMPLETE",
         "Qwen3.5-4B": "FIT + SHORT-2M CAUSAL TODO",
         "Qwen3.6-27B": "FIT + SHORT-2M CAUSAL TODO",
     }
@@ -1057,7 +1057,7 @@ def build_report(out_dir: Path) -> Path:
         stats = {method: [] for method in plot_methods}
         for method in plot_methods:
             for model in model_order:
-                source_runs = short_runs[key] if (method == "tuned_short" or model == "Qwen3-1.7B") else all_runs[key]
+                source_runs = short_runs[key] if method == "tuned_short" else all_runs[key]
                 aggregate_method = "tuned" if method == "tuned_short" else method
                 data = next(
                     (

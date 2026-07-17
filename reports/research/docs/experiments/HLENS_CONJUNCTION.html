@@ -19,7 +19,7 @@ img { max-width:100%; } footer { margin-top:3rem; padding-top:1rem; border-top:1
 Summary: this document is the protocol and design record<br />
 Experiment log: <a href="HLENS_CONJUNCTION_LOG.html"><code>HLENS_CONJUNCTION_LOG.md</code></a><br />
 Related protocol: <a href="CONJUNCTION_SWAP.html"><code>CONJUNCTION_SWAP.md</code></a><br />
-Last updated: 2026-07-14</p>
+Last updated: 2026-07-15</p>
 <h2>1. Research question</h2>
 <p>Does a model's curvature along two property directions reveal a conjunction-level
 interaction that is not visible in first-order J-lens measurements?</p>
@@ -232,6 +232,88 @@ position indexing, and cleanup after an exception.</p>
 later “H-lens artifact” would require a separate decision about whether to
 store per-layer curvature operators, learned directions, or only a reusable
 HVP-based scoring procedure.</p>
+<h3>9.1 What we will actually compute first</h3>
+<p>The practical first version is not a full Hessian lens. For a selected layer
+and answer position, let <code>h</code> be the residual activation and let <code>s(h)</code> be one
+scalar answer margin. Given two frozen directions <code>u</code> and <code>v</code>, compute only:</p>
+<pre><code class="language-text">g       = gradient of s with respect to h
+H_v     = Hessian(s) times v
+uHv     = dot(u, H_v)
+</code></pre>
+<p>The cross term <code>uHv</code> is the quantity of interest. We obtain it by first
+computing <code>g</code> with <code>create_graph=True</code>, then differentiating <code>dot(g, v)</code> with
+respect to <code>h</code>, and finally taking the dot product with <code>u</code>. This requires one
+Hessian-vector product per <code>v</code> direction; it does not materialize <code>H</code>.</p>
+<p>The first implementation should use J-lens readout directions or explicitly
+constructed property directions as <code>u</code> and <code>v</code>. It should report the scalar
+curvature together with the layer, token position, answer margin, direction
+norms, and dtype. This makes the result a reproducible curvature diagnostic.
+It is not yet a universal decoder from hidden states to vocabulary logits.
+Importantly, this directional statistic still tests the scientific interaction
+hypothesis: <code>uHv</code> is the second-order change in A's effect induced by B. The
+restriction is representational and computational, not a change to the
+interaction question.</p>
+<h3>9.2 Full Hessian as a separate small-model experiment</h3>
+<p>We should not conflate “not required for the interaction test” with “never
+worth computing.” On a small model, we can explicitly form the local Hessian
+for one prompt, one answer-margin score, one layer, and one activation
+position. We will use this as a feasibility and validation experiment:</p>
+<ol>
+<li>compute the full FP32 matrix <code>H</code> for a small model;</li>
+<li>verify symmetry and compare <code>u.T @ H @ v</code> against the HVP result;</li>
+<li>inspect eigenvalues, low-rank structure, and whether cross-property blocks
+are stronger than controls;</li>
+<li>measure wall time and peak memory as a function of hidden width and layer;</li>
+<li>only then decide whether a low-rank or Modal implementation is worthwhile.</li>
+</ol>
+<p>This experiment should be named <strong>full local Hessian feasibility</strong>, not an
+H-lens result by itself. A reusable artifact based on the matrix or its
+low-rank approximation can later be called an H-lens if we define its input,
+output, and intended use clearly.</p>
+<h3>9.3 Why we do not form the full Hessian by default</h3>
+<p>For hidden width <code>d</code>, a full per-position Hessian contains <code>d²</code> entries and
+requires substantially more memory and computation than one HVP. At <code>d=2048</code>
+that is over four million entries per scalar score; at the 27B model's
+<code>d=5120</code>, it is over 26 million entries before accounting for autograd graphs,
+layers, positions, and prompts. More importantly, a vocabulary-wide Hessian
+would add an output-token dimension and is not the object required by the
+conjunction question. Directional and cross-directional curvature is the
+minimal estimand.</p>
+<h3>9.4 Recommended staged implementation</h3>
+<ol>
+<li><strong>Autograd unit test.</strong> Use a tiny nonlinear MLP with an analytically known
+Hessian. Check zero directions, linear scaling in each direction, quadratic
+scaling in direction magnitude, symmetry <code>uHv = vHu</code>, and finite-difference
+agreement.</li>
+<li><strong>Model smoke.</strong> Run one Qwen3-0.6B or SmolLM2 prompt, one layer, one answer
+margin, and one pair of directions in FP32. Compare autograd HVP with the
+centered finite difference of gradients at several epsilon values.</li>
+<li><strong>Memory-safe pilot.</strong> Run a small set of conjunction prompts at 2–3 layers
+and the answer position only. Process one prompt at a time, delete the
+retained graph after each HVP, and record peak allocated/reserved VRAM.</li>
+<li><strong>Factorial conjunction test.</strong> Add A-only, B-only, A-and-B, swapped,
+connective, reversed-order, unrelated, and norm-matched-random controls.</li>
+<li><strong>Held-out prediction test.</strong> Freeze directions and compare the observed
+answer-margin change against J-only and J-plus-H Taylor predictions on new
+prompts. Only after this succeeds should we consider an H-lens artifact or
+a 27B run.</li>
+</ol>
+<h3>9.5 Expected compute and memory profile</h3>
+<p>The HVP path retains a graph for the suffix and creates a second-order graph
+for the first derivative. A single cross term is much cheaper than a full
+Hessian, but it is still materially more expensive and memory-hungry than a
+first-order J-lens score. The cost scales with:</p>
+<ul>
+<li>number of prompts;</li>
+<li>number of layer/position sites;</li>
+<li>number of independent <code>u</code>/<code>v</code> directions;</li>
+<li>suffix length and model width;</li>
+<li>whether finite-difference validation is also run.</li>
+</ul>
+<p>The pilot should therefore use answer-position-only measurements and a small
+layer grid. We should not infer 27B feasibility from the current J-lens fit:
+second-order autograd has a different memory profile, and NF4 quantization is
+not the first numerical-validation target.</p>
 <h2>10. Relationship to existing experiments</h2>
 <p>This extends the conjunction-swap experiment rather than replacing it. The
 existing J-lens experiment asks where first-order information points; H-lens

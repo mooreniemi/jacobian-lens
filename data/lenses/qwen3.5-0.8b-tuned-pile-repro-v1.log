@@ -1,0 +1,833 @@
+[22:57:10 +     0.2s] preflight: 23.24 GiB free / 23.53 GiB total
+[event] {"elapsed_s": 0.226, "event": "preflight", "free_gib": 23.236, "model": "Qwen/Qwen3.5-0.8B", "time": "2026-07-15T22:57:10-0400", "total_gib": 23.526}
+[22:57:10 +     0.2s] loading matched model Qwen/Qwen3.5-0.8B
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights:  41%|████      | 130/320 [00:00<00:00, 1259.44it/s]Loading weights:  80%|████████  | 256/320 [00:00<00:00, 1191.86it/s]Loading weights: 100%|██████████| 320/320 [00:00<00:00, 1212.24it/s]
+[event] {"device": "NVIDIA GeForce RTX 3090", "elapsed_s": 5.725, "event": "model_loaded", "free_gib": 21.742, "time": "2026-07-15T22:57:16-0400"}
+[22:57:16 +     6.0s] loading local JSONL corpus path=data/tuned-lens-pile/val.jsonl
+[22:57:23 +    13.5s] prepared 16392 chunks; using 16384
+[22:57:24 +    13.6s] model ready: layers=24 d_model=1024; lens params=279,471,104
+[event] {"chunks": 16384, "d_model": 1024, "elapsed_s": 13.566, "event": "fit_ready", "layers": 24, "lens_params": 279471104, "time": "2026-07-15T22:57:24-0400"}
+[22:57:24 +    14.2s] step 1/4096 mean_KL=12.68803 step=0.6s free=20.41 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 14.155, "event": "step", "free_gib": 20.406, "mean_kl": 12.688029, "reserved_gib": 2.764, "step": 1, "step_seconds": 0.586, "steps": 4096, "time": "2026-07-15T22:57:24-0400"}
+[22:57:26 +    16.0s] step 10/4096 mean_KL=4.54941 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 15.977, "event": "step", "free_gib": 20.279, "mean_kl": 4.549406, "reserved_gib": 2.891, "step": 10, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T22:57:26-0400"}
+[22:57:28 +    18.0s] step 20/4096 mean_KL=4.74360 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 17.997, "event": "step", "free_gib": 20.279, "mean_kl": 4.743598, "reserved_gib": 2.891, "step": 20, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T22:57:28-0400"}
+[22:57:30 +    20.0s] step 30/4096 mean_KL=4.82879 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 20.019, "event": "step", "free_gib": 20.279, "mean_kl": 4.828787, "reserved_gib": 2.891, "step": 30, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T22:57:30-0400"}
+[22:57:32 +    22.0s] step 40/4096 mean_KL=3.79239 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 22.047, "event": "step", "free_gib": 20.279, "mean_kl": 3.79239, "reserved_gib": 2.891, "step": 40, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T22:57:32-0400"}
+[22:57:34 +    24.1s] step 50/4096 mean_KL=6.07756 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 24.075, "event": "step", "free_gib": 20.279, "mean_kl": 6.077559, "reserved_gib": 2.891, "step": 50, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T22:57:34-0400"}
+[22:57:36 +    26.1s] step 60/4096 mean_KL=3.32873 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 26.1, "event": "step", "free_gib": 20.279, "mean_kl": 3.328733, "reserved_gib": 2.891, "step": 60, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T22:57:36-0400"}
+[22:57:38 +    28.1s] step 70/4096 mean_KL=2.41524 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 28.128, "event": "step", "free_gib": 20.279, "mean_kl": 2.415243, "reserved_gib": 2.891, "step": 70, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T22:57:38-0400"}
+[22:57:40 +    30.2s] step 80/4096 mean_KL=3.49840 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 30.165, "event": "step", "free_gib": 20.279, "mean_kl": 3.498396, "reserved_gib": 2.891, "step": 80, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T22:57:40-0400"}
+[22:57:42 +    32.2s] step 90/4096 mean_KL=2.50264 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 32.2, "event": "step", "free_gib": 20.279, "mean_kl": 2.502639, "reserved_gib": 2.891, "step": 90, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T22:57:42-0400"}
+[22:57:44 +    34.2s] step 100/4096 mean_KL=2.33443 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 34.228, "event": "step", "free_gib": 20.279, "mean_kl": 2.334431, "reserved_gib": 2.891, "step": 100, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T22:57:44-0400"}
+[22:57:46 +    36.3s] step 110/4096 mean_KL=1.72917 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 36.259, "event": "step", "free_gib": 20.279, "mean_kl": 1.729167, "reserved_gib": 2.891, "step": 110, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T22:57:46-0400"}
+[22:57:48 +    38.3s] step 120/4096 mean_KL=3.02675 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 38.284, "event": "step", "free_gib": 20.279, "mean_kl": 3.026746, "reserved_gib": 2.891, "step": 120, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T22:57:48-0400"}
+[22:57:50 +    40.3s] step 130/4096 mean_KL=3.98775 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 40.321, "event": "step", "free_gib": 20.279, "mean_kl": 3.987751, "reserved_gib": 2.891, "step": 130, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T22:57:50-0400"}
+[22:57:52 +    42.4s] step 140/4096 mean_KL=1.66134 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 42.354, "event": "step", "free_gib": 20.279, "mean_kl": 1.661341, "reserved_gib": 2.891, "step": 140, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T22:57:52-0400"}
+[22:57:54 +    44.4s] step 150/4096 mean_KL=1.60767 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 44.381, "event": "step", "free_gib": 20.279, "mean_kl": 1.607667, "reserved_gib": 2.891, "step": 150, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T22:57:54-0400"}
+[22:57:56 +    46.4s] step 160/4096 mean_KL=2.39788 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 46.411, "event": "step", "free_gib": 20.279, "mean_kl": 2.39788, "reserved_gib": 2.891, "step": 160, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T22:57:56-0400"}
+[22:57:58 +    48.4s] step 170/4096 mean_KL=1.44825 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 48.449, "event": "step", "free_gib": 20.279, "mean_kl": 1.448251, "reserved_gib": 2.891, "step": 170, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T22:57:58-0400"}
+[22:58:00 +    50.5s] step 180/4096 mean_KL=1.51398 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 50.483, "event": "step", "free_gib": 20.279, "mean_kl": 1.51398, "reserved_gib": 2.891, "step": 180, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T22:58:00-0400"}
+[22:58:03 +    52.5s] step 190/4096 mean_KL=1.30912 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 52.512, "event": "step", "free_gib": 20.279, "mean_kl": 1.30912, "reserved_gib": 2.891, "step": 190, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T22:58:03-0400"}
+[22:58:05 +    54.5s] step 200/4096 mean_KL=1.20544 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 54.539, "event": "step", "free_gib": 20.279, "mean_kl": 1.20544, "reserved_gib": 2.891, "step": 200, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T22:58:05-0400"}
+[22:58:07 +    56.6s] step 210/4096 mean_KL=1.80440 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 56.566, "event": "step", "free_gib": 20.279, "mean_kl": 1.804405, "reserved_gib": 2.891, "step": 210, "step_seconds": 0.201, "steps": 4096, "time": "2026-07-15T22:58:07-0400"}
+[22:58:09 +    58.6s] step 220/4096 mean_KL=1.37954 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 58.599, "event": "step", "free_gib": 20.279, "mean_kl": 1.379538, "reserved_gib": 2.891, "step": 220, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T22:58:09-0400"}
+[22:58:11 +    60.6s] step 230/4096 mean_KL=1.26725 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 60.641, "event": "step", "free_gib": 20.279, "mean_kl": 1.267245, "reserved_gib": 2.891, "step": 230, "step_seconds": 0.207, "steps": 4096, "time": "2026-07-15T22:58:11-0400"}
+[22:58:13 +    62.7s] step 240/4096 mean_KL=0.97844 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 62.675, "event": "step", "free_gib": 20.279, "mean_kl": 0.978435, "reserved_gib": 2.891, "step": 240, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T22:58:13-0400"}
+[22:58:15 +    64.7s] step 250/4096 mean_KL=1.40615 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 64.706, "event": "step", "free_gib": 20.279, "mean_kl": 1.406153, "reserved_gib": 2.891, "step": 250, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T22:58:15-0400"}
+[22:58:17 +    66.7s] step 260/4096 mean_KL=1.27378 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 66.745, "event": "step", "free_gib": 20.279, "mean_kl": 1.273775, "reserved_gib": 2.891, "step": 260, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T22:58:17-0400"}
+[22:58:19 +    68.8s] step 270/4096 mean_KL=1.23279 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 68.769, "event": "step", "free_gib": 20.279, "mean_kl": 1.23279, "reserved_gib": 2.891, "step": 270, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T22:58:19-0400"}
+[22:58:21 +    70.8s] step 280/4096 mean_KL=1.19839 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 70.812, "event": "step", "free_gib": 20.279, "mean_kl": 1.198389, "reserved_gib": 2.891, "step": 280, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T22:58:21-0400"}
+[22:58:23 +    72.8s] step 290/4096 mean_KL=1.53136 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 72.849, "event": "step", "free_gib": 20.279, "mean_kl": 1.531355, "reserved_gib": 2.891, "step": 290, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T22:58:23-0400"}
+[22:58:25 +    74.9s] step 300/4096 mean_KL=1.18344 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 74.884, "event": "step", "free_gib": 20.279, "mean_kl": 1.183444, "reserved_gib": 2.891, "step": 300, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T22:58:25-0400"}
+[22:58:27 +    76.9s] step 310/4096 mean_KL=0.89038 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 76.922, "event": "step", "free_gib": 20.279, "mean_kl": 0.890385, "reserved_gib": 2.891, "step": 310, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T22:58:27-0400"}
+[22:58:29 +    79.0s] step 320/4096 mean_KL=1.49209 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 78.958, "event": "step", "free_gib": 20.279, "mean_kl": 1.492087, "reserved_gib": 2.891, "step": 320, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T22:58:29-0400"}
+[22:58:31 +    81.0s] step 330/4096 mean_KL=1.41926 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 81.001, "event": "step", "free_gib": 20.279, "mean_kl": 1.419257, "reserved_gib": 2.891, "step": 330, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T22:58:31-0400"}
+[22:58:33 +    83.0s] step 340/4096 mean_KL=1.28250 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 83.03, "event": "step", "free_gib": 20.279, "mean_kl": 1.282497, "reserved_gib": 2.891, "step": 340, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T22:58:33-0400"}
+[22:58:35 +    85.1s] step 350/4096 mean_KL=1.13965 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 85.064, "event": "step", "free_gib": 20.279, "mean_kl": 1.139646, "reserved_gib": 2.891, "step": 350, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T22:58:35-0400"}
+[22:58:37 +    87.1s] step 360/4096 mean_KL=1.13238 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 87.105, "event": "step", "free_gib": 20.279, "mean_kl": 1.132383, "reserved_gib": 2.891, "step": 360, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T22:58:37-0400"}
+[22:58:39 +    89.1s] step 370/4096 mean_KL=1.09359 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 89.144, "event": "step", "free_gib": 20.279, "mean_kl": 1.093594, "reserved_gib": 2.891, "step": 370, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T22:58:39-0400"}
+[22:58:41 +    91.2s] step 380/4096 mean_KL=1.10022 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 91.191, "event": "step", "free_gib": 20.279, "mean_kl": 1.100224, "reserved_gib": 2.891, "step": 380, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T22:58:41-0400"}
+[22:58:43 +    93.2s] step 390/4096 mean_KL=1.17913 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 93.228, "event": "step", "free_gib": 20.279, "mean_kl": 1.179133, "reserved_gib": 2.891, "step": 390, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T22:58:43-0400"}
+[22:58:45 +    95.3s] step 400/4096 mean_KL=1.09682 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 95.271, "event": "step", "free_gib": 20.279, "mean_kl": 1.096823, "reserved_gib": 2.891, "step": 400, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T22:58:45-0400"}
+[22:58:47 +    97.3s] step 410/4096 mean_KL=1.15996 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 97.307, "event": "step", "free_gib": 20.279, "mean_kl": 1.159963, "reserved_gib": 2.891, "step": 410, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T22:58:47-0400"}
+[22:58:49 +    99.3s] step 420/4096 mean_KL=1.45711 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 99.339, "event": "step", "free_gib": 20.279, "mean_kl": 1.457112, "reserved_gib": 2.891, "step": 420, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T22:58:49-0400"}
+[22:58:51 +   101.4s] step 430/4096 mean_KL=1.12174 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 101.392, "event": "step", "free_gib": 20.279, "mean_kl": 1.121745, "reserved_gib": 2.891, "step": 430, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T22:58:51-0400"}
+[22:58:53 +   103.4s] step 440/4096 mean_KL=1.00448 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 103.426, "event": "step", "free_gib": 20.279, "mean_kl": 1.004483, "reserved_gib": 2.891, "step": 440, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T22:58:53-0400"}
+[22:58:55 +   105.4s] step 450/4096 mean_KL=0.92835 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 105.449, "event": "step", "free_gib": 20.279, "mean_kl": 0.928351, "reserved_gib": 2.891, "step": 450, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T22:58:55-0400"}
+[22:58:57 +   107.5s] step 460/4096 mean_KL=1.18820 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 107.475, "event": "step", "free_gib": 20.279, "mean_kl": 1.188203, "reserved_gib": 2.891, "step": 460, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T22:58:57-0400"}
+[22:59:00 +   109.5s] step 470/4096 mean_KL=1.13945 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 109.514, "event": "step", "free_gib": 20.279, "mean_kl": 1.139449, "reserved_gib": 2.891, "step": 470, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T22:59:00-0400"}
+[22:59:02 +   111.6s] step 480/4096 mean_KL=1.39955 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 111.556, "event": "step", "free_gib": 20.279, "mean_kl": 1.399552, "reserved_gib": 2.891, "step": 480, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T22:59:02-0400"}
+[22:59:04 +   113.6s] step 490/4096 mean_KL=1.10118 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 113.587, "event": "step", "free_gib": 20.279, "mean_kl": 1.101179, "reserved_gib": 2.891, "step": 490, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T22:59:04-0400"}
+[22:59:06 +   115.6s] step 500/4096 mean_KL=0.99801 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 115.624, "event": "step", "free_gib": 20.279, "mean_kl": 0.998014, "reserved_gib": 2.891, "step": 500, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T22:59:06-0400"}
+[22:59:08 +   117.7s] step 510/4096 mean_KL=1.52351 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 117.663, "event": "step", "free_gib": 20.279, "mean_kl": 1.523513, "reserved_gib": 2.891, "step": 510, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T22:59:08-0400"}
+[22:59:10 +   119.7s] step 520/4096 mean_KL=1.12699 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 119.7, "event": "step", "free_gib": 20.279, "mean_kl": 1.126989, "reserved_gib": 2.891, "step": 520, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T22:59:10-0400"}
+[22:59:12 +   121.7s] step 530/4096 mean_KL=1.00172 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 121.729, "event": "step", "free_gib": 20.279, "mean_kl": 1.001716, "reserved_gib": 2.891, "step": 530, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T22:59:12-0400"}
+[22:59:14 +   123.8s] step 540/4096 mean_KL=1.10946 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 123.771, "event": "step", "free_gib": 20.279, "mean_kl": 1.109458, "reserved_gib": 2.891, "step": 540, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T22:59:14-0400"}
+[22:59:16 +   125.8s] step 550/4096 mean_KL=0.78570 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 125.808, "event": "step", "free_gib": 20.279, "mean_kl": 0.785704, "reserved_gib": 2.891, "step": 550, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T22:59:16-0400"}
+[22:59:18 +   127.8s] step 560/4096 mean_KL=0.80361 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 127.839, "event": "step", "free_gib": 20.279, "mean_kl": 0.803614, "reserved_gib": 2.891, "step": 560, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T22:59:18-0400"}
+[22:59:20 +   129.9s] step 570/4096 mean_KL=1.51022 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 129.873, "event": "step", "free_gib": 20.279, "mean_kl": 1.510219, "reserved_gib": 2.891, "step": 570, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T22:59:20-0400"}
+[22:59:22 +   131.9s] step 580/4096 mean_KL=1.18316 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 131.903, "event": "step", "free_gib": 20.279, "mean_kl": 1.183156, "reserved_gib": 2.891, "step": 580, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T22:59:22-0400"}
+[22:59:24 +   134.0s] step 590/4096 mean_KL=1.11072 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 133.962, "event": "step", "free_gib": 20.279, "mean_kl": 1.110719, "reserved_gib": 2.891, "step": 590, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T22:59:24-0400"}
+[22:59:26 +   136.0s] step 600/4096 mean_KL=1.42514 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 135.998, "event": "step", "free_gib": 20.279, "mean_kl": 1.425139, "reserved_gib": 2.891, "step": 600, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T22:59:26-0400"}
+[22:59:28 +   138.0s] step 610/4096 mean_KL=0.97530 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 138.034, "event": "step", "free_gib": 20.279, "mean_kl": 0.9753, "reserved_gib": 2.891, "step": 610, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T22:59:28-0400"}
+[22:59:30 +   140.1s] step 620/4096 mean_KL=1.18414 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 140.07, "event": "step", "free_gib": 20.279, "mean_kl": 1.184137, "reserved_gib": 2.891, "step": 620, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T22:59:30-0400"}
+[22:59:32 +   142.1s] step 630/4096 mean_KL=1.09534 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 142.102, "event": "step", "free_gib": 20.279, "mean_kl": 1.09534, "reserved_gib": 2.891, "step": 630, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T22:59:32-0400"}
+[22:59:34 +   144.1s] step 640/4096 mean_KL=0.83675 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 144.134, "event": "step", "free_gib": 20.279, "mean_kl": 0.836751, "reserved_gib": 2.891, "step": 640, "step_seconds": 0.201, "steps": 4096, "time": "2026-07-15T22:59:34-0400"}
+[22:59:36 +   146.2s] step 650/4096 mean_KL=1.05578 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 146.16, "event": "step", "free_gib": 20.279, "mean_kl": 1.055785, "reserved_gib": 2.891, "step": 650, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T22:59:36-0400"}
+[22:59:38 +   148.2s] step 660/4096 mean_KL=0.91143 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 148.202, "event": "step", "free_gib": 20.279, "mean_kl": 0.91143, "reserved_gib": 2.891, "step": 660, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T22:59:38-0400"}
+[22:59:40 +   150.2s] step 670/4096 mean_KL=0.89909 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 150.231, "event": "step", "free_gib": 20.279, "mean_kl": 0.899093, "reserved_gib": 2.891, "step": 670, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T22:59:40-0400"}
+[22:59:42 +   152.3s] step 680/4096 mean_KL=1.05350 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 152.265, "event": "step", "free_gib": 20.279, "mean_kl": 1.053497, "reserved_gib": 2.891, "step": 680, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T22:59:42-0400"}
+[22:59:44 +   154.3s] step 690/4096 mean_KL=1.46799 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 154.304, "event": "step", "free_gib": 20.279, "mean_kl": 1.467987, "reserved_gib": 2.891, "step": 690, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T22:59:44-0400"}
+[22:59:46 +   156.3s] step 700/4096 mean_KL=1.42064 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 156.345, "event": "step", "free_gib": 20.279, "mean_kl": 1.420636, "reserved_gib": 2.891, "step": 700, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T22:59:46-0400"}
+[22:59:48 +   158.4s] step 710/4096 mean_KL=1.30208 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 158.38, "event": "step", "free_gib": 20.279, "mean_kl": 1.302085, "reserved_gib": 2.891, "step": 710, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T22:59:48-0400"}
+[22:59:50 +   160.4s] step 720/4096 mean_KL=1.13000 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 160.419, "event": "step", "free_gib": 20.279, "mean_kl": 1.130004, "reserved_gib": 2.891, "step": 720, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T22:59:50-0400"}
+[22:59:52 +   162.5s] step 730/4096 mean_KL=1.04413 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 162.458, "event": "step", "free_gib": 20.279, "mean_kl": 1.044132, "reserved_gib": 2.891, "step": 730, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T22:59:52-0400"}
+[22:59:54 +   164.5s] step 740/4096 mean_KL=1.19620 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 164.498, "event": "step", "free_gib": 20.279, "mean_kl": 1.1962, "reserved_gib": 2.891, "step": 740, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T22:59:54-0400"}
+[22:59:57 +   166.5s] step 750/4096 mean_KL=1.09939 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 166.535, "event": "step", "free_gib": 20.279, "mean_kl": 1.099392, "reserved_gib": 2.891, "step": 750, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T22:59:57-0400"}
+[22:59:59 +   168.6s] step 760/4096 mean_KL=1.33034 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 168.569, "event": "step", "free_gib": 20.279, "mean_kl": 1.330344, "reserved_gib": 2.891, "step": 760, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T22:59:59-0400"}
+[23:00:01 +   170.6s] step 770/4096 mean_KL=0.96410 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 170.61, "event": "step", "free_gib": 20.279, "mean_kl": 0.964097, "reserved_gib": 2.891, "step": 770, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:00:01-0400"}
+[23:00:03 +   172.6s] step 780/4096 mean_KL=0.94966 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 172.649, "event": "step", "free_gib": 20.279, "mean_kl": 0.949657, "reserved_gib": 2.891, "step": 780, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T23:00:03-0400"}
+[23:00:05 +   174.7s] step 790/4096 mean_KL=0.79293 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 174.683, "event": "step", "free_gib": 20.279, "mean_kl": 0.792931, "reserved_gib": 2.891, "step": 790, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:00:05-0400"}
+[23:00:07 +   176.7s] step 800/4096 mean_KL=1.06793 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 176.722, "event": "step", "free_gib": 20.279, "mean_kl": 1.067928, "reserved_gib": 2.891, "step": 800, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:00:07-0400"}
+[23:00:09 +   178.8s] step 810/4096 mean_KL=0.90024 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 178.763, "event": "step", "free_gib": 20.279, "mean_kl": 0.900239, "reserved_gib": 2.891, "step": 810, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:00:09-0400"}
+[23:00:11 +   180.8s] step 820/4096 mean_KL=0.94887 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 180.804, "event": "step", "free_gib": 20.279, "mean_kl": 0.948871, "reserved_gib": 2.891, "step": 820, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:00:11-0400"}
+[23:00:13 +   182.8s] step 830/4096 mean_KL=0.91737 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 182.839, "event": "step", "free_gib": 20.279, "mean_kl": 0.917372, "reserved_gib": 2.891, "step": 830, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:00:13-0400"}
+[23:00:15 +   184.9s] step 840/4096 mean_KL=1.25641 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 184.877, "event": "step", "free_gib": 20.279, "mean_kl": 1.256408, "reserved_gib": 2.891, "step": 840, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:00:15-0400"}
+[23:00:17 +   186.9s] step 850/4096 mean_KL=1.04187 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 186.916, "event": "step", "free_gib": 20.279, "mean_kl": 1.041865, "reserved_gib": 2.891, "step": 850, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:00:17-0400"}
+[23:00:19 +   189.0s] step 860/4096 mean_KL=0.89762 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 188.957, "event": "step", "free_gib": 20.279, "mean_kl": 0.897621, "reserved_gib": 2.891, "step": 860, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:00:19-0400"}
+[23:00:21 +   191.0s] step 870/4096 mean_KL=0.77458 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 191.012, "event": "step", "free_gib": 20.279, "mean_kl": 0.774579, "reserved_gib": 2.891, "step": 870, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:00:21-0400"}
+[23:00:23 +   193.1s] step 880/4096 mean_KL=1.52267 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 193.051, "event": "step", "free_gib": 20.279, "mean_kl": 1.522667, "reserved_gib": 2.891, "step": 880, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:00:23-0400"}
+[23:00:25 +   195.1s] step 890/4096 mean_KL=1.20414 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 195.093, "event": "step", "free_gib": 20.279, "mean_kl": 1.20414, "reserved_gib": 2.891, "step": 890, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:00:25-0400"}
+[23:00:27 +   197.1s] step 900/4096 mean_KL=1.24502 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 197.135, "event": "step", "free_gib": 20.279, "mean_kl": 1.245019, "reserved_gib": 2.891, "step": 900, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:00:27-0400"}
+[23:00:29 +   199.2s] step 910/4096 mean_KL=1.28676 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 199.192, "event": "step", "free_gib": 20.279, "mean_kl": 1.286765, "reserved_gib": 2.891, "step": 910, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:00:29-0400"}
+[23:00:31 +   201.2s] step 920/4096 mean_KL=1.01692 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 201.233, "event": "step", "free_gib": 20.279, "mean_kl": 1.016924, "reserved_gib": 2.891, "step": 920, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:00:31-0400"}
+[23:00:33 +   203.3s] step 930/4096 mean_KL=0.99922 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 203.262, "event": "step", "free_gib": 20.279, "mean_kl": 0.999218, "reserved_gib": 2.891, "step": 930, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:00:33-0400"}
+[23:00:35 +   205.3s] step 940/4096 mean_KL=0.78720 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 205.295, "event": "step", "free_gib": 20.279, "mean_kl": 0.787202, "reserved_gib": 2.891, "step": 940, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:00:35-0400"}
+[23:00:37 +   207.3s] step 950/4096 mean_KL=1.33905 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 207.33, "event": "step", "free_gib": 20.279, "mean_kl": 1.339055, "reserved_gib": 2.891, "step": 950, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:00:37-0400"}
+[23:00:39 +   209.4s] step 960/4096 mean_KL=1.06426 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 209.37, "event": "step", "free_gib": 20.279, "mean_kl": 1.064261, "reserved_gib": 2.891, "step": 960, "step_seconds": 0.208, "steps": 4096, "time": "2026-07-15T23:00:39-0400"}
+[23:00:41 +   211.4s] step 970/4096 mean_KL=1.28522 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 211.418, "event": "step", "free_gib": 20.279, "mean_kl": 1.285221, "reserved_gib": 2.891, "step": 970, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:00:41-0400"}
+[23:00:43 +   213.5s] step 980/4096 mean_KL=1.04150 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 213.453, "event": "step", "free_gib": 20.279, "mean_kl": 1.041503, "reserved_gib": 2.891, "step": 980, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:00:43-0400"}
+[23:00:45 +   215.5s] step 990/4096 mean_KL=1.47473 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 215.491, "event": "step", "free_gib": 20.279, "mean_kl": 1.474725, "reserved_gib": 2.891, "step": 990, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:00:45-0400"}
+[23:00:48 +   217.5s] step 1000/4096 mean_KL=1.26545 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 217.528, "event": "step", "free_gib": 20.279, "mean_kl": 1.26545, "reserved_gib": 2.891, "step": 1000, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:00:48-0400"}
+[23:00:50 +   219.6s] step 1010/4096 mean_KL=0.97158 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 219.573, "event": "step", "free_gib": 20.279, "mean_kl": 0.971584, "reserved_gib": 2.891, "step": 1010, "step_seconds": 0.207, "steps": 4096, "time": "2026-07-15T23:00:50-0400"}
+[23:00:52 +   221.6s] step 1020/4096 mean_KL=1.10627 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 221.618, "event": "step", "free_gib": 20.279, "mean_kl": 1.106273, "reserved_gib": 2.891, "step": 1020, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:00:52-0400"}
+[23:00:54 +   223.7s] step 1030/4096 mean_KL=1.25998 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 223.656, "event": "step", "free_gib": 20.279, "mean_kl": 1.259976, "reserved_gib": 2.891, "step": 1030, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:00:54-0400"}
+[23:00:56 +   225.7s] step 1040/4096 mean_KL=1.22143 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 225.702, "event": "step", "free_gib": 20.279, "mean_kl": 1.221426, "reserved_gib": 2.891, "step": 1040, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:00:56-0400"}
+[23:00:58 +   227.7s] step 1050/4096 mean_KL=0.91699 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 227.74, "event": "step", "free_gib": 20.279, "mean_kl": 0.916991, "reserved_gib": 2.891, "step": 1050, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:00:58-0400"}
+[23:01:00 +   229.8s] step 1060/4096 mean_KL=0.98497 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 229.778, "event": "step", "free_gib": 20.279, "mean_kl": 0.984965, "reserved_gib": 2.891, "step": 1060, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:01:00-0400"}
+[23:01:02 +   231.8s] step 1070/4096 mean_KL=0.68885 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 231.831, "event": "step", "free_gib": 20.279, "mean_kl": 0.688854, "reserved_gib": 2.891, "step": 1070, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:01:02-0400"}
+[23:01:04 +   233.9s] step 1080/4096 mean_KL=1.42626 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 233.873, "event": "step", "free_gib": 20.279, "mean_kl": 1.42626, "reserved_gib": 2.891, "step": 1080, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:01:04-0400"}
+[23:01:06 +   235.9s] step 1090/4096 mean_KL=1.41939 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 235.915, "event": "step", "free_gib": 20.279, "mean_kl": 1.419386, "reserved_gib": 2.891, "step": 1090, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:01:06-0400"}
+[23:01:08 +   238.0s] step 1100/4096 mean_KL=1.20240 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 237.953, "event": "step", "free_gib": 20.279, "mean_kl": 1.202402, "reserved_gib": 2.891, "step": 1100, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:01:08-0400"}
+[23:01:10 +   240.0s] step 1110/4096 mean_KL=0.94676 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 239.998, "event": "step", "free_gib": 20.279, "mean_kl": 0.946764, "reserved_gib": 2.891, "step": 1110, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:01:10-0400"}
+[23:01:12 +   242.0s] step 1120/4096 mean_KL=0.90808 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 242.05, "event": "step", "free_gib": 20.279, "mean_kl": 0.908079, "reserved_gib": 2.891, "step": 1120, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:01:12-0400"}
+[23:01:14 +   244.1s] step 1130/4096 mean_KL=0.93172 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 244.087, "event": "step", "free_gib": 20.279, "mean_kl": 0.931721, "reserved_gib": 2.891, "step": 1130, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T23:01:14-0400"}
+[23:01:16 +   246.1s] step 1140/4096 mean_KL=2.17373 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 246.131, "event": "step", "free_gib": 20.279, "mean_kl": 2.17373, "reserved_gib": 2.891, "step": 1140, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:01:16-0400"}
+[23:01:18 +   248.2s] step 1150/4096 mean_KL=1.91392 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 248.166, "event": "step", "free_gib": 20.279, "mean_kl": 1.913921, "reserved_gib": 2.891, "step": 1150, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:01:18-0400"}
+[23:01:20 +   250.2s] step 1160/4096 mean_KL=1.49307 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 250.205, "event": "step", "free_gib": 20.279, "mean_kl": 1.493072, "reserved_gib": 2.891, "step": 1160, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:01:20-0400"}
+[23:01:22 +   252.3s] step 1170/4096 mean_KL=1.39102 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 252.256, "event": "step", "free_gib": 20.279, "mean_kl": 1.391023, "reserved_gib": 2.891, "step": 1170, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:01:22-0400"}
+[23:01:24 +   254.3s] step 1180/4096 mean_KL=1.42853 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 254.295, "event": "step", "free_gib": 20.279, "mean_kl": 1.428535, "reserved_gib": 2.891, "step": 1180, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:01:24-0400"}
+[23:01:26 +   256.3s] step 1190/4096 mean_KL=1.20012 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 256.34, "event": "step", "free_gib": 20.279, "mean_kl": 1.200115, "reserved_gib": 2.891, "step": 1190, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:01:26-0400"}
+[23:01:28 +   258.4s] step 1200/4096 mean_KL=2.44597 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 258.387, "event": "step", "free_gib": 20.279, "mean_kl": 2.445969, "reserved_gib": 2.891, "step": 1200, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:01:28-0400"}
+[23:01:30 +   260.4s] step 1210/4096 mean_KL=2.04119 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 260.438, "event": "step", "free_gib": 20.279, "mean_kl": 2.041191, "reserved_gib": 2.891, "step": 1210, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:01:30-0400"}
+[23:01:32 +   262.5s] step 1220/4096 mean_KL=1.88054 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 262.486, "event": "step", "free_gib": 20.279, "mean_kl": 1.880541, "reserved_gib": 2.891, "step": 1220, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:01:32-0400"}
+[23:01:35 +   264.5s] step 1230/4096 mean_KL=2.15411 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 264.526, "event": "step", "free_gib": 20.279, "mean_kl": 2.154114, "reserved_gib": 2.891, "step": 1230, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:01:35-0400"}
+[23:01:37 +   266.6s] step 1240/4096 mean_KL=1.81644 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 266.576, "event": "step", "free_gib": 20.279, "mean_kl": 1.816436, "reserved_gib": 2.891, "step": 1240, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T23:01:37-0400"}
+[23:01:39 +   268.6s] step 1250/4096 mean_KL=3.01387 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 268.628, "event": "step", "free_gib": 20.279, "mean_kl": 3.013873, "reserved_gib": 2.891, "step": 1250, "step_seconds": 0.207, "steps": 4096, "time": "2026-07-15T23:01:39-0400"}
+[23:01:41 +   270.7s] step 1260/4096 mean_KL=2.28860 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 270.679, "event": "step", "free_gib": 20.279, "mean_kl": 2.288604, "reserved_gib": 2.891, "step": 1260, "step_seconds": 0.207, "steps": 4096, "time": "2026-07-15T23:01:41-0400"}
+[23:01:43 +   272.7s] step 1270/4096 mean_KL=2.50110 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 272.724, "event": "step", "free_gib": 20.279, "mean_kl": 2.501103, "reserved_gib": 2.891, "step": 1270, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:01:43-0400"}
+[23:01:45 +   274.8s] step 1280/4096 mean_KL=1.98657 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 274.77, "event": "step", "free_gib": 20.279, "mean_kl": 1.986567, "reserved_gib": 2.891, "step": 1280, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:01:45-0400"}
+[23:01:47 +   276.8s] step 1290/4096 mean_KL=1.92477 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 276.816, "event": "step", "free_gib": 20.279, "mean_kl": 1.924767, "reserved_gib": 2.891, "step": 1290, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:01:47-0400"}
+[23:01:49 +   278.9s] step 1300/4096 mean_KL=1.56705 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 278.858, "event": "step", "free_gib": 20.279, "mean_kl": 1.56705, "reserved_gib": 2.891, "step": 1300, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:01:49-0400"}
+[23:01:51 +   280.9s] step 1310/4096 mean_KL=1.76714 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 280.906, "event": "step", "free_gib": 20.279, "mean_kl": 1.767137, "reserved_gib": 2.891, "step": 1310, "step_seconds": 0.208, "steps": 4096, "time": "2026-07-15T23:01:51-0400"}
+[23:01:53 +   282.9s] step 1320/4096 mean_KL=1.51409 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 282.948, "event": "step", "free_gib": 20.279, "mean_kl": 1.514093, "reserved_gib": 2.891, "step": 1320, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:01:53-0400"}
+[23:01:55 +   285.0s] step 1330/4096 mean_KL=2.17194 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 284.989, "event": "step", "free_gib": 20.279, "mean_kl": 2.171943, "reserved_gib": 2.891, "step": 1330, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:01:55-0400"}
+[23:01:57 +   287.0s] step 1340/4096 mean_KL=2.04278 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 287.04, "event": "step", "free_gib": 20.279, "mean_kl": 2.042785, "reserved_gib": 2.891, "step": 1340, "step_seconds": 0.207, "steps": 4096, "time": "2026-07-15T23:01:57-0400"}
+[23:01:59 +   289.1s] step 1350/4096 mean_KL=1.15599 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 289.079, "event": "step", "free_gib": 20.279, "mean_kl": 1.15599, "reserved_gib": 2.891, "step": 1350, "step_seconds": 0.207, "steps": 4096, "time": "2026-07-15T23:01:59-0400"}
+[23:02:01 +   291.1s] step 1360/4096 mean_KL=4.23115 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 291.123, "event": "step", "free_gib": 20.279, "mean_kl": 4.231147, "reserved_gib": 2.891, "step": 1360, "step_seconds": 0.207, "steps": 4096, "time": "2026-07-15T23:02:01-0400"}
+[23:02:03 +   293.2s] step 1370/4096 mean_KL=1.75482 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 293.163, "event": "step", "free_gib": 20.279, "mean_kl": 1.754818, "reserved_gib": 2.891, "step": 1370, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:02:03-0400"}
+[23:02:05 +   295.2s] step 1380/4096 mean_KL=1.39410 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 295.204, "event": "step", "free_gib": 20.279, "mean_kl": 1.394102, "reserved_gib": 2.891, "step": 1380, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:02:05-0400"}
+[23:02:07 +   297.2s] step 1390/4096 mean_KL=1.27592 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 297.243, "event": "step", "free_gib": 20.279, "mean_kl": 1.275921, "reserved_gib": 2.891, "step": 1390, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:02:07-0400"}
+[23:02:09 +   299.3s] step 1400/4096 mean_KL=1.77687 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 299.286, "event": "step", "free_gib": 20.279, "mean_kl": 1.776873, "reserved_gib": 2.891, "step": 1400, "step_seconds": 0.208, "steps": 4096, "time": "2026-07-15T23:02:09-0400"}
+[23:02:11 +   301.3s] step 1410/4096 mean_KL=0.96413 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 301.329, "event": "step", "free_gib": 20.279, "mean_kl": 0.964133, "reserved_gib": 2.891, "step": 1410, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T23:02:11-0400"}
+[23:02:13 +   303.4s] step 1420/4096 mean_KL=1.36695 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 303.372, "event": "step", "free_gib": 20.279, "mean_kl": 1.366949, "reserved_gib": 2.891, "step": 1420, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:02:13-0400"}
+[23:02:15 +   305.4s] step 1430/4096 mean_KL=0.96864 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 305.413, "event": "step", "free_gib": 20.279, "mean_kl": 0.968639, "reserved_gib": 2.891, "step": 1430, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:02:15-0400"}
+[23:02:17 +   307.5s] step 1440/4096 mean_KL=0.64156 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 307.457, "event": "step", "free_gib": 20.279, "mean_kl": 0.641558, "reserved_gib": 2.891, "step": 1440, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:02:17-0400"}
+[23:02:20 +   309.5s] step 1450/4096 mean_KL=1.46283 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 309.504, "event": "step", "free_gib": 20.279, "mean_kl": 1.462829, "reserved_gib": 2.891, "step": 1450, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:02:20-0400"}
+[23:02:22 +   311.5s] step 1460/4096 mean_KL=1.13805 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 311.544, "event": "step", "free_gib": 20.279, "mean_kl": 1.138052, "reserved_gib": 2.891, "step": 1460, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:02:22-0400"}
+[23:02:24 +   313.6s] step 1470/4096 mean_KL=1.90504 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 313.587, "event": "step", "free_gib": 20.279, "mean_kl": 1.905044, "reserved_gib": 2.891, "step": 1470, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:02:24-0400"}
+[23:02:26 +   315.6s] step 1480/4096 mean_KL=1.56636 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 315.637, "event": "step", "free_gib": 20.279, "mean_kl": 1.566358, "reserved_gib": 2.891, "step": 1480, "step_seconds": 0.207, "steps": 4096, "time": "2026-07-15T23:02:26-0400"}
+[23:02:28 +   317.7s] step 1490/4096 mean_KL=1.68412 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 317.686, "event": "step", "free_gib": 20.279, "mean_kl": 1.684116, "reserved_gib": 2.891, "step": 1490, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:02:28-0400"}
+[23:02:30 +   319.7s] step 1500/4096 mean_KL=2.34841 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 319.729, "event": "step", "free_gib": 20.279, "mean_kl": 2.34841, "reserved_gib": 2.891, "step": 1500, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:02:30-0400"}
+[23:02:32 +   321.8s] step 1510/4096 mean_KL=1.66863 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 321.771, "event": "step", "free_gib": 20.279, "mean_kl": 1.668631, "reserved_gib": 2.891, "step": 1510, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T23:02:32-0400"}
+[23:02:34 +   323.8s] step 1520/4096 mean_KL=3.79610 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 323.807, "event": "step", "free_gib": 20.279, "mean_kl": 3.796104, "reserved_gib": 2.891, "step": 1520, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T23:02:34-0400"}
+[23:02:36 +   325.8s] step 1530/4096 mean_KL=2.25506 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 325.842, "event": "step", "free_gib": 20.279, "mean_kl": 2.255057, "reserved_gib": 2.891, "step": 1530, "step_seconds": 0.201, "steps": 4096, "time": "2026-07-15T23:02:36-0400"}
+[23:02:38 +   327.9s] step 1540/4096 mean_KL=1.50920 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 327.881, "event": "step", "free_gib": 20.279, "mean_kl": 1.509199, "reserved_gib": 2.891, "step": 1540, "step_seconds": 0.208, "steps": 4096, "time": "2026-07-15T23:02:38-0400"}
+[23:02:40 +   329.9s] step 1550/4096 mean_KL=1.59616 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 329.931, "event": "step", "free_gib": 20.279, "mean_kl": 1.596159, "reserved_gib": 2.891, "step": 1550, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:02:40-0400"}
+[23:02:42 +   332.0s] step 1560/4096 mean_KL=1.30004 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 331.973, "event": "step", "free_gib": 20.279, "mean_kl": 1.300041, "reserved_gib": 2.891, "step": 1560, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:02:42-0400"}
+[23:02:44 +   334.0s] step 1570/4096 mean_KL=1.38727 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 334.018, "event": "step", "free_gib": 20.279, "mean_kl": 1.38727, "reserved_gib": 2.891, "step": 1570, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:02:44-0400"}
+[23:02:46 +   336.1s] step 1580/4096 mean_KL=2.21194 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 336.069, "event": "step", "free_gib": 20.279, "mean_kl": 2.211937, "reserved_gib": 2.891, "step": 1580, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:02:46-0400"}
+[23:02:48 +   338.1s] step 1590/4096 mean_KL=1.35791 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 338.115, "event": "step", "free_gib": 20.279, "mean_kl": 1.357909, "reserved_gib": 2.891, "step": 1590, "step_seconds": 0.208, "steps": 4096, "time": "2026-07-15T23:02:48-0400"}
+[23:02:50 +   340.2s] step 1600/4096 mean_KL=2.55151 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 340.158, "event": "step", "free_gib": 20.279, "mean_kl": 2.551507, "reserved_gib": 2.891, "step": 1600, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T23:02:50-0400"}
+[23:02:52 +   342.2s] step 1610/4096 mean_KL=2.19058 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 342.197, "event": "step", "free_gib": 20.279, "mean_kl": 2.190578, "reserved_gib": 2.891, "step": 1610, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:02:52-0400"}
+[23:02:54 +   344.2s] step 1620/4096 mean_KL=1.52244 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 344.234, "event": "step", "free_gib": 20.279, "mean_kl": 1.522445, "reserved_gib": 2.891, "step": 1620, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:02:54-0400"}
+[23:02:56 +   346.3s] step 1630/4096 mean_KL=1.32912 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 346.282, "event": "step", "free_gib": 20.279, "mean_kl": 1.329119, "reserved_gib": 2.891, "step": 1630, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:02:56-0400"}
+[23:02:58 +   348.3s] step 1640/4096 mean_KL=1.18258 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 348.331, "event": "step", "free_gib": 20.279, "mean_kl": 1.182576, "reserved_gib": 2.891, "step": 1640, "step_seconds": 0.209, "steps": 4096, "time": "2026-07-15T23:02:58-0400"}
+[23:03:00 +   350.4s] step 1650/4096 mean_KL=1.60607 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 350.372, "event": "step", "free_gib": 20.279, "mean_kl": 1.60607, "reserved_gib": 2.891, "step": 1650, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:03:00-0400"}
+[23:03:02 +   352.4s] step 1660/4096 mean_KL=2.40200 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 352.422, "event": "step", "free_gib": 20.279, "mean_kl": 2.402003, "reserved_gib": 2.891, "step": 1660, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:03:02-0400"}
+[23:03:04 +   354.5s] step 1670/4096 mean_KL=2.27027 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 354.463, "event": "step", "free_gib": 20.279, "mean_kl": 2.270267, "reserved_gib": 2.891, "step": 1670, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:03:04-0400"}
+[23:03:07 +   356.5s] step 1680/4096 mean_KL=1.42408 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 356.507, "event": "step", "free_gib": 20.279, "mean_kl": 1.424076, "reserved_gib": 2.891, "step": 1680, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:03:07-0400"}
+[23:03:09 +   358.5s] step 1690/4096 mean_KL=1.28046 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 358.546, "event": "step", "free_gib": 20.279, "mean_kl": 1.280461, "reserved_gib": 2.891, "step": 1690, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:03:09-0400"}
+[23:03:11 +   360.6s] step 1700/4096 mean_KL=1.30696 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 360.595, "event": "step", "free_gib": 20.279, "mean_kl": 1.306959, "reserved_gib": 2.891, "step": 1700, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:03:11-0400"}
+[23:03:13 +   362.6s] step 1710/4096 mean_KL=1.45751 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 362.643, "event": "step", "free_gib": 20.279, "mean_kl": 1.457511, "reserved_gib": 2.891, "step": 1710, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:03:13-0400"}
+[23:03:15 +   364.7s] step 1720/4096 mean_KL=1.49781 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 364.688, "event": "step", "free_gib": 20.279, "mean_kl": 1.497815, "reserved_gib": 2.891, "step": 1720, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:03:15-0400"}
+[23:03:17 +   366.7s] step 1730/4096 mean_KL=1.45168 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 366.73, "event": "step", "free_gib": 20.279, "mean_kl": 1.451684, "reserved_gib": 2.891, "step": 1730, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:03:17-0400"}
+[23:03:19 +   368.8s] step 1740/4096 mean_KL=1.15000 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 368.774, "event": "step", "free_gib": 20.279, "mean_kl": 1.150003, "reserved_gib": 2.891, "step": 1740, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:03:19-0400"}
+[23:03:21 +   370.8s] step 1750/4096 mean_KL=1.03854 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 370.822, "event": "step", "free_gib": 20.279, "mean_kl": 1.03854, "reserved_gib": 2.891, "step": 1750, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:03:21-0400"}
+[23:03:23 +   372.9s] step 1760/4096 mean_KL=1.01981 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 372.865, "event": "step", "free_gib": 20.279, "mean_kl": 1.019807, "reserved_gib": 2.891, "step": 1760, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:03:23-0400"}
+[23:03:25 +   374.9s] step 1770/4096 mean_KL=0.91005 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 374.918, "event": "step", "free_gib": 20.279, "mean_kl": 0.910046, "reserved_gib": 2.891, "step": 1770, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:03:25-0400"}
+[23:03:27 +   377.0s] step 1780/4096 mean_KL=1.07420 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 376.963, "event": "step", "free_gib": 20.279, "mean_kl": 1.0742, "reserved_gib": 2.891, "step": 1780, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:03:27-0400"}
+[23:03:29 +   379.0s] step 1790/4096 mean_KL=0.93823 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 379.004, "event": "step", "free_gib": 20.279, "mean_kl": 0.938232, "reserved_gib": 2.891, "step": 1790, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T23:03:29-0400"}
+[23:03:31 +   381.1s] step 1800/4096 mean_KL=1.71548 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 381.054, "event": "step", "free_gib": 20.279, "mean_kl": 1.715483, "reserved_gib": 2.891, "step": 1800, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:03:31-0400"}
+[23:03:33 +   383.1s] step 1810/4096 mean_KL=1.33623 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 383.094, "event": "step", "free_gib": 20.279, "mean_kl": 1.336226, "reserved_gib": 2.891, "step": 1810, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:03:33-0400"}
+[23:03:35 +   385.1s] step 1820/4096 mean_KL=1.32924 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 385.14, "event": "step", "free_gib": 20.279, "mean_kl": 1.32924, "reserved_gib": 2.891, "step": 1820, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:03:35-0400"}
+[23:03:37 +   387.2s] step 1830/4096 mean_KL=0.96500 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 387.18, "event": "step", "free_gib": 20.279, "mean_kl": 0.965002, "reserved_gib": 2.891, "step": 1830, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:03:37-0400"}
+[23:03:39 +   389.2s] step 1840/4096 mean_KL=0.95693 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 389.221, "event": "step", "free_gib": 20.279, "mean_kl": 0.956928, "reserved_gib": 2.891, "step": 1840, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:03:39-0400"}
+[23:03:41 +   391.3s] step 1850/4096 mean_KL=0.94967 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 391.27, "event": "step", "free_gib": 20.279, "mean_kl": 0.94967, "reserved_gib": 2.891, "step": 1850, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:03:41-0400"}
+[23:03:43 +   393.3s] step 1860/4096 mean_KL=1.47732 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 393.307, "event": "step", "free_gib": 20.279, "mean_kl": 1.477315, "reserved_gib": 2.891, "step": 1860, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:03:43-0400"}
+[23:03:45 +   395.4s] step 1870/4096 mean_KL=1.15545 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 395.357, "event": "step", "free_gib": 20.279, "mean_kl": 1.155449, "reserved_gib": 2.891, "step": 1870, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:03:45-0400"}
+[23:03:47 +   397.4s] step 1880/4096 mean_KL=0.92792 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 397.386, "event": "step", "free_gib": 20.279, "mean_kl": 0.927922, "reserved_gib": 2.891, "step": 1880, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:03:47-0400"}
+[23:03:49 +   399.4s] step 1890/4096 mean_KL=1.01843 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 399.434, "event": "step", "free_gib": 20.279, "mean_kl": 1.018431, "reserved_gib": 2.891, "step": 1890, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:03:49-0400"}
+[23:03:51 +   401.5s] step 1900/4096 mean_KL=1.01070 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 401.482, "event": "step", "free_gib": 20.279, "mean_kl": 1.010697, "reserved_gib": 2.891, "step": 1900, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:03:51-0400"}
+[23:03:54 +   403.5s] step 1910/4096 mean_KL=1.71581 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 403.524, "event": "step", "free_gib": 20.279, "mean_kl": 1.715806, "reserved_gib": 2.891, "step": 1910, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:03:54-0400"}
+[23:03:56 +   405.6s] step 1920/4096 mean_KL=1.24998 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 405.566, "event": "step", "free_gib": 20.279, "mean_kl": 1.249977, "reserved_gib": 2.891, "step": 1920, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:03:56-0400"}
+[23:03:58 +   407.6s] step 1930/4096 mean_KL=1.13143 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 407.606, "event": "step", "free_gib": 20.279, "mean_kl": 1.131431, "reserved_gib": 2.891, "step": 1930, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:03:58-0400"}
+[23:04:00 +   409.6s] step 1940/4096 mean_KL=0.90570 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 409.646, "event": "step", "free_gib": 20.279, "mean_kl": 0.905703, "reserved_gib": 2.891, "step": 1940, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:04:00-0400"}
+[23:04:02 +   411.7s] step 1950/4096 mean_KL=0.95662 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 411.682, "event": "step", "free_gib": 20.279, "mean_kl": 0.956621, "reserved_gib": 2.891, "step": 1950, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:04:02-0400"}
+[23:04:04 +   413.7s] step 1960/4096 mean_KL=1.09682 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 413.725, "event": "step", "free_gib": 20.279, "mean_kl": 1.096818, "reserved_gib": 2.891, "step": 1960, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:04:04-0400"}
+[23:04:06 +   415.8s] step 1970/4096 mean_KL=1.06309 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 415.773, "event": "step", "free_gib": 20.279, "mean_kl": 1.063094, "reserved_gib": 2.891, "step": 1970, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:04:06-0400"}
+[23:04:08 +   417.8s] step 1980/4096 mean_KL=0.82760 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 417.814, "event": "step", "free_gib": 20.279, "mean_kl": 0.827604, "reserved_gib": 2.891, "step": 1980, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:04:08-0400"}
+[23:04:10 +   419.9s] step 1990/4096 mean_KL=0.86485 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 419.864, "event": "step", "free_gib": 20.279, "mean_kl": 0.86485, "reserved_gib": 2.891, "step": 1990, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:04:10-0400"}
+[23:04:12 +   421.9s] step 2000/4096 mean_KL=0.97320 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 421.908, "event": "step", "free_gib": 20.279, "mean_kl": 0.973199, "reserved_gib": 2.891, "step": 2000, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:04:12-0400"}
+[23:04:14 +   423.9s] step 2010/4096 mean_KL=1.04995 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 423.946, "event": "step", "free_gib": 20.279, "mean_kl": 1.049946, "reserved_gib": 2.891, "step": 2010, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:04:14-0400"}
+[23:04:16 +   426.0s] step 2020/4096 mean_KL=0.75774 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 425.995, "event": "step", "free_gib": 20.279, "mean_kl": 0.757744, "reserved_gib": 2.891, "step": 2020, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:04:16-0400"}
+[23:04:18 +   428.0s] step 2030/4096 mean_KL=0.78367 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 428.033, "event": "step", "free_gib": 20.279, "mean_kl": 0.783671, "reserved_gib": 2.891, "step": 2030, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:04:18-0400"}
+[23:04:20 +   430.1s] step 2040/4096 mean_KL=0.76084 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 430.083, "event": "step", "free_gib": 20.279, "mean_kl": 0.760838, "reserved_gib": 2.891, "step": 2040, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:04:20-0400"}
+[23:04:22 +   432.1s] step 2050/4096 mean_KL=0.85899 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 432.132, "event": "step", "free_gib": 20.279, "mean_kl": 0.858987, "reserved_gib": 2.891, "step": 2050, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:04:22-0400"}
+[23:04:24 +   434.2s] step 2060/4096 mean_KL=0.75147 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 434.193, "event": "step", "free_gib": 20.279, "mean_kl": 0.751472, "reserved_gib": 2.891, "step": 2060, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:04:24-0400"}
+[23:04:26 +   436.2s] step 2070/4096 mean_KL=0.79970 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 436.244, "event": "step", "free_gib": 20.279, "mean_kl": 0.7997, "reserved_gib": 2.891, "step": 2070, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:04:26-0400"}
+[23:04:28 +   438.3s] step 2080/4096 mean_KL=0.74554 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 438.289, "event": "step", "free_gib": 20.279, "mean_kl": 0.745542, "reserved_gib": 2.891, "step": 2080, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:04:28-0400"}
+[23:04:30 +   440.3s] step 2090/4096 mean_KL=1.60426 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 440.338, "event": "step", "free_gib": 20.279, "mean_kl": 1.604255, "reserved_gib": 2.891, "step": 2090, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:04:30-0400"}
+[23:04:32 +   442.4s] step 2100/4096 mean_KL=1.32645 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 442.392, "event": "step", "free_gib": 20.279, "mean_kl": 1.32645, "reserved_gib": 2.891, "step": 2100, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:04:32-0400"}
+[23:04:34 +   444.4s] step 2110/4096 mean_KL=1.13866 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 444.433, "event": "step", "free_gib": 20.279, "mean_kl": 1.138656, "reserved_gib": 2.891, "step": 2110, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:04:34-0400"}
+[23:04:36 +   446.5s] step 2120/4096 mean_KL=1.10029 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 446.476, "event": "step", "free_gib": 20.279, "mean_kl": 1.100287, "reserved_gib": 2.891, "step": 2120, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:04:36-0400"}
+[23:04:39 +   448.5s] step 2130/4096 mean_KL=1.20053 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 448.512, "event": "step", "free_gib": 20.279, "mean_kl": 1.200529, "reserved_gib": 2.891, "step": 2130, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:04:39-0400"}
+[23:04:41 +   450.6s] step 2140/4096 mean_KL=0.97920 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 450.553, "event": "step", "free_gib": 20.279, "mean_kl": 0.979205, "reserved_gib": 2.891, "step": 2140, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:04:41-0400"}
+[23:04:43 +   452.6s] step 2150/4096 mean_KL=1.38193 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 452.6, "event": "step", "free_gib": 20.279, "mean_kl": 1.381931, "reserved_gib": 2.891, "step": 2150, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:04:43-0400"}
+[23:04:45 +   454.6s] step 2160/4096 mean_KL=0.83029 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 454.646, "event": "step", "free_gib": 20.279, "mean_kl": 0.830295, "reserved_gib": 2.891, "step": 2160, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:04:45-0400"}
+[23:04:47 +   456.7s] step 2170/4096 mean_KL=0.91475 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 456.69, "event": "step", "free_gib": 20.279, "mean_kl": 0.91475, "reserved_gib": 2.891, "step": 2170, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:04:47-0400"}
+[23:04:49 +   458.7s] step 2180/4096 mean_KL=0.75110 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 458.732, "event": "step", "free_gib": 20.279, "mean_kl": 0.751097, "reserved_gib": 2.891, "step": 2180, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:04:49-0400"}
+[23:04:51 +   460.8s] step 2190/4096 mean_KL=1.28481 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 460.783, "event": "step", "free_gib": 20.279, "mean_kl": 1.284814, "reserved_gib": 2.891, "step": 2190, "step_seconds": 0.208, "steps": 4096, "time": "2026-07-15T23:04:51-0400"}
+[23:04:53 +   462.8s] step 2200/4096 mean_KL=1.11961 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 462.833, "event": "step", "free_gib": 20.279, "mean_kl": 1.119611, "reserved_gib": 2.891, "step": 2200, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:04:53-0400"}
+[23:04:55 +   464.9s] step 2210/4096 mean_KL=0.68979 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 464.876, "event": "step", "free_gib": 20.279, "mean_kl": 0.689791, "reserved_gib": 2.891, "step": 2210, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:04:55-0400"}
+[23:04:57 +   466.9s] step 2220/4096 mean_KL=0.79742 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 466.92, "event": "step", "free_gib": 20.279, "mean_kl": 0.797423, "reserved_gib": 2.891, "step": 2220, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:04:57-0400"}
+[23:04:59 +   469.0s] step 2230/4096 mean_KL=1.40710 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 468.96, "event": "step", "free_gib": 20.279, "mean_kl": 1.407095, "reserved_gib": 2.891, "step": 2230, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:04:59-0400"}
+[23:05:01 +   471.0s] step 2240/4096 mean_KL=0.79870 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 471.011, "event": "step", "free_gib": 20.279, "mean_kl": 0.798704, "reserved_gib": 2.891, "step": 2240, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:05:01-0400"}
+[23:05:03 +   473.1s] step 2250/4096 mean_KL=0.97574 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 473.056, "event": "step", "free_gib": 20.279, "mean_kl": 0.975738, "reserved_gib": 2.891, "step": 2250, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:05:03-0400"}
+[23:05:05 +   475.1s] step 2260/4096 mean_KL=0.86869 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 475.097, "event": "step", "free_gib": 20.279, "mean_kl": 0.868689, "reserved_gib": 2.891, "step": 2260, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:05:05-0400"}
+[23:05:07 +   477.1s] step 2270/4096 mean_KL=1.07519 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 477.143, "event": "step", "free_gib": 20.279, "mean_kl": 1.075194, "reserved_gib": 2.891, "step": 2270, "step_seconds": 0.207, "steps": 4096, "time": "2026-07-15T23:05:07-0400"}
+[23:05:09 +   479.2s] step 2280/4096 mean_KL=1.23834 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 479.181, "event": "step", "free_gib": 20.279, "mean_kl": 1.23834, "reserved_gib": 2.891, "step": 2280, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:05:09-0400"}
+[23:05:11 +   481.2s] step 2290/4096 mean_KL=1.09552 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 481.23, "event": "step", "free_gib": 20.279, "mean_kl": 1.095522, "reserved_gib": 2.891, "step": 2290, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:05:11-0400"}
+[23:05:13 +   483.3s] step 2300/4096 mean_KL=0.84681 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 483.27, "event": "step", "free_gib": 20.279, "mean_kl": 0.846814, "reserved_gib": 2.891, "step": 2300, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:05:13-0400"}
+[23:05:15 +   485.3s] step 2310/4096 mean_KL=0.75309 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 485.304, "event": "step", "free_gib": 20.279, "mean_kl": 0.753094, "reserved_gib": 2.891, "step": 2310, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:05:15-0400"}
+[23:05:17 +   487.3s] step 2320/4096 mean_KL=1.00421 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 487.345, "event": "step", "free_gib": 20.279, "mean_kl": 1.00421, "reserved_gib": 2.891, "step": 2320, "step_seconds": 0.212, "steps": 4096, "time": "2026-07-15T23:05:17-0400"}
+[23:05:19 +   489.4s] step 2330/4096 mean_KL=0.85362 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 489.382, "event": "step", "free_gib": 20.279, "mean_kl": 0.853616, "reserved_gib": 2.891, "step": 2330, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T23:05:19-0400"}
+[23:05:21 +   491.4s] step 2340/4096 mean_KL=0.63927 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 491.429, "event": "step", "free_gib": 20.279, "mean_kl": 0.639268, "reserved_gib": 2.891, "step": 2340, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:05:21-0400"}
+[23:05:23 +   493.5s] step 2350/4096 mean_KL=0.78681 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 493.467, "event": "step", "free_gib": 20.279, "mean_kl": 0.786805, "reserved_gib": 2.891, "step": 2350, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:05:23-0400"}
+[23:05:26 +   495.5s] step 2360/4096 mean_KL=0.82646 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 495.506, "event": "step", "free_gib": 20.279, "mean_kl": 0.826465, "reserved_gib": 2.891, "step": 2360, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:05:26-0400"}
+[23:05:28 +   497.5s] step 2370/4096 mean_KL=0.79115 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 497.548, "event": "step", "free_gib": 20.279, "mean_kl": 0.79115, "reserved_gib": 2.891, "step": 2370, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:05:28-0400"}
+[23:05:30 +   499.6s] step 2380/4096 mean_KL=0.99374 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 499.596, "event": "step", "free_gib": 20.279, "mean_kl": 0.993741, "reserved_gib": 2.891, "step": 2380, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:05:30-0400"}
+[23:05:32 +   501.7s] step 2390/4096 mean_KL=0.74472 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 501.651, "event": "step", "free_gib": 20.279, "mean_kl": 0.744724, "reserved_gib": 2.891, "step": 2390, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:05:32-0400"}
+[23:05:34 +   503.7s] step 2400/4096 mean_KL=1.63117 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 503.697, "event": "step", "free_gib": 20.279, "mean_kl": 1.631173, "reserved_gib": 2.891, "step": 2400, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:05:34-0400"}
+[23:05:36 +   505.7s] step 2410/4096 mean_KL=1.62936 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 505.735, "event": "step", "free_gib": 20.279, "mean_kl": 1.629355, "reserved_gib": 2.891, "step": 2410, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:05:36-0400"}
+[23:05:38 +   507.8s] step 2420/4096 mean_KL=1.39431 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 507.774, "event": "step", "free_gib": 20.279, "mean_kl": 1.394306, "reserved_gib": 2.891, "step": 2420, "step_seconds": 0.207, "steps": 4096, "time": "2026-07-15T23:05:38-0400"}
+[23:05:40 +   509.8s] step 2430/4096 mean_KL=1.46302 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 509.815, "event": "step", "free_gib": 20.279, "mean_kl": 1.463024, "reserved_gib": 2.891, "step": 2430, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:05:40-0400"}
+[23:05:42 +   511.9s] step 2440/4096 mean_KL=1.36805 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 511.864, "event": "step", "free_gib": 20.279, "mean_kl": 1.368045, "reserved_gib": 2.891, "step": 2440, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:05:42-0400"}
+[23:05:44 +   513.9s] step 2450/4096 mean_KL=1.18361 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 513.902, "event": "step", "free_gib": 20.279, "mean_kl": 1.183608, "reserved_gib": 2.891, "step": 2450, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T23:05:44-0400"}
+[23:05:46 +   515.9s] step 2460/4096 mean_KL=0.75921 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 515.944, "event": "step", "free_gib": 20.279, "mean_kl": 0.759213, "reserved_gib": 2.891, "step": 2460, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:05:46-0400"}
+[23:05:48 +   518.0s] step 2470/4096 mean_KL=0.89190 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 517.978, "event": "step", "free_gib": 20.279, "mean_kl": 0.891903, "reserved_gib": 2.891, "step": 2470, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:05:48-0400"}
+[23:05:50 +   520.0s] step 2480/4096 mean_KL=0.99520 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 520.018, "event": "step", "free_gib": 20.279, "mean_kl": 0.995196, "reserved_gib": 2.891, "step": 2480, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T23:05:50-0400"}
+[23:05:52 +   522.1s] step 2490/4096 mean_KL=1.26522 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 522.064, "event": "step", "free_gib": 20.279, "mean_kl": 1.265218, "reserved_gib": 2.891, "step": 2490, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:05:52-0400"}
+[23:05:54 +   524.1s] step 2500/4096 mean_KL=1.96334 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 524.11, "event": "step", "free_gib": 20.279, "mean_kl": 1.963339, "reserved_gib": 2.891, "step": 2500, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:05:54-0400"}
+[23:05:56 +   526.1s] step 2510/4096 mean_KL=2.12311 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 526.143, "event": "step", "free_gib": 20.279, "mean_kl": 2.123115, "reserved_gib": 2.891, "step": 2510, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:05:56-0400"}
+[23:05:58 +   528.2s] step 2520/4096 mean_KL=1.47610 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 528.181, "event": "step", "free_gib": 20.279, "mean_kl": 1.476102, "reserved_gib": 2.891, "step": 2520, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:05:58-0400"}
+[23:06:00 +   530.2s] step 2530/4096 mean_KL=2.07697 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 530.229, "event": "step", "free_gib": 20.279, "mean_kl": 2.076969, "reserved_gib": 2.891, "step": 2530, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:06:00-0400"}
+[23:06:02 +   532.3s] step 2540/4096 mean_KL=0.36736 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 532.275, "event": "step", "free_gib": 20.279, "mean_kl": 0.367363, "reserved_gib": 2.891, "step": 2540, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:06:02-0400"}
+[23:06:04 +   534.3s] step 2550/4096 mean_KL=0.27387 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 534.318, "event": "step", "free_gib": 20.279, "mean_kl": 0.273873, "reserved_gib": 2.891, "step": 2550, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:06:04-0400"}
+[23:06:06 +   536.4s] step 2560/4096 mean_KL=0.19540 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 536.354, "event": "step", "free_gib": 20.279, "mean_kl": 0.195403, "reserved_gib": 2.891, "step": 2560, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:06:06-0400"}
+[23:06:08 +   538.4s] step 2570/4096 mean_KL=0.17565 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 538.393, "event": "step", "free_gib": 20.279, "mean_kl": 0.175653, "reserved_gib": 2.891, "step": 2570, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:06:08-0400"}
+[23:06:10 +   540.4s] step 2580/4096 mean_KL=0.26031 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 540.432, "event": "step", "free_gib": 20.279, "mean_kl": 0.260313, "reserved_gib": 2.891, "step": 2580, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:06:10-0400"}
+[23:06:12 +   542.5s] step 2590/4096 mean_KL=0.21654 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 542.476, "event": "step", "free_gib": 20.279, "mean_kl": 0.216537, "reserved_gib": 2.891, "step": 2590, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:06:12-0400"}
+[23:06:15 +   544.5s] step 2600/4096 mean_KL=1.83252 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 544.527, "event": "step", "free_gib": 20.279, "mean_kl": 1.832517, "reserved_gib": 2.891, "step": 2600, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:06:15-0400"}
+[23:06:17 +   546.6s] step 2610/4096 mean_KL=1.06798 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 546.579, "event": "step", "free_gib": 20.279, "mean_kl": 1.067982, "reserved_gib": 2.891, "step": 2610, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:06:17-0400"}
+[23:06:19 +   548.6s] step 2620/4096 mean_KL=1.03248 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 548.619, "event": "step", "free_gib": 20.279, "mean_kl": 1.032476, "reserved_gib": 2.891, "step": 2620, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:06:19-0400"}
+[23:06:21 +   550.7s] step 2630/4096 mean_KL=1.12273 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 550.659, "event": "step", "free_gib": 20.279, "mean_kl": 1.122728, "reserved_gib": 2.891, "step": 2630, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:06:21-0400"}
+[23:06:23 +   552.7s] step 2640/4096 mean_KL=1.80266 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 552.701, "event": "step", "free_gib": 20.279, "mean_kl": 1.802661, "reserved_gib": 2.891, "step": 2640, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:06:23-0400"}
+[23:06:25 +   554.7s] step 2650/4096 mean_KL=2.19747 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 554.746, "event": "step", "free_gib": 20.279, "mean_kl": 2.197466, "reserved_gib": 2.891, "step": 2650, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:06:25-0400"}
+[23:06:27 +   556.8s] step 2660/4096 mean_KL=2.39459 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 556.788, "event": "step", "free_gib": 20.279, "mean_kl": 2.394586, "reserved_gib": 2.891, "step": 2660, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:06:27-0400"}
+[23:06:29 +   558.8s] step 2670/4096 mean_KL=1.17254 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 558.83, "event": "step", "free_gib": 20.279, "mean_kl": 1.172544, "reserved_gib": 2.891, "step": 2670, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:06:29-0400"}
+[23:06:31 +   560.9s] step 2680/4096 mean_KL=0.91790 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 560.887, "event": "step", "free_gib": 20.279, "mean_kl": 0.917903, "reserved_gib": 2.891, "step": 2680, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:06:31-0400"}
+[23:06:33 +   562.9s] step 2690/4096 mean_KL=0.83204 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 562.932, "event": "step", "free_gib": 20.279, "mean_kl": 0.832038, "reserved_gib": 2.891, "step": 2690, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:06:33-0400"}
+[23:06:35 +   565.0s] step 2700/4096 mean_KL=1.91518 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 564.986, "event": "step", "free_gib": 20.279, "mean_kl": 1.91518, "reserved_gib": 2.891, "step": 2700, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:06:35-0400"}
+[23:06:37 +   567.0s] step 2710/4096 mean_KL=1.79222 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 567.029, "event": "step", "free_gib": 20.279, "mean_kl": 1.792216, "reserved_gib": 2.891, "step": 2710, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:06:37-0400"}
+[23:06:39 +   569.1s] step 2720/4096 mean_KL=3.66751 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 569.075, "event": "step", "free_gib": 20.279, "mean_kl": 3.66751, "reserved_gib": 2.891, "step": 2720, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:06:39-0400"}
+[23:06:41 +   571.1s] step 2730/4096 mean_KL=2.41823 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 571.124, "event": "step", "free_gib": 20.279, "mean_kl": 2.418235, "reserved_gib": 2.891, "step": 2730, "step_seconds": 0.207, "steps": 4096, "time": "2026-07-15T23:06:41-0400"}
+[23:06:43 +   573.2s] step 2740/4096 mean_KL=2.88707 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 573.158, "event": "step", "free_gib": 20.279, "mean_kl": 2.88707, "reserved_gib": 2.891, "step": 2740, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:06:43-0400"}
+[23:06:45 +   575.2s] step 2750/4096 mean_KL=3.60587 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 575.199, "event": "step", "free_gib": 20.279, "mean_kl": 3.605873, "reserved_gib": 2.891, "step": 2750, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T23:06:45-0400"}
+[23:06:47 +   577.2s] step 2760/4096 mean_KL=2.28789 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 577.235, "event": "step", "free_gib": 20.279, "mean_kl": 2.287889, "reserved_gib": 2.891, "step": 2760, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:06:47-0400"}
+[23:06:49 +   579.3s] step 2770/4096 mean_KL=1.32012 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 579.279, "event": "step", "free_gib": 20.279, "mean_kl": 1.320124, "reserved_gib": 2.891, "step": 2770, "step_seconds": 0.207, "steps": 4096, "time": "2026-07-15T23:06:49-0400"}
+[23:06:51 +   581.3s] step 2780/4096 mean_KL=1.26699 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 581.325, "event": "step", "free_gib": 20.279, "mean_kl": 1.266989, "reserved_gib": 2.891, "step": 2780, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:06:51-0400"}
+[23:06:53 +   583.4s] step 2790/4096 mean_KL=2.71226 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 583.365, "event": "step", "free_gib": 20.279, "mean_kl": 2.712257, "reserved_gib": 2.891, "step": 2790, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:06:53-0400"}
+[23:06:55 +   585.4s] step 2800/4096 mean_KL=1.53726 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 585.409, "event": "step", "free_gib": 20.279, "mean_kl": 1.537259, "reserved_gib": 2.891, "step": 2800, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:06:55-0400"}
+[23:06:57 +   587.5s] step 2810/4096 mean_KL=4.27807 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 587.451, "event": "step", "free_gib": 20.279, "mean_kl": 4.278071, "reserved_gib": 2.891, "step": 2810, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:06:57-0400"}
+[23:06:59 +   589.5s] step 2820/4096 mean_KL=1.22810 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 589.493, "event": "step", "free_gib": 20.279, "mean_kl": 1.228105, "reserved_gib": 2.891, "step": 2820, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:06:59-0400"}
+[23:07:02 +   591.5s] step 2830/4096 mean_KL=1.62944 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 591.534, "event": "step", "free_gib": 20.279, "mean_kl": 1.629443, "reserved_gib": 2.891, "step": 2830, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:07:02-0400"}
+[23:07:04 +   593.6s] step 2840/4096 mean_KL=1.59671 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 593.577, "event": "step", "free_gib": 20.279, "mean_kl": 1.596714, "reserved_gib": 2.891, "step": 2840, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:07:04-0400"}
+[23:07:06 +   595.6s] step 2850/4096 mean_KL=1.35461 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 595.615, "event": "step", "free_gib": 20.279, "mean_kl": 1.354606, "reserved_gib": 2.891, "step": 2850, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:07:06-0400"}
+[23:07:08 +   597.7s] step 2860/4096 mean_KL=2.92144 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 597.66, "event": "step", "free_gib": 20.279, "mean_kl": 2.921438, "reserved_gib": 2.891, "step": 2860, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:07:08-0400"}
+[23:07:10 +   599.7s] step 2870/4096 mean_KL=2.43986 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 599.712, "event": "step", "free_gib": 20.279, "mean_kl": 2.439863, "reserved_gib": 2.891, "step": 2870, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:07:10-0400"}
+[23:07:12 +   601.8s] step 2880/4096 mean_KL=1.39749 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 601.767, "event": "step", "free_gib": 20.279, "mean_kl": 1.397494, "reserved_gib": 2.891, "step": 2880, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:07:12-0400"}
+[23:07:14 +   603.8s] step 2890/4096 mean_KL=2.85145 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 603.807, "event": "step", "free_gib": 20.279, "mean_kl": 2.851455, "reserved_gib": 2.891, "step": 2890, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:07:14-0400"}
+[23:07:16 +   605.8s] step 2900/4096 mean_KL=1.44827 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 605.848, "event": "step", "free_gib": 20.279, "mean_kl": 1.448267, "reserved_gib": 2.891, "step": 2900, "step_seconds": 0.207, "steps": 4096, "time": "2026-07-15T23:07:16-0400"}
+[23:07:18 +   607.9s] step 2910/4096 mean_KL=1.32200 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 607.888, "event": "step", "free_gib": 20.279, "mean_kl": 1.321996, "reserved_gib": 2.891, "step": 2910, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:07:18-0400"}
+[23:07:20 +   609.9s] step 2920/4096 mean_KL=1.30389 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 609.938, "event": "step", "free_gib": 20.279, "mean_kl": 1.303888, "reserved_gib": 2.891, "step": 2920, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:07:20-0400"}
+[23:07:22 +   612.0s] step 2930/4096 mean_KL=1.04987 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 611.987, "event": "step", "free_gib": 20.279, "mean_kl": 1.049871, "reserved_gib": 2.891, "step": 2930, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:07:22-0400"}
+[23:07:24 +   614.0s] step 2940/4096 mean_KL=0.90186 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 614.027, "event": "step", "free_gib": 20.279, "mean_kl": 0.901859, "reserved_gib": 2.891, "step": 2940, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:07:24-0400"}
+[23:07:26 +   616.1s] step 2950/4096 mean_KL=0.96364 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 616.074, "event": "step", "free_gib": 20.279, "mean_kl": 0.963645, "reserved_gib": 2.891, "step": 2950, "step_seconds": 0.207, "steps": 4096, "time": "2026-07-15T23:07:26-0400"}
+[23:07:28 +   618.1s] step 2960/4096 mean_KL=0.98347 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 618.121, "event": "step", "free_gib": 20.279, "mean_kl": 0.983474, "reserved_gib": 2.891, "step": 2960, "step_seconds": 0.207, "steps": 4096, "time": "2026-07-15T23:07:28-0400"}
+[23:07:30 +   620.2s] step 2970/4096 mean_KL=1.56331 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 620.165, "event": "step", "free_gib": 20.279, "mean_kl": 1.563308, "reserved_gib": 2.891, "step": 2970, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:07:30-0400"}
+[23:07:32 +   622.2s] step 2980/4096 mean_KL=0.78402 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 622.213, "event": "step", "free_gib": 20.279, "mean_kl": 0.784019, "reserved_gib": 2.891, "step": 2980, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T23:07:32-0400"}
+[23:07:34 +   624.2s] step 2990/4096 mean_KL=0.49026 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 624.237, "event": "step", "free_gib": 20.279, "mean_kl": 0.490256, "reserved_gib": 2.891, "step": 2990, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:07:34-0400"}
+[23:07:36 +   626.3s] step 3000/4096 mean_KL=0.29902 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 626.27, "event": "step", "free_gib": 20.279, "mean_kl": 0.299024, "reserved_gib": 2.891, "step": 3000, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:07:36-0400"}
+[23:07:38 +   628.3s] step 3010/4096 mean_KL=1.85722 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 628.304, "event": "step", "free_gib": 20.279, "mean_kl": 1.857222, "reserved_gib": 2.891, "step": 3010, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:07:38-0400"}
+[23:07:40 +   630.3s] step 3020/4096 mean_KL=1.25868 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 630.343, "event": "step", "free_gib": 20.279, "mean_kl": 1.258682, "reserved_gib": 2.891, "step": 3020, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:07:40-0400"}
+[23:07:42 +   632.4s] step 3030/4096 mean_KL=2.28938 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 632.397, "event": "step", "free_gib": 20.279, "mean_kl": 2.289377, "reserved_gib": 2.891, "step": 3030, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:07:42-0400"}
+[23:07:44 +   634.4s] step 3040/4096 mean_KL=1.82448 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 634.445, "event": "step", "free_gib": 20.279, "mean_kl": 1.824479, "reserved_gib": 2.891, "step": 3040, "step_seconds": 0.208, "steps": 4096, "time": "2026-07-15T23:07:44-0400"}
+[23:07:46 +   636.5s] step 3050/4096 mean_KL=0.85903 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 636.49, "event": "step", "free_gib": 20.279, "mean_kl": 0.859032, "reserved_gib": 2.891, "step": 3050, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:07:46-0400"}
+[23:07:49 +   638.5s] step 3060/4096 mean_KL=0.57732 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 638.533, "event": "step", "free_gib": 20.279, "mean_kl": 0.577321, "reserved_gib": 2.891, "step": 3060, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:07:49-0400"}
+[23:07:51 +   640.6s] step 3070/4096 mean_KL=1.50142 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 640.569, "event": "step", "free_gib": 20.279, "mean_kl": 1.501419, "reserved_gib": 2.891, "step": 3070, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:07:51-0400"}
+[23:07:53 +   642.6s] step 3080/4096 mean_KL=1.26974 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 642.61, "event": "step", "free_gib": 20.279, "mean_kl": 1.269739, "reserved_gib": 2.891, "step": 3080, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:07:53-0400"}
+[23:07:55 +   644.7s] step 3090/4096 mean_KL=1.73475 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 644.652, "event": "step", "free_gib": 20.279, "mean_kl": 1.734753, "reserved_gib": 2.891, "step": 3090, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:07:55-0400"}
+[23:07:57 +   646.7s] step 3100/4096 mean_KL=2.14370 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 646.695, "event": "step", "free_gib": 20.279, "mean_kl": 2.143695, "reserved_gib": 2.891, "step": 3100, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:07:57-0400"}
+[23:07:59 +   648.7s] step 3110/4096 mean_KL=1.63975 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 648.741, "event": "step", "free_gib": 20.279, "mean_kl": 1.639747, "reserved_gib": 2.891, "step": 3110, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:07:59-0400"}
+[23:08:01 +   650.8s] step 3120/4096 mean_KL=1.62786 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 650.783, "event": "step", "free_gib": 20.279, "mean_kl": 1.627865, "reserved_gib": 2.891, "step": 3120, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:08:01-0400"}
+[23:08:03 +   652.8s] step 3130/4096 mean_KL=1.39906 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 652.824, "event": "step", "free_gib": 20.279, "mean_kl": 1.399065, "reserved_gib": 2.891, "step": 3130, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T23:08:03-0400"}
+[23:08:05 +   654.9s] step 3140/4096 mean_KL=1.03386 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 654.858, "event": "step", "free_gib": 20.279, "mean_kl": 1.033859, "reserved_gib": 2.891, "step": 3140, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:08:05-0400"}
+[23:08:07 +   656.9s] step 3150/4096 mean_KL=1.50259 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 656.9, "event": "step", "free_gib": 20.279, "mean_kl": 1.502591, "reserved_gib": 2.891, "step": 3150, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:08:07-0400"}
+[23:08:09 +   658.9s] step 3160/4096 mean_KL=0.91046 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 658.942, "event": "step", "free_gib": 20.279, "mean_kl": 0.910455, "reserved_gib": 2.891, "step": 3160, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:08:09-0400"}
+[23:08:11 +   661.0s] step 3170/4096 mean_KL=2.05881 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 660.986, "event": "step", "free_gib": 20.279, "mean_kl": 2.058812, "reserved_gib": 2.891, "step": 3170, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:08:11-0400"}
+[23:08:13 +   663.0s] step 3180/4096 mean_KL=2.35459 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 663.038, "event": "step", "free_gib": 20.279, "mean_kl": 2.354593, "reserved_gib": 2.891, "step": 3180, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:08:13-0400"}
+[23:08:15 +   665.1s] step 3190/4096 mean_KL=3.66396 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 665.084, "event": "step", "free_gib": 20.279, "mean_kl": 3.663961, "reserved_gib": 2.891, "step": 3190, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:08:15-0400"}
+[23:08:17 +   667.1s] step 3200/4096 mean_KL=1.49305 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 667.118, "event": "step", "free_gib": 20.279, "mean_kl": 1.493047, "reserved_gib": 2.891, "step": 3200, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T23:08:17-0400"}
+[23:08:19 +   669.2s] step 3210/4096 mean_KL=1.63003 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 669.161, "event": "step", "free_gib": 20.279, "mean_kl": 1.630032, "reserved_gib": 2.891, "step": 3210, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:08:19-0400"}
+[23:08:21 +   671.2s] step 3220/4096 mean_KL=1.51721 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 671.213, "event": "step", "free_gib": 20.279, "mean_kl": 1.517205, "reserved_gib": 2.891, "step": 3220, "step_seconds": 0.207, "steps": 4096, "time": "2026-07-15T23:08:21-0400"}
+[23:08:23 +   673.3s] step 3230/4096 mean_KL=2.83805 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 673.257, "event": "step", "free_gib": 20.279, "mean_kl": 2.838048, "reserved_gib": 2.891, "step": 3230, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:08:23-0400"}
+[23:08:25 +   675.3s] step 3240/4096 mean_KL=2.17618 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 675.299, "event": "step", "free_gib": 20.279, "mean_kl": 2.176178, "reserved_gib": 2.891, "step": 3240, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:08:25-0400"}
+[23:08:27 +   677.3s] step 3250/4096 mean_KL=1.26416 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 677.34, "event": "step", "free_gib": 20.279, "mean_kl": 1.264155, "reserved_gib": 2.891, "step": 3250, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:08:27-0400"}
+[23:08:29 +   679.4s] step 3260/4096 mean_KL=1.66574 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 679.389, "event": "step", "free_gib": 20.279, "mean_kl": 1.665744, "reserved_gib": 2.891, "step": 3260, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:08:29-0400"}
+[23:08:31 +   681.4s] step 3270/4096 mean_KL=1.68217 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 681.437, "event": "step", "free_gib": 20.279, "mean_kl": 1.682167, "reserved_gib": 2.891, "step": 3270, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:08:31-0400"}
+[23:08:33 +   683.5s] step 3280/4096 mean_KL=1.29565 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 683.481, "event": "step", "free_gib": 20.279, "mean_kl": 1.295646, "reserved_gib": 2.891, "step": 3280, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:08:33-0400"}
+[23:08:36 +   685.5s] step 3290/4096 mean_KL=0.97128 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 685.523, "event": "step", "free_gib": 20.279, "mean_kl": 0.971279, "reserved_gib": 2.891, "step": 3290, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T23:08:36-0400"}
+[23:08:38 +   687.5s] step 3300/4096 mean_KL=0.78050 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 687.55, "event": "step", "free_gib": 20.279, "mean_kl": 0.780499, "reserved_gib": 2.891, "step": 3300, "step_seconds": 0.201, "steps": 4096, "time": "2026-07-15T23:08:38-0400"}
+[23:08:40 +   689.6s] step 3310/4096 mean_KL=0.65004 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 689.591, "event": "step", "free_gib": 20.279, "mean_kl": 0.650042, "reserved_gib": 2.891, "step": 3310, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:08:40-0400"}
+[23:08:42 +   691.6s] step 3320/4096 mean_KL=2.48731 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 691.645, "event": "step", "free_gib": 20.279, "mean_kl": 2.48731, "reserved_gib": 2.891, "step": 3320, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:08:42-0400"}
+[23:08:44 +   693.7s] step 3330/4096 mean_KL=1.49654 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 693.694, "event": "step", "free_gib": 20.279, "mean_kl": 1.496538, "reserved_gib": 2.891, "step": 3330, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:08:44-0400"}
+[23:08:46 +   695.7s] step 3340/4096 mean_KL=2.30916 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 695.749, "event": "step", "free_gib": 20.279, "mean_kl": 2.30916, "reserved_gib": 2.891, "step": 3340, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:08:46-0400"}
+[23:08:48 +   697.8s] step 3350/4096 mean_KL=1.30853 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 697.786, "event": "step", "free_gib": 20.279, "mean_kl": 1.308534, "reserved_gib": 2.891, "step": 3350, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:08:48-0400"}
+[23:08:50 +   699.8s] step 3360/4096 mean_KL=2.10111 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 699.836, "event": "step", "free_gib": 20.279, "mean_kl": 2.101108, "reserved_gib": 2.891, "step": 3360, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:08:50-0400"}
+[23:08:52 +   701.9s] step 3370/4096 mean_KL=1.80358 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 701.882, "event": "step", "free_gib": 20.279, "mean_kl": 1.803579, "reserved_gib": 2.891, "step": 3370, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:08:52-0400"}
+[23:08:54 +   703.9s] step 3380/4096 mean_KL=2.33017 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 703.924, "event": "step", "free_gib": 20.279, "mean_kl": 2.330173, "reserved_gib": 2.891, "step": 3380, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:08:54-0400"}
+[23:08:56 +   706.0s] step 3390/4096 mean_KL=1.82472 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 705.961, "event": "step", "free_gib": 20.279, "mean_kl": 1.824717, "reserved_gib": 2.891, "step": 3390, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:08:56-0400"}
+[23:08:58 +   708.0s] step 3400/4096 mean_KL=1.55789 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 708.002, "event": "step", "free_gib": 20.279, "mean_kl": 1.557889, "reserved_gib": 2.891, "step": 3400, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T23:08:58-0400"}
+[23:09:00 +   710.0s] step 3410/4096 mean_KL=1.51769 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 710.048, "event": "step", "free_gib": 20.279, "mean_kl": 1.517694, "reserved_gib": 2.891, "step": 3410, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:09:00-0400"}
+[23:09:02 +   712.1s] step 3420/4096 mean_KL=1.41649 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 712.089, "event": "step", "free_gib": 20.279, "mean_kl": 1.416494, "reserved_gib": 2.891, "step": 3420, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:09:02-0400"}
+[23:09:04 +   714.1s] step 3430/4096 mean_KL=1.07615 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 714.127, "event": "step", "free_gib": 20.279, "mean_kl": 1.076146, "reserved_gib": 2.891, "step": 3430, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:09:04-0400"}
+[23:09:06 +   716.2s] step 3440/4096 mean_KL=2.41074 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 716.16, "event": "step", "free_gib": 20.279, "mean_kl": 2.410736, "reserved_gib": 2.891, "step": 3440, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:09:06-0400"}
+[23:09:08 +   718.2s] step 3450/4096 mean_KL=1.61852 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 718.195, "event": "step", "free_gib": 20.279, "mean_kl": 1.618521, "reserved_gib": 2.891, "step": 3450, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:09:08-0400"}
+[23:09:10 +   720.2s] step 3460/4096 mean_KL=1.77959 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 720.237, "event": "step", "free_gib": 20.279, "mean_kl": 1.779595, "reserved_gib": 2.891, "step": 3460, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:09:10-0400"}
+[23:09:12 +   722.3s] step 3470/4096 mean_KL=1.26655 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 722.284, "event": "step", "free_gib": 20.279, "mean_kl": 1.26655, "reserved_gib": 2.891, "step": 3470, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:09:12-0400"}
+[23:09:14 +   724.3s] step 3480/4096 mean_KL=1.33652 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 724.328, "event": "step", "free_gib": 20.279, "mean_kl": 1.336517, "reserved_gib": 2.891, "step": 3480, "step_seconds": 0.207, "steps": 4096, "time": "2026-07-15T23:09:14-0400"}
+[23:09:16 +   726.4s] step 3490/4096 mean_KL=0.80386 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 726.367, "event": "step", "free_gib": 20.279, "mean_kl": 0.803858, "reserved_gib": 2.891, "step": 3490, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:09:16-0400"}
+[23:09:18 +   728.4s] step 3500/4096 mean_KL=1.53169 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 728.403, "event": "step", "free_gib": 20.279, "mean_kl": 1.53169, "reserved_gib": 2.891, "step": 3500, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:09:18-0400"}
+[23:09:20 +   730.5s] step 3510/4096 mean_KL=1.49648 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 730.452, "event": "step", "free_gib": 20.279, "mean_kl": 1.496478, "reserved_gib": 2.891, "step": 3510, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:09:20-0400"}
+[23:09:23 +   732.5s] step 3520/4096 mean_KL=1.82514 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 732.518, "event": "step", "free_gib": 20.279, "mean_kl": 1.825135, "reserved_gib": 2.891, "step": 3520, "step_seconds": 0.209, "steps": 4096, "time": "2026-07-15T23:09:23-0400"}
+[23:09:25 +   734.6s] step 3530/4096 mean_KL=1.47153 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 734.596, "event": "step", "free_gib": 20.279, "mean_kl": 1.471529, "reserved_gib": 2.891, "step": 3530, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:09:25-0400"}
+[23:09:27 +   736.6s] step 3540/4096 mean_KL=1.24290 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 736.64, "event": "step", "free_gib": 20.279, "mean_kl": 1.242898, "reserved_gib": 2.891, "step": 3540, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:09:27-0400"}
+[23:09:29 +   738.7s] step 3550/4096 mean_KL=1.67699 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 738.685, "event": "step", "free_gib": 20.279, "mean_kl": 1.676995, "reserved_gib": 2.891, "step": 3550, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:09:29-0400"}
+[23:09:31 +   740.7s] step 3560/4096 mean_KL=1.52664 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 740.733, "event": "step", "free_gib": 20.279, "mean_kl": 1.526637, "reserved_gib": 2.891, "step": 3560, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:09:31-0400"}
+[23:09:33 +   742.8s] step 3570/4096 mean_KL=1.09933 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 742.774, "event": "step", "free_gib": 20.279, "mean_kl": 1.099332, "reserved_gib": 2.891, "step": 3570, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:09:33-0400"}
+[23:09:35 +   744.8s] step 3580/4096 mean_KL=1.75696 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 744.812, "event": "step", "free_gib": 20.279, "mean_kl": 1.756957, "reserved_gib": 2.891, "step": 3580, "step_seconds": 0.207, "steps": 4096, "time": "2026-07-15T23:09:35-0400"}
+[23:09:37 +   746.9s] step 3590/4096 mean_KL=1.25494 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 746.853, "event": "step", "free_gib": 20.279, "mean_kl": 1.254937, "reserved_gib": 2.891, "step": 3590, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:09:37-0400"}
+[23:09:39 +   748.9s] step 3600/4096 mean_KL=1.39845 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 748.895, "event": "step", "free_gib": 20.279, "mean_kl": 1.398452, "reserved_gib": 2.891, "step": 3600, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:09:39-0400"}
+[23:09:41 +   750.9s] step 3610/4096 mean_KL=1.46379 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 750.944, "event": "step", "free_gib": 20.279, "mean_kl": 1.463792, "reserved_gib": 2.891, "step": 3610, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:09:41-0400"}
+[23:09:43 +   753.0s] step 3620/4096 mean_KL=3.05042 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 752.986, "event": "step", "free_gib": 20.279, "mean_kl": 3.050416, "reserved_gib": 2.891, "step": 3620, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:09:43-0400"}
+[23:09:45 +   755.0s] step 3630/4096 mean_KL=2.90250 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 755.032, "event": "step", "free_gib": 20.279, "mean_kl": 2.902503, "reserved_gib": 2.891, "step": 3630, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:09:45-0400"}
+[23:09:47 +   757.1s] step 3640/4096 mean_KL=1.50847 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 757.074, "event": "step", "free_gib": 20.279, "mean_kl": 1.508466, "reserved_gib": 2.891, "step": 3640, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:09:47-0400"}
+[23:09:49 +   759.1s] step 3650/4096 mean_KL=1.54196 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 759.115, "event": "step", "free_gib": 20.279, "mean_kl": 1.541959, "reserved_gib": 2.891, "step": 3650, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:09:49-0400"}
+[23:09:51 +   761.2s] step 3660/4096 mean_KL=1.01252 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 761.166, "event": "step", "free_gib": 20.279, "mean_kl": 1.012515, "reserved_gib": 2.891, "step": 3660, "step_seconds": 0.208, "steps": 4096, "time": "2026-07-15T23:09:51-0400"}
+[23:09:53 +   763.2s] step 3670/4096 mean_KL=1.45255 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 763.207, "event": "step", "free_gib": 20.279, "mean_kl": 1.45255, "reserved_gib": 2.891, "step": 3670, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:09:53-0400"}
+[23:09:55 +   765.3s] step 3680/4096 mean_KL=0.96843 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 765.252, "event": "step", "free_gib": 20.279, "mean_kl": 0.968433, "reserved_gib": 2.891, "step": 3680, "step_seconds": 0.206, "steps": 4096, "time": "2026-07-15T23:09:55-0400"}
+[23:09:57 +   767.3s] step 3690/4096 mean_KL=1.77255 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 767.3, "event": "step", "free_gib": 20.279, "mean_kl": 1.772551, "reserved_gib": 2.891, "step": 3690, "step_seconds": 0.207, "steps": 4096, "time": "2026-07-15T23:09:57-0400"}
+[23:09:59 +   769.3s] step 3700/4096 mean_KL=1.36404 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 769.343, "event": "step", "free_gib": 20.279, "mean_kl": 1.364043, "reserved_gib": 2.891, "step": 3700, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:09:59-0400"}
+[23:10:01 +   771.4s] step 3710/4096 mean_KL=1.39241 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 771.395, "event": "step", "free_gib": 20.279, "mean_kl": 1.392411, "reserved_gib": 2.891, "step": 3710, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:10:01-0400"}
+[23:10:03 +   773.4s] step 3720/4096 mean_KL=1.66614 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 773.443, "event": "step", "free_gib": 20.279, "mean_kl": 1.666136, "reserved_gib": 2.891, "step": 3720, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:10:03-0400"}
+[23:10:05 +   775.5s] step 3730/4096 mean_KL=1.96642 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 775.477, "event": "step", "free_gib": 20.279, "mean_kl": 1.966418, "reserved_gib": 2.891, "step": 3730, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:10:05-0400"}
+[23:10:08 +   777.5s] step 3740/4096 mean_KL=1.53118 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 777.516, "event": "step", "free_gib": 20.279, "mean_kl": 1.531184, "reserved_gib": 2.891, "step": 3740, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:10:08-0400"}
+[23:10:10 +   779.6s] step 3750/4096 mean_KL=1.17394 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 779.554, "event": "step", "free_gib": 20.279, "mean_kl": 1.173945, "reserved_gib": 2.891, "step": 3750, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:10:10-0400"}
+[23:10:12 +   781.6s] step 3760/4096 mean_KL=1.30506 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 781.608, "event": "step", "free_gib": 20.279, "mean_kl": 1.30506, "reserved_gib": 2.891, "step": 3760, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:10:12-0400"}
+[23:10:14 +   783.6s] step 3770/4096 mean_KL=1.22310 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 783.638, "event": "step", "free_gib": 20.279, "mean_kl": 1.223096, "reserved_gib": 2.891, "step": 3770, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:10:14-0400"}
+[23:10:16 +   785.7s] step 3780/4096 mean_KL=1.14957 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 785.664, "event": "step", "free_gib": 20.279, "mean_kl": 1.149571, "reserved_gib": 2.891, "step": 3780, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T23:10:16-0400"}
+[23:10:18 +   787.7s] step 3790/4096 mean_KL=0.84191 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 787.7, "event": "step", "free_gib": 20.279, "mean_kl": 0.841909, "reserved_gib": 2.891, "step": 3790, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:10:18-0400"}
+[23:10:20 +   789.7s] step 3800/4096 mean_KL=2.67637 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 789.736, "event": "step", "free_gib": 20.279, "mean_kl": 2.676374, "reserved_gib": 2.891, "step": 3800, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T23:10:20-0400"}
+[23:10:22 +   791.8s] step 3810/4096 mean_KL=1.74725 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 791.776, "event": "step", "free_gib": 20.279, "mean_kl": 1.747252, "reserved_gib": 2.891, "step": 3810, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T23:10:22-0400"}
+[23:10:24 +   793.8s] step 3820/4096 mean_KL=1.94928 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 793.812, "event": "step", "free_gib": 20.279, "mean_kl": 1.949284, "reserved_gib": 2.891, "step": 3820, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:10:24-0400"}
+[23:10:26 +   795.8s] step 3830/4096 mean_KL=1.81806 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 795.845, "event": "step", "free_gib": 20.279, "mean_kl": 1.818057, "reserved_gib": 2.891, "step": 3830, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:10:26-0400"}
+[23:10:28 +   797.9s] step 3840/4096 mean_KL=2.40915 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 797.883, "event": "step", "free_gib": 20.279, "mean_kl": 2.409151, "reserved_gib": 2.891, "step": 3840, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:10:28-0400"}
+[23:10:30 +   799.9s] step 3850/4096 mean_KL=1.68483 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 799.924, "event": "step", "free_gib": 20.279, "mean_kl": 1.684826, "reserved_gib": 2.891, "step": 3850, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:10:30-0400"}
+[23:10:32 +   802.0s] step 3860/4096 mean_KL=1.77128 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 801.972, "event": "step", "free_gib": 20.279, "mean_kl": 1.771281, "reserved_gib": 2.891, "step": 3860, "step_seconds": 0.209, "steps": 4096, "time": "2026-07-15T23:10:32-0400"}
+[23:10:34 +   804.0s] step 3870/4096 mean_KL=1.33511 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 804.002, "event": "step", "free_gib": 20.279, "mean_kl": 1.335112, "reserved_gib": 2.891, "step": 3870, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T23:10:34-0400"}
+[23:10:36 +   806.0s] step 3880/4096 mean_KL=1.25594 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 806.018, "event": "step", "free_gib": 20.279, "mean_kl": 1.255945, "reserved_gib": 2.891, "step": 3880, "step_seconds": 0.201, "steps": 4096, "time": "2026-07-15T23:10:36-0400"}
+[23:10:38 +   808.1s] step 3890/4096 mean_KL=1.05854 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 808.051, "event": "step", "free_gib": 20.279, "mean_kl": 1.058538, "reserved_gib": 2.891, "step": 3890, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:10:38-0400"}
+[23:10:40 +   810.1s] step 3900/4096 mean_KL=0.81468 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 810.086, "event": "step", "free_gib": 20.279, "mean_kl": 0.814678, "reserved_gib": 2.891, "step": 3900, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:10:40-0400"}
+[23:10:42 +   812.1s] step 3910/4096 mean_KL=1.75663 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 812.128, "event": "step", "free_gib": 20.279, "mean_kl": 1.756634, "reserved_gib": 2.891, "step": 3910, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:10:42-0400"}
+[23:10:44 +   814.2s] step 3920/4096 mean_KL=1.31921 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 814.161, "event": "step", "free_gib": 20.279, "mean_kl": 1.319207, "reserved_gib": 2.891, "step": 3920, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T23:10:44-0400"}
+[23:10:46 +   816.2s] step 3930/4096 mean_KL=0.91660 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 816.193, "event": "step", "free_gib": 20.279, "mean_kl": 0.916605, "reserved_gib": 2.891, "step": 3930, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T23:10:46-0400"}
+[23:10:48 +   818.2s] step 3940/4096 mean_KL=0.82898 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 818.23, "event": "step", "free_gib": 20.279, "mean_kl": 0.828984, "reserved_gib": 2.891, "step": 3940, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:10:48-0400"}
+[23:10:50 +   820.3s] step 3950/4096 mean_KL=0.54142 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 820.27, "event": "step", "free_gib": 20.279, "mean_kl": 0.541418, "reserved_gib": 2.891, "step": 3950, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:10:50-0400"}
+[23:10:52 +   822.3s] step 3960/4096 mean_KL=0.94058 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 822.314, "event": "step", "free_gib": 20.279, "mean_kl": 0.940581, "reserved_gib": 2.891, "step": 3960, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:10:52-0400"}
+[23:10:54 +   824.4s] step 3970/4096 mean_KL=0.81008 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 824.351, "event": "step", "free_gib": 20.279, "mean_kl": 0.810079, "reserved_gib": 2.891, "step": 3970, "step_seconds": 0.204, "steps": 4096, "time": "2026-07-15T23:10:54-0400"}
+[23:10:56 +   826.4s] step 3980/4096 mean_KL=1.16697 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 826.382, "event": "step", "free_gib": 20.279, "mean_kl": 1.166968, "reserved_gib": 2.891, "step": 3980, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T23:10:56-0400"}
+[23:10:58 +   828.4s] step 3990/4096 mean_KL=0.95736 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 828.416, "event": "step", "free_gib": 20.279, "mean_kl": 0.957361, "reserved_gib": 2.891, "step": 3990, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:10:58-0400"}
+[23:11:00 +   830.4s] step 4000/4096 mean_KL=0.71269 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 830.448, "event": "step", "free_gib": 20.279, "mean_kl": 0.712689, "reserved_gib": 2.891, "step": 4000, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:11:00-0400"}
+[23:11:02 +   832.5s] step 4010/4096 mean_KL=1.92407 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 832.487, "event": "step", "free_gib": 20.279, "mean_kl": 1.924066, "reserved_gib": 2.891, "step": 4010, "step_seconds": 0.207, "steps": 4096, "time": "2026-07-15T23:11:02-0400"}
+[23:11:05 +   834.5s] step 4020/4096 mean_KL=1.50969 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 834.515, "event": "step", "free_gib": 20.279, "mean_kl": 1.509685, "reserved_gib": 2.891, "step": 4020, "step_seconds": 0.203, "steps": 4096, "time": "2026-07-15T23:11:05-0400"}
+[23:11:07 +   836.5s] step 4030/4096 mean_KL=1.78436 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 836.545, "event": "step", "free_gib": 20.279, "mean_kl": 1.784362, "reserved_gib": 2.891, "step": 4030, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:11:07-0400"}
+[23:11:09 +   838.6s] step 4040/4096 mean_KL=3.63749 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 838.59, "event": "step", "free_gib": 20.279, "mean_kl": 3.637489, "reserved_gib": 2.891, "step": 4040, "step_seconds": 0.205, "steps": 4096, "time": "2026-07-15T23:11:09-0400"}
+[23:11:11 +   840.6s] step 4050/4096 mean_KL=2.86001 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 840.629, "event": "step", "free_gib": 20.279, "mean_kl": 2.860006, "reserved_gib": 2.891, "step": 4050, "step_seconds": 0.207, "steps": 4096, "time": "2026-07-15T23:11:11-0400"}
+[23:11:13 +   842.7s] step 4060/4096 mean_KL=2.46415 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 842.668, "event": "step", "free_gib": 20.279, "mean_kl": 2.464151, "reserved_gib": 2.891, "step": 4060, "step_seconds": 0.207, "steps": 4096, "time": "2026-07-15T23:11:13-0400"}
+[23:11:15 +   844.7s] step 4070/4096 mean_KL=1.56653 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 844.698, "event": "step", "free_gib": 20.279, "mean_kl": 1.566534, "reserved_gib": 2.891, "step": 4070, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T23:11:15-0400"}
+[23:11:17 +   846.7s] step 4080/4096 mean_KL=2.35348 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 846.733, "event": "step", "free_gib": 20.279, "mean_kl": 2.353476, "reserved_gib": 2.891, "step": 4080, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T23:11:17-0400"}
+[23:11:19 +   848.8s] step 4090/4096 mean_KL=1.90843 step=0.2s free=20.28 GiB
+[event] {"allocated_gib": 2.408, "elapsed_s": 848.77, "event": "step", "free_gib": 20.279, "mean_kl": 1.908432, "reserved_gib": 2.891, "step": 4090, "step_seconds": 0.202, "steps": 4096, "time": "2026-07-15T23:11:19-0400"}
+[event] {"elapsed_s": 850.196, "event": "complete", "output": "data/lenses/qwen3.5-0.8b-tuned-pile-repro-v1", "peak_allocated_gib": 2.764, "peak_reserved_gib": 2.891, "time": "2026-07-15T23:11:20-0400"}
+[23:11:20 +   850.2s] saved tuned lens to data/lenses/qwen3.5-0.8b-tuned-pile-repro-v1; CUDA cache released

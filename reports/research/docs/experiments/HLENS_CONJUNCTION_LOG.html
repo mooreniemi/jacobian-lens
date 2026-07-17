@@ -36,6 +36,26 @@ fitted H-lens artifact.</li>
 <p>No H-lens code or results have been produced yet. The next implementation gate
 is a one-prompt, one-layer HVP smoke test with finite-difference validation,
 zero-direction checks, and explicit CUDA-memory cleanup.</p>
+<h2>2026-07-15 — Implementation boundary clarified</h2>
+<p>We clarified that the first H-lens implementation will be a directional
+curvature diagnostic, not a full Hessian matrix and not a vocabulary-wide
+second-order decoder. For a scalar answer margin <code>s(h)</code> and directions <code>u</code> and
+<code>v</code>, the primary statistic is <code>u · Hessian(s) · v</code>, computed with one HVP and
+a dot product. The directions will initially be frozen J-lens/readout or
+explicit property directions.</p>
+<p>The staged gates are now: (1) analytic toy-model autograd tests, (2) one
+Qwen3-0.6B or SmolLM2 FP32 prompt/layer with finite-difference agreement, (3)
+a small answer-position-only conjunction pilot, and (4) the held-out J-only
+versus J-plus-H prediction test. Full Hessian materialization, quantized 27B
+second-order autograd, and a distributable H-lens checkpoint are explicitly
+out of scope until those gates pass.</p>
+<p>The naming distinction is now explicit: the HVP implementation is a
+<strong>Hessian interaction probe</strong> because it directly measures <code>uᵀHv</code>; a future
+reusable curvature representation may be called an <strong>H-lens</strong>; and a one-site
+matrix calculation on a small model is a separate <strong>full local Hessian
+feasibility</strong> experiment. The latter is planned rather than rejected. Its
+purpose is to establish what matrix sizes, eigensolvers, memory, and runtime
+are practical locally before considering Modal or a low-rank approximation.</p>
 </article>
 <footer>Rendered from <code>experiments/HLENS_CONJUNCTION_LOG.md</code> by <code>scripts/generate_research_report.py</code>.</footer>
 </main></body></html>

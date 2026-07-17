@@ -1,0 +1,8 @@
+{
+  "model": "/home/alex/models/qwen3-0.6b",
+  "source_tuned_lens": "/home/alex/Code/jlens/jacobian-lens/data/lenses/qwen3-0.6b-tuned-pile-repro-v1",
+  "basis": "I + translator.weight.T",
+  "token_direction": "basis.T @ unembedding_row",
+  "final_norm_folded": false,
+  "purpose": "causal tuned-lens translator-basis comparison"
+}

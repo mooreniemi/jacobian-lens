@@ -1,0 +1,1 @@
+{"base_model_name_or_path":"Qwen/Qwen3-1.7B","d_model":2048,"num_hidden_layers":28,"bias":true,"base_model_revision":null,"unembed_hash":"26fb8eb929c1b7f884b27ab6f9a9afccabdd4ed20c5ce7b4042565166a72737a","lens_type":"linear_tuned_lens"}

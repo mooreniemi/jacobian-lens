@@ -1,0 +1,4833 @@
+{
+  "model": "/home/alex/models/qwen3-1.7b-hf",
+  "lens_file": "qwen3.5-4b/jlens/Salesforce-wikitext/Qwen3.5-4B_jacobian_lens_n1000.pt",
+  "lens_local": "data/lenses/qwen3-1.7b-tuned-wikitext-patch-basis.pt",
+  "precision": {
+    "compute_dtype": "bf16",
+    "base_quantization": "none"
+  },
+  "kernel_mode": "off",
+  "patch_positions": "all",
+  "layers": [
+    8,
+    14,
+    20
+  ],
+  "methods": [
+    "tuned",
+    "logit",
+    "random"
+  ],
+  "n_input": 90,
+  "n_used": 68,
+  "skipped": [
+    {
+      "name": "basketball-players",
+      "reason": "non_single_token"
+    },
+    {
+      "name": "bird-color-swan",
+      "reason": "non_single_token"
+    },
+    {
+      "name": "bird-country-eagle",
+      "reason": "non_single_token"
+    },
+    {
+      "name": "birthstone-emerald-month",
+      "reason": "non_single_token"
+    },
+    {
+      "name": "chem-atmosphere-Z",
+      "reason": "non_single_token"
+    },
+    {
+      "name": "chem-bones-Z",
+      "reason": "non_single_token"
+    },
+    {
+      "name": "chem-organic-Z",
+      "reason": "non_single_token"
+    },
+    {
+      "name": "chem-photosynthesis-Z",
+      "reason": "non_single_token"
+    },
+    {
+      "name": "etym-frigg-position",
+      "reason": "non_single_token"
+    },
+    {
+      "name": "etym-saturn-position",
+      "reason": "non_single_token"
+    },
+    {
+      "name": "etym-wargod-month",
+      "reason": "non_single_token"
+    },
+    {
+      "name": "ex-city-currency-Toronto-Mumbai",
+      "reason": "non_single_token"
+    },
+    {
+      "name": "func-filters-count",
+      "reason": "non_single_token"
+    },
+    {
+      "name": "func-pumps-chambers",
+      "reason": "non_single_token"
+    },
+    {
+      "name": "gem-source-pearl",
+      "reason": "non_single_token"
+    },
+    {
+      "name": "organ-location-brain",
+      "reason": "non_single_token"
+    },
+    {
+      "name": "osu-rival-mascot",
+      "reason": "non_single_token"
+    },
+    {
+      "name": "person-century-lincoln",
+      "reason": "non_single_token"
+    },
+    {
+      "name": "planet-3-moons",
+      "reason": "non_single_token"
+    },
+    {
+      "name": "spider-legs",
+      "reason": "non_single_token"
+    },
+    {
+      "name": "tree-product-oak",
+      "reason": "non_single_token"
+    },
+    {
+      "name": "violin-strings",
+      "reason": "non_single_token"
+    }
+  ],
+  "items": [
+    {
+      "name": "amazon-language",
+      "category": "multihop",
+      "prompt": "Fact: The language spoken in the country where the Amazon River ends is ",
+      "intermediate": "Brazil",
+      "answer": "Portuguese",
+      "swap_to": "Mexico",
+      "swap_answer": "Spanish",
+      "answer_position": 14,
+      "source_token": 15948,
+      "target_token": 12270,
+      "answer_token": 42188,
+      "swap_answer_token": 15154,
+      "answer_rank_before": 14,
+      "swap_answer_rank_before": 4,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 7,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 11,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 13,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 6,
+            "swap_answer_rank_after": 14,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 13,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 22,
+            "swap_answer_rank_after": 9,
+            "swap_answer_top_k": true
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 18,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 14,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 14,
+            "swap_answer_rank_after": 9,
+            "swap_answer_top_k": true
+          }
+        }
+      }
+    },
+    {
+      "name": "animal-cover-turtle",
+      "category": "animal-cover",
+      "prompt": "Fact: The hard covering on the back of the slow reptile that can pull its head inside its body is called a",
+      "intermediate": "turtle",
+      "answer": "shell",
+      "swap_to": "snake",
+      "swap_answer": "scale",
+      "answer_position": 23,
+      "source_token": 36089,
+      "target_token": 25265,
+      "answer_token": 12528,
+      "swap_answer_token": 5452,
+      "answer_rank_before": 3,
+      "swap_answer_rank_before": 2,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          }
+        }
+      }
+    },
+    {
+      "name": "animal-legs-buffalo2",
+      "category": "animal-legs",
+      "prompt": "Fact: The number of legs on the large horned animal that roamed the American plains in huge herds is",
+      "intermediate": "buffalo",
+      "answer": "four",
+      "swap_to": "spider",
+      "swap_answer": "eight",
+      "answer_position": 22,
+      "source_token": 81355,
+      "target_token": 34354,
+      "answer_token": 3040,
+      "swap_answer_token": 8063,
+      "answer_rank_before": 2,
+      "swap_answer_rank_before": 12,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 15,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 9,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 13,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 11,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 10,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 9,
+            "swap_answer_top_k": true
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 9,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 12,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 9,
+            "swap_answer_top_k": true
+          }
+        }
+      }
+    },
+    {
+      "name": "animal-nose-elephant",
+      "category": "animal-nose",
+      "prompt": "Fact: The long flexible body part that the largest land animal uses to pick things up is called a",
+      "intermediate": "elephant",
+      "answer": "trunk",
+      "swap_to": "snake",
+      "swap_answer": "tongue",
+      "answer_position": 19,
+      "source_token": 45740,
+      "target_token": 25265,
+      "answer_token": 37311,
+      "swap_answer_token": 24459,
+      "answer_rank_before": 1,
+      "swap_answer_rank_before": 6,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 18,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 10,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 14,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 11,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 9,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 10,
+            "swap_answer_top_k": true
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 9,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 9,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 8,
+            "swap_answer_top_k": true
+          }
+        }
+      }
+    },
+    {
+      "name": "atomic-80-state",
+      "category": "multihop",
+      "prompt": "Fact: The state of matter at room temperature of the element with atomic number 80 is ",
+      "intermediate": "mercury",
+      "answer": "liquid",
+      "swap_to": "iron",
+      "swap_answer": "solid",
+      "answer_position": 19,
+      "source_token": 50752,
+      "target_token": 11001,
+      "answer_token": 14473,
+      "swap_answer_token": 6437,
+      "answer_rank_before": 2,
+      "swap_answer_rank_before": 4,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 7,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 8,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          }
+        }
+      }
+    },
+    {
+      "name": "beverage-source-wine",
+      "category": "beverage-source",
+      "prompt": "Fact: The fruit that the alcoholic drink served at communion is made from is the",
+      "intermediate": "wine",
+      "answer": "grape",
+      "swap_to": "beer",
+      "swap_answer": "barley",
+      "answer_position": 15,
+      "source_token": 13078,
+      "target_token": 12883,
+      "answer_token": 51152,
+      "swap_answer_token": 80717,
+      "answer_rank_before": 2,
+      "swap_answer_rank_before": 275,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 128,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 117,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 139,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 264,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 173,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 213,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 658,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 108,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 236,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "bird-time-owl",
+      "category": "bird-time",
+      "prompt": "Fact: The time of day when the bird that hoots and can turn its head almost all the way around hunts is",
+      "intermediate": "owl",
+      "answer": "night",
+      "swap_to": "eagle",
+      "swap_answer": "day",
+      "answer_position": 24,
+      "source_token": 52269,
+      "target_token": 59889,
+      "answer_token": 3729,
+      "swap_answer_token": 1899,
+      "answer_rank_before": 619,
+      "swap_answer_rank_before": 820,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 596,
+            "swap_answer_rank_after": 658,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 616,
+            "swap_answer_rank_after": 592,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 780,
+            "swap_answer_rank_after": 900,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 522,
+            "swap_answer_rank_after": 566,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 595,
+            "swap_answer_rank_after": 536,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 800,
+            "swap_answer_rank_after": 825,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 1102,
+            "swap_answer_rank_after": 461,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 803,
+            "swap_answer_rank_after": 642,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1182,
+            "swap_answer_rank_after": 1141,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "christmas-season",
+      "category": "multihop",
+      "prompt": "Fact: The season when the holiday with a decorated tree occurs is ",
+      "intermediate": "Christmas",
+      "answer": "winter",
+      "swap_to": "Easter",
+      "swap_answer": "spring",
+      "answer_position": 13,
+      "source_token": 10074,
+      "target_token": 32400,
+      "answer_token": 12406,
+      "swap_answer_token": 10464,
+      "answer_rank_before": 6,
+      "swap_answer_rank_before": 71,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 7,
+            "swap_answer_rank_after": 71,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 7,
+            "swap_answer_rank_after": 69,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 6,
+            "swap_answer_rank_after": 97,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 8,
+            "swap_answer_rank_after": 92,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 7,
+            "swap_answer_rank_after": 71,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 78,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 8,
+            "swap_answer_rank_after": 10,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 6,
+            "swap_answer_rank_after": 23,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 72,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "city-state-Philadelphia",
+      "category": "city-state",
+      "prompt": "Fact: The US state where the city famous for the Liberty Bell is located is",
+      "intermediate": "Philadelphia",
+      "answer": "Pennsylvania",
+      "swap_to": "Seattle",
+      "swap_answer": "Washington",
+      "answer_position": 15,
+      "source_token": 19335,
+      "target_token": 16355,
+      "answer_token": 19771,
+      "swap_answer_token": 6515,
+      "answer_rank_before": 1,
+      "swap_answer_rank_before": 12,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 11,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 8,
+            "swap_answer_rank_after": 11,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 12,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 8,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 9,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 11,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 49,
+            "swap_answer_rank_after": 1,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 10,
+            "swap_answer_rank_after": 5,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 9,
+            "swap_answer_top_k": true
+          }
+        }
+      }
+    },
+    {
+      "name": "colosseum-currency",
+      "category": "multihop",
+      "prompt": "Fact: The currency used in the country where the Colosseum stands is the ",
+      "intermediate": "Italy",
+      "answer": "Euro",
+      "swap_to": "Mexico",
+      "swap_answer": "peso",
+      "answer_position": 17,
+      "source_token": 15344,
+      "target_token": 12270,
+      "answer_token": 19461,
+      "swap_answer_token": 36935,
+      "answer_rank_before": 2,
+      "swap_answer_rank_before": 883,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 1326,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 2068,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 1220,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 3333,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 3108,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 1035,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 31,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 952,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 639,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "element-color-gold2",
+      "category": "element-color",
+      "prompt": "Fact: The color of the precious metal with atomic number 79 is",
+      "intermediate": "gold",
+      "answer": "yellow",
+      "swap_to": "silver",
+      "swap_answer": "gray",
+      "answer_position": 14,
+      "source_token": 6623,
+      "target_token": 14961,
+      "answer_token": 13753,
+      "swap_answer_token": 17545,
+      "answer_rank_before": 5,
+      "swap_answer_rank_before": 22,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 22,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 20,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 8,
+            "swap_answer_rank_after": 16,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 20,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 19,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 21,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 22,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 20,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 22,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "ex-city-capital-Barcelona-Toronto",
+      "category": "city-capital",
+      "prompt": "Fact: The capital of the country where Barcelona is located is",
+      "intermediate": "Spain",
+      "answer": "Madrid",
+      "swap_to": "Canada",
+      "swap_answer": "Ottawa",
+      "answer_position": 11,
+      "source_token": 17689,
+      "target_token": 6864,
+      "answer_token": 24081,
+      "swap_answer_token": 32166,
+      "answer_rank_before": 1,
+      "swap_answer_rank_before": 1072,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 582,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 710,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 776,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 556,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 614,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 846,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 12,
+            "swap_answer_rank_after": 23,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 63,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 805,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "ex-city-capital-Lyon-Naples",
+      "category": "city-capital",
+      "prompt": "Fact: The capital of the country where Lyon is located is",
+      "intermediate": "France",
+      "answer": "Paris",
+      "swap_to": "Italy",
+      "swap_answer": "Rome",
+      "answer_position": 11,
+      "source_token": 9625,
+      "target_token": 15344,
+      "answer_token": 12095,
+      "swap_answer_token": 21718,
+      "answer_rank_before": 2,
+      "swap_answer_rank_before": 98,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 30,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 11,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 97,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 17,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 15,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 92,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 96,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 7,
+            "swap_answer_rank_after": 7,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 118,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "ex-city-capital-Naples-Barcelona",
+      "category": "city-capital",
+      "prompt": "Fact: The capital of the country where Naples is located is",
+      "intermediate": "Italy",
+      "answer": "Rome",
+      "swap_to": "Spain",
+      "swap_answer": "Madrid",
+      "answer_position": 11,
+      "source_token": 15344,
+      "target_token": 17689,
+      "answer_token": 21718,
+      "swap_answer_token": 24081,
+      "answer_rank_before": 1,
+      "swap_answer_rank_before": 19,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 15,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 15,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 19,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 21,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 16,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 16,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 66,
+            "swap_answer_rank_after": 1,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 20,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "ex-city-capital-Toronto-Lyon",
+      "category": "city-capital",
+      "prompt": "Fact: The capital of the country where Toronto is located is",
+      "intermediate": "Canada",
+      "answer": "Ottawa",
+      "swap_to": "France",
+      "swap_answer": "Paris",
+      "answer_position": 11,
+      "source_token": 6864,
+      "target_token": 9625,
+      "answer_token": 32166,
+      "swap_answer_token": 12095,
+      "answer_rank_before": 1,
+      "swap_answer_rank_before": 79,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 794,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 914,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 44,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 393,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 860,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 53,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 1499,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 51,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 31,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "ex-city-continent-Toronto-Lyon",
+      "category": "city-continent",
+      "prompt": "Fact: The continent of the country where Toronto is located is",
+      "intermediate": "Canada",
+      "answer": "North",
+      "swap_to": "France",
+      "swap_answer": "Europe",
+      "answer_position": 11,
+      "source_token": 6864,
+      "target_token": 9625,
+      "answer_token": 4787,
+      "swap_answer_token": 4505,
+      "answer_rank_before": 1,
+      "swap_answer_rank_before": 32,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 74,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 80,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 65,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 56,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 80,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 37,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 102,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 15,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 60,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "ex-city-currency-Toronto-Beijing",
+      "category": "city-currency",
+      "prompt": "Fact: The currency used in the country where Toronto is located is the",
+      "intermediate": "Canada",
+      "answer": "Canadian",
+      "swap_to": "China",
+      "swap_answer": "yuan",
+      "answer_position": 13,
+      "source_token": 6864,
+      "target_token": 5616,
+      "answer_token": 11888,
+      "swap_answer_token": 72283,
+      "answer_rank_before": 1,
+      "swap_answer_rank_before": 50,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 131,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 81,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 60,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 54,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 91,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 45,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 437,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 6,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 58,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "ex-city-language-Lyon-Naples",
+      "category": "city-language",
+      "prompt": "Fact: The language spoken in the country where Lyon is located is",
+      "intermediate": "France",
+      "answer": "French",
+      "swap_to": "Italy",
+      "swap_answer": "Italian",
+      "answer_position": 12,
+      "source_token": 9625,
+      "target_token": 15344,
+      "answer_token": 8585,
+      "swap_answer_token": 14811,
+      "answer_rank_before": 1,
+      "swap_answer_rank_before": 26,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 5,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 32,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 34,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 14,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 1,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 28,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "ex-element-state-26-8",
+      "category": "element-state",
+      "prompt": "Fact: The state of matter at room temperature of the element with atomic number 26 is",
+      "intermediate": "iron",
+      "answer": "solid",
+      "swap_to": "oxygen",
+      "swap_answer": "gas",
+      "answer_position": 18,
+      "source_token": 11001,
+      "target_token": 23552,
+      "answer_token": 6437,
+      "swap_answer_token": 6819,
+      "answer_rank_before": 4,
+      "swap_answer_rank_before": 2,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 6,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          }
+        }
+      }
+    },
+    {
+      "name": "ex-element-state-26-80",
+      "category": "element-state",
+      "prompt": "Fact: The state of matter at room temperature of the element with atomic number 26 is",
+      "intermediate": "iron",
+      "answer": "solid",
+      "swap_to": "mercury",
+      "swap_answer": "liquid",
+      "answer_position": 18,
+      "source_token": 11001,
+      "target_token": 50752,
+      "answer_token": 6437,
+      "swap_answer_token": 14473,
+      "answer_rank_before": 4,
+      "swap_answer_rank_before": 3,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 9,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          }
+        }
+      }
+    },
+    {
+      "name": "ex-element-state-8-26",
+      "category": "element-state",
+      "prompt": "Fact: The state of matter at room temperature of the element with atomic number 8 is",
+      "intermediate": "oxygen",
+      "answer": "gas",
+      "swap_to": "iron",
+      "swap_answer": "solid",
+      "answer_position": 17,
+      "source_token": 23552,
+      "target_token": 11001,
+      "answer_token": 6819,
+      "swap_answer_token": 6437,
+      "answer_rank_before": 2,
+      "swap_answer_rank_before": 3,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 5,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          }
+        }
+      }
+    },
+    {
+      "name": "ex-element-state-8-80",
+      "category": "element-state",
+      "prompt": "Fact: The state of matter at room temperature of the element with atomic number 8 is",
+      "intermediate": "oxygen",
+      "answer": "gas",
+      "swap_to": "mercury",
+      "swap_answer": "liquid",
+      "answer_position": 17,
+      "source_token": 23552,
+      "target_token": 50752,
+      "answer_token": 6819,
+      "swap_answer_token": 14473,
+      "answer_rank_before": 2,
+      "swap_answer_rank_before": 4,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          }
+        }
+      }
+    },
+    {
+      "name": "ex-element-state-80-8",
+      "category": "element-state",
+      "prompt": "Fact: The state of matter at room temperature of the element with atomic number 80 is",
+      "intermediate": "mercury",
+      "answer": "liquid",
+      "swap_to": "oxygen",
+      "swap_answer": "gas",
+      "answer_position": 18,
+      "source_token": 50752,
+      "target_token": 23552,
+      "answer_token": 14473,
+      "swap_answer_token": 6819,
+      "answer_rank_before": 3,
+      "swap_answer_rank_before": 2,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          }
+        }
+      }
+    },
+    {
+      "name": "ex-element-symbol-11-26",
+      "category": "element-symbol",
+      "prompt": "Fact: The chemical symbol for the element with atomic number 11 is",
+      "intermediate": "sodium",
+      "answer": "Na",
+      "swap_to": "iron",
+      "swap_answer": "Fe",
+      "answer_position": 14,
+      "source_token": 38595,
+      "target_token": 11001,
+      "answer_token": 12812,
+      "swap_answer_token": 3841,
+      "answer_rank_before": 1,
+      "swap_answer_rank_before": 157,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 103,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 140,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 109,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 109,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 110,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 172,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 237,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 97,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 164,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "ex-element-symbol-26-79",
+      "category": "element-symbol",
+      "prompt": "Fact: The chemical symbol for the element with atomic number 26 is",
+      "intermediate": "iron",
+      "answer": "Fe",
+      "swap_to": "gold",
+      "swap_answer": "Au",
+      "answer_position": 14,
+      "source_token": 11001,
+      "target_token": 6623,
+      "answer_token": 3841,
+      "swap_answer_token": 32050,
+      "answer_rank_before": 1,
+      "swap_answer_rank_before": 75,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 76,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 78,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 80,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 77,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 78,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 80,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 27,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 64,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 74,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "ex-planet-color-third-fourth",
+      "category": "planet-color",
+      "prompt": "Fact: The color of the planet third from the Sun is",
+      "intermediate": "Earth",
+      "answer": "blue",
+      "swap_to": "Mars",
+      "swap_answer": "red",
+      "answer_position": 11,
+      "source_token": 9237,
+      "target_token": 21048,
+      "answer_token": 6303,
+      "swap_answer_token": 2518,
+      "answer_rank_before": 1,
+      "swap_answer_rank_before": 4,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 5,
+            "swap_answer_top_k": true
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 5,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 6,
+            "swap_answer_top_k": true
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 5,
+            "swap_answer_top_k": true
+          }
+        }
+      }
+    },
+    {
+      "name": "ex2-city-capital-Munich",
+      "category": "city-capital",
+      "prompt": "Fact: The capital of the country where Munich is located is",
+      "intermediate": "Germany",
+      "answer": "Berlin",
+      "swap_to": "Japan",
+      "swap_answer": "Tokyo",
+      "answer_position": 11,
+      "source_token": 9856,
+      "target_token": 6323,
+      "answer_token": 19846,
+      "swap_answer_token": 26194,
+      "answer_rank_before": 4,
+      "swap_answer_rank_before": 630,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 644,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 1566,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 573,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 1222,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 1670,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 472,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 9133,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 277,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 2293,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "ex2-city-capital-Osaka",
+      "category": "city-capital",
+      "prompt": "Fact: The capital of the country where Osaka is located is",
+      "intermediate": "Japan",
+      "answer": "Tokyo",
+      "swap_to": "Germany",
+      "swap_answer": "Berlin",
+      "answer_position": 11,
+      "source_token": 6323,
+      "target_token": 9856,
+      "answer_token": 26194,
+      "swap_answer_token": 19846,
+      "answer_rank_before": 5,
+      "swap_answer_rank_before": 303,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 239,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 139,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 281,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 10,
+            "swap_answer_rank_after": 82,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 6,
+            "swap_answer_rank_after": 92,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 184,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 727,
+            "swap_answer_rank_after": 21,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 18,
+            "swap_answer_rank_after": 12,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 124,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "ex2-city-continent-Lima",
+      "category": "city-continent",
+      "prompt": "Fact: The continent of the country where Lima is located is",
+      "intermediate": "Peru",
+      "answer": "South",
+      "swap_to": "Egypt",
+      "swap_answer": "Africa",
+      "answer_position": 11,
+      "source_token": 47747,
+      "target_token": 14867,
+      "answer_token": 4882,
+      "swap_answer_token": 10174,
+      "answer_rank_before": 3,
+      "swap_answer_rank_before": 437,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 329,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 297,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 587,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 288,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 256,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 459,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 527,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 65,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 394,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "ex2-city-continent-Sydney",
+      "category": "city-continent",
+      "prompt": "Fact: The continent of the country where Sydney is located is",
+      "intermediate": "Australia",
+      "answer": "Australia",
+      "swap_to": "Peru",
+      "swap_answer": "South",
+      "answer_position": 11,
+      "source_token": 8330,
+      "target_token": 47747,
+      "answer_token": 8330,
+      "swap_answer_token": 4882,
+      "answer_rank_before": 1,
+      "swap_answer_rank_before": 7,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 7,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 8,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 10,
+            "swap_answer_top_k": true
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 7,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 9,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 10,
+            "swap_answer_top_k": true
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 149,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 7,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 10,
+            "swap_answer_top_k": true
+          }
+        }
+      }
+    },
+    {
+      "name": "ex2-city-language-Cairo",
+      "category": "city-language",
+      "prompt": "Fact: The language spoken in the country where Cairo is located is",
+      "intermediate": "Egypt",
+      "answer": "Arabic",
+      "swap_to": "Russia",
+      "swap_answer": "Russian",
+      "answer_position": 12,
+      "source_token": 14867,
+      "target_token": 8359,
+      "answer_token": 34117,
+      "swap_answer_token": 8522,
+      "answer_rank_before": 1,
+      "swap_answer_rank_before": 221,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 344,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 255,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 216,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 204,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 312,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 213,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 58,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 259,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "ex2-city-language-Moscow",
+      "category": "city-language",
+      "prompt": "Fact: The language spoken in the country where Moscow is located is",
+      "intermediate": "Russia",
+      "answer": "Russian",
+      "swap_to": "Egypt",
+      "swap_answer": "Arabic",
+      "answer_position": 12,
+      "source_token": 8359,
+      "target_token": 14867,
+      "answer_token": 8522,
+      "swap_answer_token": 34117,
+      "answer_rank_before": 1,
+      "swap_answer_rank_before": 224,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 67,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 126,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 219,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 123,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 88,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 219,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 162,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 19,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 176,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "ex2-language-capital-Greek",
+      "category": "language-capital",
+      "prompt": "Fact: The capital of the country where Greek is the primary language is",
+      "intermediate": "Greece",
+      "answer": "Athens",
+      "swap_to": "Sweden",
+      "swap_answer": "Stockholm",
+      "answer_position": 13,
+      "source_token": 24427,
+      "target_token": 23190,
+      "answer_token": 45826,
+      "swap_answer_token": 52082,
+      "answer_rank_before": 2,
+      "swap_answer_rank_before": 306,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 222,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 235,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 328,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 188,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 266,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 415,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 43,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 19,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 7,
+            "swap_answer_rank_after": 428,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "ex2-language-capital-Hungarian",
+      "category": "language-capital",
+      "prompt": "Fact: The capital of the country where Hungarian is the primary language is",
+      "intermediate": "Hungary",
+      "answer": "Budapest",
+      "swap_to": "Poland",
+      "swap_answer": "Warsaw",
+      "answer_position": 13,
+      "source_token": 42776,
+      "target_token": 27602,
+      "answer_token": 69595,
+      "swap_answer_token": 72176,
+      "answer_rank_before": 3,
+      "swap_answer_rank_before": 70,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 149,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 127,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 69,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 136,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 140,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 63,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 39,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 35,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 7,
+            "swap_answer_rank_after": 308,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "ex2-language-capital-Polish",
+      "category": "language-capital",
+      "prompt": "Fact: The capital of the country where Polish is the primary language is",
+      "intermediate": "Poland",
+      "answer": "Warsaw",
+      "swap_to": "Greece",
+      "swap_answer": "Athens",
+      "answer_position": 13,
+      "source_token": 27602,
+      "target_token": 24427,
+      "answer_token": 72176,
+      "swap_answer_token": 45826,
+      "answer_rank_before": 2,
+      "swap_answer_rank_before": 1254,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 410,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 206,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 1325,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 517,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 200,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 1219,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 12926,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 172,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 1903,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "ex2-language-capital-Swedish",
+      "category": "language-capital",
+      "prompt": "Fact: The capital of the country where Swedish is the primary language is",
+      "intermediate": "Sweden",
+      "answer": "Stockholm",
+      "swap_to": "Hungary",
+      "swap_answer": "Budapest",
+      "answer_position": 13,
+      "source_token": 23190,
+      "target_token": 42776,
+      "answer_token": 52082,
+      "swap_answer_token": 69595,
+      "answer_rank_before": 3,
+      "swap_answer_rank_before": 473,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 532,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 902,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 424,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 1731,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 1110,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 787,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 5349,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 220,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 1144,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "ex2-river-capital-Thames",
+      "category": "river-capital",
+      "prompt": "Fact: The capital of the country where the Thames River reaches the sea is",
+      "intermediate": "England",
+      "answer": "London",
+      "swap_to": "Germany",
+      "swap_answer": "Berlin",
+      "answer_position": 14,
+      "source_token": 9448,
+      "target_token": 9856,
+      "answer_token": 7148,
+      "swap_answer_token": 19846,
+      "answer_rank_before": 1,
+      "swap_answer_rank_before": 23,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 14,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 19,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 26,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 18,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 16,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 24,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 7,
+            "swap_answer_rank_after": 1,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 11,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 28,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "food-animal-butter",
+      "category": "food-animal",
+      "prompt": "Fact: The animal that produces the yellow dairy spread used on bread is the",
+      "intermediate": "butter",
+      "answer": "cow",
+      "swap_to": "honey",
+      "swap_answer": "bee",
+      "answer_position": 14,
+      "source_token": 14100,
+      "target_token": 25744,
+      "answer_token": 19362,
+      "swap_answer_token": 37228,
+      "answer_rank_before": 1,
+      "swap_answer_rank_before": 30,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 21,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 16,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 62,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 20,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 15,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 49,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 106,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 6,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 30,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "food-animal-honey",
+      "category": "food-animal",
+      "prompt": "Fact: The insect that produces the sweet golden substance spread on toast is the",
+      "intermediate": "honey",
+      "answer": "bee",
+      "swap_to": "butter",
+      "swap_answer": "cow",
+      "answer_position": 14,
+      "source_token": 25744,
+      "target_token": 14100,
+      "answer_token": 37228,
+      "swap_answer_token": 19362,
+      "answer_rank_before": 2,
+      "swap_answer_rank_before": 885,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 1088,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 1177,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 1240,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 924,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 1124,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 802,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 720,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 1391,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 1129,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "fruit-grows-grape",
+      "category": "fruit-grows",
+      "prompt": "Fact: The kind of plant that the small round fruit used to make wine grows on is a",
+      "intermediate": "grape",
+      "answer": "vine",
+      "swap_to": "apple",
+      "swap_answer": "tree",
+      "answer_position": 18,
+      "source_token": 51152,
+      "target_token": 23268,
+      "answer_token": 28950,
+      "swap_answer_token": 4916,
+      "answer_rank_before": 10,
+      "swap_answer_rank_before": 4,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 11,
+            "swap_answer_rank_after": 5,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 14,
+            "swap_answer_rank_after": 5,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 8,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 17,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 17,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 10,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 6,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 18,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 8,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          }
+        }
+      }
+    },
+    {
+      "name": "gem-color-ruby",
+      "category": "gem-color",
+      "prompt": "Fact: The color of the gemstone that is the traditional birthstone for July is",
+      "intermediate": "ruby",
+      "answer": "red",
+      "swap_to": "pearl",
+      "swap_answer": "white",
+      "answer_position": 16,
+      "source_token": 45207,
+      "target_token": 69623,
+      "answer_token": 2518,
+      "swap_answer_token": 4158,
+      "answer_rank_before": 37,
+      "swap_answer_rank_before": 79,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 55,
+            "swap_answer_rank_after": 45,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 35,
+            "swap_answer_rank_after": 30,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 44,
+            "swap_answer_rank_after": 114,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 27,
+            "swap_answer_rank_after": 58,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 36,
+            "swap_answer_rank_after": 53,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 50,
+            "swap_answer_rank_after": 116,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 33,
+            "swap_answer_rank_after": 11,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 57,
+            "swap_answer_rank_after": 41,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 50,
+            "swap_answer_rank_after": 106,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "greatwall-ocean",
+      "category": "multihop",
+      "prompt": "Fact: The ocean east of the country that built the Great Wall is the ",
+      "intermediate": "China",
+      "answer": "Pacific",
+      "swap_to": "Brazil",
+      "swap_answer": "Atlantic",
+      "answer_position": 15,
+      "source_token": 5616,
+      "target_token": 15948,
+      "answer_token": 16462,
+      "swap_answer_token": 22375,
+      "answer_rank_before": 6,
+      "swap_answer_rank_before": 20,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 9,
+            "swap_answer_rank_after": 16,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 8,
+            "swap_answer_rank_after": 16,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 6,
+            "swap_answer_rank_after": 18,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 12,
+            "swap_answer_rank_after": 23,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 16,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 8,
+            "swap_answer_rank_after": 28,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 45,
+            "swap_answer_rank_after": 68,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 6,
+            "swap_answer_rank_after": 18,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 16,
+            "swap_answer_rank_after": 246,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "holiday-month-christmas2",
+      "category": "holiday-month",
+      "prompt": "Fact: The month of the holiday celebrated with a decorated evergreen tree and gift-giving is",
+      "intermediate": "Christmas",
+      "answer": "December",
+      "swap_to": "Easter",
+      "swap_answer": "April",
+      "answer_position": 18,
+      "source_token": 10074,
+      "target_token": 32400,
+      "answer_token": 6652,
+      "swap_answer_token": 5813,
+      "answer_rank_before": 1,
+      "swap_answer_rank_before": 253,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 259,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 225,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 386,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 225,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 261,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 289,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 8,
+            "swap_answer_rank_after": 6,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 15,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 142,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "instr-body-trumpet",
+      "category": "instr-played",
+      "prompt": "Fact: The part of the body a player buzzes to play the valved brass instrument heard in jazz solos is the",
+      "intermediate": "trumpet",
+      "answer": "lips",
+      "swap_to": "drums",
+      "swap_answer": "hands",
+      "answer_position": 24,
+      "source_token": 91259,
+      "target_token": 46289,
+      "answer_token": 22877,
+      "swap_answer_token": 6078,
+      "answer_rank_before": 7,
+      "swap_answer_rank_before": 351,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 9,
+            "swap_answer_rank_after": 456,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 6,
+            "swap_answer_rank_after": 358,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 6,
+            "swap_answer_rank_after": 384,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 7,
+            "swap_answer_rank_after": 407,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 7,
+            "swap_answer_rank_after": 438,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 8,
+            "swap_answer_rank_after": 379,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 34,
+            "swap_answer_rank_after": 4705,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 7,
+            "swap_answer_rank_after": 385,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 20,
+            "swap_answer_rank_after": 383,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "instr-hit-drums",
+      "category": "instr-played",
+      "prompt": "Fact: The pair of wooden objects used to strike the instrument that keeps the beat at the back of a rock band is called",
+      "intermediate": "drums",
+      "answer": "sticks",
+      "swap_to": "piano",
+      "swap_answer": "keys",
+      "answer_position": 24,
+      "source_token": 46289,
+      "target_token": 26278,
+      "answer_token": 33140,
+      "swap_answer_token": 6894,
+      "answer_rank_before": 78,
+      "swap_answer_rank_before": 5459,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 95,
+            "swap_answer_rank_after": 6220,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 85,
+            "swap_answer_rank_after": 6225,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 76,
+            "swap_answer_rank_after": 6195,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 72,
+            "swap_answer_rank_after": 6092,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 68,
+            "swap_answer_rank_after": 4566,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 74,
+            "swap_answer_rank_after": 5992,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 168,
+            "swap_answer_rank_after": 3179,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 86,
+            "swap_answer_rank_after": 5344,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 79,
+            "swap_answer_rank_after": 7886,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "mars-color",
+      "category": "multihop",
+      "prompt": "Fact: The color of the planet fourth from the Sun is ",
+      "intermediate": "Mars",
+      "answer": "red",
+      "swap_to": "Earth",
+      "swap_answer": "blue",
+      "answer_position": 12,
+      "source_token": 21048,
+      "target_token": 9237,
+      "answer_token": 2518,
+      "swap_answer_token": 6303,
+      "answer_rank_before": 9,
+      "swap_answer_rank_before": 12,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 10,
+            "swap_answer_rank_after": 15,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 10,
+            "swap_answer_rank_after": 13,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 12,
+            "swap_answer_rank_after": 12,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 11,
+            "swap_answer_rank_after": 14,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 7,
+            "swap_answer_rank_after": 14,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 17,
+            "swap_answer_rank_after": 6,
+            "swap_answer_top_k": true
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 11,
+            "swap_answer_rank_after": 10,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 7,
+            "swap_answer_rank_after": 14,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 9,
+            "swap_answer_rank_after": 11,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "month-3-godof",
+      "category": "multihop",
+      "prompt": "Fact: The third month of the year is named after the Roman god of ",
+      "intermediate": "Mars",
+      "answer": "war",
+      "swap_to": "Venus",
+      "swap_answer": "love",
+      "answer_position": 15,
+      "source_token": 21048,
+      "target_token": 48976,
+      "answer_token": 4116,
+      "swap_answer_token": 2948,
+      "answer_rank_before": 1,
+      "swap_answer_rank_before": 16,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 20,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 32,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 25,
+            "swap_answer_rank_after": 49,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 7,
+            "swap_answer_rank_after": 22,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 19,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 47,
+            "swap_answer_rank_after": 79,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 8,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 13,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 15,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "organ-acid-stomach",
+      "category": "organ-function",
+      "prompt": "Fact: The strong liquid inside the organ that breaks down swallowed food is called",
+      "intermediate": "stomach",
+      "answer": "acid",
+      "swap_to": "heart",
+      "swap_answer": "blood",
+      "answer_position": 14,
+      "source_token": 22350,
+      "target_token": 4746,
+      "answer_token": 13621,
+      "swap_answer_token": 6543,
+      "answer_rank_before": 33,
+      "swap_answer_rank_before": 60,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 34,
+            "swap_answer_rank_after": 52,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 34,
+            "swap_answer_rank_after": 51,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 45,
+            "swap_answer_rank_after": 57,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 39,
+            "swap_answer_rank_after": 67,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 34,
+            "swap_answer_rank_after": 62,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 33,
+            "swap_answer_rank_after": 74,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 40,
+            "swap_answer_rank_after": 66,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 45,
+            "swap_answer_rank_after": 50,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 26,
+            "swap_answer_rank_after": 76,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "organ-count-kidney2",
+      "category": "organ-count",
+      "prompt": "Fact: The number of the bean-shaped organs that filter blood into urine in a human body is",
+      "intermediate": "kidney",
+      "answer": "two",
+      "swap_to": "heart",
+      "swap_answer": "one",
+      "answer_position": 18,
+      "source_token": 37942,
+      "target_token": 4746,
+      "answer_token": 1378,
+      "swap_answer_token": 825,
+      "answer_rank_before": 2,
+      "swap_answer_rank_before": 11,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 12,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 11,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 11,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 12,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 11,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 13,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 17,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 11,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 9,
+            "swap_answer_top_k": true
+          }
+        }
+      }
+    },
+    {
+      "name": "organ-location-heart",
+      "category": "organ-location",
+      "prompt": "Fact: The part of the body that contains the organ that pumps blood is the",
+      "intermediate": "heart",
+      "answer": "chest",
+      "swap_to": "brain",
+      "swap_answer": "head",
+      "answer_position": 15,
+      "source_token": 4746,
+      "target_token": 8109,
+      "answer_token": 15138,
+      "swap_answer_token": 1968,
+      "answer_rank_before": 48,
+      "swap_answer_rank_before": 520,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 47,
+            "swap_answer_rank_after": 575,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 32,
+            "swap_answer_rank_after": 616,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 61,
+            "swap_answer_rank_after": 680,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 41,
+            "swap_answer_rank_after": 577,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 44,
+            "swap_answer_rank_after": 699,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 51,
+            "swap_answer_rank_after": 580,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 65,
+            "swap_answer_rank_after": 126,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 38,
+            "swap_answer_rank_after": 653,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 40,
+            "swap_answer_rank_after": 533,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "paper-continent",
+      "category": "multihop",
+      "prompt": "Fact: The continent where the country that invented paper is located is ",
+      "intermediate": "China",
+      "answer": "Asia",
+      "swap_to": "France",
+      "swap_answer": "Europe",
+      "answer_position": 13,
+      "source_token": 5616,
+      "target_token": 9625,
+      "answer_token": 13622,
+      "swap_answer_token": 4505,
+      "answer_rank_before": 16,
+      "swap_answer_rank_before": 100,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 14,
+            "swap_answer_rank_after": 109,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 13,
+            "swap_answer_rank_after": 107,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 16,
+            "swap_answer_rank_after": 115,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 19,
+            "swap_answer_rank_after": 203,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 17,
+            "swap_answer_rank_after": 106,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 17,
+            "swap_answer_rank_after": 128,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 44,
+            "swap_answer_rank_after": 27,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 17,
+            "swap_answer_rank_after": 65,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 17,
+            "swap_answer_rank_after": 171,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "person-country-napoleon",
+      "category": "person-country",
+      "prompt": "Fact: The country whose army was led by the emperor defeated at Waterloo is",
+      "intermediate": "Napoleon",
+      "answer": "France",
+      "swap_to": "Lincoln",
+      "swap_answer": "America",
+      "answer_position": 14,
+      "source_token": 69427,
+      "target_token": 24379,
+      "answer_token": 9625,
+      "swap_answer_token": 5159,
+      "answer_rank_before": 6,
+      "swap_answer_rank_before": 99,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 10,
+            "swap_answer_rank_after": 38,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 7,
+            "swap_answer_rank_after": 47,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 154,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 11,
+            "swap_answer_rank_after": 57,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 9,
+            "swap_answer_rank_after": 49,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 7,
+            "swap_answer_rank_after": 256,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 7,
+            "swap_answer_rank_after": 289,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 8,
+            "swap_answer_rank_after": 58,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 8,
+            "swap_answer_rank_after": 118,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "person-country-shakespeare",
+      "category": "person-country",
+      "prompt": "Fact: The country where the playwright who wrote Hamlet and Macbeth was born is",
+      "intermediate": "Shakespeare",
+      "answer": "England",
+      "swap_to": "Einstein",
+      "swap_answer": "Germany",
+      "answer_position": 16,
+      "source_token": 41382,
+      "target_token": 54052,
+      "answer_token": 9448,
+      "swap_answer_token": 9856,
+      "answer_rank_before": 52,
+      "swap_answer_rank_before": 160,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 38,
+            "swap_answer_rank_after": 222,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 32,
+            "swap_answer_rank_after": 132,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 185,
+            "swap_answer_rank_after": 185,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 33,
+            "swap_answer_rank_after": 196,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 26,
+            "swap_answer_rank_after": 127,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 117,
+            "swap_answer_rank_after": 142,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 196,
+            "swap_answer_rank_after": 172,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 49,
+            "swap_answer_rank_after": 153,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 99,
+            "swap_answer_rank_after": 188,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "person-firstname-darwin",
+      "category": "person-firstname",
+      "prompt": "Fact: The first name of the naturalist who proposed evolution by natural selection was",
+      "intermediate": "Darwin",
+      "answer": "Charles",
+      "swap_to": "Einstein",
+      "swap_answer": "Albert",
+      "answer_position": 15,
+      "source_token": 44380,
+      "target_token": 54052,
+      "answer_token": 14927,
+      "swap_answer_token": 17513,
+      "answer_rank_before": 1,
+      "swap_answer_rank_before": 71,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 66,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 70,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 93,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 51,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 68,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 78,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 30,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 52,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 65,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "person-firstname-einstein",
+      "category": "person-firstname",
+      "prompt": "Fact: The first name of the physicist who developed the theory of general relativity was",
+      "intermediate": "Einstein",
+      "answer": "Albert",
+      "swap_to": "Newton",
+      "swap_answer": "Isaac",
+      "answer_position": 16,
+      "source_token": 54052,
+      "target_token": 20668,
+      "answer_token": 17513,
+      "swap_answer_token": 41508,
+      "answer_rank_before": 1,
+      "swap_answer_rank_before": 3,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 5,
+            "swap_answer_top_k": true
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 7,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 6,
+            "swap_answer_top_k": true
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 13,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 8,
+            "swap_answer_top_k": true
+          }
+        }
+      }
+    },
+    {
+      "name": "person-firstname-mozart",
+      "category": "person-firstname",
+      "prompt": "Fact: The first name of the child-prodigy composer from Salzburg who wrote The Magic Flute was",
+      "intermediate": "Mozart",
+      "answer": "Wolfgang",
+      "swap_to": "Darwin",
+      "swap_answer": "Charles",
+      "answer_position": 21,
+      "source_token": 94669,
+      "target_token": 44380,
+      "answer_token": 86498,
+      "swap_answer_token": 14927,
+      "answer_rank_before": 4,
+      "swap_answer_rank_before": 53,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 11,
+            "swap_answer_rank_after": 28,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 6,
+            "swap_answer_rank_after": 53,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 66,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 11,
+            "swap_answer_rank_after": 43,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 46,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 55,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 90,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 6,
+            "swap_answer_rank_after": 36,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 59,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "person-firstname-newton",
+      "category": "person-firstname",
+      "prompt": "Fact: The first name of the scientist on whose head an apple is said to have fallen was",
+      "intermediate": "Newton",
+      "answer": "Isaac",
+      "swap_to": "Shakespeare",
+      "swap_answer": "William",
+      "answer_position": 18,
+      "source_token": 20668,
+      "target_token": 41382,
+      "answer_token": 41508,
+      "swap_answer_token": 12375,
+      "answer_rank_before": 1,
+      "swap_answer_rank_before": 14,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 11,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 9,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 15,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 9,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 8,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 13,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 12,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 8,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 12,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "person-firstname-shakespeare",
+      "category": "person-firstname",
+      "prompt": "Fact: The first name of the playwright who wrote Romeo and Juliet was",
+      "intermediate": "Shakespeare",
+      "answer": "William",
+      "swap_to": "Mozart",
+      "swap_answer": "Wolfgang",
+      "answer_position": 13,
+      "source_token": 41382,
+      "target_token": 94669,
+      "answer_token": 12375,
+      "swap_answer_token": 86498,
+      "answer_rank_before": 1,
+      "swap_answer_rank_before": 248,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 312,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 302,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 354,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 272,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 316,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 324,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 35,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 94,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 334,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "planet-rings-saturn2",
+      "category": "planet-feature",
+      "prompt": "Fact: The most famous feature of the sixth planet from the Sun is its",
+      "intermediate": "Saturn",
+      "answer": "rings",
+      "swap_to": "Jupiter",
+      "swap_answer": "spot",
+      "answer_position": 14,
+      "source_token": 49153,
+      "target_token": 49689,
+      "answer_token": 24544,
+      "swap_answer_token": 7702,
+      "answer_rank_before": 2,
+      "swap_answer_rank_before": 941,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 6,
+            "swap_answer_rank_after": 1018,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 1046,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 9,
+            "swap_answer_rank_after": 778,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 1001,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 8,
+            "swap_answer_rank_after": 1109,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 946,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 944,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 919,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 1344,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "rhyme-chair-flag",
+      "category": "multihop",
+      "prompt": "Fact: The large mammal whose name rhymes with 'chair' appears on the state flag of ",
+      "intermediate": "bear",
+      "answer": "California",
+      "swap_to": "buffalo",
+      "swap_answer": "Wyoming",
+      "answer_position": 20,
+      "source_token": 11722,
+      "target_token": 81355,
+      "answer_token": 7043,
+      "swap_answer_token": 48732,
+      "answer_rank_before": 59,
+      "swap_answer_rank_before": 17,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 58,
+            "swap_answer_rank_after": 21,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 58,
+            "swap_answer_rank_after": 17,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 61,
+            "swap_answer_rank_after": 15,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 60,
+            "swap_answer_rank_after": 17,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 61,
+            "swap_answer_rank_after": 17,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 59,
+            "swap_answer_rank_after": 17,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 58,
+            "swap_answer_rank_after": 16,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 58,
+            "swap_answer_rank_after": 17,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 60,
+            "swap_answer_rank_after": 15,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "rhyme-rain-neighbor",
+      "category": "multihop",
+      "prompt": "Fact: The European country whose name rhymes with 'rain' shares its western border with ",
+      "intermediate": "Spain",
+      "answer": "Portugal",
+      "swap_to": "Belgium",
+      "swap_answer": "France",
+      "answer_position": 18,
+      "source_token": 17689,
+      "target_token": 32961,
+      "answer_token": 33311,
+      "swap_answer_token": 9625,
+      "answer_rank_before": 34,
+      "swap_answer_rank_before": 11,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 20,
+            "swap_answer_rank_after": 12,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 18,
+            "swap_answer_rank_after": 12,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 34,
+            "swap_answer_rank_after": 11,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 23,
+            "swap_answer_rank_after": 12,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 20,
+            "swap_answer_rank_after": 12,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 35,
+            "swap_answer_rank_after": 11,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 41,
+            "swap_answer_rank_after": 11,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 25,
+            "swap_answer_rank_after": 12,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 36,
+            "swap_answer_rank_after": 11,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "rhyme-spoon-orbit",
+      "category": "multihop",
+      "prompt": "Fact: The celestial body whose name rhymes with 'spoon' orbits the planet called ",
+      "intermediate": "moon",
+      "answer": "Earth",
+      "swap_to": "Europa",
+      "swap_answer": "Jupiter",
+      "answer_position": 18,
+      "source_token": 17788,
+      "target_token": 38500,
+      "answer_token": 9237,
+      "swap_answer_token": 49689,
+      "answer_rank_before": 1,
+      "swap_answer_rank_before": 10,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 18,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 25,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 12,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 12,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 26,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 11,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 8,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 18,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 10,
+            "swap_answer_top_k": true
+          }
+        }
+      }
+    },
+    {
+      "name": "season-next-winter",
+      "category": "season-next",
+      "prompt": "Fact: The season that comes immediately after the coldest season of the year is",
+      "intermediate": "winter",
+      "answer": "spring",
+      "swap_to": "summer",
+      "swap_answer": "autumn",
+      "answer_position": 15,
+      "source_token": 12406,
+      "target_token": 7324,
+      "answer_token": 10464,
+      "swap_answer_token": 41674,
+      "answer_rank_before": 5,
+      "swap_answer_rank_before": 22,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 6,
+            "swap_answer_rank_after": 25,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 27,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 21,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 6,
+            "swap_answer_rank_after": 18,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 23,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 7,
+            "swap_answer_rank_after": 27,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 23,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 24,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 22,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "spaceneedle-border",
+      "category": "multihop",
+      "prompt": "Fact: The US state where the Space Needle is located shares its northern border with ",
+      "intermediate": "Seattle",
+      "answer": "Canada",
+      "swap_to": "Philadelphia",
+      "swap_answer": "New",
+      "answer_position": 16,
+      "source_token": 16355,
+      "target_token": 19335,
+      "answer_token": 6864,
+      "swap_answer_token": 1532,
+      "answer_rank_before": 13,
+      "swap_answer_rank_before": 43,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 13,
+            "swap_answer_rank_after": 55,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 13,
+            "swap_answer_rank_after": 76,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 12,
+            "swap_answer_rank_after": 52,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 14,
+            "swap_answer_rank_after": 91,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 12,
+            "swap_answer_rank_after": 85,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 11,
+            "swap_answer_rank_after": 73,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 12,
+            "swap_answer_rank_after": 97,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 13,
+            "swap_answer_rank_after": 49,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 12,
+            "swap_answer_rank_after": 33,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "sport-equip-tennis",
+      "category": "sport-equip",
+      "prompt": "Fact: The piece of equipment used to strike the ball in the sport played at Wimbledon is a",
+      "intermediate": "tennis",
+      "answer": "racket",
+      "swap_to": "golf",
+      "swap_answer": "club",
+      "answer_position": 18,
+      "source_token": 31415,
+      "target_token": 19120,
+      "answer_token": 81512,
+      "swap_answer_token": 6335,
+      "answer_rank_before": 4,
+      "swap_answer_rank_before": 11,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 10,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 9,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 12,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 9,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 10,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 6,
+            "swap_answer_rank_after": 10,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 10,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 8,
+            "swap_answer_rank_after": 4,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 10,
+            "swap_answer_top_k": true
+          }
+        }
+      }
+    },
+    {
+      "name": "super-populous-capital",
+      "category": "multihop",
+      "prompt": "Fact: The capital city of the most populous country in the world is ",
+      "intermediate": "China",
+      "answer": "Beijing",
+      "swap_to": "India",
+      "swap_answer": "Delhi",
+      "answer_position": 14,
+      "source_token": 5616,
+      "target_token": 6747,
+      "answer_token": 26549,
+      "swap_answer_token": 21996,
+      "answer_rank_before": 25,
+      "swap_answer_rank_before": 115,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 38,
+            "swap_answer_rank_after": 47,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 58,
+            "swap_answer_rank_after": 51,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 39,
+            "swap_answer_rank_after": 227,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 65,
+            "swap_answer_rank_after": 29,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 85,
+            "swap_answer_rank_after": 52,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 30,
+            "swap_answer_rank_after": 195,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 258,
+            "swap_answer_rank_after": 25,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 51,
+            "swap_answer_rank_after": 53,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 30,
+            "swap_answer_rank_after": 143,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    },
+    {
+      "name": "super-smallest-continent",
+      "category": "multihop",
+      "prompt": "Fact: The smallest country in the world is located on the continent of ",
+      "intermediate": "Vatican",
+      "answer": "Europe",
+      "swap_to": "Singapore",
+      "swap_answer": "Asia",
+      "answer_position": 14,
+      "source_token": 46547,
+      "target_token": 20539,
+      "answer_token": 4505,
+      "swap_answer_token": 13622,
+      "answer_rank_before": 4,
+      "swap_answer_rank_before": 2,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 10,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 1,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 7,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 3,
+            "swap_answer_top_k": true
+          },
+          "logit": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          },
+          "random": {
+            "answer_rank_after": 5,
+            "swap_answer_rank_after": 2,
+            "swap_answer_top_k": true
+          }
+        }
+      }
+    },
+    {
+      "name": "vehicle-power-bicycle",
+      "category": "vehicle-power",
+      "prompt": "Fact: The source of power for the two-wheeled vehicle ridden in the Tour de France is the rider's",
+      "intermediate": "bicycle",
+      "answer": "legs",
+      "swap_to": "train",
+      "swap_answer": "engine",
+      "answer_position": 22,
+      "source_token": 34986,
+      "target_token": 5426,
+      "answer_token": 14201,
+      "swap_answer_token": 4712,
+      "answer_rank_before": 3,
+      "swap_answer_rank_before": 58,
+      "layers": {
+        "8": {
+          "tuned": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 79,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 59,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 48,
+            "swap_answer_top_k": false
+          }
+        },
+        "14": {
+          "tuned": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 63,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 59,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 3,
+            "swap_answer_rank_after": 50,
+            "swap_answer_top_k": false
+          }
+        },
+        "20": {
+          "tuned": {
+            "answer_rank_after": 6,
+            "swap_answer_rank_after": 30,
+            "swap_answer_top_k": false
+          },
+          "logit": {
+            "answer_rank_after": 4,
+            "swap_answer_rank_after": 59,
+            "swap_answer_top_k": false
+          },
+          "random": {
+            "answer_rank_after": 2,
+            "swap_answer_rank_after": 58,
+            "swap_answer_top_k": false
+          }
+        }
+      }
+    }
+  ],
+  "aggregate": [
+    [
+      "tuned",
+      204,
+      87,
+      0.0,
+      3,
+      39
+    ],
+    [
+      "logit",
+      204,
+      102,
+      0.5,
+      1,
+      40
+    ],
+    [
+      "random",
+      204,
+      64,
+      -1.0,
+      0,
+      31
+    ]
+  ]
+}

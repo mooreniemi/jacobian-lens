@@ -222,6 +222,93 @@ adds a new model/intervention dimension that must be completed symmetrically:</p
 making the 1.7B addition look like a complete new model row. Cross-model plots
 show the 1.7B short-2M bars with their explicit provenance label; they are not
 silently treated as equivalent to the Wikitext tuned bars.</p>
+<h3>2026-07-15 — Qwen3-1.7B model-matched J-lens and causal suites</h3>
+<p>The model-matched Qwen3-1.7B J-lens fit completed locally on the RTX 3090 in
+18m23s using the 204-prompt balanced fit mix, 27 source layers, BF16 model
+compute, <code>dim_batch=64</code>, and checkpointing every 10 prompts. The resulting
+artifact is <code>data/lenses/qwen3-1.7b-fit-204-lens.pt</code> with <code>d_model=2048</code>.</p>
+<p>We then ran the same three causal protocols at layers 8/14/20 with all-position
+patching and J-lens, logit, and random controls:</p>
+<table>
+<thead>
+<tr>
+  <th>Task</th>
+  <th>J-lens</th>
+  <th>Logit</th>
+  <th>Random</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Verbal report</td>
+  <td>27/42 improved; median Δrank +42.5; top-10 0</td>
+  <td>18/42; −16.5; top-10 2</td>
+  <td>21/42; +0.5; top-10 0</td>
+</tr>
+<tr>
+  <td>Two-hop reasoning</td>
+  <td>111/204; median +1; top-5 47</td>
+  <td>102/204; +0.5; top-5 40</td>
+  <td>64/204; 0; top-5 34</td>
+</tr>
+<tr>
+  <td>Flexible generalization</td>
+  <td>266/510; median +1; top-5 56</td>
+  <td>282/510; +1; top-5 42</td>
+  <td>186/510; 0; top-5 28</td>
+</tr>
+</tbody>
+</table>
+<p>These are model-matched J-lens causal results. The tuned comparison in the
+same plot group remains the separately labelled Qwen3-1.7B
+<code>tuned-pile-repro-v1-short-2m</code> result, so the plot now distinguishes both
+intervention identity and tuned-lens training provenance.</p>
+<h3>2026-07-15 — Qwen3-1.7B Wikitext versus Pile tuned-lens ablation</h3>
+<p>To isolate training-corpus effects at fixed model scale, we fit the same
+100-step, 512-chunk <code>tuned-wiki-small-v0</code> pilot for Qwen3-1.7B. The fit took
+19.3s on the RTX 3090, used BF16 compute, and peaked at 5.09 GiB. We exported
+its patch basis and ran the same causal fixtures, layers, positions, and
+logit/random controls as the Pile short-2M run.</p>
+<table>
+<thead>
+<tr>
+  <th>Task</th>
+  <th>Wikitext tuned</th>
+  <th>Pile short-2M tuned</th>
+  <th>Logit</th>
+  <th>Random</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Verbal report</td>
+  <td>22/42 improved; median +2; top-10 5</td>
+  <td>14/42; median −28; top-10 3</td>
+  <td>18/42; median −16.5; top-10 2</td>
+  <td>13/42; median −8.5; top-10 0</td>
+</tr>
+<tr>
+  <td>Two-hop reasoning</td>
+  <td>87/204; median 0; top-5 39</td>
+  <td>95/204; median 0; top-5 33</td>
+  <td>102/204; median +0.5; top-5 40</td>
+  <td>64/204; median −1; top-5 31</td>
+</tr>
+<tr>
+  <td>Flexible generalization</td>
+  <td>250/510; median 0; top-5 47</td>
+  <td>224/510; median 0; top-5 36</td>
+  <td>282/510; median +1; top-5 42</td>
+  <td>167/510; median −2; top-5 24</td>
+</tr>
+</tbody>
+</table>
+<p>The controls are not numerically identical in the Wikitext output's random
+draws, so comparisons should use the paired item-level outputs rather than
+only these aggregate counts. The important design result is that both
+model-matched tuned variants now appear separately in the 1.7B plot group;
+Wikitext is the small pilot, while Pile short-2M is the larger-corpus but
+still incompletely validated track.</p>
 <p>The corresponding hypothesis-to-test table is maintained in
 <a href="HYPOTHESIS_TEST_MATRIX.html"><code>docs/HYPOTHESIS_TEST_MATRIX.md</code></a>.</p>
 <h3>2026-07-13 — Qwen3-0.6B matched T1–T3 cells</h3>
@@ -854,6 +941,85 @@ track, logit has the largest raw improvement rate in the two-hop and flexible
 tasks, while tuned exceeds random; verbal report is inconclusive and tuned's
 median movement is not better than the controls. No claim that tuned beats
 logit or J-lens should be made from this run.</p>
+<h3>2026-07-15 — Validated small-model Pile causal cells</h3>
+<p>The existing full Pile predictive artifacts for SmolLM2-135M and Qwen3-0.6B
+were followed by their model-matched causal suites. The queue took about
+1m17s on the RTX 3090, including basis export and all three tasks per model.
+These are now the first validated <code>tuned-pile-repro-v1</code> causal rows; they are
+separate from the Qwen3-1.7B <code>short-2m</code> provisional rows.</p>
+<table>
+<thead>
+<tr>
+  <th>Model</th>
+  <th>Task</th>
+  <th>Tuned</th>
+  <th>Logit</th>
+  <th>Random</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Qwen3-0.6B</td>
+  <td>Verbal report</td>
+  <td>30/42; median +517; top-10 10</td>
+  <td>31/42; +266.5; top-10 3</td>
+  <td>13/42; −141; 0</td>
+</tr>
+<tr>
+  <td>Qwen3-0.6B</td>
+  <td>Two-hop</td>
+  <td>82/204; median −4; top-5 25</td>
+  <td>116/204; +1; 27</td>
+  <td>69/204; −3; 15</td>
+</tr>
+<tr>
+  <td>Qwen3-0.6B</td>
+  <td>Flexible</td>
+  <td>261/510; median +1; top-5 46</td>
+  <td>309/510; +3; 59</td>
+  <td>148/510; −4; 23</td>
+</tr>
+<tr>
+  <td>SmolLM2-135M</td>
+  <td>Verbal report</td>
+  <td>26/42; median +227.5; top-10 5</td>
+  <td>34/42; +1446.5; 0</td>
+  <td>18/42; −103.5; 0</td>
+</tr>
+<tr>
+  <td>SmolLM2-135M</td>
+  <td>Two-hop</td>
+  <td>99/198; median +0.5; top-5 16</td>
+  <td>115/198; +5; 20</td>
+  <td>50/198; −11; 11</td>
+</tr>
+<tr>
+  <td>SmolLM2-135M</td>
+  <td>Flexible</td>
+  <td>239/510; median 0; top-5 103</td>
+  <td>254/510; 0; 117</td>
+  <td>185/510; −1; 98</td>
+</tr>
+</tbody>
+</table>
+<p>The Qwen3-0.6B and SmolLM2 coverage cells now read validated predictive plus
+causal complete. The next Pile gaps are new fits for Qwen3.5-0.8B and
+Qwen3.5-4B; Qwen3.6-27B remains a separate remote-resource decision.</p>
+<h3>2026-07-16 — Daytime Qwen3.5 Pile queue</h3>
+<p>The Qwen3.5-0.8B Pile lens fit completed locally on the RTX 3090 in 850.2s
+with BF16 weights, peak allocated VRAM 2.764 GiB, and peak reserved VRAM
+2.891 GiB. Its guarded 16.4M-token held-out predictive evaluation is now
+running with a resumable checkpoint and JSONL progress log. A background queue
+will validate that artifact before exporting its patch basis and running the
+verbal-report, two-hop, and flexible-generalization causal suites sequentially.
+Moneypenny notifications are emitted after predictive validation, each causal
+suite, and report/PDF regeneration.</p>
+<p>After that queue completes, a separate guarded Qwen3.5-4B Pile fit is queued;
+it will not compete for the GPU and will notify on completion. We are not
+launching a local 27B fit: that remains a Modal/A100 job. The current report
+and PDF were regenerated from all completed artifacts before the 0.8B
+predictive result exists, so 0.8B causal bars will appear only after that
+queue passes its gates.</p>
 </article>
 <footer>Rendered from <code>RESEARCH_LOG.md</code> by <code>scripts/generate_research_report.py</code>.</footer>
 </main></body></html>

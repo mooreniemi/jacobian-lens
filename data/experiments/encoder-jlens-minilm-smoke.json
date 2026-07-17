@@ -1,0 +1,81 @@
+{
+  "model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+  "task": "exploratory encoder score-Jacobian readout",
+  "pairs": 24,
+  "train_pairs": 16,
+  "test_pairs": 8,
+  "split_note": "ordered pair split; production experiment must split by query group",
+  "elapsed_s": 1.518742851971183,
+  "layers": [
+    {
+      "layer": 0,
+      "jacobian_mse": 82.6271219191278,
+      "linear_mse": 82.6271219191278,
+      "direct_head_mse": 83.09259550997209,
+      "jacobian_rank_corr": -0.09523809523809526,
+      "linear_rank_corr": -0.09523809523809526,
+      "direct_head_rank_corr": -0.09523809523809526,
+      "mean_gradient_norm": 0.08235244117033676
+    },
+    {
+      "layer": 1,
+      "jacobian_mse": 82.64655289208882,
+      "linear_mse": 219.73412091803965,
+      "direct_head_mse": 83.33485193869862,
+      "jacobian_rank_corr": -0.5714285714285715,
+      "linear_rank_corr": 0.0,
+      "direct_head_rank_corr": 0.04761904761904763,
+      "mean_gradient_norm": 0.22694014134384058
+    },
+    {
+      "layer": 2,
+      "jacobian_mse": 82.62484831806667,
+      "linear_mse": 67.20015296992722,
+      "direct_head_mse": 83.63747314204275,
+      "jacobian_rank_corr": 0.1666666666666667,
+      "linear_rank_corr": 0.6190476190476191,
+      "direct_head_rank_corr": 0.4285714285714286,
+      "mean_gradient_norm": 0.23761882923753264
+    },
+    {
+      "layer": 3,
+      "jacobian_mse": 82.68280165281136,
+      "linear_mse": 19.203211081282387,
+      "direct_head_mse": 84.05216009689903,
+      "jacobian_rank_corr": -0.523809523809524,
+      "linear_rank_corr": 0.9047619047619048,
+      "direct_head_rank_corr": -0.5952380952380953,
+      "mean_gradient_norm": 0.25308417629175595
+    },
+    {
+      "layer": 4,
+      "jacobian_mse": 82.25868325571201,
+      "linear_mse": 7.335336897810135,
+      "direct_head_mse": 79.85180278262128,
+      "jacobian_rank_corr": 0.4761904761904762,
+      "linear_rank_corr": 0.7857142857142858,
+      "direct_head_rank_corr": 0.8571428571428572,
+      "mean_gradient_norm": 0.3660464542491574
+    },
+    {
+      "layer": 5,
+      "jacobian_mse": 70.62201119665946,
+      "linear_mse": 3.650842309762084,
+      "direct_head_mse": 11.441411249355099,
+      "jacobian_rank_corr": 0.9285714285714287,
+      "linear_rank_corr": 0.9761904761904763,
+      "direct_head_rank_corr": 0.9523809523809524,
+      "mean_gradient_norm": 0.2371559454926277
+    },
+    {
+      "layer": 6,
+      "jacobian_mse": 9.090810850080299,
+      "linear_mse": 0.23504945505122932,
+      "direct_head_mse": 0.0,
+      "jacobian_rank_corr": 1.0,
+      "linear_rank_corr": 0.9761904761904763,
+      "direct_head_rank_corr": 1.0,
+      "mean_gradient_norm": 1.0400458366945913
+    }
+  ]
+}

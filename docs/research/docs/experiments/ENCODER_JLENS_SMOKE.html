@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Encoder J-lens exploratory smoke · J-Lens research report</title>
+<style>
+:root { --paper:#fff; --wash:#f3f1ec; --ink:#222; --muted:#666; --rule:#b8b5ae; --accent:#174a73; }
+* { box-sizing:border-box; } body { margin:0; background:var(--wash); color:var(--ink); font:16px/1.58 Georgia,'Times New Roman',serif; }
+main { max-width:1120px; margin:2rem auto; padding:3.5rem 4.5rem; background:var(--paper); border:1px solid #d7d3ca; box-shadow:0 1px 8px #00000012; }
+h1,h2,h3,table,nav,footer { font-family:Arial,Helvetica,sans-serif; } h1 { font:700 2.2rem/1.15 Georgia,serif; } h2 { margin-top:2.2rem; border-bottom:1px solid var(--rule); padding-bottom:.25rem; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; } nav { margin-bottom:2rem; }
+table { border-collapse:collapse; width:100%; margin:1rem 0 1.5rem; font-size:.86rem; } th,td { border-bottom:1px solid #d6d3cc; padding:.4rem .5rem; text-align:left; vertical-align:top; } th { border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+pre { overflow:auto; padding:1rem; background:#f5f4f0; border:1px solid #dedbd3; } code { font:.88em/1.35 'SFMono-Regular',Consolas,monospace; } blockquote { border-left:3px solid var(--accent); margin-left:0; padding-left:1rem; color:var(--muted); }
+img { max-width:100%; } footer { margin-top:3rem; padding-top:1rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.8rem; }
+@media (max-width:760px) { main { margin:0; padding:2rem 1.2rem; } table { display:block; overflow-x:auto; } }
+</style></head><body><main>
+<nav><a href="../index.html">← Research report</a> · <a href="index.html">Documentation index</a></nav>
+<article><h1>Encoder J-lens exploratory smoke</h1>
+<p>Status: exploratory; excluded from the main decoder report</p>
+<h2>Subject and question</h2>
+<p>We tested whether a Jacobian-style readout can predict a cross-encoder's final
+relevance score from intermediate hidden states. The subject is
+<code>cross-encoder/ms-marco-MiniLM-L-6-v2</code>, loaded from its Hugging Face PyTorch
+checkpoint because the Wolf Village copy is ONNX-only and cannot provide
+autograd Jacobians.</p>
+<p>The model has 22,713,601 parameters, six Transformer layers, and hidden width
+384. We used 24 hand-written query/document pairs, with the first 16 pairs for
+the readout estimate and the final eight as a held-out smoke set. This is a
+feasibility test, not benchmark evidence.</p>
+<h2>What was measured</h2>
+<p>For each pair and layer we recorded the <code>[CLS]</code> state and the gradient of the
+final relevance score with respect to that layer's <code>[CLS]</code> state. We averaged
+those score gradients over the training pairs and used the resulting vector
+as a first-order score-Jacobian readout. We compared it against:</p>
+<ul>
+<li>an ordinary least-squares linear score readout from the intermediate <code>[CLS]</code>;</li>
+<li>the model classifier head applied directly to the intermediate <code>[CLS]</code>;</li>
+<li>the final model score.</li>
+</ul>
+<p>This is not yet the full decoder-style J-lens construction. A faithful encoder
+version should likely compute the Jacobian of final <code>[CLS]</code> representation
+with respect to intermediate states, then apply the relevance head.</p>
+<h2>Smoke result</h2>
+<table>
+<thead>
+<tr>
+  <th style="text-align:right">Layer</th>
+  <th style="text-align:right">Score-Jacobian MSE</th>
+  <th style="text-align:right">Score-Jacobian rank correlation</th>
+  <th style="text-align:right">Linear-readout MSE</th>
+  <th style="text-align:right">Linear-readout rank correlation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">82.63</td>
+  <td style="text-align:right">−0.095</td>
+  <td style="text-align:right">82.63</td>
+  <td style="text-align:right">−0.095</td>
+</tr>
+<tr>
+  <td style="text-align:right">1</td>
+  <td style="text-align:right">82.65</td>
+  <td style="text-align:right">−0.571</td>
+  <td style="text-align:right">219.73</td>
+  <td style="text-align:right">0.000</td>
+</tr>
+<tr>
+  <td style="text-align:right">2</td>
+  <td style="text-align:right">82.62</td>
+  <td style="text-align:right">0.167</td>
+  <td style="text-align:right">67.20</td>
+  <td style="text-align:right">0.619</td>
+</tr>
+<tr>
+  <td style="text-align:right">3</td>
+  <td style="text-align:right">82.68</td>
+  <td style="text-align:right">−0.524</td>
+  <td style="text-align:right">19.20</td>
+  <td style="text-align:right">0.905</td>
+</tr>
+<tr>
+  <td style="text-align:right">4</td>
+  <td style="text-align:right">82.26</td>
+  <td style="text-align:right">0.476</td>
+  <td style="text-align:right">7.34</td>
+  <td style="text-align:right">0.786</td>
+</tr>
+<tr>
+  <td style="text-align:right">5</td>
+  <td style="text-align:right">70.62</td>
+  <td style="text-align:right">0.929</td>
+  <td style="text-align:right">3.65</td>
+  <td style="text-align:right">0.976</td>
+</tr>
+<tr>
+  <td style="text-align:right">6</td>
+  <td style="text-align:right">9.09</td>
+  <td style="text-align:right">1.000</td>
+  <td style="text-align:right">0.24</td>
+  <td style="text-align:right">0.976</td>
+</tr>
+</tbody>
+</table>
+<p>The late layers clearly contain relevance information. The naive average of
+per-example score gradients is not a good early-layer transport map: it has
+poor score calibration and can have the wrong rank ordering. A learned linear
+readout is much stronger by layer 3–5. This is evidence for an encoder
+readout opportunity, not evidence that the current score-gradient probe is a
+working J-lens.</p>
+<h2>Next experiment</h2>
+<p>Implement the faithful encoder analogue:</p>
+<ol>
+<li>target the final <code>[CLS]</code> representation rather than only the scalar score;</li>
+<li>estimate the layer-to-final representation Jacobian on grouped training
+pairs;</li>
+<li>apply the frozen relevance classifier head;</li>
+<li>evaluate held-out query groups using score MSE, pairwise ranking accuracy,
+Spearman correlation, and early-exit risk/coverage;</li>
+<li>compare against the linear readout and direct intermediate classifier.</li>
+</ol>
+<p>Only if that representation-level map generalizes should we consider causal
+activation patching or an early-exit system.</p>
+<p>Artifact: <code>data/experiments/encoder-jlens-minilm-smoke.json</code><br />
+Runner: <code>scripts/encoder_jlens_smoke.py</code></p>
+</article>
+<footer>Rendered from <code>experiments/ENCODER_JLENS_SMOKE.md</code> by <code>scripts/generate_research_report.py</code>.</footer>
+</main></body></html>

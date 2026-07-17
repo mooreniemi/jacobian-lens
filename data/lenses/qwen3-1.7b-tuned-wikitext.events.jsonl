@@ -1,0 +1,15 @@
+{"elapsed_s": 0.212, "event": "preflight", "free_gib": 23.236, "model": "Qwen/Qwen3-1.7B", "time": "2026-07-15T22:24:12-0400", "total_gib": 23.526}
+{"device": "NVIDIA GeForce RTX 3090", "elapsed_s": 1.233, "event": "model_loaded", "free_gib": 20.021, "time": "2026-07-15T22:24:13-0400"}
+{"chunks": 512, "d_model": 2048, "elapsed_s": 2.944, "event": "fit_ready", "layers": 28, "lens_params": 428664832, "time": "2026-07-15T22:24:15-0400"}
+{"allocated_gib": 4.873, "elapsed_s": 3.399, "event": "step", "free_gib": 17.868, "mean_kl": 12.357322, "reserved_gib": 5.303, "step": 1, "step_seconds": 0.454, "steps": 100, "time": "2026-07-15T22:24:15-0400"}
+{"allocated_gib": 4.872, "elapsed_s": 4.808, "event": "step", "free_gib": 17.784, "mean_kl": 8.191801, "reserved_gib": 5.387, "step": 10, "step_seconds": 0.157, "steps": 100, "time": "2026-07-15T22:24:17-0400"}
+{"allocated_gib": 4.872, "elapsed_s": 6.38, "event": "step", "free_gib": 17.784, "mean_kl": 4.880817, "reserved_gib": 5.387, "step": 20, "step_seconds": 0.158, "steps": 100, "time": "2026-07-15T22:24:18-0400"}
+{"allocated_gib": 4.872, "elapsed_s": 7.955, "event": "step", "free_gib": 17.784, "mean_kl": 5.124936, "reserved_gib": 5.387, "step": 30, "step_seconds": 0.157, "steps": 100, "time": "2026-07-15T22:24:20-0400"}
+{"allocated_gib": 4.872, "elapsed_s": 9.53, "event": "step", "free_gib": 17.784, "mean_kl": 4.382757, "reserved_gib": 5.387, "step": 40, "step_seconds": 0.157, "steps": 100, "time": "2026-07-15T22:24:21-0400"}
+{"allocated_gib": 4.872, "elapsed_s": 11.108, "event": "step", "free_gib": 17.784, "mean_kl": 4.393565, "reserved_gib": 5.387, "step": 50, "step_seconds": 0.158, "steps": 100, "time": "2026-07-15T22:24:23-0400"}
+{"allocated_gib": 4.872, "elapsed_s": 12.692, "event": "step", "free_gib": 17.784, "mean_kl": 3.66248, "reserved_gib": 5.387, "step": 60, "step_seconds": 0.158, "steps": 100, "time": "2026-07-15T22:24:24-0400"}
+{"allocated_gib": 4.872, "elapsed_s": 14.272, "event": "step", "free_gib": 17.784, "mean_kl": 3.806047, "reserved_gib": 5.387, "step": 70, "step_seconds": 0.159, "steps": 100, "time": "2026-07-15T22:24:26-0400"}
+{"allocated_gib": 4.872, "elapsed_s": 15.851, "event": "step", "free_gib": 17.784, "mean_kl": 3.441777, "reserved_gib": 5.387, "step": 80, "step_seconds": 0.158, "steps": 100, "time": "2026-07-15T22:24:28-0400"}
+{"allocated_gib": 4.872, "elapsed_s": 17.436, "event": "step", "free_gib": 17.784, "mean_kl": 2.997457, "reserved_gib": 5.387, "step": 90, "step_seconds": 0.161, "steps": 100, "time": "2026-07-15T22:24:29-0400"}
+{"allocated_gib": 4.872, "elapsed_s": 19.02, "event": "step", "free_gib": 17.784, "mean_kl": 3.003321, "reserved_gib": 5.387, "step": 100, "step_seconds": 0.158, "steps": 100, "time": "2026-07-15T22:24:31-0400"}
+{"elapsed_s": 19.342, "event": "complete", "output": "data/lenses/qwen3-1.7b-tuned-wikitext", "peak_allocated_gib": 5.092, "peak_reserved_gib": 5.387, "time": "2026-07-15T22:24:31-0400"}
