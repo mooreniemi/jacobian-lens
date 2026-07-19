@@ -1184,6 +1184,53 @@ than treating the final answer token as sufficient.</p>
 <p>The smoke artifact is
 <code>data/experiments/proofwriter-smollm2-factorial-smoke.json</code>; it remains a
 diagnostic and is not pooled into the headline causal tables.</p>
+<h3>2026-07-19 — ProofWriter smoke balance audit</h3>
+<p>The 100-item strong-conjunction smoke is intentionally enriched for positive
+conjunction proofs, so it cannot be interpreted as a balanced classification
+benchmark. Treating <code>True</code> as positive and <code>False</code>/<code>Unknown</code> as negative gives
+the following SmolLM2 results:</p>
+<table>
+<thead>
+<tr>
+  <th>Condition</th>
+  <th style="text-align:right">Precision</th>
+  <th style="text-align:right">Recall</th>
+  <th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Full theory</td>
+  <td style="text-align:right">1.000</td>
+  <td style="text-align:right">0.980</td>
+  <td>Not meaningful: all 100 exact labels are <code>True</code></td>
+</tr>
+<tr>
+  <td>Remove A</td>
+  <td style="text-align:right">0.398</td>
+  <td style="text-align:right">0.951</td>
+  <td>The model says <code>True</code> for most <code>Unknown</code> cases</td>
+</tr>
+<tr>
+  <td>Remove B</td>
+  <td style="text-align:right">0.357</td>
+  <td style="text-align:right">0.946</td>
+  <td>Same failure mode</td>
+</tr>
+<tr>
+  <td>Remove A+B</td>
+  <td style="text-align:right">0.255</td>
+  <td style="text-align:right">0.926</td>
+  <td>Even stronger “always True” behavior</td>
+</tr>
+</tbody>
+</table>
+<p>This is evidence of poor calibration/sensitivity to logical necessity, not a
+valid balanced estimate of ProofWriter accuracy. Before comparing Qwen3-0.6B
+or adding causal lens readouts, the benchmark runner must add matched full-
+theory <code>False</code>/<code>Unknown</code> controls and report per-class precision, recall, and
+macro-F1. The next model-size comparison is queued conceptually, but will use
+that balanced fixture rather than repeating the unbalanced smoke.</p>
 </article>
 <footer>Rendered from <code>RESEARCH_LOG.md</code> by <code>scripts/generate_research_report.py</code>.</footer>
 </main></body></html>

@@ -1008,3 +1008,24 @@ than treating the final answer token as sufficient.
 The smoke artifact is
 `data/experiments/proofwriter-smollm2-factorial-smoke.json`; it remains a
 diagnostic and is not pooled into the headline causal tables.
+
+### 2026-07-19 — ProofWriter smoke balance audit
+
+The 100-item strong-conjunction smoke is intentionally enriched for positive
+conjunction proofs, so it cannot be interpreted as a balanced classification
+benchmark. Treating `True` as positive and `False`/`Unknown` as negative gives
+the following SmolLM2 results:
+
+| Condition | Precision | Recall | Interpretation |
+|---|---:|---:|---|
+| Full theory | 1.000 | 0.980 | Not meaningful: all 100 exact labels are `True` |
+| Remove A | 0.398 | 0.951 | The model says `True` for most `Unknown` cases |
+| Remove B | 0.357 | 0.946 | Same failure mode |
+| Remove A+B | 0.255 | 0.926 | Even stronger “always True” behavior |
+
+This is evidence of poor calibration/sensitivity to logical necessity, not a
+valid balanced estimate of ProofWriter accuracy. Before comparing Qwen3-0.6B
+or adding causal lens readouts, the benchmark runner must add matched full-
+theory `False`/`Unknown` controls and report per-class precision, recall, and
+macro-F1. The next model-size comparison is queued conceptually, but will use
+that balanced fixture rather than repeating the unbalanced smoke.
