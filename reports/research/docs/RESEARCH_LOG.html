@@ -1118,6 +1118,62 @@ then add a smaller FOLIO natural-language audit and a CLUTRR-style
 role-binding suite. This keeps the first new experiment both difficult and
 well-powered without pretending that the current two-hop and flexible suites
 already cover these constructs.</p>
+<h3>2026-07-19 — SmolLM2 ProofWriter factorial smoke</h3>
+<p>We added <code>scripts/eval_proofwriter_factorial_smoke.py</code> and ran the first
+observational benchmark smoke on the local <code>SmolLM2-135M-Instruct</code> checkpoint
+using the 9 available rows in
+<code>data/benchmarks/proofwriter-factorial-conjunctions.jsonl</code>. Each row was scored
+in four conditions: full theory, remove the target entity's A fact, remove its
+B fact, and remove both facts. The script scores next-token evidence for
+<code>True</code>, <code>False</code>, and <code>Unknown</code>, prints a compact tabulated summary, writes a
+JSON artifact, and logs progress. It is intentionally not a J-lens causal
+result yet.</p>
+<table>
+<thead>
+<tr>
+  <th>Pilot</th>
+  <th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Items / conditions</td>
+  <td>9 / 36</td>
+</tr>
+<tr>
+  <td>Model</td>
+  <td>SmolLM2-135M-Instruct, BF16, RTX 3090</td>
+</tr>
+<tr>
+  <td>Runtime</td>
+  <td>about 2 seconds for scoring after model load</td>
+</tr>
+<tr>
+  <td>Full-condition top-1</td>
+  <td><code>True</code> on 9/9</td>
+</tr>
+<tr>
+  <td>Ablation top-1</td>
+  <td><code>True</code> on every A/B/both ablation in this smoke</td>
+</tr>
+<tr>
+  <td>Typical change in P(True)</td>
+  <td>small, roughly 0 to 3 percentage points</td>
+</tr>
+</tbody>
+</table>
+<p>The immediate conclusion is not that the benchmark is uninformative. It is
+that answer-token behavior alone does not yet show strong conjunction
+dependence in this tiny Smol sample. Possible causes include model priors for
+the answer format, residual derivability through other facts/rules, and the
+fact that these rows were selected for static proof structure rather than
+validated model-level necessity. Before causal fitting, the next checks are to
+compute exact logical labels for every ablation, enlarge the held-out sample,
+and inspect layer-level/logit-lens/J-lens evidence rather than relying only on
+the final answer token.</p>
+<p>The smoke artifact is
+<code>data/experiments/proofwriter-smollm2-factorial-smoke.json</code>; it remains a
+diagnostic and is not pooled into the headline causal tables.</p>
 </article>
 <footer>Rendered from <code>RESEARCH_LOG.md</code> by <code>scripts/generate_research_report.py</code>.</footer>
 </main></body></html>

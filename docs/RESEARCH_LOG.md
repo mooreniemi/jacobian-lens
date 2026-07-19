@@ -969,3 +969,38 @@ then add a smaller FOLIO natural-language audit and a CLUTRR-style
 role-binding suite. This keeps the first new experiment both difficult and
 well-powered without pretending that the current two-hop and flexible suites
 already cover these constructs.
+
+### 2026-07-19 — SmolLM2 ProofWriter factorial smoke
+
+We added `scripts/eval_proofwriter_factorial_smoke.py` and ran the first
+observational benchmark smoke on the local `SmolLM2-135M-Instruct` checkpoint
+using the 9 available rows in
+`data/benchmarks/proofwriter-factorial-conjunctions.jsonl`. Each row was scored
+in four conditions: full theory, remove the target entity's A fact, remove its
+B fact, and remove both facts. The script scores next-token evidence for
+`True`, `False`, and `Unknown`, prints a compact tabulated summary, writes a
+JSON artifact, and logs progress. It is intentionally not a J-lens causal
+result yet.
+
+| Pilot | Result |
+|---|---|
+| Items / conditions | 9 / 36 |
+| Model | SmolLM2-135M-Instruct, BF16, RTX 3090 |
+| Runtime | about 2 seconds for scoring after model load |
+| Full-condition top-1 | `True` on 9/9 |
+| Ablation top-1 | `True` on every A/B/both ablation in this smoke |
+| Typical change in P(True) | small, roughly 0 to 3 percentage points |
+
+The immediate conclusion is not that the benchmark is uninformative. It is
+that answer-token behavior alone does not yet show strong conjunction
+dependence in this tiny Smol sample. Possible causes include model priors for
+the answer format, residual derivability through other facts/rules, and the
+fact that these rows were selected for static proof structure rather than
+validated model-level necessity. Before causal fitting, the next checks are to
+compute exact logical labels for every ablation, enlarge the held-out sample,
+and inspect layer-level/logit-lens/J-lens evidence rather than relying only on
+the final answer token.
+
+The smoke artifact is
+`data/experiments/proofwriter-smollm2-factorial-smoke.json`; it remains a
+diagnostic and is not pooled into the headline causal tables.

@@ -1,0 +1,596 @@
+{
+  "schema_version": 1,
+  "kind": "proofwriter-factorial-observational-smoke",
+  "model": "/home/alex/models/smollm2-135m-instruct",
+  "data": "data/benchmarks/proofwriter-factorial-conjunctions.jsonl",
+  "n_items": 9,
+  "conditions": [
+    "full",
+    "minus_a",
+    "minus_b",
+    "minus_ab"
+  ],
+  "label_space": [
+    "True",
+    "False",
+    "Unknown"
+  ],
+  "results": [
+    {
+      "item_index": 0,
+      "source_id": "AttNoneg-OWA-D0-5989",
+      "entity": "erin",
+      "conjunct_a": "young",
+      "conjunct_b": "kind",
+      "conclusion": "nice",
+      "gold": "True",
+      "condition": "full",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.75,
+        "False": 0.243164,
+        "Unknown": 0.008606
+      }
+    },
+    {
+      "item_index": 0,
+      "source_id": "AttNoneg-OWA-D0-5989",
+      "entity": "erin",
+      "conjunct_a": "young",
+      "conjunct_b": "kind",
+      "conclusion": "nice",
+      "gold": "True",
+      "condition": "minus_a",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.753906,
+        "False": 0.237305,
+        "Unknown": 0.008667
+      }
+    },
+    {
+      "item_index": 0,
+      "source_id": "AttNoneg-OWA-D0-5989",
+      "entity": "erin",
+      "conjunct_a": "young",
+      "conjunct_b": "kind",
+      "conclusion": "nice",
+      "gold": "True",
+      "condition": "minus_b",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.761719,
+        "False": 0.231445,
+        "Unknown": 0.007935
+      }
+    },
+    {
+      "item_index": 0,
+      "source_id": "AttNoneg-OWA-D0-5989",
+      "entity": "erin",
+      "conjunct_a": "young",
+      "conjunct_b": "kind",
+      "conclusion": "nice",
+      "gold": "True",
+      "condition": "minus_ab",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.753906,
+        "False": 0.237305,
+        "Unknown": 0.009216
+      }
+    },
+    {
+      "item_index": 1,
+      "source_id": "AttNoneg-OWA-D0-5989",
+      "entity": "erin",
+      "conjunct_a": "quiet",
+      "conjunct_b": "smart",
+      "conclusion": "nice",
+      "gold": "True",
+      "condition": "full",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.75,
+        "False": 0.243164,
+        "Unknown": 0.008606
+      }
+    },
+    {
+      "item_index": 1,
+      "source_id": "AttNoneg-OWA-D0-5989",
+      "entity": "erin",
+      "conjunct_a": "quiet",
+      "conjunct_b": "smart",
+      "conclusion": "nice",
+      "gold": "True",
+      "condition": "minus_a",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.75,
+        "False": 0.243164,
+        "Unknown": 0.008606
+      }
+    },
+    {
+      "item_index": 1,
+      "source_id": "AttNoneg-OWA-D0-5989",
+      "entity": "erin",
+      "conjunct_a": "quiet",
+      "conjunct_b": "smart",
+      "conclusion": "nice",
+      "gold": "True",
+      "condition": "minus_b",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.765625,
+        "False": 0.226562,
+        "Unknown": 0.008789
+      }
+    },
+    {
+      "item_index": 1,
+      "source_id": "AttNoneg-OWA-D0-5989",
+      "entity": "erin",
+      "conjunct_a": "quiet",
+      "conjunct_b": "smart",
+      "conclusion": "nice",
+      "gold": "True",
+      "condition": "minus_ab",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.742188,
+        "False": 0.248047,
+        "Unknown": 0.009949
+      }
+    },
+    {
+      "item_index": 2,
+      "source_id": "AttNoneg-OWA-D0-2176",
+      "entity": "anne",
+      "conjunct_a": "white",
+      "conjunct_b": "green",
+      "conclusion": "big",
+      "gold": "True",
+      "condition": "full",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.882812,
+        "False": 0.111816,
+        "Unknown": 0.006714
+      }
+    },
+    {
+      "item_index": 2,
+      "source_id": "AttNoneg-OWA-D0-2176",
+      "entity": "anne",
+      "conjunct_a": "white",
+      "conjunct_b": "green",
+      "conclusion": "big",
+      "gold": "True",
+      "condition": "minus_a",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.882812,
+        "False": 0.108887,
+        "Unknown": 0.008789
+      }
+    },
+    {
+      "item_index": 2,
+      "source_id": "AttNoneg-OWA-D0-2176",
+      "entity": "anne",
+      "conjunct_a": "white",
+      "conjunct_b": "green",
+      "conclusion": "big",
+      "gold": "True",
+      "condition": "minus_b",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.882812,
+        "False": 0.108887,
+        "Unknown": 0.007629
+      }
+    },
+    {
+      "item_index": 2,
+      "source_id": "AttNoneg-OWA-D0-2176",
+      "entity": "anne",
+      "conjunct_a": "white",
+      "conjunct_b": "green",
+      "conclusion": "big",
+      "gold": "True",
+      "condition": "minus_ab",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.878906,
+        "False": 0.108398,
+        "Unknown": 0.011414
+      }
+    },
+    {
+      "item_index": 3,
+      "source_id": "AttNoneg-OWA-D0-6609",
+      "entity": "charlie",
+      "conjunct_a": "rough",
+      "conjunct_b": "kind",
+      "conclusion": "nice",
+      "gold": "True",
+      "condition": "full",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.761719,
+        "False": 0.211914,
+        "Unknown": 0.024536
+      }
+    },
+    {
+      "item_index": 3,
+      "source_id": "AttNoneg-OWA-D0-6609",
+      "entity": "charlie",
+      "conjunct_a": "rough",
+      "conjunct_b": "kind",
+      "conclusion": "nice",
+      "gold": "True",
+      "condition": "minus_a",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.769531,
+        "False": 0.213867,
+        "Unknown": 0.017578
+      }
+    },
+    {
+      "item_index": 3,
+      "source_id": "AttNoneg-OWA-D0-6609",
+      "entity": "charlie",
+      "conjunct_a": "rough",
+      "conjunct_b": "kind",
+      "conclusion": "nice",
+      "gold": "True",
+      "condition": "minus_b",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.769531,
+        "False": 0.212891,
+        "Unknown": 0.018311
+      }
+    },
+    {
+      "item_index": 3,
+      "source_id": "AttNoneg-OWA-D0-6609",
+      "entity": "charlie",
+      "conjunct_a": "rough",
+      "conjunct_b": "kind",
+      "conclusion": "nice",
+      "gold": "True",
+      "condition": "minus_ab",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.78125,
+        "False": 0.198242,
+        "Unknown": 0.019897
+      }
+    },
+    {
+      "item_index": 4,
+      "source_id": "AttNeg-OWA-D0-6901",
+      "entity": "erin",
+      "conjunct_a": "furry",
+      "conjunct_b": "big",
+      "conclusion": "not round",
+      "gold": "True",
+      "condition": "full",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.527344,
+        "False": 0.464844,
+        "Unknown": 0.006439
+      }
+    },
+    {
+      "item_index": 4,
+      "source_id": "AttNeg-OWA-D0-6901",
+      "entity": "erin",
+      "conjunct_a": "furry",
+      "conjunct_b": "big",
+      "conclusion": "not round",
+      "gold": "True",
+      "condition": "minus_a",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.527344,
+        "False": 0.464844,
+        "Unknown": 0.006866
+      }
+    },
+    {
+      "item_index": 4,
+      "source_id": "AttNeg-OWA-D0-6901",
+      "entity": "erin",
+      "conjunct_a": "furry",
+      "conjunct_b": "big",
+      "conclusion": "not round",
+      "gold": "True",
+      "condition": "minus_b",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.527344,
+        "False": 0.464844,
+        "Unknown": 0.006866
+      }
+    },
+    {
+      "item_index": 4,
+      "source_id": "AttNeg-OWA-D0-6901",
+      "entity": "erin",
+      "conjunct_a": "furry",
+      "conjunct_b": "big",
+      "conclusion": "not round",
+      "gold": "True",
+      "condition": "minus_ab",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.527344,
+        "False": 0.464844,
+        "Unknown": 0.007996
+      }
+    },
+    {
+      "item_index": 5,
+      "source_id": "AttNoneg-OWA-D0-3180",
+      "entity": "dave",
+      "conjunct_a": "nice",
+      "conjunct_b": "round",
+      "conclusion": "quiet",
+      "gold": "True",
+      "condition": "full",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.761719,
+        "False": 0.232422,
+        "Unknown": 0.003647
+      }
+    },
+    {
+      "item_index": 5,
+      "source_id": "AttNoneg-OWA-D0-3180",
+      "entity": "dave",
+      "conjunct_a": "nice",
+      "conjunct_b": "round",
+      "conclusion": "quiet",
+      "gold": "True",
+      "condition": "minus_a",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.761719,
+        "False": 0.232422,
+        "Unknown": 0.003433
+      }
+    },
+    {
+      "item_index": 5,
+      "source_id": "AttNoneg-OWA-D0-3180",
+      "entity": "dave",
+      "conjunct_a": "nice",
+      "conjunct_b": "round",
+      "conclusion": "quiet",
+      "gold": "True",
+      "condition": "minus_b",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.773438,
+        "False": 0.22168,
+        "Unknown": 0.003021
+      }
+    },
+    {
+      "item_index": 5,
+      "source_id": "AttNoneg-OWA-D0-3180",
+      "entity": "dave",
+      "conjunct_a": "nice",
+      "conjunct_b": "round",
+      "conclusion": "quiet",
+      "gold": "True",
+      "condition": "minus_ab",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.761719,
+        "False": 0.232422,
+        "Unknown": 0.003433
+      }
+    },
+    {
+      "item_index": 6,
+      "source_id": "AttNoneg-OWA-D0-2035",
+      "entity": "gary",
+      "conjunct_a": "kind",
+      "conjunct_b": "big",
+      "conclusion": "white",
+      "gold": "True",
+      "condition": "full",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.847656,
+        "False": 0.125977,
+        "Unknown": 0.024902
+      }
+    },
+    {
+      "item_index": 6,
+      "source_id": "AttNoneg-OWA-D0-2035",
+      "entity": "gary",
+      "conjunct_a": "kind",
+      "conjunct_b": "big",
+      "conclusion": "white",
+      "gold": "True",
+      "condition": "minus_a",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.808594,
+        "False": 0.15918,
+        "Unknown": 0.031494
+      }
+    },
+    {
+      "item_index": 6,
+      "source_id": "AttNoneg-OWA-D0-2035",
+      "entity": "gary",
+      "conjunct_a": "kind",
+      "conjunct_b": "big",
+      "conclusion": "white",
+      "gold": "True",
+      "condition": "minus_b",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.863281,
+        "False": 0.113281,
+        "Unknown": 0.022339
+      }
+    },
+    {
+      "item_index": 6,
+      "source_id": "AttNoneg-OWA-D0-2035",
+      "entity": "gary",
+      "conjunct_a": "kind",
+      "conjunct_b": "big",
+      "conclusion": "white",
+      "gold": "True",
+      "condition": "minus_ab",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.808594,
+        "False": 0.15918,
+        "Unknown": 0.030396
+      }
+    },
+    {
+      "item_index": 7,
+      "source_id": "AttNeg-OWA-D0-5637",
+      "entity": "gary",
+      "conjunct_a": "big",
+      "conjunct_b": "red",
+      "conclusion": "not smart",
+      "gold": "True",
+      "condition": "full",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.535156,
+        "False": 0.445312,
+        "Unknown": 0.018311
+      }
+    },
+    {
+      "item_index": 7,
+      "source_id": "AttNeg-OWA-D0-5637",
+      "entity": "gary",
+      "conjunct_a": "big",
+      "conjunct_b": "red",
+      "conclusion": "not smart",
+      "gold": "True",
+      "condition": "minus_a",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.550781,
+        "False": 0.429688,
+        "Unknown": 0.018921
+      }
+    },
+    {
+      "item_index": 7,
+      "source_id": "AttNeg-OWA-D0-5637",
+      "entity": "gary",
+      "conjunct_a": "big",
+      "conjunct_b": "red",
+      "conclusion": "not smart",
+      "gold": "True",
+      "condition": "minus_b",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.550781,
+        "False": 0.429688,
+        "Unknown": 0.018311
+      }
+    },
+    {
+      "item_index": 7,
+      "source_id": "AttNeg-OWA-D0-5637",
+      "entity": "gary",
+      "conjunct_a": "big",
+      "conjunct_b": "red",
+      "conclusion": "not smart",
+      "gold": "True",
+      "condition": "minus_ab",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.570312,
+        "False": 0.416016,
+        "Unknown": 0.015137
+      }
+    },
+    {
+      "item_index": 8,
+      "source_id": "AttNeg-OWA-D0-5227",
+      "entity": "anne",
+      "conjunct_a": "blue",
+      "conjunct_b": "nice",
+      "conclusion": "rough",
+      "gold": "True",
+      "condition": "full",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.71875,
+        "False": 0.28125,
+        "Unknown": 0.001724
+      }
+    },
+    {
+      "item_index": 8,
+      "source_id": "AttNeg-OWA-D0-5227",
+      "entity": "anne",
+      "conjunct_a": "blue",
+      "conjunct_b": "nice",
+      "conclusion": "rough",
+      "gold": "True",
+      "condition": "minus_a",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.742188,
+        "False": 0.255859,
+        "Unknown": 0.001434
+      }
+    },
+    {
+      "item_index": 8,
+      "source_id": "AttNeg-OWA-D0-5227",
+      "entity": "anne",
+      "conjunct_a": "blue",
+      "conjunct_b": "nice",
+      "conclusion": "rough",
+      "gold": "True",
+      "condition": "minus_b",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.746094,
+        "False": 0.25,
+        "Unknown": 0.00174
+      }
+    },
+    {
+      "item_index": 8,
+      "source_id": "AttNeg-OWA-D0-5227",
+      "entity": "anne",
+      "conjunct_a": "blue",
+      "conjunct_b": "nice",
+      "conclusion": "rough",
+      "gold": "True",
+      "condition": "minus_ab",
+      "predicted": "True",
+      "probabilities": {
+        "True": 0.71875,
+        "False": 0.28125,
+        "Unknown": 0.002151
+      }
+    }
+  ]
+}
