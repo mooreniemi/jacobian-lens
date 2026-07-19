@@ -972,34 +972,38 @@ already cover these constructs.
 
 ### 2026-07-19 — SmolLM2 ProofWriter factorial smoke
 
-We added `scripts/eval_proofwriter_factorial_smoke.py` and ran the first
+We added `scripts/eval_proofwriter_factorial_smoke.py` and ran an
 observational benchmark smoke on the local `SmolLM2-135M-Instruct` checkpoint
-using the 9 available rows in
-`data/benchmarks/proofwriter-factorial-conjunctions.jsonl`. Each row was scored
+using 100 held-out test rows from
+`data/benchmarks/proofwriter-strong-conjunctions.jsonl`. Each row was scored
 in four conditions: full theory, remove the target entity's A fact, remove its
-B fact, and remove both facts. The script scores next-token evidence for
-`True`, `False`, and `Unknown`, prints a compact tabulated summary, writes a
-JSON artifact, and logs progress. It is intentionally not a J-lens causal
-result yet.
+B fact, and remove both facts. The script computes exact positive-fragment
+labels under ProofWriter-style open-world semantics, scores next-token
+evidence for `True`, `False`, and `Unknown`, prints a compact tabulated
+summary, writes a JSON artifact, and logs progress. It is intentionally not a
+J-lens causal result yet.
 
 | Pilot | Result |
 |---|---|
-| Items / conditions | 9 / 36 |
+| Items / conditions | 100 / 400 |
 | Model | SmolLM2-135M-Instruct, BF16, RTX 3090 |
 | Runtime | about 2 seconds for scoring after model load |
-| Full-condition top-1 | `True` on 9/9 |
-| Ablation top-1 | `True` on every A/B/both ablation in this smoke |
-| Typical change in P(True) | small, roughly 0 to 3 percentage points |
+| Exact full labels | `True` on 100/100 |
+| Exact ablation labels | `Unknown` on 59/100 after A removal, 63/100 after B removal, 73/100 after both removal |
+| Model full-condition top-1 | `True` on 98/100 |
+| Model ablation top-1 | `True` on 98/100 in each ablation condition |
+| Model/exact agreement | 39% after A removal, 35% after B removal, 25% after both removal |
 
-The immediate conclusion is not that the benchmark is uninformative. It is
-that answer-token behavior alone does not yet show strong conjunction
-dependence in this tiny Smol sample. Possible causes include model priors for
-the answer format, residual derivability through other facts/rules, and the
-fact that these rows were selected for static proof structure rather than
-validated model-level necessity. Before causal fitting, the next checks are to
-compute exact logical labels for every ablation, enlarge the held-out sample,
-and inspect layer-level/logit-lens/J-lens evidence rather than relying only on
-the final answer token.
+The immediate conclusion is that the exact benchmark transformations are
+working, but final answer-token behavior is a poor conjunction-sensitivity
+readout for this Smol checkpoint. The symbolic labels often change to
+`Unknown`, while the model continues to assign its highest answer-token
+probability to `True`. Possible causes include answer-format priors, residual
+derivability through other facts/rules, and the gap between logical
+uncertainty and the model's three-token answer calibration. Before causal
+fitting, the next check is therefore to inspect layer-level logit-lens and
+J-lens evidence, with exact labels retained as the benchmark target rather
+than treating the final answer token as sufficient.
 
 The smoke artifact is
 `data/experiments/proofwriter-smollm2-factorial-smoke.json`; it remains a

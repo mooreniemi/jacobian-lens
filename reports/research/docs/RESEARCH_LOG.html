@@ -1119,15 +1119,16 @@ role-binding suite. This keeps the first new experiment both difficult and
 well-powered without pretending that the current two-hop and flexible suites
 already cover these constructs.</p>
 <h3>2026-07-19 — SmolLM2 ProofWriter factorial smoke</h3>
-<p>We added <code>scripts/eval_proofwriter_factorial_smoke.py</code> and ran the first
+<p>We added <code>scripts/eval_proofwriter_factorial_smoke.py</code> and ran an
 observational benchmark smoke on the local <code>SmolLM2-135M-Instruct</code> checkpoint
-using the 9 available rows in
-<code>data/benchmarks/proofwriter-factorial-conjunctions.jsonl</code>. Each row was scored
+using 100 held-out test rows from
+<code>data/benchmarks/proofwriter-strong-conjunctions.jsonl</code>. Each row was scored
 in four conditions: full theory, remove the target entity's A fact, remove its
-B fact, and remove both facts. The script scores next-token evidence for
-<code>True</code>, <code>False</code>, and <code>Unknown</code>, prints a compact tabulated summary, writes a
-JSON artifact, and logs progress. It is intentionally not a J-lens causal
-result yet.</p>
+B fact, and remove both facts. The script computes exact positive-fragment
+labels under ProofWriter-style open-world semantics, scores next-token
+evidence for <code>True</code>, <code>False</code>, and <code>Unknown</code>, prints a compact tabulated
+summary, writes a JSON artifact, and logs progress. It is intentionally not a
+J-lens causal result yet.</p>
 <table>
 <thead>
 <tr>
@@ -1138,7 +1139,7 @@ result yet.</p>
 <tbody>
 <tr>
   <td>Items / conditions</td>
-  <td>9 / 36</td>
+  <td>100 / 400</td>
 </tr>
 <tr>
   <td>Model</td>
@@ -1149,28 +1150,37 @@ result yet.</p>
   <td>about 2 seconds for scoring after model load</td>
 </tr>
 <tr>
-  <td>Full-condition top-1</td>
-  <td><code>True</code> on 9/9</td>
+  <td>Exact full labels</td>
+  <td><code>True</code> on 100/100</td>
 </tr>
 <tr>
-  <td>Ablation top-1</td>
-  <td><code>True</code> on every A/B/both ablation in this smoke</td>
+  <td>Exact ablation labels</td>
+  <td><code>Unknown</code> on 59/100 after A removal, 63/100 after B removal, 73/100 after both removal</td>
 </tr>
 <tr>
-  <td>Typical change in P(True)</td>
-  <td>small, roughly 0 to 3 percentage points</td>
+  <td>Model full-condition top-1</td>
+  <td><code>True</code> on 98/100</td>
+</tr>
+<tr>
+  <td>Model ablation top-1</td>
+  <td><code>True</code> on 98/100 in each ablation condition</td>
+</tr>
+<tr>
+  <td>Model/exact agreement</td>
+  <td>39% after A removal, 35% after B removal, 25% after both removal</td>
 </tr>
 </tbody>
 </table>
-<p>The immediate conclusion is not that the benchmark is uninformative. It is
-that answer-token behavior alone does not yet show strong conjunction
-dependence in this tiny Smol sample. Possible causes include model priors for
-the answer format, residual derivability through other facts/rules, and the
-fact that these rows were selected for static proof structure rather than
-validated model-level necessity. Before causal fitting, the next checks are to
-compute exact logical labels for every ablation, enlarge the held-out sample,
-and inspect layer-level/logit-lens/J-lens evidence rather than relying only on
-the final answer token.</p>
+<p>The immediate conclusion is that the exact benchmark transformations are
+working, but final answer-token behavior is a poor conjunction-sensitivity
+readout for this Smol checkpoint. The symbolic labels often change to
+<code>Unknown</code>, while the model continues to assign its highest answer-token
+probability to <code>True</code>. Possible causes include answer-format priors, residual
+derivability through other facts/rules, and the gap between logical
+uncertainty and the model's three-token answer calibration. Before causal
+fitting, the next check is therefore to inspect layer-level logit-lens and
+J-lens evidence, with exact labels retained as the benchmark target rather
+than treating the final answer token as sufficient.</p>
 <p>The smoke artifact is
 <code>data/experiments/proofwriter-smollm2-factorial-smoke.json</code>; it remains a
 diagnostic and is not pooled into the headline causal tables.</p>
