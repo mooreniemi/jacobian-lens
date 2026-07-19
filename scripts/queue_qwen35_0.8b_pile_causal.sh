@@ -14,6 +14,15 @@ log() { echo "[qwen35-0.8b-pile $(date '+%Y-%m-%d %H:%M:%S')] $*"; }
 notify() { "$HOME/.local/bin/notify-me" "$*" || log "notification failed"; }
 trap 'rc=$?; notify "Qwen3.5-0.8B Pile queue failed (exit $rc). Check the queue log."; exit $rc' ERR
 
+# Do not contend with the active 1.7B full-gate queue. The 0.8B fit and
+# predictive evaluation are already complete; this is only a causal rerun
+# under the current fast-kernel runtime so Qwen3.5 comparisons match 4B.
+WAIT_FOR="data/experiments/flexible-causal-qwen3-1.7b-tuned-pile-repro-v1.json"
+while [[ ! -s "$WAIT_FOR" ]]; do
+  log "waiting for full 1.7B Pile causal queue before rerunning 0.8B"
+  sleep 60
+done
+
 validate_eval() {
   uv run python - "$EVAL" <<'PY'
 import json, math, sys
@@ -37,7 +46,7 @@ if [[ ! -s "$BASIS" ]]; then
   log "exporting tuned patch basis"
   uv run python scripts/export_tuned_patch_basis.py --model "$MODEL" --tuned-dir "$LENS" --out "$BASIS"
 fi
-COMMON=(--model "$MODEL" --lens-local "$BASIS" --layers "$LAYERS" --methods tuned,logit,random --qwen-kernels off --min-free-gib 6)
+COMMON=(--model "$MODEL" --lens-local "$BASIS" --layers "$LAYERS" --methods tuned,logit,random --qwen-kernels on --min-free-gib 6)
 
 log "starting verbal-report causal suite"
 uv run python scripts/eval_verbal_report_causal.py "${COMMON[@]}" \

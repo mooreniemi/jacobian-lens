@@ -17,6 +17,7 @@ uv run python scripts/fit_tuned_lens_local.py \
   --model Qwen/Qwen3.5-4B \
   --out "$OUT" \
   --data-path data/tuned-lens-pile/val.jsonl \
+  --dataset-label "EleutherAI/pile_val_test:val.jsonl" \
   --max-length 128 --max-chunks 16384 --steps 4096 --lr 1e-3 \
   --dtype bf16 --min-free-gib 6 \
   --events-out "$EVENTS" \

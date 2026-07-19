@@ -136,6 +136,7 @@ PLOT_METHOD_LABELS = {
     "logit": "logit lens",
     "random": "random matched",
     "tuned": "tuned-wiki-small-v0",
+    "tuned_pile": "tuned-pile-repro-v1",
 }
 
 # Semantic colors are fixed across every plot. In particular, random matched
@@ -145,6 +146,7 @@ PLOT_METHOD_COLORS = {
     "logit": "#E69F00",       # orange
     "tuned": "#009E73",       # green
     "tuned_short": "#CC79A7", # mauve
+    "tuned_pile": "#56B4E9",   # light blue
     "random": "#D62728",      # red
 }
 
@@ -193,6 +195,19 @@ def causal_runs(spec: dict) -> list[tuple[str, Path, dict]]:
     return runs
 
 
+def pile_causal_runs(spec: dict) -> list[tuple[str, Path, dict]]:
+    """Load Pile causal runs separately from the Wikitext pilot runs."""
+    prefix = spec["pattern"].removesuffix("*.json")
+    runs = []
+    for path in sorted(RESULTS.glob(f"{prefix}*-tuned-pile-repro-v1.json")):
+        data = load_json(path)
+        if model_label(path, data) == "Qwen3.5-0.8B" and data.get("kernel_mode") != "on":
+            continue
+        if data.get("aggregate"):
+            runs.append((model_label(path, data), path, data))
+    return runs
+
+
 def pile_causal_table() -> str:
     """Render validated Pile causal outputs without pooling them with Wikitext."""
     rows = []
@@ -201,6 +216,8 @@ def pile_causal_table() -> str:
         pattern = f"{prefix}*-tuned-pile-repro-v1.json"
         for path in sorted(RESULTS.glob(pattern)):
             data = load_json(path)
+            if model_label(path, data) == "Qwen3.5-0.8B" and data.get("kernel_mode") != "on":
+                continue
             for aggregate in data.get("aggregate", []):
                 method = "tuned-pile-repro-v1" if aggregate[0] == "tuned" else PLOT_METHOD_LABELS.get(aggregate[0], aggregate[0])
                 rows.append([
@@ -356,9 +373,9 @@ def coverage_table() -> str:
     pile_states = {
         "Qwen3-0.6B": "VALIDATED PREDICTIVE + CAUSAL COMPLETE",
         "SmolLM2-135M": "VALIDATED PREDICTIVE + CAUSAL COMPLETE",
-        "Qwen3-1.7B": "SHORT-2M CAUSAL COMPLETE / FULL GATE INCOMPLETE",
-        "Qwen3.5-0.8B": "VALIDATED PREDICTIVE + CAUSAL COMPLETE",
-        "Qwen3.5-4B": "FIT + SHORT-2M CAUSAL TODO",
+        "Qwen3-1.7B": "FULL HELD-OUT GATE IN PROGRESS",
+        "Qwen3.5-0.8B": "PREDICTIVE COMPLETE / CAUSAL KERNEL-PARITY RERUN QUEUED",
+        "Qwen3.5-4B": "VALIDATED PREDICTIVE + CAUSAL COMPLETE",
         "Qwen3.6-27B": "FIT + SHORT-2M CAUSAL TODO",
     }
 
@@ -535,7 +552,11 @@ def save_ci_plot(path: Path, title: str, stats: dict[str, list[tuple[float, floa
     plt.close(fig)
 
 
-def save_parameter_plot(path: Path, all_runs: dict[str, list[tuple[str, Path, dict]]]) -> None:
+def save_parameter_plot(
+    path: Path,
+    all_runs: dict[str, list[tuple[str, Path, dict]]],
+    pile_runs: dict[str, list[tuple[str, Path, dict]]],
+) -> None:
     """Plot effectiveness against model parameter count for each protocol."""
     parameter_count = {
         "SmolLM2-135M": 0.135,
@@ -545,21 +566,23 @@ def save_parameter_plot(path: Path, all_runs: dict[str, list[tuple[str, Path, di
         "Qwen3.6-27B": 27.0,
     }
     model_order = list(parameter_count)
-    methods = ["jlens", "logit", "tuned", "random"]
+    methods = ["jlens", "logit", "tuned", "tuned_pile", "random"]
     fig, axes = plt.subplots(1, 3, figsize=(15, 4.8), sharey=True, constrained_layout=True)
     for axis, (key, spec) in zip(axes, CAUSAL_SPECS.items(), strict=True):
         for method in methods:
             points = []
             for index, model in enumerate(model_order):
+                source_runs = pile_runs[key] if method == "tuned_pile" else all_runs[key]
+                aggregate_method = "tuned" if method == "tuned_pile" else method
                 data = next(
                     (
                         d
-                        for m, p, d in all_runs[key]
-                        if m == model and any(row[0] == method for row in d.get("aggregate", []))
+                        for m, p, d in source_runs
+                        if m == model and any(row[0] == aggregate_method for row in d.get("aggregate", []))
                     ),
                     None,
                 )
-                interval = bootstrap_rate_ci(data, method, seed=800 + index) if data else None
+                interval = bootstrap_rate_ci(data, aggregate_method, seed=800 + index) if data else None
                 if interval:
                     points.append((parameter_count[model], interval))
             if not points:
@@ -586,6 +609,7 @@ def save_parameter_plot(path: Path, all_runs: dict[str, list[tuple[str, Path, di
 def save_parameter_stat_plot(
     path: Path,
     all_runs: dict[str, list[tuple[str, Path, dict]]],
+    pile_runs: dict[str, list[tuple[str, Path, dict]]],
     *,
     title: str,
     ylabel: str,
@@ -600,26 +624,28 @@ def save_parameter_stat_plot(
         "Qwen3.6-27B": 27.0,
     }
     model_order = list(parameter_count)
-    methods = ["jlens", "logit", "tuned"]
+    methods = ["jlens", "logit", "tuned", "tuned_pile"]
     fig, axes = plt.subplots(1, 3, figsize=(15, 4.8), sharey=False, constrained_layout=True)
     for axis, (key, spec) in zip(axes, CAUSAL_SPECS.items(), strict=True):
         for method in methods:
             points = []
             for index, model in enumerate(model_order):
+                source_runs = pile_runs[key] if method == "tuned_pile" else all_runs[key]
+                aggregate_method = "tuned" if method == "tuned_pile" else method
                 data = next(
                     (
                         d
-                        for m, p, d in all_runs[key]
-                        if m == model and any(row[0] == method for row in d.get("aggregate", []))
+                        for m, p, d in source_runs
+                        if m == model and any(row[0] == aggregate_method for row in d.get("aggregate", []))
                     ),
                     None,
                 )
                 if not data:
                     continue
                 if statistic == "excess_random":
-                    interval = bootstrap_rate_difference(data, method, "random", seed=1200 + index)
+                    interval = bootstrap_rate_difference(data, aggregate_method, "random", seed=1200 + index)
                 else:
-                    interval = bootstrap_median_ci(data, method, seed=1400 + index)
+                    interval = bootstrap_median_ci(data, aggregate_method, seed=1400 + index)
                 if interval:
                     points.append((parameter_count[model], interval))
             if not points:
@@ -709,6 +735,7 @@ def efficiency_records() -> list[dict]:
         ("Qwen3.5-0.8B", "J-lens"): ROOT / "data/lenses/qwen3.5-0.8b-fit-204-lens.pt",
         ("Qwen3.5-0.8B", "tuned-wiki-small-v0"): ROOT / "data/lenses/qwen3.5-0.8b-tuned-wikitext/params.pt",
         ("Qwen3.5-4B", "tuned-wiki-small-v0"): ROOT / "data/lenses/qwen3.5-4b-tuned-wikitext/params.pt",
+        ("Qwen3.5-4B", "tuned-pile-repro-v1"): ROOT / "data/lenses/qwen3.5-4b-tuned-pile-repro-v1/params.pt",
         ("Qwen3.6-27B", "tuned-wiki-small-v0"): ROOT / "data/lenses/qwen3.6-27b-tuned-wikitext-nf4/params.pt",
     }
     records = []
@@ -746,6 +773,11 @@ def efficiency_records() -> list[dict]:
         completed_fit_record(
             ROOT / "data/lenses/qwen3-1.7b-tuned-pile-repro-v1",
             model="Qwen3-1.7B", method="tuned-pile-repro-v1", hardware="RTX 3090",
+            device_vram_gib=24.0,
+        ),
+        completed_fit_record(
+            ROOT / "data/lenses/qwen3.5-4b-tuned-pile-repro-v1",
+            model="Qwen3.5-4B", method="tuned-pile-repro-v1", hardware="RTX 3090",
             device_vram_gib=24.0,
         ),
         completed_fit_record(
@@ -1026,13 +1058,9 @@ def build_report(out_dir: Path) -> Path:
     all_runs: dict[str, list[tuple[str, Path, dict]]] = {
         key: causal_runs(spec) for key, spec in CAUSAL_SPECS.items()
     }
-    short_runs: dict[str, list[tuple[str, Path, dict]]] = {}
-    for key, spec in CAUSAL_SPECS.items():
-        prefix = spec["pattern"].removesuffix("*.json")
-        short_runs[key] = []
-        for path in sorted(RESULTS.glob(f"{prefix}*tuned-pile-repro-v1-short-2m.json")):
-            data = load_json(path)
-            short_runs[key].append((model_label(path, data), path, data))
+    pile_runs: dict[str, list[tuple[str, Path, dict]]] = {
+        key: pile_causal_runs(spec) for key, spec in CAUSAL_SPECS.items()
+    }
 
     # 27B headline plot with prompt/item-cluster bootstrap intervals.
     experiment_labels = [spec["label"] for spec in CAUSAL_SPECS.values()]
@@ -1053,12 +1081,16 @@ def build_report(out_dir: Path) -> Path:
     # Cross-model comparisons, including tuned wherever a tuned artifact exists.
     for key in ("verbal", "multihop", "flexible"):
         model_order = ["SmolLM2-135M", "Qwen3-0.6B", "Qwen3-1.7B", "Qwen3.5-0.8B", "Qwen3.5-4B", "Qwen3.6-27B"]
-        plot_methods = ["jlens", "logit", "tuned", "tuned_short", "random"]
+        plot_methods = ["jlens", "logit", "tuned", "tuned_pile", "random"]
         stats = {method: [] for method in plot_methods}
         for method in plot_methods:
             for model in model_order:
-                source_runs = short_runs[key] if method == "tuned_short" else all_runs[key]
-                aggregate_method = "tuned" if method == "tuned_short" else method
+                if method == "tuned_pile":
+                    source_runs = pile_runs[key]
+                    aggregate_method = "tuned"
+                else:
+                    source_runs = all_runs[key]
+                    aggregate_method = method
                 data = next(
                     (
                         d
@@ -1075,12 +1107,13 @@ def build_report(out_dir: Path) -> Path:
             stats,
             model_order,
             "Improved conditions (%)",
-            method_labels={"tuned_short": "tuned-pile-repro-v1-short-2m"},
+            method_labels={"tuned_pile": "tuned-pile-repro-v1"},
         )
-    save_parameter_plot(plot_dir / "parameter_effectiveness.png", all_runs)
+    save_parameter_plot(plot_dir / "parameter_effectiveness.png", all_runs, pile_runs)
     save_parameter_stat_plot(
         plot_dir / "parameter_excess_random.png",
         all_runs,
+        pile_runs,
         title="Improvement above random versus model size (95% bootstrap CI)",
         ylabel="Improvement-rate difference (percentage points)",
         statistic="excess_random",
@@ -1088,6 +1121,7 @@ def build_report(out_dir: Path) -> Path:
     save_parameter_stat_plot(
         plot_dir / "parameter_median_delta.png",
         all_runs,
+        pile_runs,
         title="Median rank change versus model size (95% bootstrap CI)",
         ylabel="Median rank improvement",
         statistic="median",
@@ -1142,6 +1176,18 @@ def build_report(out_dir: Path) -> Path:
         f"<li><a href='{html.escape(href)}'>{html.escape(title)}</a> <span class='muted'>({html.escape(relative)})</span></li>"
         for title, href, relative in documentation_rows
     ) + "</ul>"
+
+    def plot_figure(filename: str, anchor: str, alt: str, title: str) -> str:
+        """Render a plot with a stable, shareable URL fragment."""
+        return (
+            f"<figure id='{anchor}' class='report-figure'>"
+            f"<figcaption><strong>{html.escape(title)}</strong> "
+            f"<a class='figure-link' href='#{anchor}' aria-label='Link to {html.escape(title)}'>"
+            f"[#{anchor}]</a></figcaption>"
+            f"<img class='plot' src='plots/{filename}?v={report_version}' alt='{html.escape(alt)}'>"
+            "</figure>"
+        )
+
     html_parts = [
         "<!doctype html>",
         '<html lang="en"><head><meta charset="utf-8">',
@@ -1155,13 +1201,13 @@ def build_report(out_dir: Path) -> Path:
         .kicker { font:700 .76rem/1 Arial,sans-serif; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); } .lede { font-size:1.08rem; } .abstract { border-top:2px solid var(--ink); border-bottom:1px solid var(--rule); padding:1rem 0; } .callout { border-left:3px solid var(--accent); padding:.1rem 1rem; margin:1rem 0; } .muted { color:var(--muted); }
         .toc { border:1px solid var(--rule); padding:.8rem 1.1rem; margin:1.6rem 0; } .toc ol { margin:.4rem 0 0; columns:2; } a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
         details { margin:1rem 0 1.4rem; } summary { cursor:pointer; color:var(--accent); font-weight:700; } summary::marker { color:var(--ink); } table { border-collapse:collapse; width:100%; margin:.8rem 0 1.4rem; font-size:.82rem; } th,td { border-bottom:1px solid #d6d3cc; padding:.4rem .5rem; text-align:left; vertical-align:top; } th { border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); font-weight:700; } tr:nth-child(even) { background:#faf9f6; }
-        .plot { display:block; background:#fff; width:100%; max-width:100%; margin:1rem 0 1.8rem; border:1px solid #d6d3cc; } code { font: .88em/1.3 'SFMono-Regular',Consolas,monospace; } ul { padding-left:1.4rem; } footer { margin-top:3rem; padding-top:1rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.8rem; }
+        .report-figure { margin:1.5rem 0 2.2rem; scroll-margin-top:1rem; } .report-figure figcaption { font:700 .92rem/1.3 Arial,Helvetica,sans-serif; margin-bottom:.45rem; } .figure-link { font-weight:400; color:var(--muted); } .plot { display:block; background:#fff; width:100%; max-width:100%; margin:0; border:1px solid #d6d3cc; } code { font: .88em/1.3 'SFMono-Regular',Consolas,monospace; } ul { padding-left:1.4rem; } footer { margin-top:3rem; padding-top:1rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.8rem; }
         @media (max-width:760px) { main { margin:0; padding:2rem 1.2rem; } .toc ol { columns:1; } table { display:block; overflow-x:auto; } }
         @media print { body { background:#fff; } main { max-width:none; margin:0; padding:0; border:0; box-shadow:none; } details { display:block; break-inside:avoid; } details > :not(summary) { display:block !important; } details > summary { display:none; } a { color:inherit; text-decoration:underline; } }
         </style></head><body><main>""",
         "<div class='kicker'>Research report · Jacobian lens</div>",
         f"<h1>Representational readout and causal transport in language models</h1><p class='muted sans'>Generated {datetime.now(ZoneInfo('America/New_York')).date().isoformat()} from recorded JSON artifacts.</p>",
-        "<section class='abstract' id='summary'><p><strong>Abstract.</strong> We reproduced the local Jacobian-lens readout path and extended it into controlled causal swap experiments across five decoder models from 135M to 27B parameters. The model-matched 27B JLens produced stronger target-rank movement than logit-lens and random matched controls in the current verbal-report, two-hop, and flexible-generalization runs. Existing tuned results are explicitly labelled <code>tuned-wiki-small-v0</code>: model-matched Wikitext pilots, not a strong reproduction.</p><p><strong>Current status:</strong> model-matched <code>tuned-pile-repro-v1</code> fits and held-out predictive evaluations are complete for Qwen3-0.6B and SmolLM2-135M. Qwen3-1.7B fitting is complete; its canonical 16.4M-token held-out gate is incomplete, so its new causal suite is explicitly provisional <code>short-2m</code>. No provisional result is pooled into the validated Pile causal table.</p></section>",
+        "<section class='abstract' id='summary'><p><strong>Abstract.</strong> We reproduced the local Jacobian-lens readout path and extended it into controlled causal swap experiments across decoder models from 135M to 27B parameters. The model-matched 27B JLens produced stronger target-rank movement than logit-lens and random matched controls in the current verbal-report, two-hop, and flexible-generalization runs. Existing tuned results are explicitly labelled <code>tuned-wiki-small-v0</code>: model-matched Wikitext pilots, not a strong reproduction.</p><p><strong>Current status:</strong> model-matched <code>tuned-pile-repro-v1</code> predictive and causal results are complete for SmolLM2-135M, Qwen3-0.6B, and Qwen3.5-4B. Qwen3-1.7B fitting is complete and its canonical 16.4M-token held-out gate is still running; its short-2M causal suite remains explicitly provisional. No provisional result is pooled into the validated Pile causal table.</p></section>",
         "<nav class='toc' aria-label='Table of contents'><strong class='sans'>Contents</strong><ol><li><a href='#summary'>Summary and current claim</a></li><li><a href='#coverage'>Model and intervention coverage</a></li><li><a href='#interventions'>Intervention definitions</a></li><li><a href='#measurements'>Measurements and estimands</a></li><li><a href='#results-27b'>27B results and uncertainty</a></li><li><a href='#cross-model'>Cross-model comparisons</a></li><li><a href='#scaling'>Effectiveness versus model size</a></li><li><a href='#efficiency'>Creation cost and scaling</a></li><li><a href='#pile-validation'>Held-out Pile validation</a></li><li><a href='#interpretation'>Interpretation and open questions</a></li><li><a href='#provenance'>Sources and provenance</a></li><li><a href='#documentation'>Documentation and logs</a></li></ol></nav>",
         "<h2 id='coverage'>Model and intervention coverage</h2>",
         fold("Show coverage matrix", coverage_table()),
@@ -1195,7 +1241,7 @@ def build_report(out_dir: Path) -> Path:
         <table><thead><tr><th>Variant</th><th>Corpus</th><th>Fit material</th><th>Optimization</th><th>Held-out evaluation</th><th>Status</th></tr></thead>
         <tbody>
         <tr><td><code>tuned-wiki-small-v0</code></td><td>Wikitext-2 raw train</td><td>32,768 sampled tokens for the smaller models; 65,536 for the 27B pilot</td><td>100 steps, 128-token chunks, learning rate 1e-3</td><td>Not part of the original pilot fit</td><td>Used in current causal plots; sanity-check only</td></tr>
-        <tr><td><code>tuned-pile-repro-v1</code></td><td>The Pile validation split</td><td>16,384 chunks per model; 2,097,152 sampled training tokens</td><td>4,096 steps, 128-token chunks, learning rate 1e-3</td><td>Pile test, target 16.4M tokens</td><td>Qwen3-0.6B and SmolLM2 predictive artifacts complete; Qwen3-1.7B short ladder complete but canonical gate incomplete</td></tr>
+        <tr><td><code>tuned-pile-repro-v1</code></td><td>The Pile validation split</td><td>16,384 chunks per model; 2,097,152 sampled training tokens</td><td>4,096 steps, 128-token chunks, learning rate 1e-3</td><td>Pile test, target 16.4M tokens</td><td>Full predictive/causal track complete for SmolLM2, Qwen3-0.6B, Qwen3.5-0.8B, and Qwen3.5-4B; Qwen3-1.7B full gate in progress</td></tr>
         </tbody></table>
         <p class='muted'>These are materially different training regimes. The Pile first pass exposes the translators to roughly 32–64 times more token positions than the Wikitext pilots, and it has a genuinely held-out test evaluation. Therefore a future Pile causal result must be compared against the corresponding model's Pile-trained lens, not silently pooled with the Wikitext rows.</p>
         <p class='muted'>The 27B released J-lens is a separate model-matched
@@ -1220,7 +1266,7 @@ def build_report(out_dir: Path) -> Path:
         "<h2 id='results-27b'>Qwen3.6-27B headline results</h2>",
         "<p class='muted'><strong>Verbal report task:</strong> replace one entity in a factual prompt and test whether the model's next answer or continuation shifts toward the substituted entity. The headline plot summarizes the fraction of causal swap conditions where the target answer's rank improved.</p>",
         fold("Show headline aggregate table", table(["Experiment", "Method", "n", "Improved", "Median Δrank", "Mean Δrank", "Top-1", "Top-k", "Improvement rate"], headline_rows)),
-        f"<img class='plot' src='plots/27b_improvement_rate.png?v={report_version}' alt='27B improvement rates'>",
+        plot_figure("27b_improvement_rate.png", "fig-27b-improvement-rate", "27B improvement rates", "Figure: 27B headline improvement rates"),
         "<h3>27B bootstrap uncertainty</h3>",
         fold("Show 27B bootstrap intervals", table(["Experiment", "Method", "Observed rate", "95% CI low", "95% CI high"], bootstrap_rows)),
         "<p class='muted'>Intervals use a deterministic cluster bootstrap over prompts/items, resampling each prompt as a unit while retaining its multiple scored layers together. This is more conservative than treating every layer as independent.</p>",
@@ -1228,15 +1274,15 @@ def build_report(out_dir: Path) -> Path:
         fold("Show paired method-versus-random contrasts", table(["Experiment", "Model", "Method", "Observed difference", "95% CI low", "95% CI high"], contrast_rows)),
         "<p class='muted'>Differences are paired success-rate contrasts in percentage points: JLens or tuned lens minus the random matched control. A positive interval entirely above zero is the clearest evidence in these pilot metrics that the method beats random for that model and experiment.</p>",
         "<h2 id='cross-model'>Cross-model causal comparisons</h2>",
-        "<p>These plots show the fraction of scored conditions in which the target improved after the intervention. The Qwen3-1.7B group includes a separately labelled <code>tuned-pile-repro-v1-short-2m</code> series; it is displayed as a provisional bar group, not silently pooled with the Wikitext tuned series or validated Pile results. Prompt counts and tokenization skips should still be inspected in the per-experiment logs.</p>",
-        f"<h3>Verbal report</h3><p class='muted'>Task: ask the model to produce a category member, then intervene on the representation of the selected source concept and test whether the target candidate rises at the answer position.</p>{task_examples['verbal']}<img class='plot' src='plots/verbal_cross_model.png?v={report_version}' alt='Verbal-report cross-model improvement rates'>",
-        f"<h3>Two-hop reasoning</h3><p class='muted'>Task: the prompt states two linked facts; the intervention swaps the representation of the intermediate entity, and success means the model's downstream answer moves toward the answer implied by that substituted intermediate.</p>{task_examples['multihop']}<img class='plot' src='plots/multihop_cross_model.png?v={report_version}' alt='Two-hop cross-model improvement rates'>",
-        f"<h3>Flexible generalization</h3><p class='muted'>Task: substitute one argument for another, then test whether the model correctly carries that replacement through several downstream functions such as ordering, comparison, arithmetic, or relational use.</p>{task_examples['flexible']}<img class='plot' src='plots/flexible_cross_model.png?v={report_version}' alt='Flexible generalization cross-model improvement rates'>",
+        "<p>These plots show the fraction of scored conditions in which the target improved after the intervention. Wikitext and full Pile tuned lenses are displayed as separate series; the earlier Qwen3-1.7B short-2M diagnostic is excluded until its full held-out Pile protocol is complete. Prompt counts and tokenization skips should still be inspected in the per-experiment logs.</p>",
+        f"<h3>Verbal report</h3><p class='muted'>Task: ask the model to produce a category member, then intervene on the representation of the selected source concept and test whether the target candidate rises at the answer position.</p>{task_examples['verbal']}" + plot_figure("verbal_cross_model.png", "fig-verbal-cross-model", "Verbal-report cross-model improvement rates", "Figure: Verbal-report cross-model comparison"),
+        f"<h3>Two-hop reasoning</h3><p class='muted'>Task: the prompt states two linked facts; the intervention swaps the representation of the intermediate entity, and success means the model's downstream answer moves toward the answer implied by that substituted intermediate.</p>{task_examples['multihop']}" + plot_figure("multihop_cross_model.png", "fig-multihop-cross-model", "Two-hop cross-model improvement rates", "Figure: Two-hop reasoning cross-model comparison"),
+        f"<h3>Flexible generalization</h3><p class='muted'>Task: substitute one argument for another, then test whether the model correctly carries that replacement through several downstream functions such as ordering, comparison, arithmetic, or relational use.</p>{task_examples['flexible']}" + plot_figure("flexible_cross_model.png", "fig-flexible-cross-model", "Flexible generalization cross-model improvement rates", "Figure: Flexible-generalization cross-model comparison"),
         "<h2 id='scaling'>Effectiveness versus model size</h2>",
         "<p>The first view uses the intuitive absolute improvement rate. The second subtracts the matched random-control improvement rate, which is a better summary of technique-specific effect. The third shows median rank movement, capturing effect magnitude rather than only whether movement was positive. All use parameter count on a logarithmic x-axis and item-cluster bootstrap intervals.</p>",
-        f"<img class='plot' src='plots/parameter_effectiveness.png?v={report_version}' alt='Technique effectiveness versus model parameter count'>",
-        f"<img class='plot' src='plots/parameter_excess_random.png?v={report_version}' alt='Improvement above random versus model parameter count'>",
-        f"<img class='plot' src='plots/parameter_median_delta.png?v={report_version}' alt='Median rank change versus model parameter count'>",
+        plot_figure("parameter_effectiveness.png", "fig-parameter-effectiveness", "Technique effectiveness versus model parameter count", "Figure: Absolute effectiveness versus model size"),
+        plot_figure("parameter_excess_random.png", "fig-parameter-excess-random", "Improvement above random versus model parameter count", "Figure: Excess over random versus model size"),
+        plot_figure("parameter_median_delta.png", "fig-parameter-median-delta", "Median rank change versus model parameter count", "Figure: Median rank movement versus model size"),
         "<h2 id='efficiency'>27B creation-cost evidence</h2>",
         "<p>The primary efficiency question is now stated at the target model scale: what did it take to create each 27B artifact? This is separate from causal coverage. The causal plots include the released model-matched J-lens artifact, logit lens, random matched controls, and the fitted Wikitext tuned lens; only the tuned Wikitext row currently has our 27B fit telemetry. Logit and random have no learned artifact by design, and the J-lens creation run was not recorded in our checkout. The raw times are therefore evidence, not a causal ranking. The method-native rates are also not interchangeable: J-lens uses prompt-layer evaluations, tuned lens uses optimizer steps, and logit lens has no fit. The broad model-scale plot is retained below as exploratory context only.</p>",
         fold("Show runtime environments", table(["Environment", "Role in this project", "Memory", "Compute reference", "Bandwidth", "Recorded precision", "Provenance"], runtime_environment_rows())),
@@ -1244,7 +1290,7 @@ def build_report(out_dir: Path) -> Path:
         "<h3>Memory evidence by intervention</h3>",
         "<p>Peak VRAM in GiB is a directly comparable resource measurement only when model, precision, batch size, and workload are specified. A missing value is not zero. Logit lens has zero learned-artifact creation cost, but it still consumes the base model's runtime memory.</p>",
         fold("Show memory evidence", table(["Intervention", "Model/run", "Peak memory", "Precision", "Device", "Interpretation"], memory_evidence_rows())),
-        fold("Show exploratory model-scale resource plot", f"<img class='plot' src='plots/efficiency_creation_scaling.png?v={report_version}' alt='Exploratory creation wall time and normalized memory pressure versus model scale'>"),
+        fold("Show exploratory model-scale resource plot", plot_figure("efficiency_creation_scaling.png", "fig-efficiency-creation-scaling", "Exploratory creation wall time and normalized memory pressure versus model scale", "Figure: Exploratory creation efficiency scaling")),
         fold("Show creation-cost provenance", table(["Model", "Intervention", "Fit min", "Steps", "Prompts", "Peak VRAM GiB", "Device VRAM GiB", "GPU-hours", "VRAM-hours", "VRAM fraction", "Billed USD", "Precision", "Hardware/source"], creation_provenance_rows(efficiency_records_current))),
         fold("Show method-native normalized rates", table(["Model", "Intervention", "Workload", "Total fit min", "Normalized rate", "Unit", "Precision", "Hardware/source"], native_efficiency_rows(efficiency_records_current))),
         "<h2 id='pile-validation'>Held-out Pile predictive validation</h2>",
@@ -1253,9 +1299,7 @@ def build_report(out_dir: Path) -> Path:
         "<h3>Validated Pile causal suites</h3>",
         "<p>These rows are kept separate from the Wikitext-pilot causal plots. They appear only after the corresponding held-out predictive artifact passes validation, and report the Pile-trained tuned basis alongside logit and random controls.</p>",
         pile_causal_table(),
-        "<h3>Provisional short-2M causal suites</h3>",
-        "<p>Qwen3-1.7B fitting is model-matched, but the canonical 16.4M-token held-out predictive gate was intentionally stopped because it projected to roughly 6.5 hours on the RTX 3090. These causal rows use the same Pile-trained lens after a 2M-token predictive sensitivity ladder; they are useful diagnostics, not validated reproduction evidence.</p>",
-        provisional_short_pile_causal_table(),
+        "<p class='muted'>The earlier Qwen3-1.7B short-2M diagnostic artifacts are retained in the data directory for provenance, but are intentionally excluded from comparative plots and result tables. The full model-matched Pile protocol is being completed instead.</p>",
         "<h2 id='interpretation'>Interpretation and open questions</h2>",
         """<ul>
         <li>The original readout path runs locally, and the 27B PyTorch path works in guarded 4-bit NF4 mode.</li>
