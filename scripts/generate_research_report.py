@@ -23,6 +23,7 @@ import matplotlib.pyplot as plt
 import mistune
 import numpy as np
 import seaborn as sns
+from matplotlib.lines import Line2D
 
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "data" / "experiments"
@@ -608,6 +609,74 @@ def save_ci_plot(path: Path, title: str, stats: dict[str, list[tuple[float, floa
     plt.close(fig)
 
 
+def save_paired_contrast_plot(path: Path) -> None:
+    """Plot same-item method-vs-logit success-rate contrasts from the analysis artifact."""
+    analysis_path = ROOT / "data/analysis/paired_causal_effects.json"
+    rows = [
+        row for row in json.loads(analysis_path.read_text())
+        if row.get("right") == "logit" and row.get("left") in {"jlens", "tuned"}
+    ]
+    task_order = ["verbal", "multihop", "flexible"]
+    task_labels = {"verbal": "Verbal report", "multihop": "Two-hop reasoning", "flexible": "Flexible generalization"}
+    model_order = ["SmolLM2-135M", "Qwen3-0.6B", "Qwen3-1.7B", "Qwen3.5-0.8B", "Qwen3.5-4B", "Qwen3.6-27B"]
+    model_keys = {
+        "SmolLM2-135M": "smollm2-135m",
+        "Qwen3-0.6B": "qwen3-0.6b",
+        "Qwen3-1.7B": "qwen3-1.7b",
+        "Qwen3.5-0.8B": "qwen3.5-0.8b",
+        "Qwen3.5-4B": "qwen3.5-4b",
+        "Qwen3.6-27B": "qwen3.6-27b",
+    }
+    methods = ["jlens", "tuned"]
+    fig, axes = plt.subplots(1, 3, figsize=(14, 6.4), sharex=True, sharey=True, constrained_layout=True)
+    offsets = {"jlens": -0.12, "tuned": 0.12}
+    plotted = set()
+    all_values = []
+    for axis, task in zip(axes, task_order, strict=True):
+        for model_index, model in enumerate(model_order):
+            key = model_keys[model]
+            for method in methods:
+                row = next(
+                    (item for item in rows if item["task"] == task and item["left"] == method and key in item["model"].lower()),
+                    None,
+                )
+                if row is None:
+                    continue
+                value = row["paired_success_diff"] * 100
+                low = row["paired_success_ci_low"] * 100
+                high = row["paired_success_ci_high"] * 100
+                all_values.extend([low, high])
+                axis.errorbar(
+                    value,
+                    model_index + offsets[method],
+                    xerr=[[value - low], [high - value]],
+                    fmt="o",
+                    capsize=3,
+                    color=PLOT_METHOD_COLORS[method],
+                    label=PLOT_METHOD_LABELS[method] if method not in plotted else "_nolegend_",
+                )
+                plotted.add(method)
+        axis.axvline(0, color="black", linewidth=0.9, alpha=0.65)
+        axis.set_title(task_labels[task])
+        axis.set_yticks(range(len(model_order)), model_order)
+        axis.invert_yaxis()
+        axis.grid(axis="x", alpha=0.25)
+    if all_values:
+        bound = max(5, float(np.ceil(max(abs(value) for value in all_values) / 5) * 5))
+        axes[0].set_xlim(-bound, bound)
+    axes[0].set_ylabel("Model")
+    axes[1].set_xlabel("Success-rate difference versus logit (percentage points)")
+    legend_handles = [
+        Line2D([0], [0], marker="o", linestyle="none", color=PLOT_METHOD_COLORS[method], label=PLOT_METHOD_LABELS[method])
+        for method in methods
+        if method in plotted
+    ]
+    axes[-1].legend(handles=legend_handles, frameon=False, loc="upper center", bbox_to_anchor=(0.5, -0.13), ncols=2)
+    fig.suptitle("Paired per-item contrasts: positive values favor the named method")
+    fig.savefig(path, dpi=150)
+    plt.close(fig)
+
+
 def save_parameter_plot(
     path: Path,
     all_runs: dict[str, list[tuple[str, Path, dict]]],
@@ -1182,6 +1251,7 @@ def build_report(out_dir: Path) -> Path:
         ylabel="Median rank improvement",
         statistic="median",
     )
+    save_paired_contrast_plot(plot_dir / "paired_causal_contrasts.png")
     efficiency_records_current = save_efficiency_plots(plot_dir, all_runs)
     save_creation_scaling_plot(plot_dir, efficiency_records_current)
 
@@ -1336,6 +1406,8 @@ def build_report(out_dir: Path) -> Path:
         f"<h3>Flexible generalization</h3><p class='muted'>Task: substitute one argument for another, then test whether the model correctly carries that replacement through several downstream functions such as ordering, comparison, arithmetic, or relational use.</p>{task_examples['flexible']}" + plot_figure("flexible_cross_model.png", "fig-flexible-cross-model", "Flexible generalization cross-model improvement rates", "Figure: Flexible-generalization cross-model comparison"),
         "<h2 id='paired-contrasts'>Paired per-item method contrasts</h2>",
         "<p>Aggregate bars answer how often each method succeeds overall; they do not show whether the same items improve under one method and fail under another. This analysis pairs methods on the same item and averages over that item's scored layers, then reports the difference in success rate, a prompt/item bootstrap interval, and a paired sign-flip p-value. Positive values favor the named method over logit lens. These are paired descriptive/inferential summaries, not independent-sample tests, and each saved artifact remains a separate row rather than being pooled across models or tasks.</p>",
+        plot_figure("paired_causal_contrasts.png", "fig-paired-causal-contrasts", "Paired per-item success-rate contrasts versus logit lens", "Figure: Paired per-item contrasts versus logit lens"),
+        "<p class='callout'><strong>Quick read:</strong> the vertical line at zero is the null. Points to the right mean the named method wins more same-item comparisons than logit lens; intervals crossing zero are inconclusive at this uncertainty level. The plot is most useful for seeing whether an apparent aggregate advantage is consistent across models and tasks, rather than driven by one large bar.</p>",
         fold("Show all J-lens/tuned-versus-logit paired contrasts", paired_causal_table()),
         "<p class='muted'>The corresponding machine-readable artifact is <code>data/analysis/paired_causal_effects.json</code>. Random-versus-logit controls remain in the 27B contrast table and the underlying artifact because their role is to establish the perturbation noise floor, not to replace the method-versus-method comparison.</p>",
         "<h2 id='scaling'>Effectiveness versus model size</h2>",
