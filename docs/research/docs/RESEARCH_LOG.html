@@ -1020,6 +1020,104 @@ launching a local 27B fit: that remains a Modal/A100 job. The current report
 and PDF were regenerated from all completed artifacts before the 0.8B
 predictive result exists, so 0.8B causal bars will appear only after that
 queue passes its gates.</p>
+<h3>2026-07-19 — Task-construct overlap and next evaluation families</h3>
+<p>We reviewed the three current causal task protocols—verbal report, two-hop
+reasoning, and flexible generalization—and separated the terminology:</p>
+<ul>
+<li>a <strong>task/protocol</strong> is the prompt fixture;</li>
+<li>a <strong>construct</strong> is the capability the fixture is intended to test;</li>
+<li>a <strong>measurement/estimand</strong> is the statistic, such as improved-condition
+rate, target rank change, or excess over random.</li>
+</ul>
+<p>The current fixtures all perform a closely related counterfactual operation:
+replace an argument-like entity and test whether a downstream answer changes
+appropriately. The two-hop fixture adds a nested relation, while flexible
+generalization presents the relation as a named function. Their current
+J-lens aggregate rates correlate at about <code>r = 0.76</code> across six models, which
+is suggestive of a shared construct but is not sufficient to establish task
+equivalence or independence. The report now documents this as a task-
+discriminability question rather than treating the three suites as three
+independent capabilities.</p>
+<p>Candidate evaluation families that would add more independent coverage:</p>
+<table>
+<thead>
+<tr>
+  <th>Family</th>
+  <th>New construct</th>
+  <th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Conjunction / non-separability</td>
+  <td>Whether two facts are jointly represented and neither alone determines the answer</td>
+  <td>First new causal suite</td>
+</tr>
+<tr>
+  <td>Role/filler binding</td>
+  <td>Whether entities remain bound to semantic roles such as agent, recipient, and object</td>
+  <td>First new causal suite</td>
+</tr>
+<tr>
+  <td>Negation and quantifier scope</td>
+  <td>Whether operators such as <code>not</code>, <code>every</code>, and <code>some</code> bind correctly</td>
+  <td>High</td>
+</tr>
+<tr>
+  <td>Interference/selectivity</td>
+  <td>Whether a swap changes the intended concept without moving unrelated distractors</td>
+  <td>High control</td>
+</tr>
+<tr>
+  <td>Two-swap interaction</td>
+  <td>Whether simultaneous interventions combine additively, bind, or interfere</td>
+  <td>High; connects to H-lens</td>
+</tr>
+<tr>
+  <td>Paraphrase/multilingual invariance</td>
+  <td>Whether the same concept survives surface-form changes</td>
+  <td>Medium; robustness more than a new reasoning construct</td>
+</tr>
+<tr>
+  <td>Confidence/calibration</td>
+  <td>Whether intermediate readouts track uncertainty rather than only target rank</td>
+  <td>Separate measurement family</td>
+</tr>
+</tbody>
+</table>
+<p>The hardest and most scientifically valuable first target is the conjunction /
+non-separability suite, strengthened with role-binding and two-swap controls.
+It is difficult because the examples must prevent a single fact, lexical cue,
+or memorized answer from determining the result. Success should require both
+facts, and the interaction of two interventions should be measured explicitly.
+This is a better stress test of compositional representation than adding more
+direct substitution prompts.</p>
+<p>Benchmark/data assessment:</p>
+<ul>
+<li><strong>ProofWriter</strong> is the strongest immediate source for controlled proof depth,
+conjunctions, distractors, and open-/closed-world variants. We already have
+<code>15,000</code> saved candidates (<code>data/benchmarks/proofwriter-strong-conjunctions.jsonl</code>,
+<code>proofwriter-factorial-conjunctions.jsonl</code>, and related candidate files),
+so it is the practical first source for a large matched causal suite. Its
+generated proof graphs make it possible to certify that both conjuncts are
+necessary. See the <a href="https://aclanthology.org/2021.findings-acl.317/">ProofWriter paper</a>.</li>
+<li><strong>FOLIO</strong> is the strongest natural-language complement for expert-written
+first-order logic, negation, quantifiers, and entailment/contradiction/
+unknown judgments. We have <code>1,084</code> saved conjunction candidates, but its
+smaller size makes it better for a carefully audited natural-language suite
+than the sole source of statistical power. See the <a href="https://arxiv.org/abs/2209.00840">FOLIO paper</a>.</li>
+<li><strong>CLUTRR</strong> is the best additional benchmark for role/relational binding and
+systematic generalization over held-out relation combinations. It is not
+currently downloaded, so it remains a follow-up acquisition rather than an
+immediate run. See the <a href="https://arxiv.org/abs/1908.06177">CLUTRR paper</a>.</li>
+</ul>
+<p>Planned order: build the first model-matched conjunction suite from the
+ProofWriter candidates, audit it against the strong-conjunction criteria,
+run it across the existing small-to-27B model slate where artifacts permit,
+then add a smaller FOLIO natural-language audit and a CLUTRR-style
+role-binding suite. This keeps the first new experiment both difficult and
+well-powered without pretending that the current two-hop and flexible suites
+already cover these constructs.</p>
 </article>
 <footer>Rendered from <code>RESEARCH_LOG.md</code> by <code>scripts/generate_research_report.py</code>.</footer>
 </main></body></html>
