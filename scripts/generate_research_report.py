@@ -348,6 +348,62 @@ def fold(title: str, content: str) -> str:
     return f"<details><summary>{html.escape(title)}</summary>{content}</details>"
 
 
+def paired_causal_table() -> str:
+    """Render item-paired contrasts from the durable paired analysis artifact."""
+    path = ROOT / "data/analysis/paired_causal_effects.json"
+    if not path.exists():
+        return "<p class='muted'>Paired analysis has not been generated yet.</p>"
+
+    task_labels = {
+        "verbal": "Verbal report",
+        "multihop": "Two-hop reasoning",
+        "flexible": "Flexible generalization",
+    }
+    model_labels = {
+        "qwen3-0.6b": "Qwen3-0.6B",
+        "qwen3-1.7b": "Qwen3-1.7B",
+        "qwen3.5-0.8b": "Qwen3.5-0.8B",
+        "qwen3.5-4b": "Qwen3.5-4B",
+        "qwen3.6-27b": "Qwen3.6-27B",
+        "smollm2-135m": "SmolLM2-135M",
+    }
+
+    def model_label(raw: str) -> str:
+        lowered = raw.lower()
+        for key, label in model_labels.items():
+            if key in lowered:
+                return label
+        return Path(raw).name or raw
+
+    def signed_pp(value: float) -> str:
+        return f"{value * 100:+.1f} pp"
+
+    def p_value(value: float) -> str:
+        return "<0.001" if value < 0.001 else f"{value:.3f}"
+
+    rows = []
+    for row in json.loads(path.read_text()):
+        # Random-v-logit belongs in the control table above; this section is
+        # intended to explain method-v-logit contrasts at the same item.
+        if row.get("left") not in {"jlens", "tuned"} or row.get("right") != "logit":
+            continue
+        rows.append([
+            task_labels.get(row["task"], row["task"]),
+            model_label(row["model"]),
+            "J-lens" if row["left"] == "jlens" else "tuned lens",
+            row["n_items"],
+            signed_pp(row["paired_success_diff"]),
+            f"[{signed_pp(row['paired_success_ci_low'])}, {signed_pp(row['paired_success_ci_high'])}]",
+            f"{row['paired_delta_mean']:+.1f}",
+            p_value(row["paired_success_p"]),
+        ])
+    rows.sort(key=lambda row: (row[0], row[1], row[2]))
+    return table(
+        ["Task", "Model", "Contrast", "Items", "Success-rate difference", "95% bootstrap CI", "Mean Δrank difference", "Paired sign-flip p"],
+        rows,
+    )
+
+
 def coverage_table() -> str:
     """Build a model/intervention-by-measurement coverage matrix."""
     tasks = {
@@ -1208,7 +1264,7 @@ def build_report(out_dir: Path) -> Path:
         "<div class='kicker'>Research report · Jacobian lens</div>",
         f"<h1>Representational readout and causal transport in language models</h1><p class='muted sans'>Generated {datetime.now(ZoneInfo('America/New_York')).date().isoformat()} from recorded JSON artifacts.</p>",
         "<section class='abstract' id='summary'><p><strong>Abstract.</strong> We reproduced the local Jacobian-lens readout path and extended it into controlled causal swap experiments across decoder models from 135M to 27B parameters. The model-matched 27B JLens produced stronger target-rank movement than logit-lens and random matched controls in the current verbal-report, two-hop, and flexible-generalization runs. Existing tuned results are explicitly labelled <code>tuned-wiki-small-v0</code>: model-matched Wikitext pilots, not a strong reproduction.</p><p><strong>Current status:</strong> model-matched <code>tuned-pile-repro-v1</code> predictive and causal results are complete for SmolLM2-135M, Qwen3-0.6B, and Qwen3.5-4B. Qwen3-1.7B fitting is complete and its canonical 16.4M-token held-out gate is still running; its short-2M causal suite remains explicitly provisional. No provisional result is pooled into the validated Pile causal table.</p></section>",
-        "<nav class='toc' aria-label='Table of contents'><strong class='sans'>Contents</strong><ol><li><a href='#summary'>Summary and current claim</a></li><li><a href='#coverage'>Model and intervention coverage</a></li><li><a href='#interventions'>Intervention definitions</a></li><li><a href='#measurements'>Measurements and estimands</a></li><li><a href='#results-27b'>27B results and uncertainty</a></li><li><a href='#cross-model'>Cross-model comparisons</a></li><li><a href='#scaling'>Effectiveness versus model size</a></li><li><a href='#efficiency'>Creation cost and scaling</a></li><li><a href='#pile-validation'>Held-out Pile validation</a></li><li><a href='#interpretation'>Interpretation and open questions</a></li><li><a href='#provenance'>Sources and provenance</a></li><li><a href='#documentation'>Documentation and logs</a></li></ol></nav>",
+        "<nav class='toc' aria-label='Table of contents'><strong class='sans'>Contents</strong><ol><li><a href='#summary'>Summary and current claim</a></li><li><a href='#coverage'>Model and intervention coverage</a></li><li><a href='#interventions'>Intervention definitions</a></li><li><a href='#measurements'>Measurements and estimands</a></li><li><a href='#results-27b'>27B results and uncertainty</a></li><li><a href='#cross-model'>Cross-model comparisons</a></li><li><a href='#paired-contrasts'>Paired per-item contrasts</a></li><li><a href='#scaling'>Effectiveness versus model size</a></li><li><a href='#efficiency'>Creation cost and scaling</a></li><li><a href='#pile-validation'>Held-out Pile validation</a></li><li><a href='#interpretation'>Interpretation and open questions</a></li><li><a href='#provenance'>Sources and provenance</a></li><li><a href='#documentation'>Documentation and logs</a></li></ol></nav>",
         "<h2 id='coverage'>Model and intervention coverage</h2>",
         fold("Show coverage matrix", coverage_table()),
         """<h3>Model catalog</h3>
@@ -1278,6 +1334,10 @@ def build_report(out_dir: Path) -> Path:
         f"<h3>Verbal report</h3><p class='muted'>Task: ask the model to produce a category member, then intervene on the representation of the selected source concept and test whether the target candidate rises at the answer position.</p>{task_examples['verbal']}" + plot_figure("verbal_cross_model.png", "fig-verbal-cross-model", "Verbal-report cross-model improvement rates", "Figure: Verbal-report cross-model comparison"),
         f"<h3>Two-hop reasoning</h3><p class='muted'>Task: the prompt states two linked facts; the intervention swaps the representation of the intermediate entity, and success means the model's downstream answer moves toward the answer implied by that substituted intermediate.</p>{task_examples['multihop']}" + plot_figure("multihop_cross_model.png", "fig-multihop-cross-model", "Two-hop cross-model improvement rates", "Figure: Two-hop reasoning cross-model comparison"),
         f"<h3>Flexible generalization</h3><p class='muted'>Task: substitute one argument for another, then test whether the model correctly carries that replacement through several downstream functions such as ordering, comparison, arithmetic, or relational use.</p>{task_examples['flexible']}" + plot_figure("flexible_cross_model.png", "fig-flexible-cross-model", "Flexible generalization cross-model improvement rates", "Figure: Flexible-generalization cross-model comparison"),
+        "<h2 id='paired-contrasts'>Paired per-item method contrasts</h2>",
+        "<p>Aggregate bars answer how often each method succeeds overall; they do not show whether the same items improve under one method and fail under another. This analysis pairs methods on the same item and averages over that item's scored layers, then reports the difference in success rate, a prompt/item bootstrap interval, and a paired sign-flip p-value. Positive values favor the named method over logit lens. These are paired descriptive/inferential summaries, not independent-sample tests, and each saved artifact remains a separate row rather than being pooled across models or tasks.</p>",
+        fold("Show all J-lens/tuned-versus-logit paired contrasts", paired_causal_table()),
+        "<p class='muted'>The corresponding machine-readable artifact is <code>data/analysis/paired_causal_effects.json</code>. Random-versus-logit controls remain in the 27B contrast table and the underlying artifact because their role is to establish the perturbation noise floor, not to replace the method-versus-method comparison.</p>",
         "<h2 id='scaling'>Effectiveness versus model size</h2>",
         "<p>The first view uses the intuitive absolute improvement rate. The second subtracts the matched random-control improvement rate, which is a better summary of technique-specific effect. The third shows median rank movement, capturing effect magnitude rather than only whether movement was positive. All use parameter count on a logarithmic x-axis and item-cluster bootstrap intervals.</p>",
         plot_figure("parameter_effectiveness.png", "fig-parameter-effectiveness", "Technique effectiveness versus model parameter count", "Figure: Absolute effectiveness versus model size"),
