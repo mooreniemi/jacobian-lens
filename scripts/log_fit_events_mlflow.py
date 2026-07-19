@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 
 import mlflow
+from mlflow import MlflowClient
 
 
 def main() -> None:
@@ -18,7 +19,15 @@ def main() -> None:
     args = parser.parse_args()
     mlflow.set_tracking_uri(args.tracking_uri)
     mlflow.set_experiment(args.experiment)
-    with mlflow.start_run(run_name=args.run_name) as run:
+    client = MlflowClient()
+    experiment = client.get_experiment_by_name(args.experiment)
+    existing = client.search_runs(
+        [experiment.experiment_id],
+        filter_string=f"tags.mlflow.runName = '{args.run_name}'",
+        max_results=1,
+    )
+    run_context = mlflow.start_run(run_id=existing[0].info.run_id) if existing else mlflow.start_run(run_name=args.run_name)
+    with run_context as run:
         for line in args.events.read_text().splitlines():
             event = json.loads(line)
             if event.get("event") != "step" or "step" not in event:
