@@ -15,7 +15,7 @@ Log a completed run:
 
 ```bash
 uv run --extra tracking python scripts/log_experiment_mlflow.py \
-  --result data/experiments/multihop-causal-methods-full90.json \
+  --result data/experiments/multihop-causal-full90.json \
   --experiment anthropic-causal-reproduction
 ```
 

@@ -1,0 +1,1235 @@
+[
+  {
+    "file": "data/experiments/flexible-causal-0.6b-tuned.json",
+    "model": "/home/alex/models/qwen3-0.6b",
+    "methods": [
+      "tuned",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "19",
+      "22",
+      "25"
+    ],
+    "n_items": 170,
+    "n_input": 192,
+    "precision": null,
+    "kernel_mode": "off",
+    "patch_positions": null,
+    "task_schema": [
+      "flexible"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/flexible-causal-0.6b.json",
+    "model": "/home/alex/models/qwen3-0.6b",
+    "methods": [
+      "jlens",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "19",
+      "22",
+      "25"
+    ],
+    "n_items": 170,
+    "n_input": 192,
+    "precision": null,
+    "kernel_mode": "off",
+    "patch_positions": null,
+    "task_schema": [
+      "flexible"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/flexible-causal-0.8b-tuned.json",
+    "model": "Qwen/Qwen3.5-0.8B",
+    "methods": [
+      "tuned",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "16",
+      "19",
+      "21"
+    ],
+    "n_items": 170,
+    "n_input": 192,
+    "precision": null,
+    "kernel_mode": "off",
+    "patch_positions": null,
+    "task_schema": [
+      "flexible"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/flexible-causal-0.8b.json",
+    "model": "Qwen/Qwen3.5-0.8B",
+    "methods": [
+      "jlens",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "16",
+      "19",
+      "21"
+    ],
+    "n_items": 170,
+    "n_input": 192,
+    "precision": null,
+    "kernel_mode": "off",
+    "patch_positions": null,
+    "task_schema": [
+      "flexible"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/flexible-causal-27b.json",
+    "model": "Qwen/Qwen3.6-27B",
+    "methods": [
+      "jlens",
+      "logit",
+      "random",
+      "tuned"
+    ],
+    "layers": [
+      "16",
+      "32",
+      "60"
+    ],
+    "n_items": 170,
+    "n_input": 192,
+    "precision": null,
+    "kernel_mode": "off",
+    "patch_positions": null,
+    "task_schema": [
+      "flexible"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/flexible-causal-4b-tuned.json",
+    "model": "Qwen/Qwen3.5-4B",
+    "methods": [
+      "tuned",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "24",
+      "28",
+      "30"
+    ],
+    "n_items": 170,
+    "n_input": 192,
+    "precision": null,
+    "kernel_mode": "off",
+    "patch_positions": null,
+    "task_schema": [
+      "flexible"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/flexible-causal-full48.json",
+    "model": "Qwen/Qwen3.5-4B",
+    "methods": [
+      "jlens",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "24",
+      "28",
+      "30"
+    ],
+    "n_items": 170,
+    "n_input": 192,
+    "precision": null,
+    "kernel_mode": "off",
+    "patch_positions": null,
+    "task_schema": [
+      "flexible"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/flexible-causal-qwen3-0.6b-tuned-pile-repro-v1.json",
+    "model": "/home/alex/models/qwen3-0.6b",
+    "methods": [
+      "tuned",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "19",
+      "22",
+      "25"
+    ],
+    "n_items": 170,
+    "n_input": 192,
+    "precision": {
+      "compute_dtype": "bf16",
+      "base_quantization": "none"
+    },
+    "kernel_mode": "off",
+    "patch_positions": null,
+    "task_schema": [
+      "flexible"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/flexible-causal-qwen3-1.7b-jlens-204.json",
+    "model": "/home/alex/models/qwen3-1.7b-hf",
+    "methods": [
+      "jlens",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "8",
+      "14",
+      "20"
+    ],
+    "n_items": 170,
+    "n_input": 192,
+    "precision": {
+      "compute_dtype": "bf16",
+      "base_quantization": "none"
+    },
+    "kernel_mode": "off",
+    "patch_positions": null,
+    "task_schema": [
+      "flexible"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/flexible-causal-qwen3-1.7b-tuned-wikitext-204.json",
+    "model": "/home/alex/models/qwen3-1.7b-hf",
+    "methods": [
+      "tuned",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "8",
+      "14",
+      "20"
+    ],
+    "n_items": 170,
+    "n_input": 192,
+    "precision": {
+      "compute_dtype": "bf16",
+      "base_quantization": "none"
+    },
+    "kernel_mode": "off",
+    "patch_positions": null,
+    "task_schema": [
+      "flexible"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/flexible-causal-qwen3.5-0.8b-tuned-pile-repro-v1.json",
+    "model": "Qwen/Qwen3.5-0.8B",
+    "methods": [
+      "tuned",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "16",
+      "19",
+      "21"
+    ],
+    "n_items": 170,
+    "n_input": 192,
+    "precision": {
+      "compute_dtype": "bf16",
+      "base_quantization": "none"
+    },
+    "kernel_mode": "off",
+    "patch_positions": null,
+    "task_schema": [
+      "flexible"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/flexible-causal-qwen3.5-4b-tuned-pile-repro-v1.json",
+    "model": "Qwen/Qwen3.5-4B",
+    "methods": [
+      "tuned",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "24",
+      "28",
+      "30"
+    ],
+    "n_items": 170,
+    "n_input": 192,
+    "precision": {
+      "compute_dtype": "bf16",
+      "base_quantization": "none"
+    },
+    "kernel_mode": "on",
+    "patch_positions": null,
+    "task_schema": [
+      "flexible"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/flexible-causal-smollm2-135m-tuned-pile-repro-v1.json",
+    "model": "/home/alex/models/smollm2-135m-instruct",
+    "methods": [
+      "tuned",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "21",
+      "25",
+      "28"
+    ],
+    "n_items": 170,
+    "n_input": 192,
+    "precision": {
+      "compute_dtype": "bf16",
+      "base_quantization": "none"
+    },
+    "kernel_mode": "off",
+    "patch_positions": null,
+    "task_schema": [
+      "flexible"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/flexible-causal-smollm2-135m-tuned.json",
+    "model": "/home/alex/models/smollm2-135m-instruct",
+    "methods": [
+      "tuned",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "21",
+      "25",
+      "28"
+    ],
+    "n_items": 170,
+    "n_input": 192,
+    "precision": null,
+    "kernel_mode": "off",
+    "patch_positions": null,
+    "task_schema": [
+      "flexible"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/flexible-causal-smollm2-135m.json",
+    "model": "/home/alex/models/smollm2-135m-instruct",
+    "methods": [
+      "jlens",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "21",
+      "25",
+      "28"
+    ],
+    "n_items": 170,
+    "n_input": 192,
+    "precision": null,
+    "kernel_mode": "off",
+    "patch_positions": null,
+    "task_schema": [
+      "flexible"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/multihop-causal-0.6b-tuned.json",
+    "model": "/home/alex/models/qwen3-0.6b",
+    "methods": [
+      "tuned",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "19",
+      "22",
+      "25"
+    ],
+    "n_items": 68,
+    "n_input": 90,
+    "precision": null,
+    "kernel_mode": "off",
+    "patch_positions": "all",
+    "task_schema": [
+      "multihop"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/multihop-causal-0.6b.json",
+    "model": "/home/alex/models/qwen3-0.6b",
+    "methods": [
+      "jlens",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "19",
+      "22",
+      "25"
+    ],
+    "n_items": 68,
+    "n_input": 90,
+    "precision": null,
+    "kernel_mode": "off",
+    "patch_positions": "all",
+    "task_schema": [
+      "multihop"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/multihop-causal-0.8b-tuned.json",
+    "model": "Qwen/Qwen3.5-0.8B",
+    "methods": [
+      "tuned",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "16",
+      "19",
+      "21"
+    ],
+    "n_items": 68,
+    "n_input": 90,
+    "precision": null,
+    "kernel_mode": "off",
+    "patch_positions": "all",
+    "task_schema": [
+      "multihop"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/multihop-causal-0.8b.json",
+    "model": "Qwen/Qwen3.5-0.8B",
+    "methods": [
+      "jlens",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "16",
+      "19",
+      "21"
+    ],
+    "n_items": 68,
+    "n_input": 90,
+    "precision": null,
+    "kernel_mode": "off",
+    "patch_positions": "all",
+    "task_schema": [
+      "multihop"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/multihop-causal-27b.json",
+    "model": "Qwen/Qwen3.6-27B",
+    "methods": [
+      "jlens",
+      "logit",
+      "random",
+      "tuned"
+    ],
+    "layers": [
+      "16",
+      "32",
+      "60"
+    ],
+    "n_items": 68,
+    "n_input": 90,
+    "precision": null,
+    "kernel_mode": "off",
+    "patch_positions": "all",
+    "task_schema": [
+      "multihop"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/multihop-causal-4b-tuned.json",
+    "model": "Qwen/Qwen3.5-4B",
+    "methods": [
+      "tuned",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "24",
+      "28",
+      "30"
+    ],
+    "n_items": 68,
+    "n_input": 90,
+    "precision": null,
+    "kernel_mode": "off",
+    "patch_positions": "all",
+    "task_schema": [
+      "multihop"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/multihop-causal-full90.json",
+    "model": "Qwen/Qwen3.5-4B",
+    "methods": [
+      "jlens",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "24",
+      "28",
+      "30"
+    ],
+    "n_items": 68,
+    "n_input": 90,
+    "precision": {
+      "compute_dtype": "bf16",
+      "base_quantization": "none"
+    },
+    "kernel_mode": "on",
+    "patch_positions": "all",
+    "task_schema": [
+      "multihop"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/multihop-causal-qwen3-0.6b-tuned-pile-repro-v1.json",
+    "model": "/home/alex/models/qwen3-0.6b",
+    "methods": [
+      "tuned",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "19",
+      "22",
+      "25"
+    ],
+    "n_items": 68,
+    "n_input": 90,
+    "precision": {
+      "compute_dtype": "bf16",
+      "base_quantization": "none"
+    },
+    "kernel_mode": "off",
+    "patch_positions": "all",
+    "task_schema": [
+      "multihop"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/multihop-causal-qwen3-1.7b-jlens-204.json",
+    "model": "/home/alex/models/qwen3-1.7b-hf",
+    "methods": [
+      "jlens",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "8",
+      "14",
+      "20"
+    ],
+    "n_items": 68,
+    "n_input": 90,
+    "precision": {
+      "compute_dtype": "bf16",
+      "base_quantization": "none"
+    },
+    "kernel_mode": "off",
+    "patch_positions": "all",
+    "task_schema": [
+      "multihop"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/multihop-causal-qwen3-1.7b-tuned-wikitext-204.json",
+    "model": "/home/alex/models/qwen3-1.7b-hf",
+    "methods": [
+      "tuned",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "8",
+      "14",
+      "20"
+    ],
+    "n_items": 68,
+    "n_input": 90,
+    "precision": {
+      "compute_dtype": "bf16",
+      "base_quantization": "none"
+    },
+    "kernel_mode": "off",
+    "patch_positions": "all",
+    "task_schema": [
+      "multihop"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/multihop-causal-qwen3.5-0.8b-tuned-pile-repro-v1.json",
+    "model": "Qwen/Qwen3.5-0.8B",
+    "methods": [
+      "tuned",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "16",
+      "19",
+      "21"
+    ],
+    "n_items": 68,
+    "n_input": 90,
+    "precision": {
+      "compute_dtype": "bf16",
+      "base_quantization": "none"
+    },
+    "kernel_mode": "off",
+    "patch_positions": "all",
+    "task_schema": [
+      "multihop"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/multihop-causal-qwen3.5-4b-tuned-pile-repro-v1.json",
+    "model": "Qwen/Qwen3.5-4B",
+    "methods": [
+      "tuned",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "24",
+      "28",
+      "30"
+    ],
+    "n_items": 68,
+    "n_input": 90,
+    "precision": {
+      "compute_dtype": "bf16",
+      "base_quantization": "none"
+    },
+    "kernel_mode": "on",
+    "patch_positions": "all",
+    "task_schema": [
+      "multihop"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/multihop-causal-smollm2-135m-tuned-pile-repro-v1.json",
+    "model": "/home/alex/models/smollm2-135m-instruct",
+    "methods": [
+      "tuned",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "21",
+      "25",
+      "28"
+    ],
+    "n_items": 66,
+    "n_input": 90,
+    "precision": {
+      "compute_dtype": "bf16",
+      "base_quantization": "none"
+    },
+    "kernel_mode": "off",
+    "patch_positions": "all",
+    "task_schema": [
+      "multihop"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/multihop-causal-smollm2-135m-tuned.json",
+    "model": "/home/alex/models/smollm2-135m-instruct",
+    "methods": [
+      "tuned",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "21",
+      "25",
+      "28"
+    ],
+    "n_items": 66,
+    "n_input": 90,
+    "precision": null,
+    "kernel_mode": "off",
+    "patch_positions": "all",
+    "task_schema": [
+      "multihop"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/multihop-causal-smollm2-135m.json",
+    "model": "/home/alex/models/smollm2-135m-instruct",
+    "methods": [
+      "jlens",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "21",
+      "25",
+      "28"
+    ],
+    "n_items": 66,
+    "n_input": 90,
+    "precision": null,
+    "kernel_mode": "off",
+    "patch_positions": "all",
+    "task_schema": [
+      "multihop"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/verbal-report-causal-0.6b-tuned.json",
+    "model": "/home/alex/models/qwen3-0.6b",
+    "methods": [
+      "tuned",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "19",
+      "22",
+      "25"
+    ],
+    "n_items": 14,
+    "n_input": null,
+    "precision": null,
+    "kernel_mode": "off",
+    "patch_positions": "all",
+    "task_schema": [
+      "verbal"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/verbal-report-causal-0.6b.json",
+    "model": "/home/alex/models/qwen3-0.6b",
+    "methods": [
+      "jlens",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "19",
+      "22",
+      "25"
+    ],
+    "n_items": 14,
+    "n_input": null,
+    "precision": null,
+    "kernel_mode": "off",
+    "patch_positions": "all",
+    "task_schema": [
+      "verbal"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/verbal-report-causal-0.8b-tuned.json",
+    "model": "Qwen/Qwen3.5-0.8B",
+    "methods": [
+      "tuned",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "16",
+      "19",
+      "21"
+    ],
+    "n_items": 14,
+    "n_input": null,
+    "precision": null,
+    "kernel_mode": "off",
+    "patch_positions": "all",
+    "task_schema": [
+      "verbal"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/verbal-report-causal-0.8b.json",
+    "model": "Qwen/Qwen3.5-0.8B",
+    "methods": [
+      "jlens",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "16",
+      "19",
+      "21"
+    ],
+    "n_items": 14,
+    "n_input": null,
+    "precision": null,
+    "kernel_mode": "off",
+    "patch_positions": "all",
+    "task_schema": [
+      "verbal"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/verbal-report-causal-27b.json",
+    "model": "Qwen/Qwen3.6-27B",
+    "methods": [
+      "jlens",
+      "logit",
+      "random",
+      "tuned"
+    ],
+    "layers": [
+      "16",
+      "32",
+      "60"
+    ],
+    "n_items": 14,
+    "n_input": null,
+    "precision": null,
+    "kernel_mode": "off",
+    "patch_positions": "all",
+    "task_schema": [
+      "verbal"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/verbal-report-causal-4b-tuned.json",
+    "model": "Qwen/Qwen3.5-4B",
+    "methods": [
+      "tuned",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "24",
+      "28",
+      "30"
+    ],
+    "n_items": 14,
+    "n_input": null,
+    "precision": null,
+    "kernel_mode": "off",
+    "patch_positions": "all",
+    "task_schema": [
+      "verbal"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/verbal-report-causal-full14.json",
+    "model": "Qwen/Qwen3.5-4B",
+    "methods": [
+      "jlens",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "24",
+      "28",
+      "30"
+    ],
+    "n_items": 14,
+    "n_input": null,
+    "precision": {
+      "compute_dtype": "bf16",
+      "base_quantization": "none"
+    },
+    "kernel_mode": "on",
+    "patch_positions": "all",
+    "task_schema": [
+      "verbal"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/verbal-report-causal-qwen3-0.6b-tuned-pile-repro-v1.json",
+    "model": "/home/alex/models/qwen3-0.6b",
+    "methods": [
+      "tuned",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "19",
+      "22",
+      "25"
+    ],
+    "n_items": 14,
+    "n_input": null,
+    "precision": {
+      "compute_dtype": "bf16",
+      "base_quantization": "none"
+    },
+    "kernel_mode": "off",
+    "patch_positions": "all",
+    "task_schema": [
+      "verbal"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/verbal-report-causal-qwen3-1.7b-jlens-204.json",
+    "model": "/home/alex/models/qwen3-1.7b-hf",
+    "methods": [
+      "jlens",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "8",
+      "14",
+      "20"
+    ],
+    "n_items": 14,
+    "n_input": null,
+    "precision": {
+      "compute_dtype": "bf16",
+      "base_quantization": "none"
+    },
+    "kernel_mode": "off",
+    "patch_positions": "all",
+    "task_schema": [
+      "verbal"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/verbal-report-causal-qwen3-1.7b-tuned-wikitext-204.json",
+    "model": "/home/alex/models/qwen3-1.7b-hf",
+    "methods": [
+      "tuned",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "8",
+      "14",
+      "20"
+    ],
+    "n_items": 14,
+    "n_input": null,
+    "precision": {
+      "compute_dtype": "bf16",
+      "base_quantization": "none"
+    },
+    "kernel_mode": "off",
+    "patch_positions": "all",
+    "task_schema": [
+      "verbal"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/verbal-report-causal-qwen3.5-0.8b-tuned-pile-repro-v1.json",
+    "model": "Qwen/Qwen3.5-0.8B",
+    "methods": [
+      "tuned",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "16",
+      "19",
+      "21"
+    ],
+    "n_items": 14,
+    "n_input": null,
+    "precision": {
+      "compute_dtype": "bf16",
+      "base_quantization": "none"
+    },
+    "kernel_mode": "off",
+    "patch_positions": "all",
+    "task_schema": [
+      "verbal"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/verbal-report-causal-qwen3.5-4b-tuned-pile-repro-v1.json",
+    "model": "Qwen/Qwen3.5-4B",
+    "methods": [
+      "tuned",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "24",
+      "28",
+      "30"
+    ],
+    "n_items": 14,
+    "n_input": null,
+    "precision": {
+      "compute_dtype": "bf16",
+      "base_quantization": "none"
+    },
+    "kernel_mode": "on",
+    "patch_positions": "all",
+    "task_schema": [
+      "verbal"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/verbal-report-causal-smollm2-135m-tuned-pile-repro-v1.json",
+    "model": "/home/alex/models/smollm2-135m-instruct",
+    "methods": [
+      "tuned",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "21",
+      "25",
+      "28"
+    ],
+    "n_items": 14,
+    "n_input": null,
+    "precision": {
+      "compute_dtype": "bf16",
+      "base_quantization": "none"
+    },
+    "kernel_mode": "off",
+    "patch_positions": "all",
+    "task_schema": [
+      "verbal"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/verbal-report-causal-smollm2-135m-tuned.json",
+    "model": "/home/alex/models/smollm2-135m-instruct",
+    "methods": [
+      "tuned",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "21",
+      "25",
+      "28"
+    ],
+    "n_items": 14,
+    "n_input": null,
+    "precision": null,
+    "kernel_mode": "off",
+    "patch_positions": "all",
+    "task_schema": [
+      "verbal"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  },
+  {
+    "file": "data/experiments/verbal-report-causal-smollm2-135m.json",
+    "model": "/home/alex/models/smollm2-135m-instruct",
+    "methods": [
+      "jlens",
+      "logit",
+      "random"
+    ],
+    "layers": [
+      "21",
+      "25",
+      "28"
+    ],
+    "n_items": 14,
+    "n_input": null,
+    "precision": null,
+    "kernel_mode": "off",
+    "patch_positions": "all",
+    "task_schema": [
+      "verbal"
+    ],
+    "legacy_methods_inferred": false,
+    "errors": [],
+    "warnings": [],
+    "status": "PASS"
+  }
+]
