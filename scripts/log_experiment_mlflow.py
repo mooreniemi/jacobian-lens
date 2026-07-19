@@ -74,6 +74,11 @@ def main() -> None:
             }.items()
             if value is not None
         }
+        for key in ("dataset", "steps", "seq_len", "batch_size", "dtype", "learning_rate",
+                    "training_tokens", "hardware", "elapsed_s", "peak_allocated_gib",
+                    "peak_reserved_gib"):
+            if result.get(key) is not None:
+                params[key] = result[key]
         mlflow.log_params({key: json.dumps(value) if isinstance(value, (list, dict)) else value for key, value in params.items()})
         for row in result.get("aggregate", []):
             # Multihop rows have six fields; verbal-report rows may also have

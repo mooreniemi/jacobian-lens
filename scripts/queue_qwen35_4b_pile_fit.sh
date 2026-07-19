@@ -7,6 +7,7 @@ OUT="data/lenses/qwen3.5-4b-tuned-pile-repro-v1"
 EVENTS="data/lenses/qwen3.5-4b-tuned-pile-repro-v1.events.jsonl"
 log() { echo "[qwen35-4b-pile $(date '+%Y-%m-%d %H:%M:%S')] $*"; }
 notify() { "$HOME/.local/bin/notify-me" "$*" || log "notification failed"; }
+log_mlflow() { uv run python scripts/log_experiment_mlflow.py --result "$1" --experiment "$2" || log "MLflow logging failed for $1"; }
 trap 'rc=$?; notify "Qwen3.5-4B Pile fit failed (exit $rc). Check the 4B fit log."; exit $rc' ERR
 
 log "waiting for Qwen3.5-0.8B predictive/causal queue to finish"
@@ -22,6 +23,7 @@ uv run python scripts/fit_tuned_lens_local.py \
   --dtype bf16 --min-free-gib 6 \
   --events-out "$EVENTS" \
   > data/lenses/qwen3.5-4b-tuned-pile-repro-v1.log 2>&1
+log_mlflow "$OUT/fit_manifest.json" lens-fits
 
 notify "Qwen3.5-4B Pile fit finished. Artifact: $OUT. Predictive evaluation is next; no 27B local fit was launched."
 log "fit complete"

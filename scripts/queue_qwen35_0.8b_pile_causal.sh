@@ -12,6 +12,7 @@ BASIS="data/lenses/qwen3.5-0.8b-tuned-pile-repro-v1-patch-basis.pt"
 LAYERS="16,19,21"
 log() { echo "[qwen35-0.8b-pile $(date '+%Y-%m-%d %H:%M:%S')] $*"; }
 notify() { "$HOME/.local/bin/notify-me" "$*" || log "notification failed"; }
+log_mlflow() { uv run python scripts/log_experiment_mlflow.py --result "$1" --experiment "$2" || log "MLflow logging failed for $1"; }
 trap 'rc=$?; notify "Qwen3.5-0.8B Pile queue failed (exit $rc). Check the queue log."; exit $rc' ERR
 
 # Do not contend with the active 1.7B full-gate queue. The 0.8B fit and
@@ -54,18 +55,21 @@ uv run python scripts/eval_verbal_report_causal.py "${COMMON[@]}" \
   --categories country color fruit sport instrument planet tree bird language profession beverage organ city river \
   --patch-positions all \
   --out data/experiments/verbal-report-causal-${SLUG}-tuned-pile-repro-v1.json
+log_mlflow data/experiments/verbal-report-causal-${SLUG}-tuned-pile-repro-v1.json causal-evaluations
 notify "Qwen3.5-0.8B Pile verbal-report causal suite finished."
 
 log "starting two-hop causal suite"
 uv run python scripts/eval_multihop_causal.py "${COMMON[@]}" \
   --data data/experiments/probe-swap.json --patch-positions all \
   --out data/experiments/multihop-causal-${SLUG}-tuned-pile-repro-v1.json
+log_mlflow data/experiments/multihop-causal-${SLUG}-tuned-pile-repro-v1.json causal-evaluations
 notify "Qwen3.5-0.8B Pile two-hop causal suite finished."
 
 log "starting flexible-generalization causal suite"
 uv run python scripts/eval_flexible_causal.py "${COMMON[@]}" \
   --data data/experiments/flexible-generalization.json \
   --out data/experiments/flexible-causal-${SLUG}-tuned-pile-repro-v1.json
+log_mlflow data/experiments/flexible-causal-${SLUG}-tuned-pile-repro-v1.json causal-evaluations
 notify "Qwen3.5-0.8B Pile flexible-generalization causal suite finished."
 
 notify "Qwen3.5-0.8B Pile causal queue finished. Regenerating research report and PDF now."

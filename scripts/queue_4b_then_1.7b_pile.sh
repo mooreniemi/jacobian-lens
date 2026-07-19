@@ -8,6 +8,7 @@ if [[ -z "${HF_TOKEN:-}" && -s "$HOME/.config/huggingface/modal-token" ]]; then
 fi
 log() { echo "[pile-day-queue $(date '+%Y-%m-%d %H:%M:%S')] $*"; }
 notify() { "$HOME/.local/bin/notify-me" "$*" || log "notification failed"; }
+log_mlflow() { uv run python scripts/log_experiment_mlflow.py --result "$1" --experiment "$2" || log "MLflow logging failed for $1"; }
 trap 'rc=$?; notify "Pile daytime queue failed (exit $rc). Check the pane/log."; exit $rc' ERR
 
 validate_eval() {
@@ -55,10 +56,13 @@ run_causal() {
   uv run python scripts/export_tuned_patch_basis.py --model "$model" --tuned-dir "$lens" --out "$basis"
   local common=(--model "$model" --lens-local "$basis" --layers "$layers" --methods tuned,logit,random --qwen-kernels on --min-free-gib 6)
   uv run python scripts/eval_verbal_report_causal.py "${common[@]}" --data data/experiments/verbal-report.json --categories country color fruit sport instrument planet tree bird language profession beverage organ city river --patch-positions all --out "data/experiments/verbal-report-causal-${slug}-tuned-pile-repro-v1.json"
+  log_mlflow "data/experiments/verbal-report-causal-${slug}-tuned-pile-repro-v1.json" causal-evaluations
   notify "$slug Pile verbal-report causal suite finished."
   uv run python scripts/eval_multihop_causal.py "${common[@]}" --data data/experiments/probe-swap.json --patch-positions all --out "data/experiments/multihop-causal-${slug}-tuned-pile-repro-v1.json"
+  log_mlflow "data/experiments/multihop-causal-${slug}-tuned-pile-repro-v1.json" causal-evaluations
   notify "$slug Pile two-hop causal suite finished."
   uv run python scripts/eval_flexible_causal.py "${common[@]}" --data data/experiments/flexible-generalization.json --out "data/experiments/flexible-causal-${slug}-tuned-pile-repro-v1.json"
+  log_mlflow "data/experiments/flexible-causal-${slug}-tuned-pile-repro-v1.json" causal-evaluations
   notify "$slug Pile flexible-generalization causal suite finished."
 }
 
@@ -66,6 +70,7 @@ FOUR_EVAL="data/experiments/qwen3.5-4b-tuned-pile-repro-v1-eval.json"
 wait_for "$FOUR_EVAL"
 validate_eval "$FOUR_EVAL"
 notify_eval_table "$FOUR_EVAL"
+log_mlflow "$FOUR_EVAL" pile-predictive-evaluations
 notify "Qwen3.5-4B Pile predictive gate passed; starting its causal suites."
 run_causal qwen3.5-4b Qwen/Qwen3.5-4B data/lenses/qwen3.5-4b-tuned-pile-repro-v1 24,28,30
 make report-pdf
@@ -77,6 +82,7 @@ log "resuming Qwen3-1.7B full Pile predictive evaluation"
 uv run python scripts/eval_tuned_lens_pile.py --model /home/alex/models/qwen3-1.7b-hf --lens data/lenses/qwen3-1.7b-tuned-pile-repro-v1 --data data/tuned-lens-pile/test.jsonl --out "$ONE7_EVAL" --tokens 16400000 --length 128 --batch-size 16 --dtype bf16 --progress-every-batches 100 --events-out data/experiments/qwen3-1.7b-tuned-pile-repro-v1-eval.events.jsonl --checkpoint-out "$ONE7_CHECKPOINT" --resume
 validate_eval "$ONE7_EVAL"
 notify_eval_table "$ONE7_EVAL"
+log_mlflow "$ONE7_EVAL" pile-predictive-evaluations
 notify "Qwen3-1.7B full Pile predictive gate passed; starting its causal suites."
 run_causal qwen3-1.7b /home/alex/models/qwen3-1.7b-hf data/lenses/qwen3-1.7b-tuned-pile-repro-v1 19,22,25
 make report-pdf
