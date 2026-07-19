@@ -20,7 +20,6 @@
     "task_schema": [
       "flexible"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -46,7 +45,6 @@
     "task_schema": [
       "flexible"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -72,7 +70,6 @@
     "task_schema": [
       "flexible"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -98,7 +95,6 @@
     "task_schema": [
       "flexible"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -125,7 +121,6 @@
     "task_schema": [
       "flexible"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -151,7 +146,6 @@
     "task_schema": [
       "flexible"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -177,7 +171,6 @@
     "task_schema": [
       "flexible"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -206,7 +199,6 @@
     "task_schema": [
       "flexible"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -235,7 +227,6 @@
     "task_schema": [
       "flexible"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -264,7 +255,6 @@
     "task_schema": [
       "flexible"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -293,7 +283,6 @@
     "task_schema": [
       "flexible"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -322,7 +311,6 @@
     "task_schema": [
       "flexible"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -351,7 +339,6 @@
     "task_schema": [
       "flexible"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -377,7 +364,6 @@
     "task_schema": [
       "flexible"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -403,7 +389,6 @@
     "task_schema": [
       "flexible"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -429,7 +414,6 @@
     "task_schema": [
       "multihop"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -455,7 +439,6 @@
     "task_schema": [
       "multihop"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -481,7 +464,6 @@
     "task_schema": [
       "multihop"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -507,7 +489,6 @@
     "task_schema": [
       "multihop"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -534,7 +515,6 @@
     "task_schema": [
       "multihop"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -560,7 +540,6 @@
     "task_schema": [
       "multihop"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -589,7 +568,6 @@
     "task_schema": [
       "multihop"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -618,7 +596,6 @@
     "task_schema": [
       "multihop"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -647,7 +624,6 @@
     "task_schema": [
       "multihop"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -676,7 +652,6 @@
     "task_schema": [
       "multihop"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -705,7 +680,6 @@
     "task_schema": [
       "multihop"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -734,7 +708,6 @@
     "task_schema": [
       "multihop"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -763,7 +736,6 @@
     "task_schema": [
       "multihop"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -789,7 +761,6 @@
     "task_schema": [
       "multihop"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -815,7 +786,6 @@
     "task_schema": [
       "multihop"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -841,7 +811,6 @@
     "task_schema": [
       "verbal"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -867,7 +836,6 @@
     "task_schema": [
       "verbal"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -893,7 +861,6 @@
     "task_schema": [
       "verbal"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -919,7 +886,6 @@
     "task_schema": [
       "verbal"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -946,7 +912,6 @@
     "task_schema": [
       "verbal"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -972,7 +937,6 @@
     "task_schema": [
       "verbal"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -1001,7 +965,6 @@
     "task_schema": [
       "verbal"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -1030,7 +993,6 @@
     "task_schema": [
       "verbal"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -1059,7 +1021,6 @@
     "task_schema": [
       "verbal"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -1088,7 +1049,6 @@
     "task_schema": [
       "verbal"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -1117,7 +1077,6 @@
     "task_schema": [
       "verbal"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -1146,7 +1105,6 @@
     "task_schema": [
       "verbal"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -1175,7 +1133,6 @@
     "task_schema": [
       "verbal"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -1201,7 +1158,6 @@
     "task_schema": [
       "verbal"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"
@@ -1227,7 +1183,6 @@
     "task_schema": [
       "verbal"
     ],
-    "legacy_methods_inferred": false,
     "errors": [],
     "warnings": [],
     "status": "PASS"

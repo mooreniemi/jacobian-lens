@@ -25,16 +25,6 @@ def audit(path: Path) -> dict:
     errors: list[str] = []
     warnings: list[str] = []
     methods = list(data.get("methods", []))
-    legacy_methods_inferred = False
-    if not methods and data.get("items"):
-        methods = sorted({
-            method
-            for item in data["items"]
-            for layer in item.get("layers", {}).values()
-            for method in layer
-        })
-        legacy_methods_inferred = True
-        warnings.append("legacy artifact omitted top-level methods metadata")
     declared_layers = tuple(str(x) for x in data.get("layers", []))
     items = data.get("items", [])
     if not data.get("model"):
@@ -88,7 +78,6 @@ def audit(path: Path) -> dict:
         "kernel_mode": data.get("kernel_mode"),
         "patch_positions": data.get("patch_positions"),
         "task_schema": sorted(schema_kinds),
-        "legacy_methods_inferred": legacy_methods_inferred,
         "errors": errors,
         "warnings": warnings,
         "status": "FAIL" if errors else ("WARN" if warnings else "PASS"),
