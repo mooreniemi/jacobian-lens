@@ -12,6 +12,8 @@ import argparse
 import contextlib
 import gc
 import json
+import resource
+import subprocess
 import time
 from pathlib import Path
 
@@ -49,6 +51,24 @@ def event(name: str, **fields: object) -> None:
     if EVENTS_OUT is not None:
         with EVENTS_OUT.open("a") as handle:
             handle.write(json.dumps(payload, sort_keys=True) + "\n")
+
+
+def system_metrics() -> dict[str, float]:
+    """Return cheap process/GPU telemetry for durable fit events."""
+    metrics = {
+        "process_rss_gib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 2**20,
+        "process_cpu_seconds": resource.getrusage(resource.RUSAGE_SELF).ru_utime,
+    }
+    try:
+        row = subprocess.check_output(
+            ["nvidia-smi", "--query-gpu=utilization.gpu,memory.used,memory.total",
+             "--format=csv,noheader,nounits"], text=True, timeout=1).strip().split(",")
+        metrics["gpu_utilization_pct"] = float(row[0])
+        metrics["gpu_memory_used_gib"] = float(row[1]) / 1024
+        metrics["gpu_memory_total_gib"] = float(row[2]) / 1024
+    except (OSError, subprocess.SubprocessError, ValueError, IndexError):
+        pass
+    return {key: round(value, 3) for key, value in metrics.items()}
 
 
 def make_chunks(
@@ -226,7 +246,7 @@ def main() -> None:
             free, _ = torch.cuda.mem_get_info()
             step_seconds = time.monotonic() - step_started
             log(f"step {step + 1}/{args.steps} mean_KL={sum(losses) / len(losses):.5f} step={step_seconds:.1f}s free={free / 2**30:.2f} GiB")
-            event("step", step=step + 1, steps=args.steps, step_seconds=round(step_seconds, 3), mean_kl=round(sum(losses) / len(losses), 6), free_gib=round(free / 2**30, 3), allocated_gib=round(torch.cuda.memory_allocated() / 2**30, 3), reserved_gib=round(torch.cuda.memory_reserved() / 2**30, 3))
+            event("step", step=step + 1, steps=args.steps, step_seconds=round(step_seconds, 3), mean_kl=round(sum(losses) / len(losses), 6), free_gib=round(free / 2**30, 3), allocated_gib=round(torch.cuda.memory_allocated() / 2**30, 3), reserved_gib=round(torch.cuda.memory_reserved() / 2**30, 3), **system_metrics())
 
     out = Path(args.out)
     lens.eval()
