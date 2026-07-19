@@ -405,6 +405,40 @@ def paired_causal_table() -> str:
     )
 
 
+def task_discriminability_table(all_runs: dict[str, list[tuple[str, Path, dict]]]) -> str:
+    """Summarize whether the current two-hop and flexible tasks separate."""
+    model_set = {"SmolLM2-135M", "Qwen3-0.6B", "Qwen3-1.7B", "Qwen3.5-0.8B", "Qwen3.5-4B", "Qwen3.6-27B"}
+    rates: dict[str, dict[str, dict[str, float]]] = {"multihop": {}, "flexible": {}}
+    for task in rates:
+        for model, _path, data in all_runs[task]:
+            if model not in model_set:
+                continue
+            for aggregate in data.get("aggregate", []):
+                method = aggregate[0]
+                if method in {"jlens", "logit", "random", "tuned"}:
+                    rates[task].setdefault(method, {})[model] = 100 * aggregate[2] / aggregate[1]
+
+    rows = []
+    for method in ("jlens", "logit", "random", "tuned"):
+        shared = sorted(set(rates["multihop"].get(method, {})) & set(rates["flexible"].get(method, {})))
+        if len(shared) < 3:
+            continue
+        multihop = np.asarray([rates["multihop"][method][model] for model in shared])
+        flexible = np.asarray([rates["flexible"][method][model] for model in shared])
+        correlation = float(np.corrcoef(multihop, flexible)[0, 1])
+        rows.append([
+            PLOT_METHOD_LABELS[method],
+            len(shared),
+            f"{multihop.mean():.1f}%",
+            f"{flexible.mean():.1f}%",
+            f"{correlation:+.2f}",
+        ])
+    return table(
+        ["Intervention", "Shared models", "Mean two-hop", "Mean flexible", "Across-model Pearson r"],
+        rows,
+    )
+
+
 def coverage_table() -> str:
     """Build a model/intervention-by-measurement coverage matrix."""
     tasks = {
@@ -1390,6 +1424,15 @@ def build_report(out_dir: Path) -> Path:
         "<tr><td>95% bootstrap interval</td><td>Cluster bootstrap over prompts/items, keeping their scored layers together.</td><td>Uncertainty over examples, not an assumption that layers are independent samples.</td></tr>",
         "</tbody></table>",
         "<p class='muted'>The verbal-report task uses target top-10; the two-hop and flexible tasks use target top-5. Random matched controls are not expected to have zero improved conditions: they establish the noise floor for this rank-based metric.</p>",
+        "<h3>Are two-hop reasoning and flexible generalization actually distinct?</h3>",
+        "<p>At the level of the current fixtures, the distinction is weaker than the task names suggest. Both intervene on an argument-like representation and ask whether a downstream token changes appropriately. The two-hop prompt adds a nested relation; the flexible prompt makes the relation look like a named function. That may be a meaningful compositional difference, but it is not yet a strong measurement separation.</p>",
+        fold("Show across-model task correlations", task_discriminability_table(all_runs)),
+        "<p class='muted'>The correlation table uses the six shared models and aggregate improved-condition rates, so it is descriptive and underpowered rather than a formal validation of task independence. A high positive correlation means the tasks may be tracking a shared argument-substitution sensitivity; it does not prove that they are identical.</p>",
+        "<table><thead><tr><th>Current fixture</th><th>Swap</th><th>Expected shift</th><th>Operational interpretation</th></tr></thead><tbody>",
+        "<tr><td>The capital of France is the city of</td><td>France → Canada</td><td>Paris → Ottawa</td><td>Recompute a one-argument function after an entity substitution; current flexible-generalization fixture.</td></tr>",
+        "<tr><td>Fact: The language spoken in the country where the Amazon River ends is</td><td>Brazil → Mexico</td><td>Portuguese → Spanish</td><td>Carry an intermediate entity through a nested relation; current two-hop fixture.</td></tr>",
+        "</tbody></table>",
+        "<p class='callout'><strong>Interpretive consequence:</strong> we should not present the current two-hop and flexible suites as independent evidence without qualification. The next stronger version should hold the surface operation constant while varying whether the answer requires one substituted argument or a genuinely necessary intermediate chain, and should include matched controls that distinguish direct lookup from composition.</p>",
         "<h2 id='results-27b'>Qwen3.6-27B headline results</h2>",
         "<p class='muted'><strong>Verbal report task:</strong> replace one entity in a factual prompt and test whether the model's next answer or continuation shifts toward the substituted entity. The headline plot summarizes the fraction of causal swap conditions where the target answer's rank improved.</p>",
         fold("Show headline aggregate table", table(["Experiment", "Method", "n", "Improved", "Median Δrank", "Mean Δrank", "Top-1", "Top-k", "Improvement rate"], headline_rows)),
