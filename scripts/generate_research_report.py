@@ -667,10 +667,11 @@ def save_paired_contrast_plot(path: Path) -> None:
     axes[0].set_ylabel("Model")
     axes[1].set_xlabel("Success-rate difference versus logit (percentage points)")
     legend_handles = [
-        Line2D([0], [0], marker="o", linestyle="none", color=PLOT_METHOD_COLORS[method], label=PLOT_METHOD_LABELS[method])
+        Line2D([0], [0], marker="o", linestyle="none", color=PLOT_METHOD_COLORS[method], label=("tuned-wiki-small-v0 (27B only)" if method == "tuned" else PLOT_METHOD_LABELS[method]))
         for method in methods
         if method in plotted
     ]
+    legend_handles.insert(0, Line2D([0], [0], color="black", linewidth=0.9, label="logit lens (reference = 0)"))
     axes[-1].legend(handles=legend_handles, frameon=False, loc="upper center", bbox_to_anchor=(0.5, -0.13), ncols=2)
     fig.suptitle("Paired per-item contrasts: positive values favor the named method")
     fig.savefig(path, dpi=150)
@@ -1407,7 +1408,7 @@ def build_report(out_dir: Path) -> Path:
         "<h2 id='paired-contrasts'>Paired per-item method contrasts</h2>",
         "<p>Aggregate bars answer how often each method succeeds overall; they do not show whether the same items improve under one method and fail under another. This analysis pairs methods on the same item and averages over that item's scored layers, then reports the difference in success rate, a prompt/item bootstrap interval, and a paired sign-flip p-value. Positive values favor the named method over logit lens. These are paired descriptive/inferential summaries, not independent-sample tests, and each saved artifact remains a separate row rather than being pooled across models or tasks.</p>",
         plot_figure("paired_causal_contrasts.png", "fig-paired-causal-contrasts", "Paired per-item success-rate contrasts versus logit lens", "Figure: Paired per-item contrasts versus logit lens"),
-        "<p class='callout'><strong>Quick read:</strong> the vertical line at zero is the null. Points to the right mean the named method wins more same-item comparisons than logit lens; intervals crossing zero are inconclusive at this uncertainty level. The plot is most useful for seeing whether an apparent aggregate advantage is consistent across models and tasks, rather than driven by one large bar.</p>",
+        "<p class='callout'><strong>Quick read:</strong> logit lens is the reference method and therefore appears as the vertical zero line, not as a separate point series. Points to the right mean the named method wins more same-item comparisons than logit lens; intervals crossing zero are inconclusive at this uncertainty level. The green tuned-lens point is 27B-only because no other model currently has a paired tuned-versus-logit artifact. The plot is most useful for seeing whether an apparent aggregate advantage is consistent across models and tasks, rather than driven by one large bar.</p>",
         fold("Show all J-lens/tuned-versus-logit paired contrasts", paired_causal_table()),
         "<p class='muted'>The corresponding machine-readable artifact is <code>data/analysis/paired_causal_effects.json</code>. Random-versus-logit controls remain in the 27B contrast table and the underlying artifact because their role is to establish the perturbation noise floor, not to replace the method-versus-method comparison.</p>",
         "<h2 id='scaling'>Effectiveness versus model size</h2>",
