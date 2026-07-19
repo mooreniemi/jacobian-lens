@@ -23,7 +23,7 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--result", required=True)
     ap.add_argument("--experiment", default="anthropic-causal-reproduction")
-    ap.add_argument("--tracking-uri", default="sqlite:///mlflow.db")
+    ap.add_argument("--tracking-uri", default="sqlite:///mlruns.db")
     ap.add_argument("--run-name", default=None)
     args = ap.parse_args()
 
