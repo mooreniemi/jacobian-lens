@@ -25,7 +25,7 @@ uv run python scripts/fit_tuned_lens_local.py \
   --events-out "$EVENTS" \
   > data/lenses/qwen3.5-4b-tuned-pile-repro-v1.log 2>&1
 log_mlflow "$OUT/fit_manifest.json" lens-fits
-log_fit_events "$EVENTS" qwen3.5-4b-tuned-pile-repro-v1-step-metrics
+log_fit_events "$EVENTS" qwen3.5-4b-tuned-pile-repro-v1
 
 notify "Qwen3.5-4B Pile fit finished. Artifact: $OUT. Predictive evaluation is next; no 27B local fit was launched."
 log "fit complete"
