@@ -1428,10 +1428,10 @@ def build_report(out_dir: Path) -> Path:
         fold("Show method-native normalized rates", table(["Model", "Intervention", "Workload", "Total fit min", "Normalized rate", "Unit", "Precision", "Hardware/source"], native_efficiency_rows(efficiency_records_current))),
         "<h2 id='pile-validation'>Held-out Pile predictive validation</h2>",
         "<p>These are predictive checks for the tuned-lens training track, not causal swap results. Each row is evaluated on the held-out Pile test stream; lower KL to the frozen final model distribution is better. The three KL columns are first, middle, and final transformer layers.</p>",
-        pile_validation_table(),
+        fold("Show held-out Pile validation table", pile_validation_table()),
         "<h3>Validated Pile causal suites</h3>",
         "<p>These rows are kept separate from the Wikitext-pilot causal plots. They appear only after the corresponding held-out predictive artifact passes validation, and report the Pile-trained tuned basis alongside logit and random controls.</p>",
-        pile_causal_table(),
+        fold("Show validated Pile causal table", pile_causal_table()),
         "<p class='muted'>The earlier Qwen3-1.7B short-2M diagnostic artifacts are retained in the data directory for provenance, but are intentionally excluded from comparative plots and result tables. The full model-matched Pile protocol is being completed instead.</p>",
         "<h2 id='interpretation'>Interpretation and open questions</h2>",
         """<ul>
