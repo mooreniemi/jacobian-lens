@@ -38,4 +38,5 @@ data/tuned-lens-pile/
 
 # local experiment tracker state
 mlflow.db
+mlruns.db
 mlruns/
