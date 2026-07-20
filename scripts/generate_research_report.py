@@ -212,7 +212,7 @@ def pile_causal_runs(spec: dict) -> list[tuple[str, Path, dict]]:
 def pile_causal_table() -> str:
     """Render validated Pile causal outputs without pooling them with Wikitext."""
     rows = []
-    for key, spec in CAUSAL_SPECS.items():
+    for _key, spec in CAUSAL_SPECS.items():
         prefix = spec["pattern"].removesuffix("*.json")
         pattern = f"{prefix}*-tuned-pile-repro-v1.json"
         for path in sorted(RESULTS.glob(pattern)):
@@ -238,7 +238,7 @@ def pile_causal_table() -> str:
 def provisional_short_pile_causal_table() -> str:
     """Render explicitly provisional short-2M causal outputs."""
     rows = []
-    for key, spec in CAUSAL_SPECS.items():
+    for _key, spec in CAUSAL_SPECS.items():
         prefix = spec["pattern"].removesuffix("*.json")
         pattern = f"{prefix}*-tuned-pile-repro-v1-short-2m.json"
         for path in sorted(RESULTS.glob(pattern)):
@@ -347,6 +347,95 @@ def table(headers: list[str], rows: list[list[object]], classes: str = "") -> st
 def fold(title: str, content: str) -> str:
     """Render a closed-by-default disclosure section."""
     return f"<details><summary>{html.escape(title)}</summary>{content}</details>"
+
+
+def proofwriter_confirmation_section() -> str:
+    """Render the locked-layer, source-disjoint ProofWriter confirmation."""
+    artifacts = [
+        ("SmolLM2-135M", "proofwriter-smollm2-balanced-source-disjoint-confirmation-analysis.json"),
+        ("Qwen3-0.6B", "proofwriter-qwen3-0.6b-balanced-source-disjoint-confirmation-analysis.json"),
+        ("Qwen3-1.7B (1,500)", "proofwriter-qwen3-1.7b-balanced-source-disjoint-confirmation-analysis.json"),
+        ("Qwen3-1.7B (4,800)", "proofwriter-qwen3-1.7b-balanced-source-disjoint-confirmation-4800-analysis.json"),
+        ("Qwen3.5-4B (4,800)", "proofwriter-qwen3.5-4b-balanced-source-disjoint-confirmation-4800-analysis.json"),
+    ]
+    available = [(model, load_json(RESULTS / filename)) for model, filename in artifacts if (RESULTS / filename).exists()]
+    if not available:
+        return ""
+    rows = []
+    contrast_rows = []
+    for model, data in available:
+        for method in ("final", "jlens", "logit"):
+            item = data[method]
+            rows.append([model, method, f"{item['accuracy']:.1%}", f"[{item['accuracy_ci95'][0]:.1%}, {item['accuracy_ci95'][1]:.1%}]", f"{item['macro_f1']:.3f}", f"{item['unknown_recall']:.1%}"])
+        contrasts = data["contrasts"]
+        paired = data["paired"]
+        contrast_rows.extend([
+            [model, "J-lens − final", f"{contrasts['jlens_minus_final']['point']:+.1%}", f"[{contrasts['jlens_minus_final']['ci95'][0]:+.1%}, {contrasts['jlens_minus_final']['ci95'][1]:+.1%}]", f"{paired['jlens_vs_final']['sign_test_p']:.4g}"],
+            [model, "J-lens − logit", f"{contrasts['jlens_minus_logit']['point']:+.1%}", f"[{contrasts['jlens_minus_logit']['ci95'][0]:+.1%}, {contrasts['jlens_minus_logit']['ci95'][1]:+.1%}]", f"{paired['jlens_vs_logit']['sign_test_p']:.4g}"],
+        ])
+    return (
+        "<h2 id='proofwriter-confirmation'>Larger ProofWriter confirmation</h2>"
+        "<p>We selected readout layers on a source-disjoint 300-item set, locked them, and then evaluated a separate 1,500-item confirmation set. Both sets contain 100/500 examples per class, respectively, and no underlying ProofWriter theory appears in both sets. Intervals resample theory groups rather than treating related questions as independent.</p>"
+        + table(["Model", "Readout", "Accuracy", "95% clustered CI", "Macro-F1", "Unknown recall"], rows)
+        + fold("Show paired confirmation contrasts", table(["Model", "Contrast", "Difference", "95% clustered CI", "Exact paired sign-test p"], contrast_rows))
+        + proofwriter_probe_section()
+        + proofwriter_task_jlens_section()
+        + "<p class='muted'>This is an observational three-way label readout, not a causal swap test. J-lens is task-agnostic; the probe comparison below is supervised and uses labeled selection examples. Neither result establishes universal superiority over final-layer generation.</p>"
+    )
+
+
+def proofwriter_probe_section() -> str:
+    """Render supervised probe results on the same held-out confirmation set."""
+    paths = [
+        ("Qwen3-1.7B", RESULTS / "proofwriter-qwen3-1.7b-linear-probe-4800.json"),
+        ("Qwen3.5-4B", RESULTS / "proofwriter-qwen3.5-4b-linear-probe-4800.json"),
+    ]
+    rows_by_model = {}
+    for model, path in paths:
+        if not path.exists():
+            continue
+        data = load_json(path)
+        metrics = data["confirmation_metrics"]
+        rows_by_model[model] = [[
+            f"layer {data['selected_layer']}",
+            f"{metrics['accuracy']:.1%}",
+            f"{metrics['macro_f1']:.3f}",
+            f"{metrics['unknown_recall']:.1%}",
+        ]]
+    if not rows_by_model:
+        return ""
+    tables = "".join(
+        f"<h4>{html.escape(model)}</h4>"
+        + table(["Selected layer", "Accuracy", "Macro-F1", "Unknown recall"], rows)
+        for model, rows in rows_by_model.items()
+    )
+    return (
+        "<h3>Supervised linear-probe comparison</h3>"
+        "<p>A multinomial logistic-regression probe was fitted separately at each hidden layer on the 300-item labeled selection set; the best layer was locked before evaluation on the 4,800-item source-disjoint confirmation set. This is a task-specific upper comparison, not a task-agnostic lens.</p>"
+        + tables
+    )
+
+
+def proofwriter_task_jlens_section() -> str:
+    """Render the label-adapted J-lens pilot when its artifact exists."""
+    path = RESULTS / "proofwriter-qwen3-1.7b-label-adapted-jlens-r16-4800.json"
+    if not path.exists():
+        return ""
+    data = load_json(path)
+    confirmation = data["confirmation_metrics"]
+    rows = []
+    for label, key in (
+        ("Generic J-lens", "generic_jlens"),
+        ("Label-adapted J-lens (rank 16)", "label_adapted_jlens"),
+        ("Same-layer linear probe", "same_layer_linear_probe"),
+    ):
+        item = confirmation[key]
+        rows.append([label, f"{item['accuracy']:.1%}", f"{item['macro_f1']:.3f}", f"{item['unknown_recall']:.1%}"])
+    return (
+        "<h3>Task-specific J-lens pilot</h3>"
+        "<p>Starting from the generic layer-21 J-lens, we learned a rank-16 low-rank update on the 300 labeled selection items and evaluated on the same 4,800-item confirmation set. This is a separate supervised variant, not the standard task-agnostic J-lens.</p>"
+        + table(["Readout", "Accuracy", "Macro-F1", "Unknown recall"], rows)
+    )
 
 
 def paired_causal_table() -> str:
@@ -1369,7 +1458,7 @@ def build_report(out_dir: Path) -> Path:
         "<div class='kicker'>Research report · Jacobian lens</div>",
         f"<h1>Representational readout and causal transport in language models</h1><p class='muted sans'>Generated {datetime.now(ZoneInfo('America/New_York')).date().isoformat()} from recorded JSON artifacts.</p>",
         "<section class='abstract' id='summary'><p><strong>Abstract.</strong> We reproduced the local Jacobian-lens readout path and extended it into controlled causal swap experiments across decoder models from 135M to 27B parameters. The model-matched 27B JLens produced stronger target-rank movement than logit-lens and random matched controls in the current verbal-report, two-hop, and flexible-generalization runs. Existing tuned results are explicitly labelled <code>tuned-wiki-small-v0</code>: model-matched Wikitext pilots, not a strong reproduction.</p><p><strong>Current status:</strong> model-matched <code>tuned-pile-repro-v1</code> predictive and causal results are complete for SmolLM2-135M, Qwen3-0.6B, and Qwen3.5-4B. Qwen3-1.7B fitting is complete and its canonical 16.4M-token held-out gate is still running; its short-2M causal suite remains explicitly provisional. No provisional result is pooled into the validated Pile causal table.</p></section>",
-        "<nav class='toc' aria-label='Table of contents'><strong class='sans'>Contents</strong><ol><li><a href='#summary'>Summary and current claim</a></li><li><a href='#coverage'>Model and intervention coverage</a></li><li><a href='#interventions'>Intervention definitions</a></li><li><a href='#measurements'>Measurements and estimands</a></li><li><a href='#results-27b'>27B results and uncertainty</a></li><li><a href='#cross-model'>Cross-model comparisons</a></li><li><a href='#paired-contrasts'>Paired per-item contrasts</a></li><li><a href='#scaling'>Effectiveness versus model size</a></li><li><a href='#efficiency'>Creation cost and scaling</a></li><li><a href='#pile-validation'>Held-out Pile validation</a></li><li><a href='#interpretation'>Interpretation and open questions</a></li><li><a href='#provenance'>Sources and provenance</a></li><li><a href='#documentation'>Documentation and logs</a></li></ol></nav>",
+        "<nav class='toc' aria-label='Table of contents'><strong class='sans'>Contents</strong><ol><li><a href='#summary'>Summary and current claim</a></li><li><a href='#coverage'>Model and intervention coverage</a></li><li><a href='#interventions'>Intervention definitions</a></li><li><a href='#measurements'>Measurements and estimands</a></li><li><a href='#proofwriter-confirmation'>ProofWriter confirmation</a></li><li><a href='#results-27b'>27B results and uncertainty</a></li><li><a href='#cross-model'>Cross-model comparisons</a></li><li><a href='#paired-contrasts'>Paired per-item contrasts</a></li><li><a href='#scaling'>Effectiveness versus model size</a></li><li><a href='#efficiency'>Creation cost and scaling</a></li><li><a href='#pile-validation'>Held-out Pile validation</a></li><li><a href='#interpretation'>Interpretation and open questions</a></li><li><a href='#provenance'>Sources and provenance</a></li><li><a href='#documentation'>Documentation and logs</a></li></ol></nav>",
         "<h2 id='coverage'>Model and intervention coverage</h2>",
         fold("Show coverage matrix", coverage_table()),
         """<h3>Model catalog</h3>
@@ -1424,6 +1513,7 @@ def build_report(out_dir: Path) -> Path:
         "<tr><td>95% bootstrap interval</td><td>Cluster bootstrap over prompts/items, keeping their scored layers together.</td><td>Uncertainty over examples, not an assumption that layers are independent samples.</td></tr>",
         "</tbody></table>",
         "<p class='muted'>The verbal-report task uses target top-10; the two-hop and flexible tasks use target top-5. Random matched controls are not expected to have zero improved conditions: they establish the noise floor for this rank-based metric.</p>",
+        proofwriter_confirmation_section(),
         "<h3>Are two-hop reasoning and flexible generalization actually distinct?</h3>",
         "<p>At the level of the current fixtures, the distinction is weaker than the task names suggest. Both intervene on an argument-like representation and ask whether a downstream token changes appropriately. The two-hop prompt adds a nested relation; the flexible prompt makes the relation look like a named function. That may be a meaningful compositional difference, but it is not yet a strong measurement separation.</p>",
         fold("Show across-model task correlations", task_discriminability_table(all_runs)),

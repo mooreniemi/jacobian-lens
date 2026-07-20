@@ -10,6 +10,61 @@ This log records the local reproduction of Anthropic's Jacobian-lens work, chang
 - Primary environment: project `.venv`, PyTorch 2.12.0+cu130, Transformers 5.9.0
 - Notebook: [`walkthrough.ipynb`](../walkthrough.ipynb)
 
+### 2026-07-19 — Supervised probe comparison on ProofWriter
+
+To distinguish the task-agnostic J-lens readout from a task-specific learned
+readout, we fitted a multinomial logistic-regression probe to the final-position
+hidden state at every layer. Layer selection used the 300-item labeled
+selection set; the selected layer was then evaluated once on the same 4,800-item
+source-disjoint confirmation set used for the J-lens, logit-lens, and final
+readouts. The probe uses the explicit three-label prompt and is therefore not
+an apples-to-apples replacement for an unsupervised lens: it is allowed to
+learn the task boundary from labels.
+
+| Model | Probe layer | Probe accuracy | Macro-F1 | Unknown recall |
+|---|---:|---:|---:|---:|
+| Qwen3-1.7B | 10/26 | 64.0% | 0.636 | 46.8% |
+| Qwen3.5-4B | 29/30 | 80.2% | 0.803 | 75.3% |
+
+For Qwen3.5-4B, the matched 4,800-item readouts were final 59.3%, J-lens
+67.5%, logit lens 57.4%, and supervised probe 80.2%. Thus the probe is
+stronger on this task, as expected from task-specific supervision; the notable
+result remains that J-lens improves substantially without seeing ProofWriter
+labels. The probe achieved 100% selection accuracy for both models, so its
+confirmation score—not the selection score—is the meaningful estimate and the
+possibility of selection overfit is recorded explicitly.
+
+Artifacts:
+`data/experiments/proofwriter-qwen3-1.7b-linear-probe-4800.json` and
+`data/experiments/proofwriter-qwen3.5-4b-linear-probe-4800.json`.
+
+### 2026-07-19 — Qwen3-1.7B label-adapted J-lens pilot
+
+We tested whether J-lens itself can become task-specific. This variant starts
+from the generic Qwen3-1.7B J-lens matrix at the already locked ProofWriter
+layer 21 and learns only a rank-16 low-rank update using the 300 labeled
+selection items. The base decoder and unembedding remain frozen; the 4,800
+source-disjoint confirmation items are used only for evaluation. This is not
+the standard task-agnostic J-lens and is named `label-adapted J-lens`.
+
+| Readout at layer 21 | Accuracy | Macro-F1 | Unknown recall |
+|---|---:|---:|---:|
+| Generic J-lens | 57.3% | 0.579 | 61.8% |
+| Label-adapted J-lens, rank 16 | 66.5% | 0.625 | 25.6% |
+| Same-layer linear probe | 72.5% | 0.723 | 58.3% |
+
+The adaptation improves accuracy by `+9.2` points over the generic J-lens,
+showing that the J-lens parameterization can absorb task-specific signal.
+However, it remains below the same-layer probe and trades away Unknown recall;
+it should not yet be treated as a better classifier. The probe has a much
+smaller and more direct task-classifier parameterization, so this is an
+architectural comparison rather than a capacity-matched one. The selection
+accuracy was 74.3% for the adapted J-lens, while confirmation accuracy was
+66.5%, making held-out performance the relevant result.
+
+Artifact:
+`data/experiments/proofwriter-qwen3-1.7b-label-adapted-jlens-r16-4800.json`.
+
 ## 1. Original Anthropic reproduction
 
 Source repository: [`/home/alex/Code/jlens/jacobian-lens`](.)
@@ -1159,3 +1214,155 @@ these to `0.494` and `0.430` while raising `P(Unknown)` from `0.007` for the
 final model to `0.076`. J-lens reduces the True bias but still fails to make
 `Unknown` the top-1 label. This bias and the low-power interval must be
 reported alongside any future Qwen3-0.6B comparison.
+
+### 2026-07-19 — Larger source-disjoint ProofWriter confirmation
+
+The 150-item held-out confirmation was too small to distinguish a roughly
+five-point J-lens advantage from noise. We therefore created a new fixed,
+source-disjoint evaluation design with
+`scripts/make_proofwriter_confirmation_manifests.py`:
+
+| Split | Items | Labels | Source groups | Role |
+|---|---:|---|---:|---|
+| Selection | 300 | 100 True / 100 False / 100 Unknown | 300 | Select readout layers |
+| Confirmation | 1,500 | 500 True / 500 False / 500 Unknown | 1,500 | Locked evaluation |
+
+The source group is the SHA-1 digest of the full ProofWriter theory. A theory
+appears in only one split, and only one question is sampled per theory group.
+This avoids treating related questions as independent observations. The fixed
+manifests and generator seed are recorded in
+`data/benchmarks/proofwriter-confirmation-manifests.json`.
+
+On the new selection set, the best macro-F1 layers were J-lens layer 25 and
+logit lens layer 6. Those choices were locked before evaluating the
+confirmation set. The explicit task instruction was retained.
+
+| Readout | Accuracy | Clustered 95% CI | Macro-F1 | Unknown recall |
+|---|---:|---:|---:|---:|
+| Final model | 48.5% | [46.0%, 51.0%] | 0.385 | 0.0% |
+| J-lens, layer 25 | 58.5% | [56.0%, 61.0%] | 0.488 | 3.2% |
+| Logit lens, layer 6 | 41.8% | [39.3%, 44.3%] | 0.328 | 0.0% |
+
+The locked J-lens advantage is `+10.1` percentage points over the final
+readout, with clustered bootstrap 95% CI `[+8.0, +12.1]` points, and `+16.7`
+points over logit lens, CI `[+14.3, +19.2]`. The corresponding exact paired
+sign tests are below `0.0001`. This is much stronger evidence than the earlier
+150-item confirmation, although it remains a readout result rather than a
+causal swap result.
+
+The Unknown result remains the main limitation. J-lens recovers only 3.2% of
+Unknown items, while the final and logit readouts recover none. Therefore the
+larger run supports a claim that J-lens improves three-way label
+discrimination on this balanced ProofWriter distribution, not that it solves
+open-world reasoning. The durable artifacts are
+`data/experiments/proofwriter-smollm2-balanced-source-disjoint-selection.json`,
+`data/experiments/proofwriter-smollm2-balanced-source-disjoint-confirmation.json`,
+and the clustered analysis in
+`data/experiments/proofwriter-smollm2-balanced-source-disjoint-confirmation-analysis.json`.
+
+### 2026-07-19 — Qwen3-0.6B replication of the ProofWriter readout result
+
+We repeated the identical source-disjoint protocol on the next model size,
+Qwen3-0.6B, using its model-matched 204-prompt J-lens
+`data/lenses/qwen3-0.6b-fit-204-lens.pt`. Layer selection on the 300-item
+selection set chose J-lens layer 20 and logit-lens layer 19. These layers were
+locked before evaluating the same 1,500-item confirmation manifest.
+
+| Readout | Accuracy | Clustered 95% CI | Macro-F1 | Unknown recall |
+|---|---:|---:|---:|---:|
+| Final model | 39.1% | [36.7%, 41.6%] | 0.295 | 31.0% |
+| J-lens, layer 20 | 42.9% | [40.3%, 45.4%] | 0.393 | 65.6% |
+| Logit lens, layer 19 | 37.3% | [34.8%, 39.7%] | 0.298 | 60.8% |
+
+J-lens is `+3.7` points over the final readout, clustered CI `[+0.5, +7.0]`,
+with paired sign-test `p = 0.0296`; it is `+5.6` points over logit lens, CI
+`[+3.8, +7.5]`. This is a smaller overall effect than on SmolLM2, but the
+Unknown improvement replicates strongly: J-lens correctly identifies 328/500
+Unknown items versus 155/500 for the final readout.
+
+The class pattern is qualitatively different from SmolLM2. Qwen3's final
+readout never predicts `False` on this prompt, while J-lens predicts `False`
+on 96 items and recovers 66 of the 500 False cases. J-lens also shifts many
+True items to Unknown, so the gain is not uniformly positive across classes.
+This supports a cautious interpretation: intermediate J-lens readouts can
+repair a model-specific output-label bias, but the effect size and failure mode
+depend strongly on the model and task. It is not evidence that J-lens should
+always replace final-layer generation.
+
+Artifacts:
+`data/experiments/proofwriter-qwen3-0.6b-balanced-source-disjoint-selection.json`,
+`data/experiments/proofwriter-qwen3-0.6b-balanced-source-disjoint-confirmation.json`,
+and `data/experiments/proofwriter-qwen3-0.6b-balanced-source-disjoint-confirmation-analysis.json`.
+
+### 2026-07-19 — Qwen3-1.7B replication of the ProofWriter readout result
+
+We repeated the same protocol on Qwen3-1.7B. The quantized GGUF directory
+`/home/alex/models/qwen3-1.7b` did not contain a usable Transformers tokenizer,
+so the evaluation used the matching Hugging Face-format checkpoint at
+`/home/alex/models/qwen3-1.7b-hf`; the J-lens metadata identifies this same
+checkpoint. No model or prompt substitution was made beyond that storage
+format correction.
+
+Layer selection on the 300-item set chose J-lens layer 21 and logit-lens layer
+22. Those layers were locked before the 1,500-item confirmation run.
+
+| Readout | Accuracy | Clustered 95% CI | Macro-F1 | Unknown recall |
+|---|---:|---:|---:|---:|
+| Final model | 35.1% | [32.7%, 37.5%] | 0.208 | 6.0% |
+| J-lens, layer 21 | 55.1% | [52.6%, 57.5%] | 0.556 | 55.2% |
+| Logit lens, layer 22 | 49.0% | [46.5%, 51.5%] | 0.452 | 62.0% |
+
+J-lens is `+19.9` points over the final readout, clustered CI `[+16.7,
++23.1]`, and `+6.1` points over logit lens, CI `[+3.9, +8.3]`; both paired
+sign tests are below `0.0001`.
+
+The class confusion is important. The final model predicts `True` on 1,446
+of 1,500 items and almost never predicts `False` or `Unknown`. J-lens breaks
+that degenerate boundary: it gets 303/500 True, 247/500 False, and 276/500
+Unknown correct. Logit lens also repairs some of the bias, but J-lens is more
+accurate overall. This is strong replication of the claim that an intermediate
+readout can expose a better-separated task representation than the final
+output head on this prompt, while still being a benchmark-specific readout
+result rather than proof that J-lens universally improves generation.
+
+Artifacts:
+`data/experiments/proofwriter-qwen3-1.7b-balanced-source-disjoint-selection.json`,
+`data/experiments/proofwriter-qwen3-1.7b-balanced-source-disjoint-confirmation.json`,
+and `data/experiments/proofwriter-qwen3-1.7b-balanced-source-disjoint-confirmation-analysis.json`.
+
+### 2026-07-19 — Expanded 4,800-item Qwen3-1.7B confirmation
+
+Because the 1,500-item Qwen3-1.7B result was surprisingly large, we repeated
+the protocol with a new 4,800-item source-disjoint confirmation set: 1,600
+True, 1,600 False, and 1,600 Unknown items, with one question per theory and
+zero overlap with its 300-item layer-selection set. The selected layers
+remained J-lens layer 21 and logit lens layer 22.
+
+| Readout | Accuracy | Clustered 95% CI | Macro-F1 | Unknown recall |
+|---|---:|---:|---:|---:|
+| Final model | 35.9% | [34.6%, 37.3%] | 0.222 | 8.8% |
+| J-lens, layer 21 | 57.3% | [55.9%, 58.7%] | 0.579 | 61.8% |
+| Logit lens, layer 22 | 51.2% | [49.8%, 52.6%] | 0.462 | 71.9% |
+
+J-lens beats final by `+21.4` points, clustered CI `[+19.5, +23.3]`, and
+logit lens by `+6.1` points, CI `[+4.9, +7.4]`. The paired sign-test p-values
+are approximately `5.9e-106` and `7.8e-21`, respectively. The effect is
+therefore not plausibly explained by the original 1,500-item sample alone.
+The 1,500- and 4,800-item estimates are consistent: `+19.9` versus `+21.4`
+points over final.
+
+The useful J-lens layer is consistently late-intermediate rather than early:
+
+| Model | Selected J-lens layer | Fitted source layers | Approx. relative position |
+|---|---:|---:|---:|
+| SmolLM2-135M | 25 | 29 | 86% |
+| Qwen3-0.6B | 20 | 27 | 74% |
+| Qwen3-1.7B | 21 | 27 | 78% |
+
+This is descriptive rather than a universal layer law. Layer selection was
+performed separately for each model, and the comparison concerns the
+three-label ProofWriter readout—not unrestricted generation or a causal swap
+experiment. The expanded artifacts are
+`data/benchmarks/proofwriter-confirmation-4800.jsonl`,
+`data/benchmarks/proofwriter-confirmation-manifests-4800.json`, and
+`data/experiments/proofwriter-qwen3-1.7b-balanced-source-disjoint-confirmation-4800-analysis.json`.

@@ -5,13 +5,13 @@ from __future__ import annotations
 import argparse
 import json
 import time
-from collections import Counter
 from pathlib import Path
 
-import jlens
 import torch
 import transformers
 from tabulate import tabulate
+
+import jlens
 
 LABELS = ("True", "False", "Unknown")
 
@@ -64,6 +64,7 @@ def main() -> None:
     parser.add_argument("--out", default="data/experiments/proofwriter-smollm2-balanced-lens-smoke.json")
     parser.add_argument("--max-items", type=int)
     parser.add_argument("--start-index", type=int, default=0)
+    parser.add_argument("--layers", help="comma-separated fitted layer numbers to evaluate")
     parser.add_argument("--prompt-style", choices=("minimal", "explicit"), default="minimal")
     parser.add_argument("--max-seq-len", type=int, default=512)
     args = parser.parse_args()
@@ -84,6 +85,12 @@ def main() -> None:
     model = jlens.from_hf(hf_model, tokenizer)
     lens = jlens.JacobianLens.load(args.lens)
     layers = list(lens.source_layers)
+    if args.layers:
+        requested = [int(value) for value in args.layers.split(",") if value.strip()]
+        missing = sorted(set(requested) - set(layers))
+        if missing:
+            raise SystemExit(f"requested layers are not in lens: {missing}")
+        layers = requested
     log(f"model ready; evaluating {len(layers)} J-lens layers")
 
     scores: dict[str, dict[int | str, list[tuple[str, str]]]] = {
