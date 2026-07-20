@@ -1142,3 +1142,20 @@ not yet evidence that it solves three-way open-world reasoning. Confirmation
 artifacts are
 `data/experiments/proofwriter-smollm2-balanced-explicit-lens-select.json` and
 `data/experiments/proofwriter-smollm2-balanced-explicit-lens-confirm.json`.
+
+The confidence limits are important. The held-out confirmation contains only
+150 items: J-lens is correct on 87 and the final model on 79, a paired
+difference of `+5.3` percentage points. A 20,000-draw item-level paired
+bootstrap gives a 95% interval of approximately `[-0.7, +11.3]` percentage
+points, and a paired sign-flip test gives `p = 0.13`. Therefore the result is
+encouraging but not decisive; the interval still includes no improvement.
+The 300-item total should not be treated as 300 independent confirmation
+examples because 150 were used to select the lens layer.
+
+The main readout bias is directional rather than symmetric: on held-out
+`Unknown` items, the final model assigns mean probability `0.595` to `True`
+and `0.398` to `False`; logit lens assigns `0.741` and `0.212`; J-lens shifts
+these to `0.494` and `0.430` while raising `P(Unknown)` from `0.007` for the
+final model to `0.076`. J-lens reduces the True bias but still fails to make
+`Unknown` the top-1 label. This bias and the low-power interval must be
+reported alongside any future Qwen3-0.6B comparison.
