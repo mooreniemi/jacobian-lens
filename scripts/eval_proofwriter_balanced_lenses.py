@@ -63,11 +63,13 @@ def main() -> None:
     parser.add_argument("--manifest", default="data/benchmarks/proofwriter-balanced-test-300.jsonl")
     parser.add_argument("--out", default="data/experiments/proofwriter-smollm2-balanced-lens-smoke.json")
     parser.add_argument("--max-items", type=int)
+    parser.add_argument("--start-index", type=int, default=0)
     parser.add_argument("--prompt-style", choices=("minimal", "explicit"), default="minimal")
     parser.add_argument("--max-seq-len", type=int, default=512)
     args = parser.parse_args()
 
     rows = [json.loads(line) for line in Path(args.manifest).read_text().splitlines() if line.strip()]
+    rows = rows[args.start_index :]
     if args.max_items:
         rows = rows[: args.max_items]
     log(f"loading {len(rows)} fixed ProofWriter rows")

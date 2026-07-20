@@ -1109,3 +1109,36 @@ best logit-lens readout is below it. These layer choices were made on the same
 split. The explicit-prompt artifacts are
 `data/experiments/proofwriter-smollm2-balanced-explicit-smoke.json` and
 `data/experiments/proofwriter-smollm2-balanced-explicit-lens-smoke.json`.
+
+### 2026-07-19 — Held-out confirmation of the Smol J-lens readout
+
+The initial layer-18 result was potentially optimistic because the layer was
+selected on all 300 items. We split the fixed manifest by order: the first 150
+items selected the layer and the last 150 confirmed it. Layer 25 was selected
+on the first half by macro-F1. On the held-out confirmation half:
+
+| Readout | Accuracy | Macro-F1 | `Unknown` recall |
+|---|---:|---:|---:|
+| Final model | 0.527 | 0.413 | 0.000 |
+| Logit lens, layer 26 | 0.440 | 0.321 | 0.000 |
+| J-lens, layer 25 | 0.580 | 0.463 | 0.000 |
+
+The held-out J-lens advantage is therefore `+5.3` percentage points over the
+final model, smaller than the same-set headline but still positive. The
+unknown class is not equally split: on held-out unknown items, mean label
+probabilities were approximately:
+
+| Readout | P(True) | P(False) | P(Unknown) |
+|---|---:|---:|---:|
+| Final model | 0.595 | 0.398 | 0.007 |
+| Logit lens, layer 26 | 0.741 | 0.212 | 0.047 |
+| J-lens, layer 25 | 0.494 | 0.430 | 0.076 |
+
+Thus the final model and logit lens are strongly biased toward `True` on
+unknown cases. J-lens makes the unknown distribution substantially less
+one-sided and raises `P(Unknown)`, but not enough for `Unknown` to become the
+top-1 label. This is evidence for a real but limited J-lens readout effect,
+not yet evidence that it solves three-way open-world reasoning. Confirmation
+artifacts are
+`data/experiments/proofwriter-smollm2-balanced-explicit-lens-select.json` and
+`data/experiments/proofwriter-smollm2-balanced-explicit-lens-confirm.json`.
