@@ -1231,6 +1231,83 @@ or adding causal lens readouts, the benchmark runner must add matched full-
 theory <code>False</code>/<code>Unknown</code> controls and report per-class precision, recall, and
 macro-F1. The next model-size comparison is queued conceptually, but will use
 that balanced fixture rather than repeating the unbalanced smoke.</p>
+<h3>2026-07-19 — Balanced ProofWriter Smol evaluation</h3>
+<p>We then sampled a fixed, stratified manifest from the ProofWriter test split:
+100 <code>True</code>, 100 <code>False</code>, and 100 <code>Unknown</code> rows, using seed 17. The manifest
+is <code>data/benchmarks/proofwriter-balanced-test-300.jsonl</code>, so every later model
+can be evaluated on the identical examples. This is a standard answer
+classification smoke, separate from the conjunction-ablation suite.</p>
+<table>
+<thead>
+<tr>
+  <th>Class</th>
+  <th style="text-align:right">Correct</th>
+  <th style="text-align:right">Precision</th>
+  <th style="text-align:right">Recall</th>
+  <th style="text-align:right">F1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>True</td>
+  <td style="text-align:right">78</td>
+  <td style="text-align:right">0.419</td>
+  <td style="text-align:right">0.780</td>
+  <td style="text-align:right">0.545</td>
+</tr>
+<tr>
+  <td>False</td>
+  <td style="text-align:right">54</td>
+  <td style="text-align:right">0.474</td>
+  <td style="text-align:right">0.540</td>
+  <td style="text-align:right">0.505</td>
+</tr>
+<tr>
+  <td>Unknown</td>
+  <td style="text-align:right">0</td>
+  <td style="text-align:right">0.000</td>
+  <td style="text-align:right">0.000</td>
+  <td style="text-align:right">0.000</td>
+</tr>
+</tbody>
+</table>
+<p>Overall accuracy is <code>0.440</code> and macro-F1 is <code>0.350</code>. The confusion matrix is:</p>
+<table>
+<thead>
+<tr>
+  <th>Gold \ Predicted</th>
+  <th style="text-align:right">True</th>
+  <th style="text-align:right">False</th>
+  <th style="text-align:right">Unknown</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>True</td>
+  <td style="text-align:right">78</td>
+  <td style="text-align:right">22</td>
+  <td style="text-align:right">0</td>
+</tr>
+<tr>
+  <td>False</td>
+  <td style="text-align:right">46</td>
+  <td style="text-align:right">54</td>
+  <td style="text-align:right">0</td>
+</tr>
+<tr>
+  <td>Unknown</td>
+  <td style="text-align:right">62</td>
+  <td style="text-align:right">38</td>
+  <td style="text-align:right">0</td>
+</tr>
+</tbody>
+</table>
+<p>Smol never emits <code>Unknown</code> in this answer-token scoring setup. This confirms
+that the earlier “always True” concern was real, while also showing that the
+model is not literally always True once negative examples are introduced. The
+next model-size comparison should use this fixed manifest, but the more
+important next diagnostic is to test whether layer-level logit/J-lens readouts
+encode <code>Unknown</code> even when the final answer head does not.</p>
 </article>
 <footer>Rendered from <code>RESEARCH_LOG.md</code> by <code>scripts/generate_research_report.py</code>.</footer>
 </main></body></html>

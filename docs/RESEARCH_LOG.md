@@ -1029,3 +1029,32 @@ or adding causal lens readouts, the benchmark runner must add matched full-
 theory `False`/`Unknown` controls and report per-class precision, recall, and
 macro-F1. The next model-size comparison is queued conceptually, but will use
 that balanced fixture rather than repeating the unbalanced smoke.
+
+### 2026-07-19 — Balanced ProofWriter Smol evaluation
+
+We then sampled a fixed, stratified manifest from the ProofWriter test split:
+100 `True`, 100 `False`, and 100 `Unknown` rows, using seed 17. The manifest
+is `data/benchmarks/proofwriter-balanced-test-300.jsonl`, so every later model
+can be evaluated on the identical examples. This is a standard answer
+classification smoke, separate from the conjunction-ablation suite.
+
+| Class | Correct | Precision | Recall | F1 |
+|---|---:|---:|---:|---:|
+| True | 78 | 0.419 | 0.780 | 0.545 |
+| False | 54 | 0.474 | 0.540 | 0.505 |
+| Unknown | 0 | 0.000 | 0.000 | 0.000 |
+
+Overall accuracy is `0.440` and macro-F1 is `0.350`. The confusion matrix is:
+
+| Gold \\ Predicted | True | False | Unknown |
+|---|---:|---:|---:|
+| True | 78 | 22 | 0 |
+| False | 46 | 54 | 0 |
+| Unknown | 62 | 38 | 0 |
+
+Smol never emits `Unknown` in this answer-token scoring setup. This confirms
+that the earlier “always True” concern was real, while also showing that the
+model is not literally always True once negative examples are introduced. The
+next model-size comparison should use this fixed manifest, but the more
+important next diagnostic is to test whether layer-level logit/J-lens readouts
+encode `Unknown` even when the final answer head does not.

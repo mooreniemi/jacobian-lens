@@ -1,0 +1,3632 @@
+{
+  "schema_version": 1,
+  "kind": "proofwriter-balanced-observational-smoke",
+  "model": "/home/alex/models/smollm2-135m-instruct",
+  "split": "test",
+  "seed": 17,
+  "manifest": "data/benchmarks/proofwriter-balanced-test-300.jsonl",
+  "n_items": 300,
+  "metrics": {
+    "accuracy": 0.44,
+    "macro_f1": 0.3500424808836024
+  },
+  "confusion_matrix": {
+    "True": {
+      "True": 78,
+      "False": 22,
+      "Unknown": 0
+    },
+    "False": {
+      "True": 46,
+      "False": 54,
+      "Unknown": 0
+    },
+    "Unknown": {
+      "True": 62,
+      "False": 38,
+      "Unknown": 0
+    }
+  },
+  "results": [
+    {
+      "id": "AttNoneg-OWA-D3-150",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.914062,
+        "False": 0.08252,
+        "Unknown": 0.005066
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D1-694",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-1",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.255859,
+        "False": 0.742188,
+        "Unknown": 0.000896
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D0-7046",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-0",
+      "maxD": 0,
+      "probabilities": {
+        "True": 0.746094,
+        "False": 0.25,
+        "Unknown": 0.001968
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D0-3344",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-0",
+      "maxD": 0,
+      "probabilities": {
+        "True": 0.621094,
+        "False": 0.365234,
+        "Unknown": 0.014343
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-440",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3ext-NatLang",
+      "maxD": 4,
+      "probabilities": {
+        "True": 0.363281,
+        "False": 0.636719,
+        "Unknown": 0.000656
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-1735",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.890625,
+        "False": 0.099609,
+        "Unknown": 0.010193
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-1032",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.539062,
+        "False": 0.460938,
+        "Unknown": 0.002197
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-150",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.730469,
+        "False": 0.259766,
+        "Unknown": 0.008484
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D1-478",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-1",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.333984,
+        "False": 0.664062,
+        "Unknown": 0.000486
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D2-819",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.621094,
+        "False": 0.376953,
+        "Unknown": 0.000526
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-151",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.761719,
+        "False": 0.232422,
+        "Unknown": 0.003998
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-267",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.894531,
+        "False": 0.100098,
+        "Unknown": 0.005737
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D1-2513",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-1",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.617188,
+        "False": 0.373047,
+        "Unknown": 0.010925
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D1-478",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-1",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.515625,
+        "False": 0.484375,
+        "Unknown": 0.00164
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-138",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.636719,
+        "False": 0.363281,
+        "Unknown": 0.001137
+      }
+    },
+    {
+      "id": "AttPos-OWA-ElectricityRB4-59",
+      "gold": "False",
+      "predicted": "False",
+      "config": "birds-electricity",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.075684,
+        "False": 0.921875,
+        "Unknown": 0.000399
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D0-4407",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-0",
+      "maxD": 0,
+      "probabilities": {
+        "True": 0.333984,
+        "False": 0.664062,
+        "Unknown": 0.000404
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D0-5643",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-0",
+      "maxD": 0,
+      "probabilities": {
+        "True": 0.347656,
+        "False": 0.652344,
+        "Unknown": 0.000961
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-177",
+      "gold": "False",
+      "predicted": "True",
+      "config": "NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.523438,
+        "False": 0.474609,
+        "Unknown": 0.002747
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D5-565",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-5",
+      "maxD": 5,
+      "probabilities": {
+        "True": 0.867188,
+        "False": 0.126953,
+        "Unknown": 0.007996
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D1-895",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-1",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.707031,
+        "False": 0.267578,
+        "Unknown": 0.024536
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D5-241",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-5",
+      "maxD": 6,
+      "probabilities": {
+        "True": 0.742188,
+        "False": 0.255859,
+        "Unknown": 0.00058
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D0-1966",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-0",
+      "maxD": 0,
+      "probabilities": {
+        "True": 0.421875,
+        "False": 0.578125,
+        "Unknown": 0.001015
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-1482",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.683594,
+        "False": 0.304688,
+        "Unknown": 0.011047
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D5-585",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-5",
+      "maxD": 6,
+      "probabilities": {
+        "True": 0.4375,
+        "False": 0.5625,
+        "Unknown": 0.001785
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-673",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.498047,
+        "False": 0.498047,
+        "Unknown": 0.003998
+      }
+    },
+    {
+      "id": "AttPos-OWA-ElectricityRB4-29",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "birds-electricity",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.112793,
+        "False": 0.886719,
+        "Unknown": 5.2e-05
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-395",
+      "gold": "False",
+      "predicted": "True",
+      "config": "NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.816406,
+        "False": 0.181641,
+        "Unknown": 0.002274
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D3-1635",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.640625,
+        "False": 0.353516,
+        "Unknown": 0.003693
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D5-198",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-5",
+      "maxD": 5,
+      "probabilities": {
+        "True": 0.691406,
+        "False": 0.306641,
+        "Unknown": 0.004395
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D1-2395",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-1",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.703125,
+        "False": 0.292969,
+        "Unknown": 0.003464
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D3-1289",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.245117,
+        "False": 0.753906,
+        "Unknown": 0.000399
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D2-919",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.269531,
+        "False": 0.730469,
+        "Unknown": 0.000399
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-1315",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.202148,
+        "False": 0.796875,
+        "Unknown": 0.000303
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D0-4374",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-0",
+      "maxD": 0,
+      "probabilities": {
+        "True": 0.453125,
+        "False": 0.546875,
+        "Unknown": 0.002029
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D5-644",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-5",
+      "maxD": 5,
+      "probabilities": {
+        "True": 0.191406,
+        "False": 0.808594,
+        "Unknown": 0.000381
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D5-877",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-5",
+      "maxD": 5,
+      "probabilities": {
+        "True": 0.671875,
+        "False": 0.308594,
+        "Unknown": 0.018799
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D3-971",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.691406,
+        "False": 0.306641,
+        "Unknown": 0.000824
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-600",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.628906,
+        "False": 0.369141,
+        "Unknown": 0.002914
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-1498",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.894531,
+        "False": 0.103516,
+        "Unknown": 0.003769
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-118",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.773438,
+        "False": 0.208008,
+        "Unknown": 0.01709
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-743",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.875,
+        "False": 0.12207,
+        "Unknown": 0.002762
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-1938",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.65625,
+        "False": 0.330078,
+        "Unknown": 0.01239
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D2-1925",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.4375,
+        "False": 0.5625,
+        "Unknown": 0.000843
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-295",
+      "gold": "True",
+      "predicted": "True",
+      "config": "NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.863281,
+        "False": 0.128906,
+        "Unknown": 0.006714
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-596",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.753906,
+        "False": 0.236328,
+        "Unknown": 0.010803
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-592",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.570312,
+        "False": 0.429688,
+        "Unknown": 0.001152
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-1434",
+      "gold": "True",
+      "predicted": "False",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.392578,
+        "False": 0.605469,
+        "Unknown": 0.001137
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D1-234",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-1",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.294922,
+        "False": 0.707031,
+        "Unknown": 0.000334
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D3-1229",
+      "gold": "True",
+      "predicted": "False",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.363281,
+        "False": 0.636719,
+        "Unknown": 0.000702
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D1-112",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.925781,
+        "False": 0.071289,
+        "Unknown": 0.002731
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-741",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.333984,
+        "False": 0.664062,
+        "Unknown": 0.000206
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D3-953",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.886719,
+        "False": 0.109375,
+        "Unknown": 0.005096
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D5-423",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-5",
+      "maxD": 5,
+      "probabilities": {
+        "True": 0.867188,
+        "False": 0.121094,
+        "Unknown": 0.009827
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D2-737",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.640625,
+        "False": 0.353516,
+        "Unknown": 0.008423
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D3-694",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.636719,
+        "False": 0.361328,
+        "Unknown": 0.001846
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D3-844",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.703125,
+        "False": 0.285156,
+        "Unknown": 0.012268
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D5-37",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-5",
+      "maxD": 6,
+      "probabilities": {
+        "True": 0.28125,
+        "False": 0.71875,
+        "Unknown": 0.001427
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-1119",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.894531,
+        "False": 0.088867,
+        "Unknown": 0.015869
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D3-1080",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.245117,
+        "False": 0.753906,
+        "Unknown": 0.000938
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D0-5787",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-0",
+      "maxD": 0,
+      "probabilities": {
+        "True": 0.777344,
+        "False": 0.202148,
+        "Unknown": 0.020996
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D1-1771",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-1",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.464844,
+        "False": 0.527344,
+        "Unknown": 0.007996
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D0-5502",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-0",
+      "maxD": 0,
+      "probabilities": {
+        "True": 0.363281,
+        "False": 0.636719,
+        "Unknown": 0.000418
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D2-1225",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.824219,
+        "False": 0.172852,
+        "Unknown": 0.00293
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D0-3428",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-0",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.628906,
+        "False": 0.347656,
+        "Unknown": 0.02478
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D3-825",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 4,
+      "probabilities": {
+        "True": 0.757812,
+        "False": 0.239258,
+        "Unknown": 0.001358
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D5-878",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-5",
+      "maxD": 5,
+      "probabilities": {
+        "True": 0.894531,
+        "False": 0.098633,
+        "Unknown": 0.008301
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D1-214",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-1",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.392578,
+        "False": 0.605469,
+        "Unknown": 0.000473
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-604",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.648438,
+        "False": 0.347656,
+        "Unknown": 0.005341
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D0-855",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-0",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.605469,
+        "False": 0.390625,
+        "Unknown": 0.002762
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-400",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.233398,
+        "False": 0.765625,
+        "Unknown": 0.000637
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D1-549",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-1",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.211914,
+        "False": 0.789062,
+        "Unknown": 0.000259
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-249",
+      "gold": "False",
+      "predicted": "True",
+      "config": "NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.601562,
+        "False": 0.388672,
+        "Unknown": 0.007935
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D0-6021",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-3ext-NatLang",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.46875,
+        "False": 0.53125,
+        "Unknown": 0.000694
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D2-1790",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.875,
+        "False": 0.125977,
+        "Unknown": 0.000813
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D3-1547",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.765625,
+        "False": 0.233398,
+        "Unknown": 0.002838
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-855",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.255859,
+        "False": 0.742188,
+        "Unknown": 0.002518
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D1-2853",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-1",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.333984,
+        "False": 0.664062,
+        "Unknown": 0.000188
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-441",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.761719,
+        "False": 0.239258,
+        "Unknown": 0.001144
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D3-612",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.233398,
+        "False": 0.765625,
+        "Unknown": 0.00058
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D0-5720",
+      "gold": "True",
+      "predicted": "False",
+      "config": "depth-0",
+      "maxD": 0,
+      "probabilities": {
+        "True": 0.46875,
+        "False": 0.53125,
+        "Unknown": 0.001106
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D2-371",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-2",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.691406,
+        "False": 0.296875,
+        "Unknown": 0.009705
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-171",
+      "gold": "False",
+      "predicted": "True",
+      "config": "NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.820312,
+        "False": 0.177734,
+        "Unknown": 0.001419
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D1-157",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-1",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.40625,
+        "False": 0.59375,
+        "Unknown": 0.000786
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D1-1484",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-1",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.769531,
+        "False": 0.219727,
+        "Unknown": 0.011658
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-1518",
+      "gold": "True",
+      "predicted": "False",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.421875,
+        "False": 0.574219,
+        "Unknown": 0.002548
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D0-1196",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-0",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.664062,
+        "False": 0.333984,
+        "Unknown": 0.001389
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D3-803",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.5625,
+        "False": 0.4375,
+        "Unknown": 0.000942
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D1-673",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-1",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.269531,
+        "False": 0.730469,
+        "Unknown": 0.000668
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D0-2763",
+      "gold": "True",
+      "predicted": "False",
+      "config": "depth-0",
+      "maxD": 0,
+      "probabilities": {
+        "True": 0.40625,
+        "False": 0.59375,
+        "Unknown": 0.000763
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-1193",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.363281,
+        "False": 0.636719,
+        "Unknown": 0.000519
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D5-766",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-5",
+      "maxD": 5,
+      "probabilities": {
+        "True": 0.546875,
+        "False": 0.453125,
+        "Unknown": 0.000992
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-1566",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.332031,
+        "False": 0.660156,
+        "Unknown": 0.007233
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D0-965",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-3ext",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.233398,
+        "False": 0.765625,
+        "Unknown": 0.001282
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D2-1520",
+      "gold": "True",
+      "predicted": "False",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.269531,
+        "False": 0.730469,
+        "Unknown": 0.000132
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D2-1338",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.222656,
+        "False": 0.777344,
+        "Unknown": 0.000486
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D0-2366",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-0",
+      "maxD": 0,
+      "probabilities": {
+        "True": 0.691406,
+        "False": 0.306641,
+        "Unknown": 0.001488
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D3-1570",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.585938,
+        "False": 0.414062,
+        "Unknown": 0.000877
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D3-1307",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.679688,
+        "False": 0.3125,
+        "Unknown": 0.006989
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D1-1977",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-3ext",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.453125,
+        "False": 0.546875,
+        "Unknown": 0.001335
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-1551",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 4,
+      "probabilities": {
+        "True": 0.546875,
+        "False": 0.453125,
+        "Unknown": 0.00145
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D0-2683",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-0",
+      "maxD": 0,
+      "probabilities": {
+        "True": 0.832031,
+        "False": 0.154297,
+        "Unknown": 0.014099
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-42",
+      "gold": "True",
+      "predicted": "True",
+      "config": "NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.785156,
+        "False": 0.198242,
+        "Unknown": 0.017334
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D0-5777",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-0",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.726562,
+        "False": 0.228516,
+        "Unknown": 0.046387
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-157",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.660156,
+        "False": 0.332031,
+        "Unknown": 0.006775
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D5-1046",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-5",
+      "maxD": 5,
+      "probabilities": {
+        "True": 0.6875,
+        "False": 0.287109,
+        "Unknown": 0.023926
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D3-675",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.636719,
+        "False": 0.363281,
+        "Unknown": 0.000843
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D3-616",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.695312,
+        "False": 0.298828,
+        "Unknown": 0.005066
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-259",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.835938,
+        "False": 0.160156,
+        "Unknown": 0.003647
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D2-1794",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.625,
+        "False": 0.367188,
+        "Unknown": 0.005951
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D0-4411",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-0",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.835938,
+        "False": 0.145508,
+        "Unknown": 0.016602
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-420",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.789062,
+        "False": 0.206055,
+        "Unknown": 0.003967
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D1-1147",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-1",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.5625,
+        "False": 0.4375,
+        "Unknown": 0.000927
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-211",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.679688,
+        "False": 0.320312,
+        "Unknown": 0.001762
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D0-747",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-0",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.667969,
+        "False": 0.316406,
+        "Unknown": 0.014771
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D3-1289",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.498047,
+        "False": 0.498047,
+        "Unknown": 0.002533
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D1-313",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-1",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.347656,
+        "False": 0.652344,
+        "Unknown": 0.001335
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D0-4706",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.675781,
+        "False": 0.318359,
+        "Unknown": 0.007477
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D5-282",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-5",
+      "maxD": 6,
+      "probabilities": {
+        "True": 0.482422,
+        "False": 0.515625,
+        "Unknown": 0.003052
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D3-1595",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.46875,
+        "False": 0.53125,
+        "Unknown": 0.000523
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D2-1988",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.546875,
+        "False": 0.453125,
+        "Unknown": 0.002228
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D3-1343",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.53125,
+        "False": 0.46875,
+        "Unknown": 0.000774
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-268",
+      "gold": "True",
+      "predicted": "True",
+      "config": "NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.886719,
+        "False": 0.105957,
+        "Unknown": 0.006012
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D5-395",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-5",
+      "maxD": 5,
+      "probabilities": {
+        "True": 0.804688,
+        "False": 0.185547,
+        "Unknown": 0.009094
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-291",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.820312,
+        "False": 0.166992,
+        "Unknown": 0.011902
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D1-1608",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-1",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.792969,
+        "False": 0.188477,
+        "Unknown": 0.019775
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D3-1453",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.644531,
+        "False": 0.333984,
+        "Unknown": 0.020752
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D3-1071",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.480469,
+        "False": 0.511719,
+        "Unknown": 0.007416
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D3-1210",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.306641,
+        "False": 0.691406,
+        "Unknown": 0.001251
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-674",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.375,
+        "False": 0.621094,
+        "Unknown": 0.005127
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D1-2323",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.667969,
+        "False": 0.326172,
+        "Unknown": 0.005341
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D0-1969",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.753906,
+        "False": 0.237305,
+        "Unknown": 0.007751
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D2-2117",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.734375,
+        "False": 0.253906,
+        "Unknown": 0.009399
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D1-920",
+      "gold": "True",
+      "predicted": "False",
+      "config": "depth-1",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.269531,
+        "False": 0.730469,
+        "Unknown": 0.000526
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D1-1301",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-1",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.953125,
+        "False": 0.045898,
+        "Unknown": 0.002914
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D2-459",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.550781,
+        "False": 0.443359,
+        "Unknown": 0.0065
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D2-1923",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.605469,
+        "False": 0.392578,
+        "Unknown": 0.001305
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-376",
+      "gold": "True",
+      "predicted": "False",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.390625,
+        "False": 0.605469,
+        "Unknown": 0.006287
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D3-1258",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.738281,
+        "False": 0.24707,
+        "Unknown": 0.013977
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D2-565",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.867188,
+        "False": 0.128906,
+        "Unknown": 0.005219
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-774",
+      "gold": "True",
+      "predicted": "False",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.333984,
+        "False": 0.664062,
+        "Unknown": 0.000374
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-1643",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.609375,
+        "False": 0.382812,
+        "Unknown": 0.007568
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D2-408",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.683594,
+        "False": 0.304688,
+        "Unknown": 0.01178
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D2-1760",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3ext",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.363281,
+        "False": 0.636719,
+        "Unknown": 0.000195
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-963",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.269531,
+        "False": 0.730469,
+        "Unknown": 0.000458
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-198",
+      "gold": "False",
+      "predicted": "False",
+      "config": "NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.390625,
+        "False": 0.605469,
+        "Unknown": 0.005554
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-377",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.392578,
+        "False": 0.605469,
+        "Unknown": 0.001015
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-814",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 4,
+      "probabilities": {
+        "True": 0.859375,
+        "False": 0.120117,
+        "Unknown": 0.021484
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-1517",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.753906,
+        "False": 0.245117,
+        "Unknown": 0.000774
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D1-1440",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.5625,
+        "False": 0.398438,
+        "Unknown": 0.041992
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D2-878",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.376953,
+        "False": 0.621094,
+        "Unknown": 0.000919
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D0-2464",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-0",
+      "maxD": 0,
+      "probabilities": {
+        "True": 0.890625,
+        "False": 0.106445,
+        "Unknown": 0.002625
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D2-1758",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.679688,
+        "False": 0.320312,
+        "Unknown": 0.001213
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D3-953",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.816406,
+        "False": 0.176758,
+        "Unknown": 0.005524
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D0-2140",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 0,
+      "probabilities": {
+        "True": 0.53125,
+        "False": 0.455078,
+        "Unknown": 0.011963
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D2-2223",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.820312,
+        "False": 0.176758,
+        "Unknown": 0.003845
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-1133",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.28125,
+        "False": 0.71875,
+        "Unknown": 0.000163
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D2-1870",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.714844,
+        "False": 0.261719,
+        "Unknown": 0.02478
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-311",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.320312,
+        "False": 0.679688,
+        "Unknown": 0.000679
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D2-85",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.839844,
+        "False": 0.141602,
+        "Unknown": 0.017456
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-1106",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.925781,
+        "False": 0.061035,
+        "Unknown": 0.013916
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D3-1195",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.255859,
+        "False": 0.742188,
+        "Unknown": 0.001266
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D1-1584",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-1",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.451172,
+        "False": 0.546875,
+        "Unknown": 0.003052
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D3-538",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.294922,
+        "False": 0.707031,
+        "Unknown": 0.000435
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D1-2836",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-1",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.679688,
+        "False": 0.310547,
+        "Unknown": 0.008423
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D5-855",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-5",
+      "maxD": 5,
+      "probabilities": {
+        "True": 0.202148,
+        "False": 0.796875,
+        "Unknown": 0.00074
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D2-84",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.957031,
+        "False": 0.032715,
+        "Unknown": 0.00885
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-1518",
+      "gold": "True",
+      "predicted": "False",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.4375,
+        "False": 0.5625,
+        "Unknown": 0.002365
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-1505",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.363281,
+        "False": 0.636719,
+        "Unknown": 0.000473
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D3-1289",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.292969,
+        "False": 0.703125,
+        "Unknown": 0.001694
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D0-464",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-0",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.769531,
+        "False": 0.220703,
+        "Unknown": 0.009094
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-111",
+      "gold": "True",
+      "predicted": "True",
+      "config": "NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.832031,
+        "False": 0.164062,
+        "Unknown": 0.003998
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D3-597",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.835938,
+        "False": 0.164062,
+        "Unknown": 0.001106
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-386",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.222656,
+        "False": 0.777344,
+        "Unknown": 0.000374
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D2-216",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.765625,
+        "False": 0.226562,
+        "Unknown": 0.006897
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D5-56",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-5",
+      "maxD": 5,
+      "probabilities": {
+        "True": 0.28125,
+        "False": 0.71875,
+        "Unknown": 0.000656
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-1534",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.484375,
+        "False": 0.515625,
+        "Unknown": 0.000763
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D0-2230",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-0",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.894531,
+        "False": 0.085938,
+        "Unknown": 0.018066
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D3-1187",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.515625,
+        "False": 0.484375,
+        "Unknown": 0.001564
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-1490",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.738281,
+        "False": 0.253906,
+        "Unknown": 0.00769
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-109",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.90625,
+        "False": 0.092285,
+        "Unknown": 0.001778
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-96",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.839844,
+        "False": 0.155273,
+        "Unknown": 0.004333
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D5-491",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-5",
+      "maxD": 5,
+      "probabilities": {
+        "True": 0.191406,
+        "False": 0.808594,
+        "Unknown": 0.000322
+      }
+    },
+    {
+      "id": "AttPos-OWA-ElectricityRB4-59",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "birds-electricity",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.222656,
+        "False": 0.777344,
+        "Unknown": 0.000504
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D1-1449",
+      "gold": "True",
+      "predicted": "False",
+      "config": "depth-1",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.46875,
+        "False": 0.53125,
+        "Unknown": 0.000717
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-465",
+      "gold": "False",
+      "predicted": "True",
+      "config": "NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.585938,
+        "False": 0.404297,
+        "Unknown": 0.009766
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D2-2407",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.867188,
+        "False": 0.125,
+        "Unknown": 0.005859
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-462",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 4,
+      "probabilities": {
+        "True": 0.875,
+        "False": 0.125977,
+        "Unknown": 0.000854
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D2-56",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.488281,
+        "False": 0.503906,
+        "Unknown": 0.006348
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D0-6320",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.90625,
+        "False": 0.086914,
+        "Unknown": 0.006592
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-49",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.863281,
+        "False": 0.128906,
+        "Unknown": 0.006714
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D1-899",
+      "gold": "True",
+      "predicted": "False",
+      "config": "depth-1",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.40625,
+        "False": 0.59375,
+        "Unknown": 0.001106
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-1163",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.515625,
+        "False": 0.484375,
+        "Unknown": 0.001404
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D3-978",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.722656,
+        "False": 0.227539,
+        "Unknown": 0.049316
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-10",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.835938,
+        "False": 0.154297,
+        "Unknown": 0.010498
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-51",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.890625,
+        "False": 0.103027,
+        "Unknown": 0.006897
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-1313",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3ext",
+      "maxD": 4,
+      "probabilities": {
+        "True": 0.306641,
+        "False": 0.691406,
+        "Unknown": 0.001465
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D1-176",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-1",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.589844,
+        "False": 0.40625,
+        "Unknown": 0.003098
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-1821",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.71875,
+        "False": 0.273438,
+        "Unknown": 0.009033
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D5-245",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-5",
+      "maxD": 5,
+      "probabilities": {
+        "True": 0.851562,
+        "False": 0.139648,
+        "Unknown": 0.008301
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D5-566",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-5",
+      "maxD": 5,
+      "probabilities": {
+        "True": 0.652344,
+        "False": 0.339844,
+        "Unknown": 0.00766
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D2-424",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-2",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.333984,
+        "False": 0.664062,
+        "Unknown": 0.000179
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D1-72",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-1",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.828125,
+        "False": 0.168945,
+        "Unknown": 0.00193
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D2-2223",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.824219,
+        "False": 0.172852,
+        "Unknown": 0.002502
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-1384",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.361328,
+        "False": 0.636719,
+        "Unknown": 0.002121
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D2-1422",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.640625,
+        "False": 0.353516,
+        "Unknown": 0.008057
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D5-954",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-5",
+      "maxD": 5,
+      "probabilities": {
+        "True": 0.882812,
+        "False": 0.115723,
+        "Unknown": 0.003494
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D2-2043",
+      "gold": "True",
+      "predicted": "False",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.453125,
+        "False": 0.546875,
+        "Unknown": 0.000771
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D0-5706",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-0",
+      "maxD": 0,
+      "probabilities": {
+        "True": 0.851562,
+        "False": 0.143555,
+        "Unknown": 0.003998
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D2-942",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3ext",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.255859,
+        "False": 0.742188,
+        "Unknown": 0.00041
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-1393",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.333984,
+        "False": 0.664062,
+        "Unknown": 0.003937
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-383",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.863281,
+        "False": 0.132812,
+        "Unknown": 0.004181
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-292",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.53125,
+        "False": 0.466797,
+        "Unknown": 0.00238
+      }
+    },
+    {
+      "id": "AttPos-OWA-ElectricityRB3-13",
+      "gold": "True",
+      "predicted": "False",
+      "config": "birds-electricity",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.255859,
+        "False": 0.742188,
+        "Unknown": 0.00032
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D0-6313",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.664062,
+        "False": 0.322266,
+        "Unknown": 0.014648
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D5-369",
+      "gold": "True",
+      "predicted": "False",
+      "config": "depth-5",
+      "maxD": 5,
+      "probabilities": {
+        "True": 0.392578,
+        "False": 0.605469,
+        "Unknown": 0.0009
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D2-1334",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.363281,
+        "False": 0.636719,
+        "Unknown": 0.000292
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-1821",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.894531,
+        "False": 0.097168,
+        "Unknown": 0.00946
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D5-1039",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-5",
+      "maxD": 5,
+      "probabilities": {
+        "True": 0.746094,
+        "False": 0.249023,
+        "Unknown": 0.00592
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D3-922",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.15625,
+        "False": 0.84375,
+        "Unknown": 0.000496
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D2-1159",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.742188,
+        "False": 0.241211,
+        "Unknown": 0.015442
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D1-401",
+      "gold": "True",
+      "predicted": "False",
+      "config": "depth-1",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.347656,
+        "False": 0.648438,
+        "Unknown": 0.004181
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D0-880",
+      "gold": "True",
+      "predicted": "False",
+      "config": "depth-0",
+      "maxD": 0,
+      "probabilities": {
+        "True": 0.306641,
+        "False": 0.691406,
+        "Unknown": 0.003403
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D2-137",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.453125,
+        "False": 0.546875,
+        "Unknown": 0.00174
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D5-1202",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-5",
+      "maxD": 5,
+      "probabilities": {
+        "True": 0.597656,
+        "False": 0.398438,
+        "Unknown": 0.003647
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D3-763",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.233398,
+        "False": 0.765625,
+        "Unknown": 0.000194
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D0-7034",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 0,
+      "probabilities": {
+        "True": 0.703125,
+        "False": 0.292969,
+        "Unknown": 0.002625
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-1817",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.527344,
+        "False": 0.464844,
+        "Unknown": 0.009216
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-935",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.453125,
+        "False": 0.546875,
+        "Unknown": 0.001106
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D0-3815",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-0",
+      "maxD": 0,
+      "probabilities": {
+        "True": 0.294922,
+        "False": 0.707031,
+        "Unknown": 0.000622
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D1-223",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-1",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.742188,
+        "False": 0.255859,
+        "Unknown": 0.003433
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D1-656",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-1",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.808594,
+        "False": 0.180664,
+        "Unknown": 0.011902
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D3-445",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.421875,
+        "False": 0.578125,
+        "Unknown": 0.00069
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-432",
+      "gold": "False",
+      "predicted": "True",
+      "config": "NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.527344,
+        "False": 0.466797,
+        "Unknown": 0.003799
+      }
+    },
+    {
+      "id": "AttPos-OWA-ElectricityRB4-13",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "birds-electricity",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.182617,
+        "False": 0.816406,
+        "Unknown": 0.00053
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D5-805",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-5",
+      "maxD": 5,
+      "probabilities": {
+        "True": 0.233398,
+        "False": 0.765625,
+        "Unknown": 0.000637
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-1586",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.769531,
+        "False": 0.220703,
+        "Unknown": 0.010559
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D2-1037",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.78125,
+        "False": 0.209961,
+        "Unknown": 0.010803
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D1-1038",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-1",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.679688,
+        "False": 0.320312,
+        "Unknown": 0.000142
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-1719",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.765625,
+        "False": 0.226562,
+        "Unknown": 0.007812
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D2-127",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-2",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.769531,
+        "False": 0.200195,
+        "Unknown": 0.030762
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D1-2882",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-1",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.699219,
+        "False": 0.273438,
+        "Unknown": 0.029297
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-250",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.691406,
+        "False": 0.306641,
+        "Unknown": 0.002411
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D2-1498",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.664062,
+        "False": 0.333984,
+        "Unknown": 0.000345
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D3-374",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.376953,
+        "False": 0.621094,
+        "Unknown": 0.000694
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D3-1035",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.421875,
+        "False": 0.578125,
+        "Unknown": 0.000269
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D0-5400",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-0",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.294922,
+        "False": 0.707031,
+        "Unknown": 0.000397
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D3-365",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.233398,
+        "False": 0.765625,
+        "Unknown": 0.000519
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D2-1500",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.539062,
+        "False": 0.449219,
+        "Unknown": 0.010681
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D3-1147",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 4,
+      "probabilities": {
+        "True": 0.515625,
+        "False": 0.484375,
+        "Unknown": 0.001747
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D3-1096",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.730469,
+        "False": 0.269531,
+        "Unknown": 0.001434
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D3-1558",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.851562,
+        "False": 0.139648,
+        "Unknown": 0.007996
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D5-106",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-5",
+      "maxD": 5,
+      "probabilities": {
+        "True": 0.589844,
+        "False": 0.40625,
+        "Unknown": 0.003204
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D2-1576",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.636719,
+        "False": 0.363281,
+        "Unknown": 0.001038
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-79",
+      "gold": "False",
+      "predicted": "True",
+      "config": "NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.675781,
+        "False": 0.320312,
+        "Unknown": 0.004028
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-1538",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.484375,
+        "False": 0.515625,
+        "Unknown": 0.000477
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D0-2493",
+      "gold": "True",
+      "predicted": "False",
+      "config": "depth-0",
+      "maxD": 0,
+      "probabilities": {
+        "True": 0.363281,
+        "False": 0.636719,
+        "Unknown": 0.00135
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D0-3200",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-3ext-NatLang",
+      "maxD": 0,
+      "probabilities": {
+        "True": 0.233398,
+        "False": 0.765625,
+        "Unknown": 0.000301
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D3-319",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.640625,
+        "False": 0.355469,
+        "Unknown": 0.003586
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D0-4626",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3ext-NatLang",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.458984,
+        "False": 0.539062,
+        "Unknown": 0.003052
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D2-1571",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.800781,
+        "False": 0.19043,
+        "Unknown": 0.007629
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D1-2062",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-1",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.78125,
+        "False": 0.209961,
+        "Unknown": 0.008423
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-248",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 4,
+      "probabilities": {
+        "True": 0.609375,
+        "False": 0.382812,
+        "Unknown": 0.007629
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D3-248",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.726562,
+        "False": 0.267578,
+        "Unknown": 0.004333
+      }
+    },
+    {
+      "id": "AttPos-OWA-ElectricityRB4-79",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "birds-electricity",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.245117,
+        "False": 0.753906,
+        "Unknown": 0.00038
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D1-2991",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-1",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.84375,
+        "False": 0.15625,
+        "Unknown": 0.000702
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D5-105",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-5",
+      "maxD": 5,
+      "probabilities": {
+        "True": 0.777344,
+        "False": 0.202148,
+        "Unknown": 0.020996
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D5-56",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-5",
+      "maxD": 5,
+      "probabilities": {
+        "True": 0.376953,
+        "False": 0.621094,
+        "Unknown": 0.000471
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D3-1537",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.878906,
+        "False": 0.118652,
+        "Unknown": 0.003021
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-27",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.734375,
+        "False": 0.237305,
+        "Unknown": 0.029785
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D3-1246",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3ext-NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.408203,
+        "False": 0.59375,
+        "Unknown": 0.000184
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D1-1150",
+      "gold": "True",
+      "predicted": "False",
+      "config": "depth-3ext-NatLang",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.417969,
+        "False": 0.570312,
+        "Unknown": 0.012817
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D5-277",
+      "gold": "True",
+      "predicted": "False",
+      "config": "depth-5",
+      "maxD": 5,
+      "probabilities": {
+        "True": 0.380859,
+        "False": 0.609375,
+        "Unknown": 0.009094
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D2-1289",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.53125,
+        "False": 0.46875,
+        "Unknown": 0.000349
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-44",
+      "gold": "False",
+      "predicted": "False",
+      "config": "NatLang",
+      "maxD": 4,
+      "probabilities": {
+        "True": 0.4375,
+        "False": 0.5625,
+        "Unknown": 0.001625
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D0-442",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-0",
+      "maxD": 0,
+      "probabilities": {
+        "True": 0.294922,
+        "False": 0.707031,
+        "Unknown": 0.000486
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D2-1243",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.605469,
+        "False": 0.392578,
+        "Unknown": 0.001457
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D0-5587",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-0",
+      "maxD": 0,
+      "probabilities": {
+        "True": 0.832031,
+        "False": 0.154297,
+        "Unknown": 0.012268
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D2-29",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.820312,
+        "False": 0.177734,
+        "Unknown": 0.000946
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-1438",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.882812,
+        "False": 0.115723,
+        "Unknown": 0.002396
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D3-527",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.306641,
+        "False": 0.691406,
+        "Unknown": 0.00206
+      }
+    },
+    {
+      "id": "AttPos-OWA-ElectricityRB4-33",
+      "gold": "False",
+      "predicted": "False",
+      "config": "birds-electricity",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.101074,
+        "False": 0.898438,
+        "Unknown": 9.5e-05
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D5-1148",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-5",
+      "maxD": 5,
+      "probabilities": {
+        "True": 0.378906,
+        "False": 0.605469,
+        "Unknown": 0.016113
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D5-442",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-5",
+      "maxD": 5,
+      "probabilities": {
+        "True": 0.867188,
+        "False": 0.117676,
+        "Unknown": 0.014038
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D3-1523",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.523438,
+        "False": 0.474609,
+        "Unknown": 0.003464
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-208",
+      "gold": "False",
+      "predicted": "True",
+      "config": "NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.761719,
+        "False": 0.232422,
+        "Unknown": 0.007568
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D1-1264",
+      "gold": "True",
+      "predicted": "False",
+      "config": "depth-1",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.46875,
+        "False": 0.53125,
+        "Unknown": 0.000751
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D2-1358",
+      "gold": "False",
+      "predicted": "False",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.245117,
+        "False": 0.753906,
+        "Unknown": 0.000149
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-1758",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.789062,
+        "False": 0.193359,
+        "Unknown": 0.018311
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D3-933",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.59375,
+        "False": 0.40625,
+        "Unknown": 0.000422
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D3-1408",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.816406,
+        "False": 0.170898,
+        "Unknown": 0.013367
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-1566",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3ext",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.65625,
+        "False": 0.339844,
+        "Unknown": 0.003906
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-36",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "NatLang",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.871094,
+        "False": 0.123535,
+        "Unknown": 0.007294
+      }
+    },
+    {
+      "id": "AttNonegNatLang-OWA-294",
+      "gold": "True",
+      "predicted": "True",
+      "config": "depth-3ext-NatLang",
+      "maxD": 4,
+      "probabilities": {
+        "True": 0.808594,
+        "False": 0.186523,
+        "Unknown": 0.004303
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-1523",
+      "gold": "Unknown",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.820312,
+        "False": 0.177734,
+        "Unknown": 0.002899
+      }
+    },
+    {
+      "id": "AttNoneg-OWA-D3-1403",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-3",
+      "maxD": 3,
+      "probabilities": {
+        "True": 0.65625,
+        "False": 0.341797,
+        "Unknown": 0.001839
+      }
+    },
+    {
+      "id": "RelNoneg-OWA-D2-675",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-2",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.245117,
+        "False": 0.753906,
+        "Unknown": 0.000656
+      }
+    },
+    {
+      "id": "AttNeg-OWA-D1-2270",
+      "gold": "False",
+      "predicted": "True",
+      "config": "depth-1",
+      "maxD": 2,
+      "probabilities": {
+        "True": 0.558594,
+        "False": 0.435547,
+        "Unknown": 0.005157
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D5-1010",
+      "gold": "Unknown",
+      "predicted": "False",
+      "config": "depth-5",
+      "maxD": 5,
+      "probabilities": {
+        "True": 0.453125,
+        "False": 0.546875,
+        "Unknown": 0.002335
+      }
+    },
+    {
+      "id": "RelNeg-OWA-D1-2787",
+      "gold": "True",
+      "predicted": "False",
+      "config": "depth-1",
+      "maxD": 1,
+      "probabilities": {
+        "True": 0.421875,
+        "False": 0.578125,
+        "Unknown": 0.00079
+      }
+    }
+  ]
+}
