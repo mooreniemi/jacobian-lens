@@ -1308,6 +1308,53 @@ model is not literally always True once negative examples are introduced. The
 next model-size comparison should use this fixed manifest, but the more
 important next diagnostic is to test whether layer-level logit/J-lens readouts
 encode <code>Unknown</code> even when the final answer head does not.</p>
+<h3>2026-07-19 — Smol J-lens readouts on balanced ProofWriter</h3>
+<p>We evaluated the same 300-item balanced manifest with the final model output,
+the ordinary logit lens at every fitted layer, and the model-matched Smol
+J-lens at every fitted layer. This is a readout comparison, not a causal swap
+experiment. The layer shown below is selected on this same exploratory set,
+so it is not a final held-out estimate.</p>
+<table>
+<thead>
+<tr>
+  <th>Readout</th>
+  <th style="text-align:right">Selected layer</th>
+  <th style="text-align:right">Accuracy</th>
+  <th style="text-align:right">Macro-F1</th>
+  <th style="text-align:right"><code>Unknown</code> recall</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Final model</td>
+  <td style="text-align:right">final</td>
+  <td style="text-align:right">0.440</td>
+  <td style="text-align:right">0.350</td>
+  <td style="text-align:right">0.000</td>
+</tr>
+<tr>
+  <td>Logit lens</td>
+  <td style="text-align:right">26</td>
+  <td style="text-align:right">0.460</td>
+  <td style="text-align:right">0.362</td>
+  <td style="text-align:right">0.000</td>
+</tr>
+<tr>
+  <td>J-lens</td>
+  <td style="text-align:right">18</td>
+  <td style="text-align:right">0.577</td>
+  <td style="text-align:right">0.460</td>
+  <td style="text-align:right">0.000</td>
+</tr>
+</tbody>
+</table>
+<p>J-lens therefore helps on this pilot in overall True/False discrimination,
+but it does not solve the central open-world problem: none of the readouts
+predicts <code>Unknown</code>. The immediate follow-up is to reserve a layer-selection
+split and inspect the probability margin between <code>Unknown</code> and the other
+labels, rather than selecting a layer on the same labels and relying only on
+top-1 class output. The artifact is
+<code>data/experiments/proofwriter-smollm2-balanced-lens-smoke.json</code>.</p>
 </article>
 <footer>Rendered from <code>RESEARCH_LOG.md</code> by <code>scripts/generate_research_report.py</code>.</footer>
 </main></body></html>

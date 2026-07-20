@@ -1058,3 +1058,25 @@ model is not literally always True once negative examples are introduced. The
 next model-size comparison should use this fixed manifest, but the more
 important next diagnostic is to test whether layer-level logit/J-lens readouts
 encode `Unknown` even when the final answer head does not.
+
+### 2026-07-19 — Smol J-lens readouts on balanced ProofWriter
+
+We evaluated the same 300-item balanced manifest with the final model output,
+the ordinary logit lens at every fitted layer, and the model-matched Smol
+J-lens at every fitted layer. This is a readout comparison, not a causal swap
+experiment. The layer shown below is selected on this same exploratory set,
+so it is not a final held-out estimate.
+
+| Readout | Selected layer | Accuracy | Macro-F1 | `Unknown` recall |
+|---|---:|---:|---:|---:|
+| Final model | final | 0.440 | 0.350 | 0.000 |
+| Logit lens | 26 | 0.460 | 0.362 | 0.000 |
+| J-lens | 18 | 0.577 | 0.460 | 0.000 |
+
+J-lens therefore helps on this pilot in overall True/False discrimination,
+but it does not solve the central open-world problem: none of the readouts
+predicts `Unknown`. The immediate follow-up is to reserve a layer-selection
+split and inspect the probability margin between `Unknown` and the other
+labels, rather than selecting a layer on the same labels and relying only on
+top-1 class output. The artifact is
+`data/experiments/proofwriter-smollm2-balanced-lens-smoke.json`.
