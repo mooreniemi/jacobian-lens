@@ -21,8 +21,16 @@ def log(message: str) -> None:
     print(f"[{time.strftime('%H:%M:%S')}] {message}", flush=True)
 
 
-def make_prompt(row: dict[str, object]) -> str:
-    return f"Facts and rules:\n{row['theory']}\n\nQuestion: {row['question']}\nAnswer:"
+def make_prompt(row: dict[str, object], prompt_style: str) -> str:
+    instruction = ""
+    if prompt_style == "explicit":
+        instruction = (
+            "Decide whether the question is entailed, contradicted, or unknown "
+            "given the facts and rules. True means the statement is provable. "
+            "False means its opposite is provable. Unknown means neither is "
+            "provable. Output exactly one label: True, False, or Unknown.\n\n"
+        )
+    return f"{instruction}Facts and rules:\n{row['theory']}\n\nQuestion: {row['question']}\nAnswer:"
 
 
 def sample_manifest(split: str, per_class: int, seed: int) -> list[dict[str, object]]:
@@ -47,6 +55,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", default="/home/alex/models/smollm2-135m-instruct")
     parser.add_argument("--split", default="test")
+    parser.add_argument("--prompt-style", choices=("minimal", "explicit"), default="minimal")
     parser.add_argument("--per-class", type=int, default=100)
     parser.add_argument("--seed", type=int, default=17)
     parser.add_argument("--batch-size", type=int, default=16)
@@ -87,7 +96,7 @@ def main() -> None:
         for start in range(0, len(rows), args.batch_size):
             batch = rows[start : start + args.batch_size]
             encoded = tokenizer(
-                [make_prompt(row) for row in batch],
+                [make_prompt(row, args.prompt_style) for row in batch],
                 return_tensors="pt",
                 padding=True,
                 truncation=True,
@@ -133,6 +142,7 @@ def main() -> None:
         "kind": "proofwriter-balanced-observational-smoke",
         "model": args.model,
         "split": args.split,
+        "prompt_style": args.prompt_style,
         "seed": args.seed,
         "manifest": str(manifest_path),
         "n_items": len(rows),

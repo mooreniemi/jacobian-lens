@@ -1355,6 +1355,64 @@ split and inspect the probability margin between <code>Unknown</code> and the ot
 labels, rather than selecting a layer on the same labels and relying only on
 top-1 class output. The artifact is
 <code>data/experiments/proofwriter-smollm2-balanced-lens-smoke.json</code>.</p>
+<h3>2026-07-19 — Explicit ProofWriter instruction rerun</h3>
+<p>To give the model a fairer task description, we reran the identical fixed
+manifest with a short instruction defining the three labels and the
+open-world rule, while keeping the theory and question unchanged:</p>
+<pre><code class="language-text">Decide whether the question is entailed, contradicted, or unknown given the
+facts and rules. True means the statement is provable. False means its
+opposite is provable. Unknown means neither is provable. Output exactly one
+label: True, False, or Unknown.
+</code></pre>
+<table>
+<thead>
+<tr>
+  <th>Readout</th>
+  <th>Prompt</th>
+  <th style="text-align:right">Accuracy</th>
+  <th style="text-align:right">Macro-F1</th>
+  <th style="text-align:right"><code>Unknown</code> recall</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Final model</td>
+  <td>minimal</td>
+  <td style="text-align:right">0.440</td>
+  <td style="text-align:right">0.350</td>
+  <td style="text-align:right">0.000</td>
+</tr>
+<tr>
+  <td>Final model</td>
+  <td>explicit</td>
+  <td style="text-align:right">0.490</td>
+  <td style="text-align:right">0.392</td>
+  <td style="text-align:right">0.000</td>
+</tr>
+<tr>
+  <td>Logit lens, best layer 26</td>
+  <td>explicit</td>
+  <td style="text-align:right">0.407</td>
+  <td style="text-align:right">0.295</td>
+  <td style="text-align:right">0.000</td>
+</tr>
+<tr>
+  <td>J-lens, best layer 18</td>
+  <td>explicit</td>
+  <td style="text-align:right">0.580</td>
+  <td style="text-align:right">0.463</td>
+  <td style="text-align:right">0.000</td>
+</tr>
+</tbody>
+</table>
+<p>The instruction improves the final model's overall score modestly, but does
+not make it emit <code>Unknown</code>. J-lens still gives the strongest exploratory
+readout, about 9 percentage points above the explicit final model, while the
+best logit-lens readout is below it. These layer choices were made on the same
+300 examples and therefore require confirmation on a held-out layer-selection
+split. The explicit-prompt artifacts are
+<code>data/experiments/proofwriter-smollm2-balanced-explicit-smoke.json</code> and
+<code>data/experiments/proofwriter-smollm2-balanced-explicit-lens-smoke.json</code>.</p>
 </article>
 <footer>Rendered from <code>RESEARCH_LOG.md</code> by <code>scripts/generate_research_report.py</code>.</footer>
 </main></body></html>

@@ -16,6 +16,18 @@ from tabulate import tabulate
 LABELS = ("True", "False", "Unknown")
 
 
+def make_prompt(row: dict[str, object], prompt_style: str) -> str:
+    instruction = ""
+    if prompt_style == "explicit":
+        instruction = (
+            "Decide whether the question is entailed, contradicted, or unknown "
+            "given the facts and rules. True means the statement is provable. "
+            "False means its opposite is provable. Unknown means neither is "
+            "provable. Output exactly one label: True, False, or Unknown.\n\n"
+        )
+    return f"{instruction}Facts and rules:\n{row['theory']}\n\nQuestion: {row['question']}\nAnswer:"
+
+
 def log(message: str) -> None:
     print(f"[{time.strftime('%H:%M:%S')}] {message}", flush=True)
 
@@ -51,6 +63,7 @@ def main() -> None:
     parser.add_argument("--manifest", default="data/benchmarks/proofwriter-balanced-test-300.jsonl")
     parser.add_argument("--out", default="data/experiments/proofwriter-smollm2-balanced-lens-smoke.json")
     parser.add_argument("--max-items", type=int)
+    parser.add_argument("--prompt-style", choices=("minimal", "explicit"), default="minimal")
     parser.add_argument("--max-seq-len", type=int, default=512)
     args = parser.parse_args()
 
@@ -79,7 +92,7 @@ def main() -> None:
     all_results = []
     with torch.inference_mode():
         for index, row in enumerate(rows, 1):
-            text = f"Facts and rules:\n{row['theory']}\n\nQuestion: {row['question']}\nAnswer:"
+            text = make_prompt(row, args.prompt_style)
             j_logits, final_logits, input_ids = lens.apply(
                 model, text, layers=layers, positions=[-1], max_seq_len=args.max_seq_len
             )
@@ -124,6 +137,7 @@ def main() -> None:
         "model": args.model,
         "lens": args.lens,
         "manifest": args.manifest,
+        "prompt_style": args.prompt_style,
         "layers": layers,
         "metrics": metric_output,
         "results": all_results,

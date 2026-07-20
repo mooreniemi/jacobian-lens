@@ -1080,3 +1080,32 @@ split and inspect the probability margin between `Unknown` and the other
 labels, rather than selecting a layer on the same labels and relying only on
 top-1 class output. The artifact is
 `data/experiments/proofwriter-smollm2-balanced-lens-smoke.json`.
+
+### 2026-07-19 — Explicit ProofWriter instruction rerun
+
+To give the model a fairer task description, we reran the identical fixed
+manifest with a short instruction defining the three labels and the
+open-world rule, while keeping the theory and question unchanged:
+
+```text
+Decide whether the question is entailed, contradicted, or unknown given the
+facts and rules. True means the statement is provable. False means its
+opposite is provable. Unknown means neither is provable. Output exactly one
+label: True, False, or Unknown.
+```
+
+| Readout | Prompt | Accuracy | Macro-F1 | `Unknown` recall |
+|---|---|---:|---:|---:|
+| Final model | minimal | 0.440 | 0.350 | 0.000 |
+| Final model | explicit | 0.490 | 0.392 | 0.000 |
+| Logit lens, best layer 26 | explicit | 0.407 | 0.295 | 0.000 |
+| J-lens, best layer 18 | explicit | 0.580 | 0.463 | 0.000 |
+
+The instruction improves the final model's overall score modestly, but does
+not make it emit `Unknown`. J-lens still gives the strongest exploratory
+readout, about 9 percentage points above the explicit final model, while the
+best logit-lens readout is below it. These layer choices were made on the same
+300 examples and therefore require confirmation on a held-out layer-selection
+split. The explicit-prompt artifacts are
+`data/experiments/proofwriter-smollm2-balanced-explicit-smoke.json` and
+`data/experiments/proofwriter-smollm2-balanced-explicit-lens-smoke.json`.
