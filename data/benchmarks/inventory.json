@@ -9,6 +9,11 @@
       "dataset": "tasksource/folio",
       "paper": "https://arxiv.org/abs/2209.00840",
       "dataset_card": "https://huggingface.co/datasets/tasksource/folio"
+    },
+    "clutrr": {
+      "dataset": "tasksource/clutrr",
+      "paper": "https://arxiv.org/abs/1908.06177",
+      "dataset_card": "https://huggingface.co/datasets/tasksource/clutrr"
     }
   },
   "datasets": {
@@ -35,10 +40,40 @@
         "rows_seen": 203,
         "conjunction_candidates_saved": 189
       }
+    },
+    "clutrr": {
+      "train": {
+        "rows_seen": 12064,
+        "rows_saved": 5000,
+        "features": [
+          "sentence1",
+          "sentence2",
+          "labels"
+        ]
+      },
+      "validation": {
+        "rows_seen": 3019,
+        "rows_saved": 3019,
+        "features": [
+          "sentence1",
+          "sentence2",
+          "labels"
+        ]
+      },
+      "test": {
+        "rows_seen": 1048,
+        "rows_saved": 1048,
+        "features": [
+          "sentence1",
+          "sentence2",
+          "labels"
+        ]
+      }
     }
   },
   "outputs": {
     "proofwriter_candidates": 15000,
-    "folio_candidates": 1084
+    "folio_candidates": 1084,
+    "clutrr_rows_saved": 9067
   }
 }

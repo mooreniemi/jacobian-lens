@@ -35,6 +35,11 @@ def main() -> None:
                 "paper": "https://arxiv.org/abs/2209.00840",
                 "dataset_card": "https://huggingface.co/datasets/tasksource/folio",
             },
+            "clutrr": {
+                "dataset": "tasksource/clutrr",
+                "paper": "https://arxiv.org/abs/1908.06177",
+                "dataset_card": "https://huggingface.co/datasets/tasksource/clutrr",
+            },
         },
         "datasets": {},
     }
@@ -73,11 +78,27 @@ def main() -> None:
             "rows_seen": len(ds), "conjunction_candidates_saved": len(rows)
         }
 
+    # CLUTRR is retained as a relational-binding benchmark rather than
+    # filtered for conjunctions. Keep the complete validation/test splits and
+    # a bounded training sample in a small, inspectable local export; the full
+    # dataset remains available in the Hugging Face cache.
+    clutrr_rows_saved = 0
+    for split in ("train", "validation", "test"):
+        ds = load_dataset("tasksource/clutrr", split=split)
+        limit = min(args.max_candidates, len(ds))
+        rows = [{"split": split, **dict(row)} for row in ds.select(range(limit))]
+        write_jsonl(out / f"clutrr-{split}.jsonl", rows)
+        clutrr_rows_saved += len(rows)
+        inventory["datasets"].setdefault("clutrr", {})[split] = {
+            "rows_seen": len(ds), "rows_saved": len(rows), "features": list(ds.features)
+        }
+
     write_jsonl(out / "proofwriter-conjunction-candidates.jsonl", proof_candidates)
     write_jsonl(out / "folio-conjunction-candidates.jsonl", folio_candidates)
     inventory["outputs"] = {
         "proofwriter_candidates": len(proof_candidates),
         "folio_candidates": len(folio_candidates),
+        "clutrr_rows_saved": clutrr_rows_saved,
     }
     (out / "inventory.json").write_text(json.dumps(inventory, ensure_ascii=False, indent=2) + "\n")
     print(json.dumps(inventory, ensure_ascii=False, indent=2))

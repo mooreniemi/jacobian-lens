@@ -18,7 +18,7 @@ img { max-width:100%; } footer { margin-top:3rem; padding-top:1rem; border-top:1
 <p>This log records the local reproduction of Anthropic's Jacobian-lens work, changes made for this machine, and experiments added afterward.</p>
 <h2>Status</h2>
 <ul>
-<li>Last updated: 2026-07-15</li>
+<li>Last updated: 2026-09-06</li>
 <li>Workspace: <code>/home/alex/Code/jlens/jacobian-lens</code></li>
 <li>Hardware: NVIDIA GeForce RTX 3090, 24 GB VRAM, 31 GB system RAM</li>
 <li>Primary environment: project <code>.venv</code>, PyTorch 2.12.0+cu130, Transformers 5.9.0</li>
@@ -117,6 +117,66 @@ accuracy was 74.3% for the adapted J-lens, while confirmation accuracy was
 66.5%, making held-out performance the relevant result.</p>
 <p>Artifact:
 <code>data/experiments/proofwriter-qwen3-1.7b-label-adapted-jlens-r16-4800.json</code>.</p>
+<h3>2026-07-19 — CLUTRR benchmark downloaded</h3>
+<p>Added <code>tasksource/clutrr</code> to <code>scripts/download_logic_benchmarks.py</code> and
+downloaded it into the Hugging Face datasets cache. CLUTRR exposes three
+columns: a relational story (<code>sentence1</code>), a queried entity pair (<code>sentence2</code>),
+and an 18-way kinship label (<code>labels</code>). The available splits contain 12,064
+train, 3,019 validation, and 1,048 test rows. We saved a bounded 5,000-row
+training export plus the complete validation and test exports:
+<code>data/benchmarks/clutrr-train.jsonl</code>, <code>clutrr-validation.jsonl</code>, and
+<code>clutrr-test.jsonl</code>. We then ran a first balanced pilot with the instruction-tuned SmolLM2-135M
+checkpoint and its fitted J-lens. To avoid a class-frequency artifact, the
+selection manifest contains 30 examples per kinship label (540 total), and the
+source-disjoint confirmation manifest contains 35 per label (630 total). The
+prompt gives the model an explicit 18-label answer codebook, and we selected
+the J-lens/logit-lens layers on the selection split before evaluating once on
+confirmation.</p>
+<table>
+<thead>
+<tr>
+  <th>Readout</th>
+  <th style="text-align:right">Selection accuracy / macro-F1</th>
+  <th style="text-align:right">Confirmation accuracy / macro-F1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>J-lens</td>
+  <td style="text-align:right">7.8% / 0.053</td>
+  <td style="text-align:right">6.0% / 0.032</td>
+</tr>
+<tr>
+  <td>Logit lens</td>
+  <td style="text-align:right">6.5% / 0.028</td>
+  <td style="text-align:right">5.7% / 0.009</td>
+</tr>
+<tr>
+  <td>Final hidden state</td>
+  <td style="text-align:right">6.9% / 0.034</td>
+  <td style="text-align:right">6.7% / 0.037</td>
+</tr>
+</tbody>
+</table>
+<p>The 18-way chance accuracy is 5.6%. J-lens is slightly above chance and beats
+the other readouts on the selection split, but does not produce a strong
+held-out signal: final-state accuracy is higher on confirmation and all three
+readouts have low macro-F1. This is a negative/diagnostic result rather than
+evidence that the current lens decodes CLUTRR reliably. The likely next steps
+are to validate the prompt/codebook mapping, inspect per-class confusion, and
+test a larger or more capable model before drawing conclusions about relational
+reasoning. Artifacts: <code>scripts/make_clutrr_balanced_manifests.py</code>,
+<code>scripts/eval_clutrr_balanced_lenses.py</code>, and
+<code>data/experiments/clutrr-smollm2-135m-balanced-lenses.json</code>.</p>
+<h3>2026-09-06 — Instruction-tuned looped-transformer candidates</h3>
+<p>We removed the previously downloaded non-instruction-tuned loop checkpoints, <code>looplm-135m-naive</code> (about 712 MB) and <code>parcae-770m</code> (about 2.9 GB), because the next comparison requires instruction/chat-tuned models.</p>
+<p>We downloaded two small tuned replacements that fit comfortably within the RTX 3090 24 GB VRAM budget:</p>
+<ul>
+<li><code>harims95/LoopLM-135M-naive-sft</code> → <code>/home/alex/models/looplm-135m-naive-sft</code>; approximately 134M parameters. This is supervised fine-tuning of LoopLM on 52,002 Stanford Alpaca examples. The model card reports that it learned the instruction format but has poor factual and mathematical reliability.</li>
+<li><code>breitburg/april-70m-280526</code> → <code>/home/alex/models/april-70m</code>; approximately 69M parameters. This is a depth-recurrent chat/tool-use model post-trained on a mixed web, chat, and tool-calling corpus, with variable recurrent depth at inference. The model card dates the release to 2026-05-28.</li>
+</ul>
+<p>Both checkpoints are small enough to run on the local GPU. A CPU smoke check loaded LoopLM-SFT with its custom Transformers code, but reported tied-embedding/special-token warnings that require validation before evaluation. April currently fails under Transformers 5.9.0 because its custom rotary-embedding code expects an older <code>rope_parameters</code> API; this needs a compatibility shim or isolated dependency environment.</p>
+<p>No J-lens fitting, task evaluation, or GPU run has been performed on either tuned loop model yet. The next gate is to make both loaders produce a valid short generation, then expose recurrent-pass activation boundaries for a model-specific J-lens fit.</p>
 <h2>1. Original Anthropic reproduction</h2>
 <p>Source repository: <a href="."><code>/home/alex/Code/jlens/jacobian-lens</code></a></p>
 <p>The original walkthrough loads a Hugging Face causal language model, wraps it with <code>jlens.from_hf</code>, downloads a pretrained Jacobian lens, applies the lens to a prompt, and renders a layer × position visualization.</p>

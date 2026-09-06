@@ -1,0 +1,90 @@
+{
+  "dataset": "tasksource/clutrr",
+  "labels": [
+    [
+      0,
+      "aunt"
+    ],
+    [
+      1,
+      "brother"
+    ],
+    [
+      2,
+      "daughter"
+    ],
+    [
+      3,
+      "daughter-in-law"
+    ],
+    [
+      4,
+      "father"
+    ],
+    [
+      5,
+      "father-in-law"
+    ],
+    [
+      6,
+      "granddaughter"
+    ],
+    [
+      7,
+      "grandfather"
+    ],
+    [
+      8,
+      "grandmother"
+    ],
+    [
+      9,
+      "grandson"
+    ],
+    [
+      10,
+      "mother"
+    ],
+    [
+      11,
+      "mother-in-law"
+    ],
+    [
+      12,
+      "nephew"
+    ],
+    [
+      13,
+      "niece"
+    ],
+    [
+      14,
+      "sister"
+    ],
+    [
+      15,
+      "son"
+    ],
+    [
+      16,
+      "son-in-law"
+    ],
+    [
+      17,
+      "uncle"
+    ]
+  ],
+  "selection": {
+    "path": "data/benchmarks/clutrr-selection-540.jsonl",
+    "n": 540,
+    "per_class": 30,
+    "source_split": "train"
+  },
+  "confirmation": {
+    "path": "data/benchmarks/clutrr-confirmation-630.jsonl",
+    "n": 630,
+    "per_class": 35,
+    "source_split": "validation"
+  },
+  "seed": 2718
+}

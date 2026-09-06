@@ -4,7 +4,7 @@ This log records the local reproduction of Anthropic's Jacobian-lens work, chang
 
 ## Status
 
-- Last updated: 2026-07-15
+- Last updated: 2026-09-06
 - Workspace: `/home/alex/Code/jlens/jacobian-lens`
 - Hardware: NVIDIA GeForce RTX 3090, 24 GB VRAM, 31 GB system RAM
 - Primary environment: project `.venv`, PyTorch 2.12.0+cu130, Transformers 5.9.0
@@ -64,6 +64,53 @@ accuracy was 74.3% for the adapted J-lens, while confirmation accuracy was
 
 Artifact:
 `data/experiments/proofwriter-qwen3-1.7b-label-adapted-jlens-r16-4800.json`.
+
+### 2026-07-19 — CLUTRR benchmark downloaded
+
+Added `tasksource/clutrr` to `scripts/download_logic_benchmarks.py` and
+downloaded it into the Hugging Face datasets cache. CLUTRR exposes three
+columns: a relational story (`sentence1`), a queried entity pair (`sentence2`),
+and an 18-way kinship label (`labels`). The available splits contain 12,064
+train, 3,019 validation, and 1,048 test rows. We saved a bounded 5,000-row
+training export plus the complete validation and test exports:
+`data/benchmarks/clutrr-train.jsonl`, `clutrr-validation.jsonl`, and
+`clutrr-test.jsonl`. We then ran a first balanced pilot with the instruction-tuned SmolLM2-135M
+checkpoint and its fitted J-lens. To avoid a class-frequency artifact, the
+selection manifest contains 30 examples per kinship label (540 total), and the
+source-disjoint confirmation manifest contains 35 per label (630 total). The
+prompt gives the model an explicit 18-label answer codebook, and we selected
+the J-lens/logit-lens layers on the selection split before evaluating once on
+confirmation.
+
+| Readout | Selection accuracy / macro-F1 | Confirmation accuracy / macro-F1 |
+|---|---:|---:|
+| J-lens | 7.8% / 0.053 | 6.0% / 0.032 |
+| Logit lens | 6.5% / 0.028 | 5.7% / 0.009 |
+| Final hidden state | 6.9% / 0.034 | 6.7% / 0.037 |
+
+The 18-way chance accuracy is 5.6%. J-lens is slightly above chance and beats
+the other readouts on the selection split, but does not produce a strong
+held-out signal: final-state accuracy is higher on confirmation and all three
+readouts have low macro-F1. This is a negative/diagnostic result rather than
+evidence that the current lens decodes CLUTRR reliably. The likely next steps
+are to validate the prompt/codebook mapping, inspect per-class confusion, and
+test a larger or more capable model before drawing conclusions about relational
+reasoning. Artifacts: `scripts/make_clutrr_balanced_manifests.py`,
+`scripts/eval_clutrr_balanced_lenses.py`, and
+`data/experiments/clutrr-smollm2-135m-balanced-lenses.json`.
+
+### 2026-09-06 — Instruction-tuned looped-transformer candidates
+
+We removed the previously downloaded non-instruction-tuned loop checkpoints, `looplm-135m-naive` (about 712 MB) and `parcae-770m` (about 2.9 GB), because the next comparison requires instruction/chat-tuned models.
+
+We downloaded two small tuned replacements that fit comfortably within the RTX 3090 24 GB VRAM budget:
+
+- `harims95/LoopLM-135M-naive-sft` → `/home/alex/models/looplm-135m-naive-sft`; approximately 134M parameters. This is supervised fine-tuning of LoopLM on 52,002 Stanford Alpaca examples. The model card reports that it learned the instruction format but has poor factual and mathematical reliability.
+- `breitburg/april-70m-280526` → `/home/alex/models/april-70m`; approximately 69M parameters. This is a depth-recurrent chat/tool-use model post-trained on a mixed web, chat, and tool-calling corpus, with variable recurrent depth at inference. The model card dates the release to 2026-05-28.
+
+Both checkpoints are small enough to run on the local GPU. A CPU smoke check loaded LoopLM-SFT with its custom Transformers code, but reported tied-embedding/special-token warnings that require validation before evaluation. April currently fails under Transformers 5.9.0 because its custom rotary-embedding code expects an older `rope_parameters` API; this needs a compatibility shim or isolated dependency environment.
+
+No J-lens fitting, task evaluation, or GPU run has been performed on either tuned loop model yet. The next gate is to make both loaders produce a valid short generation, then expose recurrent-pass activation boundaries for a model-specific J-lens fit.
 
 ## 1. Original Anthropic reproduction
 

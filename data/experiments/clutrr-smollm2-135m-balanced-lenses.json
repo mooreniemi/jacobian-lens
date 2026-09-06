@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "kind": "clutrr-balanced-lens-evaluation",
+  "model": "/home/alex/models/smollm2-135m-instruct",
+  "lens": "data/lenses/smollm2-135m-fit-204-lens.pt",
+  "selection_manifest": "data/benchmarks/clutrr-selection-540.jsonl",
+  "confirmation_manifest": "data/benchmarks/clutrr-confirmation-630.jsonl",
+  "prompt_style": "explicit-codebook",
+  "selected_layers": {
+    "jlens": 23,
+    "logit": 28,
+    "final": "final"
+  },
+  "selection_metrics": {
+    "jlens": {
+      "accuracy": 0.07777777777777778,
+      "macro_f1": 0.052999108501854346
+    },
+    "logit": {
+      "accuracy": 0.06481481481481481,
+      "macro_f1": 0.028019069800240284
+    },
+    "final": {
+      "accuracy": 0.06851851851851852,
+      "macro_f1": 0.033960771400522796
+    }
+  },
+  "confirmation_metrics": {
+    "jlens": {
+      "accuracy": 0.06031746031746032,
+      "macro_f1": 0.03220598098826241
+    },
+    "logit": {
+      "accuracy": 0.05714285714285714,
+      "macro_f1": 0.00861160124735049
+    },
+    "final": {
+      "accuracy": 0.06666666666666667,
+      "macro_f1": 0.0374981671658558
+    }
+  }
+}
