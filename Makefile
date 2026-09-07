@@ -1,4 +1,4 @@
-.PHONY: report report-pdf check
+.PHONY: report report-pdf loop-report check
 
 # Rebuild the browser-facing report from docs/ and data/ artifacts.
 report:
@@ -14,6 +14,12 @@ report-pdf: report
 		"file://$(CURDIR)/reports/research/index.html"
 	cp "$(CURDIR)/reports/research/research-report.pdf" \
 		"$(CURDIR)/docs/research/research-report.pdf"
+
+# Build the standalone virtual-depth loop-transformer report.
+loop-report:
+	uv run python scripts/generate_loop_report.py
+	mkdir -p "$(CURDIR)/docs/loop-transformers"
+	cp -a "$(CURDIR)/reports/loop-transformers/." "$(CURDIR)/docs/loop-transformers/"
 
 # Fast local checks before committing research or infrastructure changes.
 check:

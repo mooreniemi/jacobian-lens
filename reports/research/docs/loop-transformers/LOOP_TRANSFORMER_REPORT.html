@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reading Looped Transformers with Virtual-Depth Jacobian Lenses · J-Lens research report</title>
+<style>
+:root { --paper:#fff; --wash:#f3f1ec; --ink:#222; --muted:#666; --rule:#b8b5ae; --accent:#174a73; }
+* { box-sizing:border-box; } body { margin:0; background:var(--wash); color:var(--ink); font:16px/1.58 Georgia,'Times New Roman',serif; }
+main { max-width:1120px; margin:2rem auto; padding:3.5rem 4.5rem; background:var(--paper); border:1px solid #d7d3ca; box-shadow:0 1px 8px #00000012; }
+h1,h2,h3,table,nav,footer { font-family:Arial,Helvetica,sans-serif; } h1 { font:700 2.2rem/1.15 Georgia,serif; } h2 { margin-top:2.2rem; border-bottom:1px solid var(--rule); padding-bottom:.25rem; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; } nav { margin-bottom:2rem; }
+table { border-collapse:collapse; width:100%; margin:1rem 0 1.5rem; font-size:.86rem; } th,td { border-bottom:1px solid #d6d3cc; padding:.4rem .5rem; text-align:left; vertical-align:top; } th { border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+pre { overflow:auto; padding:1rem; background:#f5f4f0; border:1px solid #dedbd3; } code { font:.88em/1.35 'SFMono-Regular',Consolas,monospace; } blockquote { border-left:3px solid var(--accent); margin-left:0; padding-left:1rem; color:var(--muted); }
+img { max-width:100%; } footer { margin-top:3rem; padding-top:1rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.8rem; }
+@media (max-width:760px) { main { margin:0; padding:2rem 1.2rem; } table { display:block; overflow-x:auto; } }
+</style></head><body><main>
+<nav><a href="../index.html">← Research report</a> · <a href="index.html">Documentation index</a></nav>
+<article><h1>Reading Looped Transformers with Virtual-Depth Jacobian Lenses</h1>
+<p><strong>Standalone research report · 2026-09-07</strong></p>
+<h2>Abstract</h2>
+<p>Ordinary Transformer interpretability indexes computation by untied layer. Ouro-2.6B-Thinking instead applies the same 48-block decoder repeatedly for four recurrent passes. We therefore expose a virtual depth of 192 computation stages and fit target-specific Jacobian lenses at each loop boundary, using only the preceding 47 virtual stages for transport. This report compares those readouts with matched logit lenses on balanced ProofWriter.</p>
+<p>The experiment follows the loop-specific methodology of Wang and Reid's virtual-unrolling study: recurrent blocks are addressable by <code>(pass, shared block)</code>, transport is measured within local recurrence windows, and selection layers are locked before source-disjoint confirmation. The present work is a narrower replication/extension: it evaluates a logical-label readout and does not yet include the full causal workspace suite.</p>
+<h2>Contents</h2>
+<ol>
+<li><a href="#why-loops-differ-from-ordinary-transformers">Why loops differ from ordinary Transformers</a></li>
+<li><a href="#protocol-and-best-practice-controls">Protocol and best-practice controls</a></li>
+<li><a href="#selection-readouts">Selection readouts</a><ol>
+<li><a href="#figure-selection-readouts">Figure: selection readouts</a></li>
+</ol>
+</li>
+<li><a href="#locked-confirmation">Locked confirmation</a><ol>
+<li><a href="#figure-confirmation-results">Figure: confirmation results</a></li>
+</ol>
+</li>
+<li><a href="#interpretation-and-limitations">Interpretation and limitations</a></li>
+<li><a href="#relation-to-established-work">Relation to established work</a></li>
+</ol>
+<h2>Why loops differ from ordinary Transformers</h2>
+<p>In a conventional Transformer, layer 20 and layer 40 have different parameters and form a single feed-forward depth axis. In Ouro, block 20 in pass 1 and block 20 in pass 3 share parameters but receive different hidden states and recurrent context. A useful coordinate is therefore <code>v = 48 × pass + block</code>.</p>
+<p>This changes interpretability in four ways:</p>
+<ul>
+<li>A single final-target lens can lose information crossing loop boundaries.</li>
+<li>The same shared block can have different functional roles at different recurrent passes.</li>
+<li>Readable content may be reconstructed independently on each loop rather than carried forward.</li>
+<li>An intervention may need to persist through later loops to remain behaviorally effective.</li>
+</ul>
+<p>The model's four loop-end checkpoints are <code>v47</code>, <code>v95</code>, <code>v143</code>, and <code>v191</code>; these are not equivalent to four ordinary untied layers.</p>
+<h2>Protocol and best-practice controls</h2>
+<ul>
+<li>Model: local BF16 <code>ByteDance/Ouro-2.6B-Thinking</code>, 48 shared blocks, four recurrent passes.</li>
+<li>Lens fit: eight generic prompts, sequence length 64, eight leading positions skipped, dimension batch 16.</li>
+<li>Lens family: one target at each loop end; each target uses the immediately preceding 47 virtual layers as sources.</li>
+<li>Baseline: ordinary logit lens evaluated at exactly the same source virtual layers.</li>
+<li>Task: balanced three-way ProofWriter (<code>True</code>, <code>False</code>, <code>Unknown</code>).</li>
+<li>Selection: 300 items, used only to choose the source layer within each loop.</li>
+<li>Confirmation: 1,500 source-disjoint items, with the selected layer locked in advance.</li>
+</ul>
+<p>This prevents the main loop-specific failure mode: selecting a layer after looking at the confirmation set, or treating a cross-loop final-target map as evidence that information persists across recurrence.</p>
+<h2>Selection readouts</h2>
+<table>
+<thead>
+<tr>
+  <th style="text-align:right">Loop</th>
+  <th style="text-align:right">Best J-lens source</th>
+  <th style="text-align:right">J-lens</th>
+  <th style="text-align:right">Best logit source</th>
+  <th style="text-align:right">Logit lens</th>
+  <th style="text-align:right">Final Ouro</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:right">1</td>
+  <td style="text-align:right">v44</td>
+  <td style="text-align:right">49.3%</td>
+  <td style="text-align:right">v8</td>
+  <td style="text-align:right">42.0%</td>
+  <td style="text-align:right">50.7%</td>
+</tr>
+<tr>
+  <td style="text-align:right">2</td>
+  <td style="text-align:right">v93</td>
+  <td style="text-align:right">56.0%</td>
+  <td style="text-align:right">v66</td>
+  <td style="text-align:right">51.0%</td>
+  <td style="text-align:right">50.7%</td>
+</tr>
+<tr>
+  <td style="text-align:right">3</td>
+  <td style="text-align:right">v136</td>
+  <td style="text-align:right">53.7%</td>
+  <td style="text-align:right">v130</td>
+  <td style="text-align:right">52.7%</td>
+  <td style="text-align:right">50.7%</td>
+</tr>
+<tr>
+  <td style="text-align:right">4</td>
+  <td style="text-align:right">v190</td>
+  <td style="text-align:right">58.0%</td>
+  <td style="text-align:right">v177</td>
+  <td style="text-align:right">52.0%</td>
+  <td style="text-align:right">50.7%</td>
+</tr>
+</tbody>
+</table>
+<h3>Figure: selection readouts</h3>
+<p><img src="plots/ouro-virtual-selection-readouts.png" alt="Virtual-depth selection readouts" /></p>
+<h2>Locked confirmation</h2>
+<table>
+<thead>
+<tr>
+  <th style="text-align:right">Loop</th>
+  <th style="text-align:right">Locked J-lens source</th>
+  <th style="text-align:right">J-lens</th>
+  <th style="text-align:right">Best logit source</th>
+  <th style="text-align:right">Logit lens</th>
+  <th style="text-align:right">Final Ouro</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:right">1</td>
+  <td style="text-align:right">v41</td>
+  <td style="text-align:right">51.9%</td>
+  <td style="text-align:right">v8</td>
+  <td style="text-align:right">43.3%</td>
+  <td style="text-align:right">51.2%</td>
+</tr>
+<tr>
+  <td style="text-align:right">2</td>
+  <td style="text-align:right">v93</td>
+  <td style="text-align:right">58.3%</td>
+  <td style="text-align:right">v93</td>
+  <td style="text-align:right">33.7%</td>
+  <td style="text-align:right">51.2%</td>
+</tr>
+<tr>
+  <td style="text-align:right">3</td>
+  <td style="text-align:right">v136</td>
+  <td style="text-align:right">56.2%</td>
+  <td style="text-align:right">v136</td>
+  <td style="text-align:right">32.9%</td>
+  <td style="text-align:right">51.2%</td>
+</tr>
+<tr>
+  <td style="text-align:right">4</td>
+  <td style="text-align:right">v190</td>
+  <td style="text-align:right">62.7%</td>
+  <td style="text-align:right">v190</td>
+  <td style="text-align:right">33.5%</td>
+  <td style="text-align:right">51.2%</td>
+</tr>
+</tbody>
+</table>
+<h3>Figure: confirmation results</h3>
+<p><img src="plots/ouro-virtual-confirmation.png" alt="Virtual-depth confirmation results" /></p>
+<h2>Interpretation and limitations</h2>
+<p>The first confirmed results should be read as a recurrent-depth profile, not as a universal J-lens advantage. Loop 1's selected layer did not beat the final model on confirmation, while the selected layers for later loops currently show stronger readouts. This makes recurrence position part of the hypothesis, rather than a nuisance dimension.</p>
+<p>The evaluation remains a three-way observational label readout. It does not establish that the model internally uses the decoded representation, nor that a causal intervention would improve reasoning. The next causal tests should patch or ablate multi-direction subspaces across all remaining loops and compare maintained versus single-step interventions.</p>
+<p>The fit is also intentionally modest: eight generic prompts rather than the 1,000-prompt reference-scale lens protocol. Results are therefore a local research pilot until replicated with a larger fit corpus and additional task families.</p>
+<h2>Relation to established work</h2>
+<p>The closest precedent is <a href="https://arxiv.org/abs/2609.01924">Looped Transformers under the Jacobian Lens</a>, which introduced virtual unrolling for Ouro and Huginn and combined lens readouts with transport, workspace, and causal intervention analyses. <a href="https://arxiv.org/abs/2607.18553">Operational Proto-Introspection in Looped Language Models</a> probes Ouro trajectories for process quality and branch viability, while <a href="https://arxiv.org/abs/2602.10097">Step-resolved data attribution for looped transformers</a> decomposes influence by recurrent step. <a href="https://arxiv.org/abs/2604.07822">Loop, Think, &amp; Generalize</a> provides mechanistic analysis on smaller recurrent-depth models trained on synthetic compositional tasks.</p>
+<p>Our contribution here is narrower: an independently implemented virtual-depth adapter, loop-end J-lens family, and balanced ProofWriter readout/confirmation track. It should be presented as complementary replication and task-focused evaluation, not as the first interpretability method for loop transformers.</p>
+</article>
+<footer>Rendered from <code>loop-transformers/LOOP_TRANSFORMER_REPORT.md</code> by <code>scripts/generate_research_report.py</code>.</footer>
+</main></body></html>

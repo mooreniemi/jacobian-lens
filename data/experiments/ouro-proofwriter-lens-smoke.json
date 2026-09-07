@@ -1,0 +1,25 @@
+{
+  "kind": "ouro-proofwriter-lens-smoke",
+  "model": "/home/alex/models/ouro-2.6b-thinking",
+  "lens": "data/lenses/ouro-2.6b-thinking-fit-smoke-lens.pt",
+  "manifest": "data/benchmarks/proofwriter-selection-300.jsonl",
+  "n_items": 10,
+  "layers": [
+    0,
+    1,
+    2
+  ],
+  "accuracy": {
+    "final": 0.5,
+    "jlens": {
+      "0": 0.4,
+      "1": 0.4,
+      "2": 0.3
+    },
+    "logit": {
+      "0": 0.4,
+      "1": 0.4,
+      "2": 0.5
+    }
+  }
+}

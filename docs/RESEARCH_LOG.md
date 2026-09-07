@@ -110,7 +110,66 @@ We downloaded two small tuned replacements that fit comfortably within the RTX 3
 
 Both checkpoints are small enough to run on the local GPU. A CPU smoke check loaded LoopLM-SFT with its custom Transformers code, but reported tied-embedding/special-token warnings that require validation before evaluation. April currently fails under Transformers 5.9.0 because its custom rotary-embedding code expects an older `rope_parameters` API; this needs a compatibility shim or isolated dependency environment.
 
-No J-lens fitting, task evaluation, or GPU run has been performed on either tuned loop model yet. The next gate is to make both loaders produce a valid short generation, then expose recurrent-pass activation boundaries for a model-specific J-lens fit.
+At download time, no J-lens fitting, task evaluation, or GPU run had been performed on either tuned loop model. LoopLM has since passed the loader gate; April still requires a compatibility fix.
+
+### 2026-09-06 — LoopLM J-lens and logit-lens smoke
+
+Added a model-specific adapter for `harims95/LoopLM-135M-naive-sft` that
+exposes the four prelude blocks, six recurrent passes, and two coda blocks as
+ordered residual checkpoints. The recurrent state is initialized to zeros for
+deterministic fitting and evaluation; this is a deliberate analysis protocol,
+not a claim that the model's random initialization is unimportant.
+
+Fitted an eight-prompt, 1,024-wide J-lens smoke artifact:
+`data/lenses/looplm-135m-sft-fit-8-lens.pt`. On 20 ProofWriter selection items
+with the model's `### Instruction` / `### Response` format, the final readout
+reached 30% accuracy, the best J-lens checkpoint reached 40% (prelude output),
+and the best direct/logit-lens checkpoint reached 35%. These are plumbing and
+directional results only: the fit is tiny, the evaluation is selection-only,
+and no layer/pass was locked on a held-out confirmation set. The evaluation
+artifact is `data/experiments/looplm-proofwriter-lens-fit-8-smoke.json`; the
+adapter and evaluator are `scripts/fit_looplm_small.py` and
+`scripts/eval_looplm_proofwriter_lens.py`.
+
+### 2026-09-06 — LoopLM source-disjoint ProofWriter confirmation
+
+We scaled the LoopLM-SFT fit to all 120 prompts in `data/lens-prompts/fit-mix-120.json` and evaluated every exposed checkpoint on the 300-item ProofWriter selection set. The predeclared choices were J-lens layer 4 (the first recurrent pass) and direct/logit-lens layer 10 (the final coda block). We then evaluated the same readouts once on the 1,500-item source-disjoint confirmation set.
+
+| Readout | Selection accuracy | Confirmation accuracy |
+|---|---:|---:|
+| Final output | 32.7% | 34.4% |
+| J-lens, locked layer 4 | 33.7% | 33.3% |
+| Direct/logit lens, locked layer 10 | 34.3% | 32.9% |
+
+The three-way balanced chance level is 33.3%. Thus the larger fit does not show a J-lens advantage for this LoopLM checkpoint. The confirmation final output is slightly above chance, while the locked J-lens and direct/logit readouts are at or below chance. An exploratory confirmation maximum appeared at J-lens layer 6 (34.9%), but that layer was not selected on the selection set and is not treated as a confirmatory result. Artifacts: `data/experiments/looplm-proofwriter-selection-300.json`, `data/experiments/looplm-proofwriter-confirmation-1500.json`, and `data/lenses/looplm-135m-sft-fit-120-lens.pt`.
+
+### 2026-09-06 — Ouro-2.6B-Thinking recurrent-pass smoke
+
+We replaced the unusable tiny loop checkpoints with `ByteDance/Ouro-2.6B-Thinking`, a 2.6B-parameter looped transformer with four shared-weight recurrent passes and reasoning-focused supervised fine-tuning. The local BF16 checkpoint is approximately 5.3 GB. Its remote code targets an older Transformers API, so the local model copy received a narrow compatibility patch for the causal-mask keyword and cache-length signature; the project environment itself was not downgraded.
+
+Added `scripts/fit_ouro.py` and `scripts/eval_ouro_proofwriter.py`. The adapter exposes the four normalized recurrent-pass states as J-lens checkpoints and keeps the 48 internal shared blocks inside each pass, which matches the model’s actual computation. A one-prompt, short-sequence fit completed on the RTX 3090 using approximately 7.2 GiB VRAM. On a 10-item ProofWriter smoke set, final accuracy was 50%, direct/logit-lens accuracy was 50% at the final exposed pass, and J-lens accuracy was 40%. This is only a loader/adapter smoke test: the fit is one prompt and the evaluation is ten items, so no capability or lens-effect claim is made yet.
+
+Artifacts: `data/lenses/ouro-2.6b-thinking-fit-smoke-lens.pt`, `data/experiments/ouro-proofwriter-lens-smoke.json`, `scripts/fit_ouro.py`, and `scripts/eval_ouro_proofwriter.py`.
+
+
+### 2026-09-07 — Ouro virtual-depth lens family and standalone loop report
+
+We upgraded the Ouro adapter from four coarse recurrent-pass states to the full virtual computation depth: 48 shared decoder blocks across four recurrent passes, or 192 virtual stages. Following the loop-transformer Jacobian-lens literature, we fit a target-specific lens at each loop boundary (v47, v95, v143, v191) using only the preceding 47 virtual stages. This local transport window avoids treating cross-loop transport as evidence of persistence.
+
+Each lens used eight generic fit prompts, sequence length 64, eight skipped leading positions, and dimension batch 16 on the RTX 3090. The 300-item balanced ProofWriter selection set chose one J-lens source within each loop; those choices were locked before evaluating the 1,500-item source-disjoint confirmation set. The corresponding logit lens was evaluated at the same locked source.
+
+| Loop | Locked virtual source | J-lens confirmation | Logit confirmation | Final Ouro |
+|---:|---:|---:|---:|---:|
+| 1 | v44 | 49.8% | 43.3% | 51.2% |
+| 2 | v93 | 58.3% | 33.7% | 51.2% |
+| 3 | v136 | 56.2% | 32.9% | 51.2% |
+| 4 | v190 | 62.7% | 33.5% | 51.2% |
+
+The later loop-end readouts substantially outperform the final direct readout on this ProofWriter label boundary, while loop 1 does not. This is a loop-position-specific result, not evidence that J-lens universally improves Ouro or that all early hidden states are useful. The study remains a readout evaluation rather than a causal workspace experiment; multi-direction writes, maintained interventions across remaining loops, and ablations are still future work.
+
+The standalone report explains the architectural difference from ordinary untied Transformers and contains the virtual-depth selection/confirmation plots: docs/loop-transformers/LOOP_TRANSFORMER_REPORT.md and docs/loop-transformers/index.html.
+
+Artifacts: scripts/fit_ouro_virtual.py, scripts/eval_ouro_virtual_proofwriter.py, data/lenses/ouro-2.6b-thinking-virtual-loop{1,2,3,4}-fit-8-lens.pt, data/experiments/ouro-proofwriter-virtual-loop{1,2,3,4}-selection-300.json, data/experiments/ouro-proofwriter-virtual-loop{1,2,3,4}-confirmation-1500.json, and reports/loop-transformers/.
 
 ## 1. Original Anthropic reproduction
 

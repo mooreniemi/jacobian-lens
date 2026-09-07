@@ -1,0 +1,15 @@
+{
+  "model": "/home/alex/models/ouro-2.6b-thinking",
+  "lens": "data/lenses/ouro-2.6b-thinking-fit-8-lens.pt",
+  "n_prompts": 8,
+  "source_layers": [
+    0,
+    1,
+    2
+  ],
+  "d_model": 2048,
+  "total_ut_steps": 4,
+  "dim_batch": 16,
+  "max_seq_len": 64,
+  "skip_first": 8
+}

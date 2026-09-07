@@ -1,0 +1,19 @@
+{
+  "kind": "ouro-virtual-proofwriter",
+  "model": "/home/alex/models/ouro-2.6b-thinking",
+  "lens": "data/lenses/ouro-2.6b-thinking-virtual-loop4-fit-8-lens.pt",
+  "manifest": "data/benchmarks/proofwriter-confirmation-1500.jsonl",
+  "n_items": 1500,
+  "layers": [
+    190
+  ],
+  "accuracy": {
+    "final": 0.512,
+    "jlens": {
+      "190": 0.6273333333333333
+    },
+    "logit": {
+      "190": 0.3353333333333333
+    }
+  }
+}
